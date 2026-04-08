@@ -157,7 +157,7 @@ function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
           </div>
         )}
       </div>
-      <span className="block text-[10px] tracking-[1.5px] uppercase mt-2 text-gray-400">
+      <span className="block text-[10px] tracking-[1.5px] uppercase mt-2 text-gray-300">
         {label}
       </span>
     </div>
@@ -276,7 +276,7 @@ export function HeroSection() {
     <section className="relative bg-gray-900 text-white overflow-hidden">
 
       {/* ── Carousel ─────────────────────────────────────────────────────── */}
-      <div className="relative">
+      <div className="relative h-screen">
         <Swiper
           ref={swiperRef}
           modules={[Navigation, Autoplay, EffectFade]}
@@ -314,7 +314,7 @@ export function HeroSection() {
 
                   {/* Slide Content */}
                   <div className="relative z-20 h-full flex items-center">
-                    <div className="mx-auto px-6 md:px-1 py-12 md:py-16 w-full max-w-7xl">
+                    <div className="mx-auto px-6 md:px-1 py-12 md:py-12 w-full max-w-7xl md:ml-25 translate-y-[-95px]">
 
                       {/* Trust Badge */}
                       <div className={`flex items-center gap-2 ${theme.bg} px-4 py-3 rounded-full mb-6 w-fit border ${theme.border} backdrop-blur-sm ${
@@ -411,22 +411,24 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* ── Stats Bar ─────────────────────────────────────────────────────── */}
-      <div className="relative z-10 bg-gray-900 border-t border-white/10">
-        {/* Top shimmer */}
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-
-        <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 sm:gap-x-16 md:gap-x-24">
-            {STATS.map((s, i) => (
-              <SlotStatItem
-                key={s.label}
-                digits={s.digits}
-                suffix={s.suffix}
-                label={s.label}
-                baseDelay={i * 80}
-              />
-            ))}
+      {/* ── Stats Bar (Glassmorphism, Full Width, on Top of Carousel) ─────────────────────────────────────── */}
+      <div className="absolute bottom-6 md:bottom-30 left-0 right-0 z-40 px-4 pointer-events-none">
+        <div className="max-w-7xl mx-auto pointer-events-auto glass-panel-entrance">
+          {/* Glassmorphism Container */}
+          <div className="backdrop-blur-xl md:backdrop-blur-2xl bg-linear-to-br from-white/70 via-white/40 to-white/20 rounded-2xl border border-white/20 shadow-2xl">
+            <div className="px-6 py-5 md:px-8 md:py-6">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-center">
+                {STATS.map((s, i) => (
+                  <SlotStatItem
+                    key={s.label}
+                    digits={s.digits}
+                    suffix={s.suffix}
+                    label={s.label}
+                    baseDelay={i * 80}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -446,6 +448,16 @@ export function HeroSection() {
         @keyframes slideInLeft4  { 0% { transform: translateX(-50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
         @keyframes slideInRight  { 0% { transform: translateX(50px);  opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
         @keyframes slideInBottom { 0% { transform: translateY(20px);  opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeSlideUp {
+          0% {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
 
         .animate-slide-in-left-1 { animation: slideInLeft1  0.8s ease-out 0.3s  forwards; }
         .animate-slide-in-left-2 { animation: slideInLeft2  0.8s ease-out 0.5s  forwards; }
@@ -453,6 +465,10 @@ export function HeroSection() {
         .animate-slide-in-left-4 { animation: slideInLeft4  0.8s ease-out 0.9s  forwards; }
         .animate-slide-in-right  { animation: slideInRight  0.8s ease-out 0.9s  forwards; }
         .animate-slide-in-bottom { animation: slideInBottom 0.8s ease-out 1.1s  forwards; }
+        .glass-panel-entrance {
+          animation: fadeSlideUp 0.8s ease-out 0.2s forwards;
+          opacity: 0;
+        }
       `}</style>
     </section>
   );
