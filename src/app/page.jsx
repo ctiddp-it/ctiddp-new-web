@@ -15,7 +15,7 @@ import {
 } from "react-icons/hi2";
 import MegaNav from '@/components/layout/MegaNav'
 import Footer from '@/components/layout/Footer'
-import HeroSection from '@/components/sections/HeroSection'
+import { HeroSection } from '@/components/sections/HeroSection'
 import GlobalPresence from '@/components/sections/GlobalPresence'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'

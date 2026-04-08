@@ -1,516 +1,459 @@
+'use client';
 
+import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import {
+  ArrowRight, CheckCircle, Clock, Shield,
+  IndianRupee, Headphones, Globe,
+  ChevronLeft, ChevronRight, Play, Pause,
+  Truck, Plane, Ship, FileCheck
+} from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 
-'use client'
+// Import local images
+import air_frieght from '@/assets/air_frieght.jpg';
+import sea_frieght from '@/assets/sea_frieght.jpg';
 
-import { FaWhatsapp } from "react-icons/fa6";
-import { HiOutlineDocumentText } from "react-icons/hi2";
-import { useEffect, useRef } from 'react'
-import Link from 'next/link'
-
-// Fixed positions — no Math.random() = no hydration mismatch
-const PARTICLES = [
-  { left: '12%', top: '75%', dur: '7s', delay: '0s', drift: '28px' },
-  { left: '24%', top: '82%', dur: '9s', delay: '1s', drift: '-22px' },
-  { left: '48%', top: '88%', dur: '6.5s', delay: '0.5s', drift: '36px' },
-  { left: '68%', top: '76%', dur: '8s', delay: '2s', drift: '-28px' },
-  { left: '84%', top: '68%', dur: '7.5s', delay: '1.5s', drift: '18px' },
-  { left: '38%', top: '84%', dur: '10s', delay: '0.3s', drift: '-38px' },
-  { left: '56%', top: '78%', dur: '8.5s', delay: '2.5s', drift: '22px' },
-  { left: '76%', top: '86%', dur: '6s', delay: '3s', drift: '-16px' },
-]
-
-const FLARES = [
-  { left: '20%', top: '85%', w: 4, h: 4, bg: 'rgba(37,99,235,0.9)', shadow: 'rgba(37,99,235,0.8)', fdur: '8s', fdelay: '0s' },
-  { left: '45%', top: '90%', w: 6, h: 6, bg: 'rgba(96,165,250,0.8)', shadow: 'rgba(96,165,250,0.7)', fdur: '10s', fdelay: '1.5s' },
-  { left: '65%', top: '82%', w: 3, h: 3, bg: 'rgba(147,197,253,0.9)', shadow: 'rgba(147,197,253,0.8)', fdur: '7s', fdelay: '3s' },
-  { left: '80%', top: '88%', w: 5, h: 5, bg: 'rgba(37,99,235,0.7)', shadow: 'rgba(37,99,235,0.6)', fdur: '9.5s', fdelay: '0.7s' },
-  { left: '33%', top: '86%', w: 4, h: 4, bg: 'rgba(96,165,250,0.9)', shadow: 'rgba(96,165,250,0.8)', fdur: '11s', fdelay: '2s' },
-  { left: '58%', top: '92%', w: 7, h: 7, bg: 'rgba(37,99,235,0.6)', shadow: 'rgba(37,99,235,0.5)', fdur: '12s', fdelay: '4s' },
-]
+// ── Slot Machine Constants ──────────────────────────────────────────────────
+const ALL_DIGITS = '0123456789';
+const CELL_H = 56;
+const LOOP_COUNT = 30;
 
 const STATS = [
-  { digits: '30', suffix: '+', label: 'Expert Team Members' },
-  { digits: '250', suffix: '+', label: 'Containers Imported' },
-  { digits: '1200', suffix: '+', label: 'Shipments Cleared' },
+  { digits: '30',    suffix: '+', label: 'Expert Team Members' },
+  { digits: '250',   suffix: '+', label: 'Containers Imported' },
+  { digits: '1200',  suffix: '+', label: 'Shipments Cleared' },
   { digits: '16250', suffix: '+', label: 'CBM Shipped' },
-]
-
-const ALL_DIGITS = '0123456789'
-const CELL_H = 56
-const LOOP_COUNT = 30
+];
 
 // ── Slot Machine Stat Item ──────────────────────────────────────────────────
 function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
-  const reelRefs = useRef([])
+  const reelRefs = useRef([]);
 
   useEffect(() => {
-    const digitArr = digits.split('')
-    const rafIds = []
+    const digitArr = digits.split('');
+    const rafIds = [];
 
     digitArr.forEach((finalDigit, colIndex) => {
-      const track = reelRefs.current[colIndex]
-      if (!track) return
+      const track = reelRefs.current[colIndex];
+      if (!track) return;
 
-      const direction = colIndex % 2 === 0 ? 'up' : 'down'
-      const startDelay = baseDelay + 400 + colIndex * 350
-      const spinDuration = 2500 + colIndex * 400
-      const settleDuration = 1500
+      const direction = colIndex % 2 === 0 ? 'up' : 'down';
+      const startDelay = baseDelay + 400 + colIndex * 350;
+      const spinDuration = 2500 + colIndex * 400;
+      const settleDuration = 1500;
 
-      // Build digit list
-      const pool = []
+      // Build digit pool
+      const pool = [];
       for (let i = 0; i < LOOP_COUNT; i++) {
-        pool.push(ALL_DIGITS[Math.floor(Math.random() * 10)])
+        pool.push(ALL_DIGITS[Math.floor(Math.random() * 10)]);
       }
-      pool.push(finalDigit)
+      pool.push(finalDigit);
       if (direction === 'down') {
-        pool.reverse()
-        pool.unshift(finalDigit)
+        pool.reverse();
+        pool.unshift(finalDigit);
       }
 
       // Populate cells
-      track.innerHTML = ''
+      track.innerHTML = '';
       pool.forEach(d => {
-        const cell = document.createElement('div')
+        const cell = document.createElement('div');
         cell.style.cssText = `
-      height: ${CELL_H}px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 42px;
-      font-weight: 600;
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      line-height: 1;
-      flex-shrink: 0;
-      user-select: none;
-      background: linear-gradient(to right, #2563eb, #06b6d4);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    `;
-        cell.textContent = d
-        track.appendChild(cell)
-      })
+          height: ${CELL_H}px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 42px;
+          font-weight: 600;
+          font-family: 'Cormorant Garamond', Georgia, serif;
+          line-height: 1;
+          flex-shrink: 0;
+          user-select: none;
+          color: white;
+        `;
+        cell.textContent = d;
+        track.appendChild(cell);
+      });
 
-      const finalIdx = direction === 'up' ? LOOP_COUNT : 0
-      const startOffset = direction === 'up' ? 0 : -LOOP_COUNT * CELL_H
-      track.style.transform = `translateY(${startOffset}px)`
+      const finalIdx = direction === 'up' ? LOOP_COUNT : 0;
+      const startOffset = direction === 'up' ? 0 : -LOOP_COUNT * CELL_H;
+      track.style.transform = `translateY(${startOffset}px)`;
 
-      const targetY = -(finalIdx * CELL_H)
-      const totalTrackLen = pool.length * CELL_H
+      const targetY = -(finalIdx * CELL_H);
+      const totalTrackLen = pool.length * CELL_H;
 
-      function easeInOut(t) {
-        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-      }
-      function easeOut(t) {
-        return 1 - Math.pow(1 - t, 3)
-      }
+      function easeInOut(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
 
-      let spinStart = null
-      let settled = false
+      let spinStart = null;
+      let settled = false;
 
       function tick(now) {
-        if (!spinStart) spinStart = now
-        const elapsed = now - spinStart
+        if (!spinStart) spinStart = now;
+        const elapsed = now - spinStart;
 
         if (!settled) {
-          const progress = Math.min(elapsed / spinDuration, 1)
-          const eased = easeInOut(progress)
-
-          const spinAmount =
-            direction === 'up'
-              ? -(totalTrackLen - CELL_H) * eased
-              : (totalTrackLen - CELL_H) * eased
-
-          const baseY =
-            direction === 'up' ? 0 : -((pool.length - 1) * CELL_H)
-          track.style.transform = `translateY(${baseY + spinAmount}px)`
+          const progress = Math.min(elapsed / spinDuration, 1);
+          const eased = easeInOut(progress);
+          const spinAmount = direction === 'up'
+            ? -(totalTrackLen - CELL_H) * eased
+            : (totalTrackLen - CELL_H) * eased;
+          const baseY = direction === 'up' ? 0 : -((pool.length - 1) * CELL_H);
+          track.style.transform = `translateY(${baseY + spinAmount}px)`;
 
           if (progress < 1) {
-            const id = requestAnimationFrame(tick)
-            rafIds.push(id)
+            rafIds.push(requestAnimationFrame(tick));
           } else {
-            settled = true
-            const settleStart = performance.now()
-            const currentY = parseFloat(
-              track.style.transform.match(/-?\d+\.?\d*/)?.[0] || 0
-            )
-
+            settled = true;
+            const settleStart = performance.now();
+            const currentY = parseFloat(track.style.transform.match(/-?\d+\.?\d*/)?.[0] || 0);
             function settle(now2) {
-              const t = Math.min((now2 - settleStart) / settleDuration, 1)
-              const y = currentY + (targetY - currentY) * easeOut(t)
-              track.style.transform = `translateY(${y}px)`
-              if (t < 1) {
-                const id = requestAnimationFrame(settle)
-                rafIds.push(id)
-              } else {
-                track.style.transform = `translateY(${targetY}px)`
-              }
+              const t = Math.min((now2 - settleStart) / settleDuration, 1);
+              track.style.transform = `translateY(${currentY + (targetY - currentY) * easeOut(t)}px)`;
+              if (t < 1) rafIds.push(requestAnimationFrame(settle));
+              else track.style.transform = `translateY(${targetY}px)`;
             }
-            const id = requestAnimationFrame(settle)
-            rafIds.push(id)
+            rafIds.push(requestAnimationFrame(settle));
           }
         }
       }
 
       const timeoutId = setTimeout(() => {
-        const id = requestAnimationFrame(tick)
-        rafIds.push(id)
-      }, startDelay)
-
-      rafIds.push({ isTimeout: true, id: timeoutId })
-    })
+        rafIds.push(requestAnimationFrame(tick));
+      }, startDelay);
+      rafIds.push({ isTimeout: true, id: timeoutId });
+    });
 
     return () => {
       rafIds.forEach(entry => {
-        if (entry && entry.isTimeout) clearTimeout(entry.id)
-        else cancelAnimationFrame(entry)
-      })
-    }
-  }, [digits, baseDelay])
+        if (entry && entry.isTimeout) clearTimeout(entry.id);
+        else cancelAnimationFrame(entry);
+      });
+    };
+  }, [digits, baseDelay]);
 
   return (
     <div className="text-center">
-      {/* Reel row */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '1px',
-          height: `${CELL_H}px`,
-          overflow: 'hidden',
-          position: 'relative',
-        }}
-      >
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '1px', height: `${CELL_H}px`, overflow: 'hidden' }}>
         {digits.split('').map((_, i) => (
-          <div
-            key={i}
-            style={{
-              width: '28px',
-              overflow: 'hidden',
-              position: 'relative',
-            }}
-          >
+          <div key={i} style={{ width: '28px', overflow: 'hidden' }}>
             <div
               ref={el => (reelRefs.current[i] = el)}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                willChange: 'transform',
-              }}
+              style={{ display: 'flex', flexDirection: 'column', willChange: 'transform' }}
             />
           </div>
         ))}
-        {/* Suffix */}
         {suffix && (
-          <div
-            style={{
-              fontSize: '42px',
-              fontWeight: 600,
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              background: 'linear-gradient(to right, #2563eb, #06b6d4)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              lineHeight: `${CELL_H}px`,
-              paddingLeft: '1px',
-            }}
-          >
+          <div style={{
+            fontSize: '42px', fontWeight: 600,
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            color: 'white', lineHeight: `${CELL_H}px`, paddingLeft: '1px',
+          }}>
             {suffix}
           </div>
         )}
       </div>
-
-      {/* Label */}
-      <span
-        className="block text-[10px] tracking-[1.5px] uppercase mt-2 text-muted"
-      >
+      <span className="block text-[10px] tracking-[1.5px] uppercase mt-2 text-gray-400">
         {label}
       </span>
     </div>
-  )
+  );
 }
 
-// ── HeroSection ────────────────────────────────────────────────────────────
-export default function HeroSection() {
-  const canvasRef = useRef(null)
+// ── Main HeroSection ────────────────────────────────────────────────────────
+export function HeroSection() {
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const swiperRef = useRef(null);
+  const zoomIntervalRef = useRef(null);
+
+  const slides = [
+    {
+      id: 1,
+      image: sea_frieght,
+      icon: Ship,
+      title: 'Ocean Shipping',
+      highlight: 'Bulk & Container Solutions',
+      subtitle: 'FCL and LCL options with optimized routing and consolidation.',
+      stats: '40% cost reduction on bulk shipments',
+      ctaPrimary: 'Ocean Quote',
+      ctaSecondary: 'Port Schedule',
+      theme: 'amber',
+    },
+    {
+      id: 2,
+      image: air_frieght,
+      icon: Plane,
+      title: 'Air Freight Excellence',
+      highlight: 'Express Global Delivery',
+      subtitle: 'Priority air cargo with real-time tracking and temperature control.',
+      stats: '48-72 hour delivery across major Asian hubs',
+      ctaPrimary: 'Book Air Freight',
+      ctaSecondary: 'Check Rates',
+      theme: 'emerald',
+    },
+    {
+      id: 3,
+      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop',
+      icon: FileCheck,
+      title: 'Customs Expertise',
+      highlight: 'Stress-Free Clearance',
+      subtitle: 'Dedicated customs brokerage with guaranteed clearance timelines.',
+      stats: '48-hour customs clearance guarantee',
+      ctaPrimary: 'Clearance Check',
+      ctaSecondary: 'Speak with Expert',
+      theme: 'purple',
+    },
+    {
+      id: 4,
+      image: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?q=80&w=2070&auto=format&fit=crop',
+      icon: Truck,
+      title: 'Last Mile Delivery',
+      highlight: 'Pan-India Network',
+      subtitle: 'Warehousing, distribution and final delivery across all Indian states.',
+      stats: '98.5% on-time delivery guarantee',
+      ctaPrimary: 'Delivery Quote',
+      ctaSecondary: 'Warehouse Tour',
+      theme: 'indigo',
+    },
+    {
+      id: 5,
+      image: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=2070&auto=format&fit=crop',
+      icon: Globe,
+      title: 'Seamless China-India',
+      highlight: 'DDP Logistics Solutions',
+      subtitle: 'Door-to-door shipping with customs cleared. One price, zero surprises.',
+      stats: 'Average 27% cost savings vs. traditional logistics',
+      ctaPrimary: 'Get Instant Quote',
+      ctaSecondary: 'View Services',
+      theme: 'blue',
+    },
+  ];
+
+  const getThemeColors = (theme) => {
+    switch (theme) {
+      case 'blue':    return { accent: 'text-blue-300',    border: 'border-blue-500/30',    bg: 'bg-blue-600/20',    gradient: 'from-blue-600 to-blue-700',    hover: 'hover:bg-blue-700' };
+      case 'emerald': return { accent: 'text-emerald-300', border: 'border-emerald-500/30', bg: 'bg-emerald-600/20', gradient: 'from-emerald-600 to-emerald-700', hover: 'hover:bg-emerald-700' };
+      case 'amber':   return { accent: 'text-amber-300',   border: 'border-amber-500/30',   bg: 'bg-amber-600/20',   gradient: 'from-amber-600 to-amber-700',   hover: 'hover:bg-amber-700' };
+      case 'purple':  return { accent: 'text-purple-300',  border: 'border-purple-500/30',  bg: 'bg-purple-600/20',  gradient: 'from-purple-600 to-purple-700',  hover: 'hover:bg-purple-700' };
+      case 'indigo':  return { accent: 'text-indigo-300',  border: 'border-indigo-500/30',  bg: 'bg-indigo-600/20',  gradient: 'from-indigo-600 to-indigo-700',  hover: 'hover:bg-indigo-700' };
+      default:        return { accent: 'text-blue-300',    border: 'border-blue-500/30',    bg: 'bg-blue-600/20',    gradient: 'from-blue-600 to-blue-700',    hover: 'hover:bg-blue-700' };
+    }
+  };
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    let t = 0
-    let raf
+    const swiper = swiperRef.current?.swiper;
+    if (!swiper) return;
+    const handleSlideChange = () => setIsFirstLoad(false);
+    swiper.on('slideChange', handleSlideChange);
+    return () => swiper.off('slideChange', handleSlideChange);
+  }, []);
 
-    const resize = () => {
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+  useEffect(() => {
+    return () => { if (zoomIntervalRef.current) clearInterval(zoomIntervalRef.current); };
+  }, []);
+
+  const toggleAutoplay = () => {
+    if (swiperRef.current?.swiper) {
+      if (isPlaying) swiperRef.current.swiper.autoplay.stop();
+      else swiperRef.current.swiper.autoplay.start();
+      setIsPlaying(!isPlaying);
     }
-    resize()
-    window.addEventListener('resize', resize)
+  };
 
-    const waves = [
-      { amp: 38, freq: 0.008, speed: 0.018, y: 0.48, alpha: 0.22, width: 1.2 },
-      { amp: 28, freq: 0.012, speed: 0.024, y: 0.52, alpha: 0.16, width: 0.9 },
-      { amp: 50, freq: 0.006, speed: 0.012, y: 0.55, alpha: 0.12, width: 1.5 },
-      { amp: 22, freq: 0.018, speed: 0.03, y: 0.44, alpha: 0.1, width: 0.7 },
-      { amp: 42, freq: 0.005, speed: 0.009, y: 0.6, alpha: 0.08, width: 1.8 },
-    ]
-
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      waves.forEach((w, i) => {
-        ctx.beginPath()
-        for (let x = 0; x <= canvas.width; x += 2) {
-          const y =
-            canvas.height * w.y +
-            Math.sin(x * w.freq + t * w.speed + (i * Math.PI) / 2.5) * w.amp +
-            Math.sin(x * w.freq * 1.7 + t * w.speed * 0.7) * w.amp * 0.3
-          x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y)
-        }
-        const grad = ctx.createLinearGradient(0, 0, canvas.width, 0)
-        grad.addColorStop(0, 'rgba(37,99,235,0)')
-        grad.addColorStop(0.3, `rgba(37,99,235,${w.alpha})`)   // blue
-        grad.addColorStop(0.6, `rgba(6,182,212,${w.alpha})`)   // cyan
-        grad.addColorStop(1, 'rgba(6,182,212,0)')
-        ctx.strokeStyle = grad
-        ctx.lineWidth = w.width
-        ctx.stroke()
-      })
-      t++
-      raf = requestAnimationFrame(draw)
-    }
-    draw()
-
-    return () => {
-      window.removeEventListener('resize', resize)
-      cancelAnimationFrame(raf)
-    }
-  }, [])
+  const resolveImageUrl = (image) => {
+    if (typeof image === 'string') return `url(${image})`;
+    if (image?.src) return `url(${image.src})`;
+    return undefined;
+  };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center relative overflow-hidden px-4 sm:px-6 md:px-10 pt-12 md:pt-10 pb-20 bg-black">
+    <section className="relative bg-gray-900 text-white overflow-hidden">
 
-      {/* ── Background layers ── */}
-
-      {/* Base gradient: gold top-centre glow + sky-blue bottom-left ellipse */}
-      <div
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{
-          background: `
-            radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37,99,235,0.13) 0%, transparent 70%),
-            radial-gradient(ellipse 60% 40% at 30% 85%, rgba(14,165,233,0.12) 0%, transparent 60%)
-          `,
-        }}
-      />
-
-      {/* Subtle grid overlay */}
-      <div
-        className="absolute inset-0 z-[1] pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(rgba(37,99,235,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(37,99,235,0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '80px 80px',
-          maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent)',
-          WebkitMaskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent)',
-        }}
-      />
-
-      {/* Canvas — animated gold waves */}
-      <canvas
-        id="heroWave"
-        ref={canvasRef}
-        className="absolute inset-0 z-[2] pointer-events-none w-full h-full"
-      />
-
-      {/* ── Particles ── */}
-      {PARTICLES.map((p, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full pointer-events-none z-[4]"
-          style={{
-            left: p.left,
-            top: p.top,
-            width: '3px',
-            height: '3px',
-            background: 'linear-gradient(to right, #2563eb, #06b6d4)',
-            boxShadow: '0 0 6px rgba(37,99,235,0.6), 0 0 10px rgba(6,182,212,0.5)',
-            animation: `particleFloat ${p.dur} ease-in-out ${p.delay} infinite`,
-            '--drift': p.drift,
+      {/* ── Carousel ─────────────────────────────────────────────────────── */}
+      <div className="relative">
+        <Swiper
+          ref={swiperRef}
+          modules={[Navigation, Autoplay, EffectFade]}
+          spaceBetween={0}
+          slidesPerView={1}
+          loop={true}
+          speed={1200}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          autoplay={{ delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+          navigation={{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          onSwiper={(swiper) => {
+            setActiveIndex(swiper.realIndex);
+            setTimeout(() => setIsFirstLoad(false), 100);
           }}
-        />
-      ))}
-
-      {/* ── Flares ── */}
-      {FLARES.map((f, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full pointer-events-none z-[4]"
-          style={{
-            left: f.left,
-            top: f.top,
-            width: `${f.w}px`,
-            height: `${f.h}px`,
-            background: 'radial-gradient(circle, rgba(6,182,212,0.9) 0%, rgba(37,99,235,0.4) 40%, transparent 70%)',
-            boxShadow: `0 0 ${f.w * 2 + 4}px ${f.shadow}`,
-            animation: `flareFloat ${f.fdur} ease-in-out ${f.fdelay} infinite`,
-          }}
-        />
-      ))}
-
-      {/* ── Hero content ── */}
-      <div className="relative z-[5] max-w-[940px] w-full">
-
-        {/* Badge */}
-        <div
-          className="inline-flex items-center gap-2 
-          border border-[rgba(37,99,235,0.25)] 
-          text-[11px] font-medium tracking-[2px] uppercase 
-          py-2 px-5 rounded-full mb-7 
-          bg-[rgba(37,99,235,0.1)] 
-          text-primary-pale
-          opacity-0 animate-[fadeUp_0.8s_ease_forwards_0.3s]"
+          className="absolute inset-0 w-full h-full"
         >
-          <span
-            className="w-1.5 h-1.5 rounded-full bg-linear-to-r from-blue-600 to-cyan-500  shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite]"
-          />
-          DDP Specialists · Est. 2018
-        </div>
+          {slides.map((slide, index) => {
+            const theme = getThemeColors(slide.theme);
+            const Icon = slide.icon;
+            return (
+              <SwiperSlide key={slide.id}>
+                <div className="relative w-full h-full">
+                  {/* Background Image */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    <div
+                      key={activeIndex === index ? `zoom-${activeIndex}` : `idle-${index}`}
+                      className="w-full h-full bg-cover bg-center animate-continuous-zoom"
+                      style={{ backgroundImage: resolveImageUrl(slide.image), filter: 'brightness(0.85)', willChange: 'transform' }}
+                    />
+                    <div className="absolute inset-0 bg-linear-to-r from-gray-900/70 via-gray-900/40 to-gray-900/0 z-10" />
+                    <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 via-transparent to-transparent z-10" />
+                  </div>
 
-        {/* Headline */}
-        <h1
+                  {/* Slide Content */}
+                  <div className="relative z-20 h-full flex items-center">
+                    <div className="mx-auto px-6 md:px-1 py-12 md:py-16 w-full max-w-7xl">
 
-          className="leading-none tracking-[-1px] font-light mb-5.5 opacity-0 animate-[fadeUp_1s_ease_forwards_0.5s]"
-          style={{
-            fontFamily: "var(--Cormorant_Garamond, serif)",
-            fontSize: 'clamp(48px, 7.5vw, 105px)',
-          }}
-        >
-          Global Shipping Made <br />
-          <em
-            className="italic bg-linear-to-br from-blue-600 to-cyan-500 bg-clip-text text-transparent"
-          >
-            Simple.
-          </em>
-        </h1>
+                      {/* Trust Badge */}
+                      <div className={`flex items-center gap-2 ${theme.bg} px-4 py-3 rounded-full mb-6 w-fit border ${theme.border} backdrop-blur-sm ${
+                        isFirstLoad && activeIndex === index ? 'animate-slide-in-left-1 opacity-0'
+                        : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                      } transition-all duration-1000 delay-300`}>
+                        <Icon className="w-4 h-4 text-[#ffff]" />
+                        <span className="text-sm font-medium text-[#ffff]">Trusted by 500+ Indian Importers</span>
+                      </div>
 
-        {/* Subtext */}
-        <p
-          className="text-lg font-light max-w-[580px] mx-auto mb-9 leading-relaxed text-muted opacity-0 animate-[fadeUp_1s_ease_forwards_0.7s]"
-        >
-          Shipping with all duties, customs, and delivery handled. No hidden charges. No delays.
-        </p>
+                      {/* Heading */}
+                      <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${
+                        isFirstLoad && activeIndex === index ? 'animate-slide-in-left-2 opacity-0'
+                        : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                      } transition-all duration-1000 delay-500`}>
+                        <span className="text-[#ffff]">{slide.title}</span><br />
+                        <span className={theme.accent}>{slide.highlight}</span>
+                      </h1>
 
-        {/* CTA buttons */}
-        <div className="flex gap-3 justify-center flex-wrap opacity-0 animate-[fadeUp_1s_ease_forwards_0.95s]">
+                      {/* Subheading */}
+                      <p className={`text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl ${
+                        isFirstLoad && activeIndex === index ? 'animate-slide-in-left-3 opacity-0'
+                        : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                      } transition-all duration-1000 delay-700`}>
+                        {slide.subtitle}
+                        <span className={`block text-lg md:text-xl ${theme.accent} mt-2`}>{slide.stats}</span>
+                      </p>
 
-          {/* Primary — Request a Quote */}
-          <Link
-            href="/get-quote"
-            className="group inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all duration-200 hover:-translate-y-0.5 cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)] hover:shadow-[0_14px_36px_rgba(37,99,235,0.45)]"
-          >
-            <HiOutlineDocumentText className="w-[14px] h-[14px]" />
-            Request a Quote
-          </Link>
+                      {/* CTAs */}
+                      <div className="flex flex-col sm:flex-row gap-4 mb-9">
+                        <Link href="/quote"
+                          className={`group px-8 py-3 bg-linear-to-r ${theme.gradient} text-[#ffff] font-bold text-lg rounded-lg ${theme.hover} transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform ${
+                            isFirstLoad && activeIndex === index ? 'animate-slide-in-left-4 opacity-0'
+                            : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                          } transition-all duration-1000 delay-900`}>
+                          <IndianRupee className="w-4 h-4" />
+                          {slide.ctaPrimary}
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                        <Link href="/services"
+                          className={`group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-[#ffff] font-bold text-lg rounded-lg hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-3 hover:scale-105 transform ${
+                            isFirstLoad && activeIndex === index ? 'animate-slide-in-right opacity-0'
+                            : activeIndex === index ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+                          } transition-all duration-1000 delay-900`}>
+                          <Headphones className="w-5 h-5" />
+                          {slide.ctaSecondary}
+                        </Link>
+                      </div>
 
-          {/* Ghost — Explore Services */}
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 border border-[rgba(27,69,160,0.4)] text-[rgb(12,113,228)] px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all duration-200 hover:bg-[rgba(37,99,235,0.08)] hover:border-gold cursor-none"
-          >
-            Explore Services
-          </Link>
+                      {/* Trust Features */}
+                      <div className={`flex flex-wrap items-center gap-6 text-sm text-gray-400 ${
+                        isFirstLoad && activeIndex === index ? 'animate-slide-in-bottom opacity-0'
+                        : activeIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                      } transition-all duration-1000 delay-1100`}>
+                        <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /><span>All-inclusive pricing</span></div>
+                        <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-blue-400" /><span>Customs guarantee</span></div>
+                        <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-yellow-400" /><span>24/7 Tracking</span></div>
+                      </div>
 
-          {/* WhatsApp */}
-          <a
-            href="https://wa.me/your-number"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-[rgba(37,211,102,0.9)] px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all duration-200 hover:bg-[rgba(37,211,102,0.13)] hover:border-[rgba(37,211,102,0.6)] cursor-none"
-          >
-            <FaWhatsapp size={22} />WhatsApp Us
-          </a>
-        </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
 
-        {/* ── Stats — Slot Machine ── */}
-        <div
-          className="flex gap-8 sm:gap-12 justify-center flex-wrap mt-15 pt-11 opacity-0 animate-[fadeUp_1s_ease_forwards_1.2s] "
-          style={{ borderTop: '1px solid rgba(37,99,235,0.1)' }}
-        >
-          {STATS.map((s, i) => (
-            <SlotStatItem
-              key={s.label}
-              digits={s.digits}
-              suffix={s.suffix}
-              label={s.label}
-              baseDelay={1200 + i * 80}
+        {/* Navigation Arrows */}
+        <button className="swiper-button-prev hidden! md:flex! absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
+          <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+        </button>
+        <button className="swiper-button-next hidden! md:flex! absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
+          <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+        </button>
+
+        {/* Play/Pause */}
+        <button onClick={toggleAutoplay}
+          className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/50 transition-all duration-300 group">
+          {isPlaying
+            ? <Pause className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+            : <Play  className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />}
+        </button>
+
+        {/* Progress Dots */}
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.id}
+              onClick={() => { swiperRef.current?.swiper?.slideTo(index); setActiveIndex(index); }}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/50'}`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
       </div>
 
-      {/* ── Keyframe styles ── */}
+      {/* ── Stats Bar ─────────────────────────────────────────────────────── */}
+      <div className="relative z-10 bg-gray-900 border-t border-white/10">
+        {/* Top shimmer */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <div className="flex flex-wrap justify-center gap-x-12 gap-y-8 sm:gap-x-16 md:gap-x-24">
+            {STATS.map((s, i) => (
+              <SlotStatItem
+                key={s.label}
+                digits={s.digits}
+                suffix={s.suffix}
+                label={s.label}
+                baseDelay={i * 80}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Animation Styles ── */}
       <style>{`
-        @keyframes fadeUp {
-          from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
+        @keyframes continuousZoom {
+          0%   { transform: scale(1); }
+          100% { transform: scale(1.07); }
         }
-        
-        @keyframes pulse {
-          0%, 100% { 
-            opacity: 1; 
-            transform: scale(1); 
-          }
-          50% { 
-            opacity: 0.5; 
-            transform: scale(1.15); 
-          }
+        .animate-continuous-zoom {
+          animation: continuousZoom 4s ease-out forwards;
         }
-        
-        @keyframes particleFloat {
-          0% { 
-            transform: translateY(0) translateX(0); 
-            opacity: 0; 
-          }
-          10% { 
-            opacity: 0.7; 
-          }
-          90% { 
-            opacity: 0.3; 
-          }
-          100% { 
-            transform: translateY(-120px) translateX(var(--drift, 0px)); 
-            opacity: 0; 
-          }
-        }
-        
-        @keyframes flareFloat {
-          0%, 100% { 
-            transform: translateY(0) scale(1); 
-            opacity: 0.8; 
-          }
-          50% { 
-            transform: translateY(-8px) scale(1.2); 
-            opacity: 0.4; 
-          }
-        }
-        
-        @keyframes dotAppear {
-          from { 
-            opacity: 0; 
-            transform: scale(0); 
-          }
-          to { 
-            opacity: 1; 
-            transform: scale(1); 
-          }
-        }
+        @keyframes slideInLeft1  { 0% { transform: translateX(-20px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        @keyframes slideInLeft2  { 0% { transform: translateX(-30px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        @keyframes slideInLeft3  { 0% { transform: translateX(-40px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        @keyframes slideInLeft4  { 0% { transform: translateX(-50px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        @keyframes slideInRight  { 0% { transform: translateX(50px);  opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+        @keyframes slideInBottom { 0% { transform: translateY(20px);  opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+
+        .animate-slide-in-left-1 { animation: slideInLeft1  0.8s ease-out 0.3s  forwards; }
+        .animate-slide-in-left-2 { animation: slideInLeft2  0.8s ease-out 0.5s  forwards; }
+        .animate-slide-in-left-3 { animation: slideInLeft3  0.8s ease-out 0.7s  forwards; }
+        .animate-slide-in-left-4 { animation: slideInLeft4  0.8s ease-out 0.9s  forwards; }
+        .animate-slide-in-right  { animation: slideInRight  0.8s ease-out 0.9s  forwards; }
+        .animate-slide-in-bottom { animation: slideInBottom 0.8s ease-out 1.1s  forwards; }
       `}</style>
     </section>
-  )
+  );
 }
