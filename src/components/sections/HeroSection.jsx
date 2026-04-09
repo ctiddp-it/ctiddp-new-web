@@ -412,7 +412,7 @@ export function HeroSection() {
       </div>
 
       {/* ── Stats Bar (Glassmorphism, Full Width, on Top of Carousel) ─────────────────────────────────────── */}
-      <div className="absolute bottom-6 md:bottom-30 left-0 right-0 z-40 px-4 pointer-events-none">
+      <div className="absolute bottom-6 md:bottom-20 left-0 right-0 z-40 px-4 pointer-events-none">
         <div className="max-w-7xl mx-auto pointer-events-auto glass-panel-entrance">
           {/* Glassmorphism Container */}
           <div className="backdrop-blur-xl md:backdrop-blur-2xl bg-linear-to-br from-white/70 via-white/40 to-white/20 rounded-2xl border border-white/20 shadow-2xl">

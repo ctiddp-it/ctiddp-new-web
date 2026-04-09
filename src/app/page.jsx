@@ -18,6 +18,7 @@ import Footer from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 import GlobalPresence from '@/components/sections/GlobalPresence'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
+import Partners from "@/components/sections/Partners";
 import Link from 'next/link'
 
 export const metadata = {
@@ -225,6 +226,7 @@ export default function HomePage() {
         <HeroSection />
 
         <GlobalPresence />
+        <Partners/>
 
         {/* ── 2. FOB vs CIF vs DDP ─────────────────────────────────────────── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
