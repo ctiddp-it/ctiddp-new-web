@@ -200,36 +200,33 @@ export default function AboutPage() {
         </section>
 
         {/* ── TEAM ── */}
-        {/* ── TEAM ── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-black">
+        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] ">
           <div className="max-w-[1200px] mx-auto">
-            <div className="text-center mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+            <div className="text-center mb-16">
+              <span className="inline-block text-sm font-semibold tracking-wide text-blue-600 uppercase mb-4">
                 Our Founders
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                The People Behind<br />
-                <em className="italic text-gold-light">Your Shipments</em>
+              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
+                The People Behind <br />
+                <span className="text-blue-600">Your Shipments</span>
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-[800px] mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
               {TEAM.map(m => (
-                <article key={m.name} className="reveal flex flex-col overflow-hidden bg-[var(--overlay-card)] border border-border rounded-[4px] hover:border-[rgba(37,99,235,0.3)] transition-all hover:-translate-y-1">
-                  <div className="relative w-full aspect-[4/3] bg-[rgba(0,0,0,0.5)] overflow-hidden p-3">
-                    <div className="relative w-full h-full rounded-[8%] border-[3px] border-gold overflow-hidden">
-                      <Image
-                        src={m.image}
-                        alt={`${m.name} — ${m.role} at CTIDDP`}
-                        fill
-                        className="object-cover object-top"
-                        sizes="(max-width: 768px) 100vw, 400px"
-                      />
-                    </div>
+                <article key={m.name} className="group bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+                    <Image
+                      src={m.image}
+                      alt={`${m.name} — ${m.role}`}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                    />
                   </div>
-                  <div className="p-5 sm:p-6 flex-1">
-                    <div className="font-['Cormorant_Garamond',serif] text-lg font-semibold text-white">{m.name}</div>
-                    <div className="text-[10px] tracking-[1.5px] uppercase text-gold mt-1">{m.role}</div>
-                    <div className="text-xs text-muted leading-relaxed mt-3">{m.bio}</div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-gray-900">{m.name}</h3>
+                    <p className="text-sm font-medium text-blue-600 mt-1">{m.role}</p>
+                    <p className="text-sm text-gray-600 leading-relaxed mt-3">{m.bio}</p>
                   </div>
                 </article>
               ))}
