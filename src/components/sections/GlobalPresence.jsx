@@ -1,12 +1,5 @@
 "use client";
 
-/**
- * GlobalPresence — Tailwind v4 · light/dark theme · fully responsive
- *
- * Install:
- *   npm install d3-geo topojson-client
- */
-
 import { useState, useEffect, useRef, useMemo } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { geoMercator, geoPath, geoGraticule } from "d3-geo";
@@ -40,6 +33,30 @@ const LOCATIONS = {
   },
 };
 
+// Trade route destinations from China
+// Each entry: [lon, lat, label, numericId for country highlighting (optional)]
+const TRADE_DESTINATIONS = [
+  { id: "india",        label: "India",        lonLat: [78.9629, 20.5937],   countryId: "356"  },
+  { id: "usa",          label: "USA",          lonLat: [-98.5795, 39.8283],  countryId: "840"  },
+  { id: "saudi",        label: "Saudi Arabia", lonLat: [45.0792, 23.8859],   countryId: "682"  },
+  { id: "iran",         label: "Iran",         lonLat: [53.6880, 32.4279],   countryId: "364"  },
+  { id: "iraq",         label: "Iraq",         lonLat: [43.6793, 33.2232],   countryId: "368"  },
+  { id: "israel",       label: "Israel",       lonLat: [34.8516, 31.0461],   countryId: "376"  },
+  { id: "kuwait",       label: "Kuwait",       lonLat: [47.4818, 29.3117],   countryId: "414"  },
+  { id: "canada",       label: "Canada",       lonLat: [-96.8165, 56.1304],  countryId: "124"  },
+  { id: "uk",           label: "UK",           lonLat: [-3.4360, 55.3781],   countryId: "826"  },
+  { id: "europe",       label: "Europe",       lonLat: [10.4515, 51.1657],   countryId: "276"  }, // Germany as Europe proxy
+  { id: "russia",       label: "Russia",       lonLat: [105.3188, 61.5240],  countryId: "643"  },
+  { id: "brazil",       label: "Brazil",       lonLat: [-51.9253, -14.2350], countryId: "76"   },
+  { id: "australia",    label: "Australia",    lonLat: [133.7751, -25.2744], countryId: "36"   },
+  { id: "africa",       label: "Africa",       lonLat: [34.5085, -8.7832],   countryId: "404"  }, // Kenya as proxy
+  { id: "japan",        label: "Japan",        lonLat: [138.2529, 36.2048],  countryId: "392"  },
+  { id: "korea",        label: "South Korea",  lonLat: [127.7669, 35.9078],  countryId: "410"  },
+];
+
+// Highlight countries in world view (trade partners)
+const TRADE_PARTNER_IDS = new Set(TRADE_DESTINATIONS.map(d => d.countryId));
+
 const WORLD_VIEWBOX = `0 0 ${W} ${H}`;
 const COUNTRY_IDS   = { "356": "india", "156": "china" };
 const GOLD       = "#2563EB";
@@ -63,6 +80,95 @@ const STATS = [
   { value: "DDP",  label: "End-to-End"      },
   { value: "24/7", label: "Support"         },
 ];
+
+// Build a curved arc path between two projected [x,y] points
+function arcPath(from, to, curvature = 0.35) {
+  const [x1, y1] = from;
+  const [x2, y2] = to;
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  // Control point: perpendicular offset scaled by distance
+  const dist = Math.sqrt(dx * dx + dy * dy);
+  const mx = (x1 + x2) / 2;
+  const my = (y1 + y2) / 2;
+  // Perpendicular direction
+  const px = -dy / dist;
+  const py = dx / dist;
+  const offset = dist * curvature;
+  const cpx = mx + px * offset;
+  const cpy = my + py * offset;
+  return `M${x1},${y1} Q${cpx},${cpy} ${x2},${y2}`;
+}
+
+// Animated trade route line
+function TradeRoute({ from, to, delay, index }) {
+  const reduced = useReducedMotion();
+  const d = arcPath(from, to);
+  return (
+    <motion.path
+      d={d}
+      fill="none"
+      stroke={GOLD}
+      strokeWidth={0.8}
+      strokeDasharray="4 4"
+      strokeLinecap="round"
+      initial={{ pathLength: 0, opacity: 0 }}
+      animate={{ pathLength: 1, opacity: 0.35 }}
+      transition={{ duration: reduced ? 0.01 : 1.4, delay: 0.5 + delay, ease: soft }}
+      style={{ filter: `drop-shadow(0 0 1.5px ${GOLD})` }}
+    />
+  );
+}
+
+// Destination dot on the map
+function DestinationDot({ px, label, delay, isChina }) {
+  const [hovered, setHovered] = useState(false);
+  const [x, y] = px;
+  return (
+    <g
+      transform={`translate(${x}, ${y})`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ cursor: "default" }}
+    >
+      <motion.g
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.35, delay: 0.6 + delay, ease: soft }}
+      >
+        {/* Pulse ring */}
+        <circle
+          r={hovered ? 7 : 5}
+          fill="none"
+          stroke={GOLD}
+          strokeWidth={0.7}
+          opacity={0.22}
+          className="gp-ring"
+          style={{ transition: "r 0.2s" }}
+        />
+        {/* Inner dot */}
+        <circle
+          r={hovered ? 3 : 2}
+          fill={GOLD_LIGHT}
+          opacity={0.75}
+          style={{
+            filter: `drop-shadow(0 0 ${hovered ? 6 : 3}px ${GOLD})`,
+            transition: "r 0.2s ease, filter 0.2s ease",
+          }}
+        />
+        {/* Label on hover */}
+        {hovered && (
+          <g transform="translate(0, -14)">
+            <rect x={-24} y={-7} width={48} height={12} rx={3} fill="rgba(8,7,5,0.88)" stroke="rgba(37,99,235,0.55)" strokeWidth={0.6} />
+            <text textAnchor="middle" y={3.5} fontSize={5.5} fill={GOLD_LIGHT} fontWeight={600} letterSpacing={0.3} fontFamily="inherit" style={{ pointerEvents: "none" }}>
+              {label}
+            </text>
+          </g>
+        )}
+      </motion.g>
+    </g>
+  );
+}
 
 export default function GlobalPresence() {
   const [view,      setView]      = useState("world");
@@ -101,6 +207,13 @@ export default function GlobalPresence() {
     return out;
   }, []);
 
+  // Projected trade destination positions
+  const tradeDestPx = useMemo(() =>
+    TRADE_DESTINATIONS.map(d => ({ ...d, px: project(d.lonLat) })),
+  []);
+
+  const chinaPxWorld = useMemo(() => project(LOCATIONS.china.markerLonLat), []);
+
   const pinScale = useMemo(() => {
     if (view === "world") return 1;
     const vbW = parseFloat(LOCATIONS[view].viewBox.split(" ")[2]);
@@ -112,6 +225,7 @@ export default function GlobalPresence() {
 
   const indiaPx = project(LOCATIONS.india.markerLonLat);
   const chinaPx = project(LOCATIONS.china.markerLonLat);
+  // Keep the original India–China route for context
   const routeD  = `M${chinaPx[0]},${chinaPx[1]} Q${(indiaPx[0]+chinaPx[0])/2},${Math.min(indiaPx[1],chinaPx[1])-55} ${indiaPx[0]},${indiaPx[1]}`;
 
   return (
@@ -145,29 +259,15 @@ export default function GlobalPresence() {
         className="text-center mb-8 sm:mb-10 z-10 relative px-2"
       >
         <div className="inline-flex items-center gap-3 mb-3 sm:mb-4">
-          {/* <span className="block w-7 h-px bg-gold opacity-55" />
-          <p className="text-[0.65rem] sm:text-[0.68rem] tracking-[0.24em] uppercase text-gold m-0 font-semibold">
-            Our Reach
-          </p>
-          <span className="block w-7 h-px bg-gold opacity-55" /> */}
           <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[0.65rem] md:text-[0.68rem] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px]">
-                Our Reach
-            </span>
+            Our Reach
+          </span>
         </div>
 
-        <h2
-          className="font-['Cormorant_Garamond',serif] text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5"
-        >
-          Global {" "}
-          {/* <span className="italic bg-linear-to-br from-gold via-gold-pale to-gold-light bg-clip-text text-transparent"> */}
-          <span className="italic text-gold-light">
-            Presence
-          </span>          
+        <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
+          Global{" "}
+          <span className="italic text-gold-light">Presence</span>
         </h2>
-        {/* <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,56px)] font-light leading-[1.1]">
-                  Our<br />
-                  <em className="italic text-gold-light">Global Presence.</em>
-                </h2> */}
 
         <p className="text-[0.88rem] sm:text-[0.96rem] text-muted max-w-[320px] sm:max-w-[440px] mx-auto leading-[1.75]">
           End-to-end DDP logistics, seamlessly bridging India &amp; China
@@ -208,36 +308,56 @@ export default function GlobalPresence() {
               const isIndia  = region === "india";
               const isChina  = region === "china";
               const isFocus  = (view === "india" && isIndia) || (view === "china" && isChina);
-              const isTarget = isIndia || isChina;
+              const isMainTarget = isIndia || isChina;
+              // Trade partner highlight (not India/China which have their own styling)
+              const isTradePartner = view === "world" && !isMainTarget && TRADE_PARTNER_IDS.has(geo.id?.toString());
+
               return (
                 <path
                   key={`country-${geo.id ?? geoIdx}`}
                   d={pathGen(geo)}
-                  fill={isFocus ? "rgba(37,99,235,0.22)" : isTarget ? "var(--gp-land-focus)" : "var(--gp-land)"}
-                  stroke={isTarget ? "rgba(37,99,235,0.4)" : "var(--gp-border)"}
-                  strokeWidth={isTarget ? 0.55 : 0.3}
-                  style={{ cursor: isTarget && view === "world" ? "pointer" : "default", transition: "fill 0.45s ease" }}
-                  onClick={() => isTarget && view === "world" && goTo(region)}
-                  onMouseEnter={(e) => { if (isTarget && view === "world") e.currentTarget.style.fill = "rgba(37,99,235,0.32)"; }}
-                  onMouseLeave={(e) => { if (isTarget && view === "world") e.currentTarget.style.fill = isFocus ? "rgba(37,99,235,0.22)" : "var(--gp-land-focus)"; }}
+                  fill={
+                    isFocus ? "rgba(37,99,235,0.22)"
+                    : isTradePartner ? "rgba(37,99,235,0.10)"
+                    : isMainTarget ? "var(--gp-land-focus)"
+                    : "var(--gp-land)"
+                  }
+                  stroke={
+                    isMainTarget ? "rgba(37,99,235,0.4)"
+                    : isTradePartner ? "rgba(37,99,235,0.22)"
+                    : "var(--gp-border)"
+                  }
+                  strokeWidth={isMainTarget ? 0.55 : isTradePartner ? 0.4 : 0.3}
+                  style={{ cursor: isMainTarget && view === "world" ? "pointer" : "default", transition: "fill 0.45s ease" }}
+                  onClick={() => isMainTarget && view === "world" && goTo(region)}
+                  onMouseEnter={(e) => { if (isMainTarget && view === "world") e.currentTarget.style.fill = "rgba(37,99,235,0.32)"; }}
+                  onMouseLeave={(e) => { if (isMainTarget && view === "world") e.currentTarget.style.fill = isFocus ? "rgba(37,99,235,0.22)" : "var(--gp-land-focus)"; }}
                 />
               );
             })}
 
-            {/* Trade route */}
-            {view === "world" && (
-              <motion.path
-                key="route"
-                d={routeD}
-                fill="none" stroke={GOLD} strokeWidth={1.4} strokeDasharray="5 3.5" strokeLinecap="round"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.58 }}
-                transition={{ duration: 1.6, delay: 0.7, ease: soft }}
-                style={{ filter: `drop-shadow(0 0 2.5px ${GOLD})` }}
+            {/* ── TRADE ROUTES from China to all destinations ── */}
+            {view === "world" && tradeDestPx.map((dest, idx) => (
+              <TradeRoute
+                key={`route-${dest.id}`}
+                from={chinaPxWorld}
+                to={dest.px}
+                delay={idx * 0.07}
+                index={idx}
               />
-            )}
+            ))}
 
-            {/* World markers — plain <g> for translate, motion.g for opacity only */}
+            {/* ── DESTINATION DOTS ── */}
+            {view === "world" && tradeDestPx.map((dest, idx) => (
+              <DestinationDot
+                key={`dest-dot-${dest.id}`}
+                px={dest.px}
+                label={dest.label}
+                delay={idx * 0.07}
+              />
+            ))}
+
+            {/* World markers (China & India clickable) */}
             {view === "world" && Object.entries(LOCATIONS).map(([region, loc]) => {
               const [mx, my] = project(loc.markerLonLat);
               return (
@@ -254,7 +374,7 @@ export default function GlobalPresence() {
               );
             })}
 
-            {/* City pins — outer <g> for position+scale, inner motion.g for opacity */}
+            {/* City pins — zoomed region view */}
             {view !== "world" && cityPx[view]?.map((city, idx) => {
               const [px, py] = city.px;
               const isHov    = hovered === city.id;
@@ -286,7 +406,7 @@ export default function GlobalPresence() {
             })}
           </motion.svg>
 
-          {/* Vignette — theme-aware */}
+          {/* Vignette */}
           <div
             className="absolute inset-0 rounded-[1.25rem] pointer-events-none z-[6]"
             style={{ background: "radial-gradient(ellipse at center, transparent 45%, var(--gp-vignette) 100%)" }}
@@ -329,9 +449,28 @@ export default function GlobalPresence() {
               <span className="w-4 sm:w-[18px] h-px bg-gold opacity-35 block shrink-0" />
             </motion.div>
           )}
+
+          {/* ── Trade routes legend ── */}
+          {view === "world" && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 2.2 }}
+              className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-20 flex items-center gap-1.5 rounded-[0.55rem] px-2 py-1 sm:px-2.5 sm:py-1.5"
+              style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(37,99,235,0.2)", backdropFilter: "blur(10px)" }}
+            >
+              {/* dashed line icon */}
+              <svg width="18" height="6" viewBox="0 0 18 6">
+                <line x1="0" y1="3" x2="18" y2="3" stroke={GOLD} strokeWidth="1.2" strokeDasharray="4 3" strokeLinecap="round" opacity="0.7" />
+              </svg>
+              <span className="text-[0.58rem] sm:text-[0.62rem] text-muted tracking-[0.1em] uppercase">
+                Trade Routes
+              </span>
+            </motion.div>
+          )}
         </div>
 
-        {/* Nav buttons — flex-wrap so they stack on narrow screens */}
+        {/* Nav buttons */}
         <AnimatePresence mode="wait">
           {(view === "india" || view === "china") && (
             <motion.div
@@ -366,9 +505,9 @@ export default function GlobalPresence() {
           >
             <div className="italic bg-linear-to-br font-bold from-gold via-gold-pale to-gold-light bg-clip-text text-transparent"
             style={{
-            fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
-            fontSize: 'clamp(40px, 7.5vw, 35px)',
-          }}
+              fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
+              fontSize: 'clamp(40px, 7.5vw, 35px)',
+            }}
             >
               {s.value}
             </div>
@@ -379,7 +518,7 @@ export default function GlobalPresence() {
         ))}
       </motion.div>
 
-      {/* ── Styles: map CSS vars + animations ── */}
+      {/* ── Styles ── */}
       <style>{`
         :root {
           --gp-ocean:      #D8E8F0;
