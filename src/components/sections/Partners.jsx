@@ -4,17 +4,17 @@ import Image from "next/image";
 import { useEffect, useRef, useState, useCallback } from "react";
 
 const partners = [
-  { id: 1, name: "Alibaba Group", logo: "/images/our-partners/alibaba-group-logo.png" },
-  { id: 2, name: "Amazon", logo: "/images/our-partners/Amazon-logo.png" },
-  { id: 3, name: "Blue Dart", logo: "/images/our-partners/blue-dart-logo2.png" },
-  { id: 4, name: "Canton Fair", logo: "/images/our-partners/canton-fair-logo.png" },
-  { id: 5, name: "DHL", logo: "/images/our-partners/DHL-Logo.png" },
-  { id: 6, name: "DTDC", logo: "/images/our-partners/dtdc-logo2.png" },
-  { id: 7, name: "FedEx", logo: "/images/our-partners/Fedex-logo.png" },
-  { id: 8, name: "IndiaMART", logo: "/images/our-partners/indiamart-logo.png" },
-  { id: 9, name: "Made in China", logo: "/images/our-partners/Made-in-China -logo.png" },
-  { id: 10, name: "RCL", logo: "/images/our-partners/Rcl-logo.png" },
-  { id: 11, name: "TradeIndia", logo: "/images/our-partners/tradeindia-logo.jpg" },
+  { id: 1, name: "Bussiness Partner", logo: "/images/our-partners/alibaba-group-logo.png" },
+  { id: 2, name: "Bussiness Partner", logo: "/images/our-partners/Amazon-logo.png" },
+  { id: 3, name: "Delivery Partner", logo: "/images/our-partners/blue-dart-logo2.png" },
+  { id: 4, name: "Bussiness Partner", logo: "/images/our-partners/canton-fair-logo.png" },
+  { id: 5, name: "Delivery Partner", logo: "/images/our-partners/DHL-Logo.png" },
+  { id: 6, name: "Delivery Partner", logo: "/images/our-partners/Dtdc-logo2.png" },
+  { id: 7, name: "Delivery Partner", logo: "/images/our-partners/Fedex-logo.png" },
+  { id: 8, name: "Bussiness Partner", logo: "/images/our-partners/indiamart-logo.png" },
+  { id: 9, name: "Bussiness Partner", logo: "/images/our-partners/Made-in-China -logo.png" },
+  { id: 10, name: "Bussiness Partner", logo: "/images/our-partners/Rcl-logo.png" },
+  { id: 11, name: "Bussiness Partner", logo: "/images/our-partners/tradeindia-logo.jpg" },
 ];
 
 const VISIBLE = 7;
