@@ -25,7 +25,7 @@ const LOOP_COUNT = 30;
 
 const STATS = [
   { digits: '30',    suffix: '+', label: 'Expert Team Members' },
-  { digits: '250',   suffix: '+', label: 'Containers Imported' },
+  { digits: '300',   suffix: '+', label: 'Containers Imported' },
   { digits: '1200',  suffix: '+', label: 'Shipments Cleared' },
   { digits: '16250', suffix: '+', label: 'CBM Shipped' },
 ];
@@ -369,9 +369,9 @@ export function HeroSection() {
                         isFirstLoad && activeIndex === index ? 'animate-slide-in-bottom opacity-0'
                         : activeIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                       } transition-all duration-1000 delay-1100`}>
-                        <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /><span>All-inclusive pricing</span></div>
+                        {/* <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /><span>All-inclusive pricing</span></div>
                         <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-blue-400" /><span>Customs guarantee</span></div>
-                        <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-yellow-400" /><span>24/7 Tracking</span></div>
+                        <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-yellow-400" /><span>24/7 Tracking</span></div> */}
                       </div>
 
                     </div>
@@ -412,7 +412,7 @@ export function HeroSection() {
       </div>
 
       {/* ── Stats Bar (Glassmorphism, Full Width, on Top of Carousel) ─────────────────────────────────────── */}
-      <div className="absolute bottom-6 md:bottom-20 left-0 right-0 z-40 px-4 pointer-events-none">
+      <div className="absolute  bottom-6 md:bottom-12 lg:bottom-20 xl:bottom-30 left-0 right-0 z-40 px-4 pointer-events-none">
         <div className="max-w-7xl mx-auto pointer-events-auto glass-panel-entrance">
           {/* Glassmorphism Container */}
           <div className="backdrop-blur-xl md:backdrop-blur-2xl bg-linear-to-br from-white/70 via-white/40 to-white/20 rounded-2xl border border-white/20 shadow-2xl">

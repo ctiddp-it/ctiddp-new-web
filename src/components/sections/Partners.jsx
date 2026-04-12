@@ -155,7 +155,7 @@ export default function PartnersSection() {
                   width: size,
                   opacity,
                   marginRight: mr,
-                  transition: "opacity 0.55s ease",
+                  transition: "all 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
                 }}
               >
                 <div
@@ -171,7 +171,7 @@ export default function PartnersSection() {
                     boxShadow: isCenter
                       ? "0 20px 40px rgba(0,0,0,0.18), 0 6px 12px rgba(0,0,0,0.12)"
                       : "0 8px 20px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06)",
-                    transition: "all 0.55s cubic-bezier(0.4,0,0.2,1)",
+                    transition: "all 0.65s cubic-bezier(0.22, 1, 0.36, 1)",
                   }}
                 >
                   {/* Logo image */}

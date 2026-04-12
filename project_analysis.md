@@ -34,7 +34,6 @@ The website serves as the primary digital storefront for lead generation, custom
 - **Framer Motion** v12.38.0 (complex animations)
 - **Swiper** v12.1.3 (carousel/slider components)
 - **Lucide React** v1.7.0 (icon library)
-- **React Icons** v5.6.0 (additional icon sets for Heroicons, Font Awesome, etc.)
 
 ### Data & Mapping
 - **D3-Geo** v3.1.1 (geographic data processing)
@@ -43,9 +42,6 @@ The website serves as the primary digital storefront for lead generation, custom
 ### Development & Quality
 - **ESLint** v10.1.0 (code linting)
 - **eslint-config-next** (Next.js specific rules)
-
-### Deployment
-- **Vercel** (production deployment)
 
 ---
 
@@ -238,7 +234,7 @@ src/lib/
 - **Services Overview**: 6 cards highlighting core DDP services
 - **Process Visualization**: 8-step flow showing the complete DDP journey (38–50 days door-to-door)
 - **Testimonials**: Customer success stories in a carousel (Swiper)
-- **Global Presence**: Interactive map showing office locations (Guangzhou, Vizag, Chennai, Bangalore)
+- **Global Presence**
 - **Partners**: Grid of partner/client logos
 - **Final CTA**: "Get a Quote" or "Start Today" call-to-action
 
@@ -552,17 +548,10 @@ npm run lint             # Run ESLint
 
 ## Future Enhancement Opportunities
 
-1. **Analytics Dashboard**: Shipper history, cost trends, volume metrics
-2. **API Integration**: Real shipment data from ERP/WMS systems
-3. **Multi-language Support**: Mandarin, Hindi, Tamil localizations
-4. **AI Chatbot**: LLM-powered customer support (replace simulated chatbot)
-5. **Payment Gateway**: Stripe/PayPal integration for quote deposits
-6. **Customs Broker Portal**: Admin interface for compliance team
-7. **Mobile App**: React Native version for on-the-go tracking
-8. **Warehouse Management**: Real-time inventory sync with public website
-9. **Email Automation**: Transactional emails for quote requests, shipping updates
-10. **Advanced Search**: Full-text search of blog, HS code database, FAQs
-
+1. **Multi-language Support**
+2. **AI Chatbot**
+3. **Email Automation**: Transactional emails for quote requests, shipping updates
+4. Blog Subscription pop-up 
 ---
 
 ## Summary
@@ -575,9 +564,3 @@ npm run lint             # Run ESLint
 - **Performance**: Image optimization, lazy loading, minimal CSS footprint
 - **Accessibility**: Semantic HTML, ARIA labels, keyboard navigation support
 - **Maintainability**: Component-based architecture, clear file organization, modular hooks
-
----
-
-**Author**: Complete Next.js Project Analysis  
-**Date**: 2026
-**Status**: Production-Ready

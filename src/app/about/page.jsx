@@ -203,13 +203,15 @@ export default function AboutPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] ">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-block text-sm font-semibold tracking-wide text-blue-600 uppercase mb-4">
-                Our Founders
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+                OUR FOUNDERS
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900">
+              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
                 The People Behind <br />
-                <span className="text-blue-600">Your Shipments</span>
-              </h2>
+                <em className="italic bg-linear-to-br from-gold to-gold-pale font-semibold bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                  Your Shipments
+                </em>              
+                </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
               {TEAM.map(m => (

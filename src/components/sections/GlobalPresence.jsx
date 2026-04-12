@@ -57,6 +57,7 @@ const TRADE_PARTNER_IDS = new Set(TRADE_DESTINATIONS.map(d => d.countryId));
 const WORLD_VIEWBOX = `0 0 ${W} ${H}`;
 const COUNTRY_IDS   = { "356": "india", "156": "china" };
 const GOLD       = "#2563EB";
+const BLUE       = "#FFF";
 const GOLD_LIGHT = "#60A5FA";
 const soft      = [0.43, 0.13, 0.23, 0.96];
 const cinematic = [0.76, 0,    0.24, 1   ];
@@ -72,10 +73,9 @@ const PARTICLES = [
 ];
 
 const STATS = [
-  { value: "2",    label: "Countries"       },
-  { value: "5",   label: "Locations" },
-  { value: "DDP",  label: "End-to-End"      },
-  { value: "24/7", label: "Support"         },
+  { value: "5",    label: "Operataional Hubs"       },
+  { value: "17",   label: "Countries Served" },
+  { value: "8+",  label: "Years in DDP"      },
 ];
 
 function arcPath(from, to, curvature = 0.35) {
@@ -279,8 +279,7 @@ export default function GlobalPresence() {
             animate={{ viewBox }}
             transition={{ duration: reduced ? 0.01 : 1.25, ease: cinematic }}
             preserveAspectRatio="xMidYMid meet"
-            className="w-full h-auto block"
-            style={{ minHeight: "500px" }}
+            className="w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]"
           >
             <rect x={0} y={0} width={W} height={H} fill="var(--gp-ocean)" />
             <path d={graticulePath} fill="none" stroke="var(--gp-graticule)" strokeWidth={0.4} />
@@ -442,9 +441,9 @@ export default function GlobalPresence() {
               style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(37,99,235,0.2)", backdropFilter: "blur(10px)" }}
             >
               <svg width="18" height="6" viewBox="0 0 18 6">
-                <line x1="0" y1="3" x2="18" y2="3" stroke={GOLD} strokeWidth="1.2" strokeDasharray="4 3" strokeLinecap="round" opacity="0.7" />
+                <line  x1="0" y1="3" x2="18" y2="3" stroke={BLUE} strokeWidth="1.2" strokeDasharray="4 3" strokeLinecap="round" opacity="0.7" />
               </svg>
-              <span className="text-[0.62rem] text-muted tracking-[0.1em] uppercase">
+              <span className="text-[0.62rem] text-[#fff] tracking-[0.1em] uppercase">
                 Trade Routes
               </span>
             </motion.div>
@@ -485,7 +484,7 @@ export default function GlobalPresence() {
               transition={{ duration: 0.5, delay: 0.65 + i * 0.1, ease: soft }}
               className="text-center"
             >
-              <div className="italic bg-linear-to-br font-bold from-gold via-gold-pale to-gold-light bg-clip-text text-transparent"
+              <div className="italic bg-linear-to-br font-bold text-blue-500"
               style={{
                 fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
                 fontSize: 'clamp(40px, 7.5vw, 35px)',

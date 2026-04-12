@@ -19,6 +19,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 import GlobalPresence from '@/components/sections/GlobalPresence'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Partners from "@/components/sections/Partners";
+import SampleComponent from "@/components/sections/ServicesSection";
 import Link from 'next/link'
 
 export const metadata = {
@@ -41,7 +42,6 @@ export const metadata = {
   alternates: { canonical: 'https://ctiddp.com' },
 }
 
-// ── Data ──────────────────────────────────────────────────────────────────────
 
 const DDP_COMPARE = [
   {
@@ -220,16 +220,13 @@ export default function HomePage() {
       />
       <ScrollRevealInit />
       <MegaNav />
-      <main className="bg-black text-white font-['Outfit',sans-serif]">
+      <main className="bg-black text-white">
 
         {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
         <HeroSection />
 
-        <GlobalPresence />
-        <Partners/>
-
-        {/* ── 2. FOB vs CIF vs DDP ─────────────────────────────────────────── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
+        {/* ── 3. WHAT DOES DDP MEAN ──────────────────────────────────────────────────── */}
+        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[580px] mx-auto mb-11">
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
@@ -280,7 +277,7 @@ export default function HomePage() {
 
         <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
 
-        {/* ── 3. SERVICES ──────────────────────────────────────────────────── */}
+        {/* ── 4. SERVICES──────────────────────────────────────────────────── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
           <div className="max-w-[1200px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-11 md:items-end">
@@ -329,7 +326,7 @@ export default function HomePage() {
 
         <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
 
-        {/* ── 4. HOW IT WORKS ──────────────────────────────────────────────── */}
+        {/* ── 5. HOW IT WORKS ──────────────────────────────────────────────── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             <div>
@@ -377,7 +374,13 @@ export default function HomePage() {
 
         <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
 
-        {/* ── 5. TESTIMONIALS ──────────────────────────────────────────────── */}
+        {/* ── 6. PARTNERS ──────────────────────────────────────────────────── */}
+        <Partners />
+
+        {/* ── 7. GLOBAL PRESENCE ──────────────────────────────────────────────── */}
+        <GlobalPresence />
+
+        {/* ── 8. TESTIMONIALS ──────────────────────────────────────────────── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[560px] mx-auto mb-12">
@@ -411,7 +414,7 @@ export default function HomePage() {
 
         <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
 
-        {/* ── 6. WHY US + ASSURANCES ───────────────────────────────────────── */}
+        {/* ── 9. WHY US + ASSURANCES ───────────────────────────────────────── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[620px] mx-auto mb-11">
@@ -465,7 +468,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── 7. CTA BANNER ────────────────────────────────────────────────── */}
+        {/* ── 10. CTA BANNER ────────────────────────────────────────────────── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[72px] overflow-hidden bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
             Ready to Ship<br />
@@ -491,6 +494,8 @@ export default function HomePage() {
             </a>
           </div>
         </div>
+
+        <SampleComponent/>
 
       </main>
 
