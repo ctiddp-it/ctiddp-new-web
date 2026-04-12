@@ -20,6 +20,7 @@ import GlobalPresence from '@/components/sections/GlobalPresence'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Partners from "@/components/sections/Partners";
 import SampleComponent from "@/components/sections/ServicesSection";
+import StatsSection from "@/components/sections/StatsSection";
 import Link from 'next/link'
 
 export const metadata = {
@@ -42,6 +43,12 @@ export const metadata = {
   alternates: { canonical: 'https://ctiddp.com' },
 }
 
+const STATS = [
+  { digits: '30',    suffix: '+', label: 'Expert Team Members' },
+  { digits: '300',   suffix: '+', label: 'Containers Imported' },
+  { digits: '1200',  suffix: '+', label: 'Shipments Cleared' },
+  { digits: '16250', suffix: '+', label: 'CBM Shipped' },
+];
 
 const DDP_COMPARE = [
   {
@@ -224,6 +231,9 @@ export default function HomePage() {
 
         {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
         <HeroSection />
+
+        {/* stats  */}
+        <StatsSection />
 
         {/* ── 3. WHAT DOES DDP MEAN ──────────────────────────────────────────────────── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">

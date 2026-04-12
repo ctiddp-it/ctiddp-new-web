@@ -18,151 +18,6 @@ import 'swiper/css/effect-fade';
 import air_frieght from '@/assets/air_frieght.jpg';
 import sea_frieght from '@/assets/sea_frieght.jpg';
 
-// ── Slot Machine Constants ──────────────────────────────────────────────────
-const ALL_DIGITS = '0123456789';
-const CELL_H = 56;
-const LOOP_COUNT = 30;
-
-const STATS = [
-  { digits: '30',    suffix: '+', label: 'Expert Team Members' },
-  { digits: '300',   suffix: '+', label: 'Containers Imported' },
-  { digits: '1200',  suffix: '+', label: 'Shipments Cleared' },
-  { digits: '16250', suffix: '+', label: 'CBM Shipped' },
-];
-
-// ── Slot Machine Stat Item ──────────────────────────────────────────────────
-function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
-  const reelRefs = useRef([]);
-
-  useEffect(() => {
-    const digitArr = digits.split('');
-    const rafIds = [];
-
-    digitArr.forEach((finalDigit, colIndex) => {
-      const track = reelRefs.current[colIndex];
-      if (!track) return;
-
-      const direction = colIndex % 2 === 0 ? 'up' : 'down';
-      const startDelay = baseDelay + 400 + colIndex * 350;
-      const spinDuration = 2500 + colIndex * 400;
-      const settleDuration = 1500;
-
-      // Build digit pool
-      const pool = [];
-      for (let i = 0; i < LOOP_COUNT; i++) {
-        pool.push(ALL_DIGITS[Math.floor(Math.random() * 10)]);
-      }
-      pool.push(finalDigit);
-      if (direction === 'down') {
-        pool.reverse();
-        pool.unshift(finalDigit);
-      }
-
-      // Populate cells
-      track.innerHTML = '';
-      pool.forEach(d => {
-        const cell = document.createElement('div');
-        cell.style.cssText = `
-          height: ${CELL_H}px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 42px;
-          font-weight: 600;
-          font-family: 'Cormorant Garamond', Georgia, serif;
-          line-height: 1;
-          flex-shrink: 0;
-          user-select: none;
-          color: white;
-        `;
-        cell.textContent = d;
-        track.appendChild(cell);
-      });
-
-      const finalIdx = direction === 'up' ? LOOP_COUNT : 0;
-      const startOffset = direction === 'up' ? 0 : -LOOP_COUNT * CELL_H;
-      track.style.transform = `translateY(${startOffset}px)`;
-
-      const targetY = -(finalIdx * CELL_H);
-      const totalTrackLen = pool.length * CELL_H;
-
-      function easeInOut(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
-      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
-
-      let spinStart = null;
-      let settled = false;
-
-      function tick(now) {
-        if (!spinStart) spinStart = now;
-        const elapsed = now - spinStart;
-
-        if (!settled) {
-          const progress = Math.min(elapsed / spinDuration, 1);
-          const eased = easeInOut(progress);
-          const spinAmount = direction === 'up'
-            ? -(totalTrackLen - CELL_H) * eased
-            : (totalTrackLen - CELL_H) * eased;
-          const baseY = direction === 'up' ? 0 : -((pool.length - 1) * CELL_H);
-          track.style.transform = `translateY(${baseY + spinAmount}px)`;
-
-          if (progress < 1) {
-            rafIds.push(requestAnimationFrame(tick));
-          } else {
-            settled = true;
-            const settleStart = performance.now();
-            const currentY = parseFloat(track.style.transform.match(/-?\d+\.?\d*/)?.[0] || 0);
-            function settle(now2) {
-              const t = Math.min((now2 - settleStart) / settleDuration, 1);
-              track.style.transform = `translateY(${currentY + (targetY - currentY) * easeOut(t)}px)`;
-              if (t < 1) rafIds.push(requestAnimationFrame(settle));
-              else track.style.transform = `translateY(${targetY}px)`;
-            }
-            rafIds.push(requestAnimationFrame(settle));
-          }
-        }
-      }
-
-      const timeoutId = setTimeout(() => {
-        rafIds.push(requestAnimationFrame(tick));
-      }, startDelay);
-      rafIds.push({ isTimeout: true, id: timeoutId });
-    });
-
-    return () => {
-      rafIds.forEach(entry => {
-        if (entry && entry.isTimeout) clearTimeout(entry.id);
-        else cancelAnimationFrame(entry);
-      });
-    };
-  }, [digits, baseDelay]);
-
-  return (
-    <div className="text-center">
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1px', height: `${CELL_H}px`, overflow: 'hidden' }}>
-        {digits.split('').map((_, i) => (
-          <div key={i} style={{ width: '28px', overflow: 'hidden' }}>
-            <div
-              ref={el => (reelRefs.current[i] = el)}
-              style={{ display: 'flex', flexDirection: 'column', willChange: 'transform' }}
-            />
-          </div>
-        ))}
-        {suffix && (
-          <div style={{
-            fontSize: '42px', fontWeight: 600,
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            color: 'white', lineHeight: `${CELL_H}px`, paddingLeft: '1px',
-          }}>
-            {suffix}
-          </div>
-        )}
-      </div>
-      <span className="block text-[10px] tracking-[1.5px] uppercase mt-2 text-gray-300">
-        {label}
-      </span>
-    </div>
-  );
-}
 
 // ── Main HeroSection ────────────────────────────────────────────────────────
 export function HeroSection() {
@@ -273,7 +128,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative bg-gray-900 text-white overflow-hidden">
+    <section className="relative bg-gray-900 text-white overflow-hidden -mt-[78px]">
 
       {/* ── Carousel ─────────────────────────────────────────────────────── */}
       <div className="relative h-screen">
@@ -314,7 +169,7 @@ export function HeroSection() {
 
                   {/* Slide Content */}
                   <div className="relative z-20 h-full flex items-center">
-                    <div className="mx-auto px-6 md:px-1 py-12 md:py-12 w-full max-w-7xl md:ml-25 translate-y-[-95px]">
+                    <div className="mx-auto px-6 md:px-1 py-12 md:py-12 w-full max-w-7xl md:ml-25"> 
 
                       {/* Trust Badge */}
                       <div className={`flex items-center gap-2 ${theme.bg} px-4 py-3 rounded-full mb-6 w-fit border ${theme.border} backdrop-blur-sm ${
@@ -408,28 +263,6 @@ export function HeroSection() {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
-      </div>
-
-      {/* ── Stats Bar (Glassmorphism, Full Width, on Top of Carousel) ─────────────────────────────────────── */}
-      <div className="absolute  bottom-6 md:bottom-12 lg:bottom-20 xl:bottom-30 left-0 right-0 z-40 px-4 pointer-events-none">
-        <div className="max-w-7xl mx-auto pointer-events-auto glass-panel-entrance">
-          {/* Glassmorphism Container */}
-          <div className="backdrop-blur-xl md:backdrop-blur-2xl bg-linear-to-br from-white/70 via-white/40 to-white/20 rounded-2xl border border-white/20 shadow-2xl">
-            <div className="px-6 py-5 md:px-8 md:py-6">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 text-center">
-                {STATS.map((s, i) => (
-                  <SlotStatItem
-                    key={s.label}
-                    digits={s.digits}
-                    suffix={s.suffix}
-                    label={s.label}
-                    baseDelay={i * 80}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

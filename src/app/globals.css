@@ -25,6 +25,7 @@
   --color-gold:          #1E3A5F;
   --color-gold-light:    #0EA5E9;
   --color-gold-pale:     #BAE6FD;
+  --color-blue-light: #83b6de;
 }
 
 /* ═══════════════════════════════════════════════
@@ -179,3 +180,4 @@
 .font-playfair {
   font-family: var(--font-playfair), 'Playfair Display', serif;
 }
+
