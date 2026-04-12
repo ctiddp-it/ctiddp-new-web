@@ -250,9 +250,9 @@ export default function AboutPage() {
             </div>
 
             {/* Vision Card */}
-            <div className="reveal bg-gradient-to-br from-[rgba(37,99,235,0.08)] to-[rgba(37,99,235,0.03)] border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
+            <div className="reveal bg-gradient-to-br ttext-white border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
               <div className="text-[11px] tracking-[0.12em] uppercase text-gold-light mb-3 font-medium">Our Vision</div>
-              <p className="text-lg text-[rgba(250,250,248,0.9)] leading-relaxed font-['Cormorant_Garamond',serif] italic">
+              <p className="text-lg text-white leading-relaxed font-['Cormorant_Garamond',serif] italic">
                 &ldquo;To become the most trusted logistics partner for businesses importing from China to India — delivering consistent, transparent, and scalable shipping solutions.&rdquo;
               </p>
             </div>
@@ -264,7 +264,7 @@ export default function AboutPage() {
                 {MISSION_POINTS.map((point, i) => (
                   <div key={i} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[3px] p-4 sm:p-[18px] flex items-start gap-3 hover:border-[rgba(37,99,235,0.2)] transition-colors">
                     <span className="text-gold-light text-base leading-none shrink-0 mt-0.5">✦</span>
-                    <span className="text-sm text-[rgba(250,250,248,0.72)] leading-relaxed">{point}</span>
+                    <span className="text-sm text-white leading-relaxed">{point}</span>
                   </div>
                 ))}
               </div>
@@ -297,13 +297,13 @@ export default function AboutPage() {
                       </span>
                     </div>
                   </div>
-                  <div className="text-[15px] font-semibold text-[rgba(250,250,248,0.95)] leading-tight">{item.title}</div>
-                  <div className="text-[13px] text-[rgba(250,250,248,0.6)] leading-relaxed flex-grow">{item.desc}</div>
+                  <div className="text-[15px] font-semibold text-white leading-tight">{item.title}</div>
+                  <div className="text-[13px] text-white leading-relaxed flex-grow">{item.desc}</div>
                   <div className="text-[11px] font-bold tracking-[0.08em] uppercase text-[rgba(240,150,4,0.85)] mt-1">{item.keyword}</div>
                 </article>
               ))}
             </div>
-            <p className="text-center mt-10 text-[15px] text-[rgba(250,250,248,0.5)] italic">
+            <p className="text-center mt-10 text-[15px] text-white italic">
               You don&apos;t just get shipping. You get a reliable import system.
             </p>
           </div>
@@ -329,8 +329,8 @@ export default function AboutPage() {
                     <span className="font-['Cormorant_Garamond',serif] text-sm sm:text-base font-semibold text-gold-light">{step.num}</span>
                   </div>
                   <div className="bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[4px] p-4 sm:p-5 flex-1 hover:border-[rgba(37,99,235,0.25)] transition-colors">
-                    <div className="text-sm sm:text-[15px] font-semibold text-[rgba(250,250,248,0.95)] mb-2">{step.title}</div>
-                    <div className="text-[12px] sm:text-[13px] text-[rgba(250,250,248,0.6)] leading-relaxed">{step.desc}</div>
+                    <div className="text-sm sm:text-[15px] font-semibold text-white mb-2">{step.title}</div>
+                    <div className="text-[12px] sm:text-[13px] text-white leading-relaxed">{step.desc}</div>
                   </div>
                 </div>
               ))}

@@ -235,7 +235,7 @@ export default function HowItWorksPage() {
                   ].map(([label, val]) => (
                     <div key={label} className="flex justify-between items-center py-2.5 border-b border-[var(--overlay-card-border)] last:border-0">
                       <span className="text-xs text-muted">{label}</span>
-                      <span className="text-[13px] text-[rgba(250,250,248,0.8)] font-medium">{val}</span>
+                      <span className="text-[13px] text-white font-medium">{val}</span>
                     </div>
                   ))}
                 </div>
@@ -266,7 +266,7 @@ export default function HowItWorksPage() {
                   ].map(([label, val]) => (
                     <div key={label} className="flex justify-between items-center py-2.5 border-b border-[var(--overlay-card-border)] last:border-0">
                       <span className="text-xs text-muted">{label}</span>
-                      <span className="text-[13px] text-[rgba(250,250,248,0.8)] font-medium">{val}</span>
+                      <span className="text-[13px] text-white font-medium">{val}</span>
                     </div>
                   ))}
                 </div>

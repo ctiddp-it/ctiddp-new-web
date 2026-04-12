@@ -358,7 +358,7 @@ export default function CantonFairPage() {
                     "One DDP shipment to your India door",
                     "All-inclusive pricing, no customs surprises"
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-[13px] text-[rgba(250,250,248,0.8)]">
+                    <li key={item} className="flex items-start gap-2 text-[13px] text-white">
                       <span className="text-gold-light shrink-0 mt-0.5">✓</span>
                       <span>{item}</span>
                     </li>
@@ -432,7 +432,7 @@ export default function CantonFairPage() {
 
               <div className="flex flex-col gap-3">
                 {SOURCING_ITEMS.map(item => (
-                  <div key={item} className="flex gap-2.5 text-[13px] text-[rgba(250,250,248,0.75)]">
+                  <div key={item} className="flex gap-2.5 text-[13px] text-white">
                     <span className="text-gold shrink-0">✓</span>
                     {item}
                   </div>
