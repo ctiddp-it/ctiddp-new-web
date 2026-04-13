@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa"
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
+import CantonFairClient from './CantonFairClient'
 
 export const metadata = {
   title: 'Canton Fair DDP Support — Booth to Your India Door',
@@ -51,7 +52,7 @@ const FEATURES = [
 ]
 
 const STEPS = [
-  { n: '01', t: 'Contact us 4+ weeks before the fair', d: 'Via WhatsApp or the quote form — share your product categories.' },
+  { n: '01', t: 'Contact us 4+ weeks before the fair', d: 'Via WhatsApp or the form below — share your product categories.' },
   { n: '02', t: 'We assign your Guangzhou support team', d: 'Dedicated Mandarin-speaking team member confirmed for your visit.' },
   { n: '03', t: 'Attend the fair together (or we go solo)', d: 'Your choice — attend with us or let us represent you fully.' },
   { n: '04', t: 'Goods consolidated and shipped DDP', d: 'Everything collected, consolidated at Guangzhou, shipped DDP to India.' },
@@ -135,13 +136,12 @@ export default function CantonFairPage() {
           </div>
         </section>
 
-        {/* ── Main content — two column (mobile: stacked, desktop: grid) ── */}
+        {/* ── Main content — two column ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[40px] sm:gap-[52px] items-start">
 
             {/* ── Left column ── */}
             <div>
-              {/* Badge label */}
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[11px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 🎪 Canton Fair Support
               </span>
@@ -170,14 +170,14 @@ export default function CantonFairPage() {
                 ))}
               </div>
 
-              {/* CTAs */}
+              {/* CTAs — scroll to form */}
               <div className="flex gap-2.5 flex-wrap">
-                <Link
-                  href="/quote"
+                <a
+                  href="#canton-fair-support-form"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
                 >
                   Book Canton Fair Support →
-                </Link>
+                </a>
                 <a
                   href="https://wa.me/your-number"
                   target="_blank"
@@ -231,20 +231,20 @@ export default function CantonFairPage() {
                 </div>
               </div>
 
-              <Link
-                href="/quote"
+              {/* Scroll to form */}
+              <a
+                href="#canton-fair-support-form"
                 className="block text-center w-full bg-gradient-to-br from-gold to-gold-light text-black px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
               >
                 Reserve Your Support Slot →
-              </Link>
+              </a>
             </div>
           </div>
         </section>
 
-        {/* ── Who This Is For — redesigned to match page style ── */}
+        {/* ── Who This Is For ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-black">
           <div className="max-w-[1200px] mx-auto">
-            {/* Section header matching "What's Included" style */}
             <div className="text-center mb-11">
               <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold mb-3 block">
                 Perfect Match
@@ -258,34 +258,13 @@ export default function CantonFairPage() {
               </p>
             </div>
 
-            {/* Grid of audience cards — matches SCOPE card styling */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                {
-                  title: "First-Time Visitors",
-                  desc: "Navigate your first Canton Fair with confidence. We guide you through every step.",
-                  icon: "🌱"
-                },
-                {
-                  title: "Scaling E-commerce Brands",
-                  desc: "Source new suppliers and expand your product catalog without leaving India.",
-                  icon: "📈"
-                },
-                {
-                  title: "Mandarin-Challenged Buyers",
-                  desc: "Break language barriers. We negotiate, clarify specs, and handle contracts in Mandarin.",
-                  icon: "🗣️"
-                },
-                {
-                  title: "Multi-Category Sourcers",
-                  desc: "Manage multiple booths across different phases. We consolidate everything for you.",
-                  icon: "📦"
-                },
-                {
-                  title: "DDP-First Importers",
-                  desc: "One price from booth to your India door. No hidden freight or customs surprises.",
-                  icon: "🚪"
-                }
+                { title: "First-Time Visitors", desc: "Navigate your first Canton Fair with confidence. We guide you through every step.", icon: "🌱" },
+                { title: "Scaling E-commerce Brands", desc: "Source new suppliers and expand your product catalog without leaving India.", icon: "📈" },
+                { title: "Mandarin-Challenged Buyers", desc: "Break language barriers. We negotiate, clarify specs, and handle contracts in Mandarin.", icon: "🗣️" },
+                { title: "Multi-Category Sourcers", desc: "Manage multiple booths across different phases. We consolidate everything for you.", icon: "📦" },
+                { title: "DDP-First Importers", desc: "One price from booth to your India door. No hidden freight or customs surprises.", icon: "🚪" },
               ].map((item) => (
                 <div
                   key={item.title}
@@ -302,7 +281,7 @@ export default function CantonFairPage() {
           </div>
         </section>
 
-        {/* ── With vs Without — redesigned as a premium comparison card ── */}
+        {/* ── With vs Without ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-11">
@@ -316,7 +295,7 @@ export default function CantonFairPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[1000px] mx-auto">
-              {/* Without column */}
+              {/* Without */}
               <div className="bg-[rgba(180,60,50,0.05)] border border-[rgba(180,70,60,0.25)] rounded-[3px] p-6 sm:p-8">
                 <div className="flex items-center gap-2 mb-5">
                   <span className="text-red-400 text-xl">✕</span>
@@ -328,7 +307,7 @@ export default function CantonFairPage() {
                     "No quality check before payment",
                     "Managing 5–10 suppliers manually",
                     "Shipping coordination nightmare",
-                    "Hidden costs at Indian customs"
+                    "Hidden costs at Indian customs",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-[13px] text-muted">
                       <span className="text-red-400 shrink-0 mt-0.5">✕</span>
@@ -338,11 +317,9 @@ export default function CantonFairPage() {
                 </ul>
               </div>
 
-              {/* With column */}
+              {/* With */}
               <div className="bg-[rgba(37,99,235,0.05)] border border-[rgba(37,99,235,0.25)] rounded-[3px] p-6 sm:p-8 relative overflow-hidden">
-                {/* Subtle gold glow */}
                 <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/5 rounded-full blur-2xl" />
-                
                 <div className="flex items-center gap-2 mb-5 relative z-10">
                   <span className="text-gold-light text-xl">✓</span>
                   <h3 className="text-[18px] font-semibold text-gold-light tracking-wide">With CTIDDP Support</h3>
@@ -353,7 +330,7 @@ export default function CantonFairPage() {
                     "On-spot QC before you commit",
                     "Multi-booth consolidation at our warehouse",
                     "One DDP shipment to your India door",
-                    "All-inclusive pricing, no customs surprises"
+                    "All-inclusive pricing, no customs surprises",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2 text-[13px] text-white">
                       <span className="text-gold-light shrink-0 mt-0.5">✓</span>
@@ -362,26 +339,23 @@ export default function CantonFairPage() {
                   ))}
                 </ul>
 
-                {/* Micro CTA inside card */}
                 <div className="mt-6 pt-4 border-t border-[rgba(37,99,235,0.15)]">
-                  <Link
-                    href="/quote"
+                  <a
+                    href="#canton-fair-support-form"
                     className="inline-flex items-center gap-1.5 text-[12px] font-medium text-gold-light hover:text-gold transition-colors"
                   >
                     Get your DDP support plan
                     <span className="text-[14px]">→</span>
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── What's included (mobile: grid-cols-1 sm:grid-cols-2 lg:grid-cols-4) ── */}
+        {/* ── What's Included ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-black">
           <div className="max-w-[1200px] mx-auto">
-
-            {/* Section header */}
             <div className="text-center mb-11">
               <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold mb-3 block">
                 What's Included
@@ -392,7 +366,6 @@ export default function CantonFairPage() {
               </h2>
             </div>
 
-            {/* Four col cards - fully responsive */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {SCOPE.map(s => (
                 <div
@@ -409,7 +382,7 @@ export default function CantonFairPage() {
           </div>
         </section>
 
-        {/* ── Year-round sourcing (mobile: stacked, desktop: grid) ── */}
+        {/* ── Year-round sourcing ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[48px] sm:gap-[72px] items-start">
 
@@ -448,7 +421,6 @@ export default function CantonFairPage() {
                   key={s.n}
                   className={`flex gap-4 sm:gap-5 py-5 sm:py-6 ${idx < STEPS.length - 1 ? 'border-b border-[rgba(37,99,235,0.07)]' : ''}`}
                 >
-                  {/* Step number circle */}
                   <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-['Cormorant_Garamond',serif] text-[13px] font-semibold text-gold">
                     {s.n}
                   </div>
@@ -462,6 +434,9 @@ export default function CantonFairPage() {
           </div>
         </section>
 
+        {/* ── FORM — Client Component ── */}
+        <CantonFairClient />
+
         {/* ── CTA Banner ── */}
         <div className="bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-[48px] sm:py-[72px] text-center">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-[14px]">
@@ -474,12 +449,12 @@ export default function CantonFairPage() {
           </p>
 
           <div className="flex gap-3 justify-center flex-wrap">
-            <Link
-              href="/quote"
+            <a
+              href="#canton-fair-support-form"
               className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
             >
               Book Canton Fair Support →
-            </Link>
+            </a>
             <a
               href="https://wa.me/your-number"
               target="_blank"
@@ -493,13 +468,11 @@ export default function CantonFairPage() {
 
       </main>
 
-      {/* Keyframes — only what this page needs */}
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; }
           50%       { opacity: 0.4; }
         }
-        /* ScrollRevealInit toggles .visible on .reveal elements */
         .reveal.visible {
           opacity: 1 !important;
           transform: translateY(0) !important;
