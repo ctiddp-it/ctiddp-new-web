@@ -6,8 +6,6 @@ import {
   FaBoxes,
   FaShip,
 } from "react-icons/fa"
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
@@ -72,7 +70,6 @@ export default function CantonFairPage() {
   return (
     <>
       <ScrollRevealInit />
-      <MegaNav />
       <main className="bg-black text-white font-['Outfit',sans-serif]">
 
         {/* JSON-LD */}
@@ -509,7 +506,6 @@ export default function CantonFairPage() {
         }
       `}</style>
 
-      <Footer />
     </>
   )
 }

@@ -8,8 +8,6 @@ import {
 } from "react-icons/fi";
 import {HiOutlineCalendarDays} from "react-icons/hi2";
 import { FaShip, FaPlane } from "react-icons/fa6";
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
@@ -65,7 +63,6 @@ export default function HowItWorksPage() {
   return (
     <>
       <ScrollRevealInit />
-      <MegaNav />
       <main className="bg-black text-white font-['Outfit',sans-serif]">
 
         {/* JSON-LD */}
@@ -330,7 +327,6 @@ export default function HowItWorksPage() {
         }
       `}</style>
 
-      <Footer />
     </>
   )
 }

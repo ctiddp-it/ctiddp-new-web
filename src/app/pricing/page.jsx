@@ -1,5 +1,3 @@
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
@@ -42,7 +40,6 @@ export default function PricingPage() {
   return (
     <>
       <ScrollRevealInit />
-      <MegaNav />
       <main>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@graph': [{ '@type': 'WebPage', '@id': 'https://ctiddp.com/pricing', name: 'DDP Shipping Pricing & Plans', url: 'https://ctiddp.com/pricing' }, { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' }, { '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://ctiddp.com/pricing' }] }] }) }} />
 
@@ -165,7 +162,6 @@ export default function PricingPage() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   )
 }

@@ -6,8 +6,6 @@ import {
   FiRepeat,
   FiShield
 } from "react-icons/fi";
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -71,7 +69,6 @@ export default function AboutPage() {
   return (
     <>
       <ScrollRevealInit />
-      <MegaNav />
       <main className="bg-black text-white font-['Outfit',sans-serif]">
 
         {/* JSON-LD */}
@@ -434,7 +431,6 @@ export default function AboutPage() {
         }
       `}</style>
 
-      <Footer />
     </>
   )
 }

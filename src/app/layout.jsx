@@ -2,6 +2,8 @@ import './globals.css'
 import { Playfair_Display, Outfit } from 'next/font/google'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ChatBot from '@/components/ui/ChatBot'
+import MegaNav from '@/components/layout/MegaNav'
+import Footer from '@/components/layout/Footer'
 import ThemeProvider from '@/components/providers/ThemeProvider'
 
 const playfair = Playfair_Display({
@@ -105,8 +107,10 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider>
           <CustomCursor />
+          <MegaNav />
           {children}
           <ChatBot />
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

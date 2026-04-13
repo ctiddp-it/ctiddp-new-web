@@ -12,6 +12,7 @@ const NAV_ITEMS = [
   { label: 'About', href: '/about' },
   { label: 'How It Works', href: '/how-it-works' },
   { label: "Services", href: "/services" },
+  { label: "Ecosystem", href: "/eco-system" },
   { label: 'Canton Fair', href: '/canton-fair' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },

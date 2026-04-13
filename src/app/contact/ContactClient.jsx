@@ -5,8 +5,6 @@ import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import { MdEmergency } from "react-icons/md";
 import { useState } from 'react'
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
@@ -335,7 +333,6 @@ export default function ContactClient() {
   return (
     <>
       <ScrollRevealInit />
-      <MegaNav />
       <main className="bg-black text-white font-['Outfit',sans-serif]">
 
         {/* JSON-LD for ContactPage + FAQPage merged */}
@@ -791,7 +788,6 @@ export default function ContactClient() {
         }
       `}</style>
 
-      <Footer />
     </>
   )
 }

@@ -13,8 +13,6 @@ import {
 } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
 import { GiCargoShip } from "react-icons/gi";
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
@@ -24,7 +22,6 @@ export default function GetQuoteClient() {
   return (
     <>
       <ScrollRevealInit />
-      <MegaNav />
       <main className="bg-black text-white font-['Outfit',sans-serif]">
 
         {/* Breadcrumb */}
@@ -282,7 +279,6 @@ export default function GetQuoteClient() {
         }
       `}</style>
 
-      <Footer />
     </>
   )
 } 

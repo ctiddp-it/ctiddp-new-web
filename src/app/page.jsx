@@ -13,8 +13,6 @@ import {
   HiOutlineBolt,
   HiOutlineBellAlert,
 } from "react-icons/hi2";
-import MegaNav from '@/components/layout/MegaNav'
-import Footer from '@/components/layout/Footer'
 import { HeroSection } from '@/components/sections/HeroSection'
 import GlobalPresence from '@/components/sections/GlobalPresence'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
@@ -226,7 +224,6 @@ export default function HomePage() {
         }}
       />
       <ScrollRevealInit />
-      <MegaNav />
       <main className="bg-black text-white">
 
         {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
@@ -526,7 +523,6 @@ export default function HomePage() {
         }
       `}</style>
 
-      <Footer />
     </>
   )
 }
