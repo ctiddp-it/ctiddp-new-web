@@ -16,7 +16,6 @@ import 'swiper/css/effect-fade';
 
 // Import local images
 import air_frieght from '@/assets/air_frieght.jpg';
-import sea_frieght from '@/assets/sea_frieght.jpg';
 
 
 // ── Main HeroSection ────────────────────────────────────────────────────────
@@ -30,7 +29,7 @@ export function HeroSection() {
   const slides = [
     {
       id: 1,
-      image: sea_frieght,
+      image: "/images/Home/ctiddp-landingpage-chinatoindiaddp.jpg",
       icon: Ship,
       title: 'Ocean Shipping',
       highlight: 'Bulk & Container Solutions',
@@ -54,7 +53,7 @@ export function HeroSection() {
     },
     {
       id: 3,
-      image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop',
+      image: '/images/Home/china-to-india-ddp-shipping-warehouse.webp',
       icon: FileCheck,
       title: 'Customs Expertise',
       highlight: 'Stress-Free Clearance',
@@ -66,7 +65,7 @@ export function HeroSection() {
     },
     {
       id: 4,
-      image: 'https://images.unsplash.com/photo-1602488283247-29bf1f5b148a?q=80&w=2070&auto=format&fit=crop',
+      image: '/images/Home/door-to-door-delivery-china-imports-india.jpg',
       icon: Truck,
       title: 'Last Mile Delivery',
       highlight: 'Pan-India Network',
@@ -75,18 +74,6 @@ export function HeroSection() {
       ctaPrimary: 'Delivery Quote',
       ctaSecondary: 'Warehouse Tour',
       theme: 'indigo',
-    },
-    {
-      id: 5,
-      image: 'https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?q=80&w=2070&auto=format&fit=crop',
-      icon: Globe,
-      title: 'Seamless China-India',
-      highlight: 'DDP Logistics Solutions',
-      subtitle: 'Door-to-door shipping with customs cleared. One price, zero surprises.',
-      stats: 'Average 27% cost savings vs. traditional logistics',
-      ctaPrimary: 'Get Instant Quote',
-      ctaSecondary: 'View Services',
-      theme: 'blue',
     },
   ];
 
