@@ -18,6 +18,94 @@ import Link from 'next/link'
 
 export default function GetQuoteClient() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
+  const [formData, setFormData] = useState({
+    name: '',
+    companyName: '',
+    contactNumber: '',
+    email: '',
+    productCategory: '',
+    hsCode: '',
+    serviceType: 'sourcing_shipping',
+    productBudget: '',
+    supplierDetails: {
+      supplierName: '',
+      supplierContactDetails: '',
+    },
+    deliveryLocation: '',
+    estimatedWeightKg: '',
+    estimatedVolumeCBM: '',
+    invoiceValue: '',
+    additionalNotes: '',
+  })
+
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleSupplierChange = (event) => {
+    const { name, value } = event.target
+    setFormData((prev) => ({
+      ...prev,
+      supplierDetails: {
+        ...prev.supplierDetails,
+        [name]: value,
+      },
+    }))
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setSubmitting(true)
+    setError('')
+    try {
+      const payload = {
+        name: formData.name,
+        companyName: formData.companyName || undefined,
+        contactNumber: formData.contactNumber,
+        email: formData.email || undefined,
+        productCategory: formData.productCategory,
+        hsCode: formData.hsCode || undefined,
+        serviceType: formData.serviceType,
+        productBudget:
+          formData.serviceType === 'sourcing_shipping' && formData.productBudget
+            ? Number(formData.productBudget)
+            : undefined,
+        supplierDetails:
+          formData.serviceType === 'only_shipping'
+            ? {
+                supplierName: formData.supplierDetails.supplierName,
+                supplierContactDetails: formData.supplierDetails.supplierContactDetails,
+              }
+            : undefined,
+        deliveryLocation: formData.deliveryLocation,
+        estimatedWeightKg: Number(formData.estimatedWeightKg),
+        estimatedVolumeCBM: Number(formData.estimatedVolumeCBM),
+        invoiceValue: formData.invoiceValue ? Number(formData.invoiceValue) : undefined,
+        additionalNotes: formData.additionalNotes || undefined,
+      }
+
+      const response = await fetch(`${API_BASE}/crm/leads`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}))
+        throw new Error(body.message || 'Unable to submit quote request')
+      }
+      setSubmitted(true)
+    } catch (submitError) {
+      setError(submitError.message || 'Unable to submit quote request')
+    } finally {
+      setSubmitting(false)
+    }
+  }
 
   return (
     <>
@@ -113,10 +201,14 @@ export default function GetQuoteClient() {
                   </div>
                 </div>
 
-                <form className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <form className="grid grid-cols-1 sm:grid-cols-2 gap-3.5" onSubmit={handleSubmit}>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Your Name *</label>
                     <input
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="Full name"
                     />
@@ -124,13 +216,20 @@ export default function GetQuoteClient() {
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Company Name</label>
                     <input
+                      name="companyName"
+                      value={formData.companyName}
+                      onChange={handleChange}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="Your company"
                     />
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">WhatsApp Number *</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Contact Number *</label>
                     <input
+                      name="contactNumber"
+                      value={formData.contactNumber}
+                      onChange={handleChange}
+                      required
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="+91 XXXXX XXXXX"
                     />
@@ -139,82 +238,155 @@ export default function GetQuoteClient() {
                     <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Email</label>
                     <input
                       type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="you@company.com"
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Product / Cargo Category *</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Product Name / Cargo Category *</label>
                     <input
+                      name="productCategory"
+                      value={formData.productCategory}
+                      onChange={handleChange}
+                      required
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="e.g. LED lighting, textiles, machine parts…"
                     />
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Supplier City (China)</label>
-                    <input
-                      className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
-                      placeholder="e.g. Guangzhou, Yiwu, Shenzhen"
-                    />
-                  </div>
-                  <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Delivery State (India) *</label>
-                    <select className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none focus:border-gold transition-colors">
-                      <option value="">Select state…</option>
-                      {['Andhra Pradesh', 'Telangana', 'Tamil Nadu', 'Karnataka', 'Maharashtra', 'Delhi', 'Gujarat', 'Rajasthan', 'West Bengal', 'Other'].map(s => <option key={s} value={s}>{s}</option>)}
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Service Type *</label>
+                    <select
+                      name="serviceType"
+                      value={formData.serviceType}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none focus:border-gold transition-colors"
+                    >
+                      <option value="sourcing_shipping">Sourcing + Shipping</option>
+                      <option value="only_shipping">Only Shipping</option>
                     </select>
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Estimated Weight (KG)</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Delivery Location *</label>
+                    <input
+                      name="deliveryLocation"
+                      value={formData.deliveryLocation}
+                      onChange={handleChange}
+                      required
+                      className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
+                      placeholder="City / State / Pincode"
+                    />
+                  </div>
+                  <div className="sm:col-span-1">
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Estimated Weight (KG) *</label>
                     <input
                       type="number"
+                      name="estimatedWeightKg"
+                      value={formData.estimatedWeightKg}
+                      onChange={handleChange}
+                      required
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="e.g. 500"
                     />
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Estimated Volume (CBM)</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Estimated Volume (CBM) *</label>
                     <input
                       type="number"
+                      name="estimatedVolumeCBM"
+                      value={formData.estimatedVolumeCBM}
+                      onChange={handleChange}
+                      required
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
                       placeholder="e.g. 5"
                     />
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Preferred Freight Mode</label>
-                    <select className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none focus:border-gold transition-colors">
-                      <option>Sea — LCL (Groupage)</option>
-                      <option>Sea — FCL 20ft</option>
-                      <option>Sea — FCL 40ft</option>
-                      <option>Air Freight</option>
-                      <option>Not sure — advise me</option>
-                    </select>
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Product HS Code</label>
+                    <input
+                      name="hsCode"
+                      value={formData.hsCode}
+                      onChange={handleChange}
+                      className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
+                      placeholder="Optional HS code"
+                    />
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">BIS / FSSAI requirement?</label>
-                    <select className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none focus:border-gold transition-colors">
-                      <option>Not sure</option>
-                      <option>Yes — BIS required</option>
-                      <option>Yes — FSSAI required</option>
-                      <option>No licence required</option>
-                    </select>
+                    <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Invoice Value</label>
+                    <input
+                      type="number"
+                      name="invoiceValue"
+                      value={formData.invoiceValue}
+                      onChange={handleChange}
+                      className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
+                      placeholder="Optional invoice value"
+                    />
                   </div>
+                  {formData.serviceType === 'sourcing_shipping' && (
+                    <div className="sm:col-span-2">
+                      <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Product Expected Budget *</label>
+                      <input
+                        type="number"
+                        name="productBudget"
+                        value={formData.productBudget}
+                        onChange={handleChange}
+                        required
+                        className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
+                        placeholder="Expected budget"
+                      />
+                    </div>
+                  )}
+                  {formData.serviceType === 'only_shipping' && (
+                    <>
+                      <div className="sm:col-span-1">
+                        <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Supplier Name *</label>
+                        <input
+                          name="supplierName"
+                          value={formData.supplierDetails.supplierName}
+                          onChange={handleSupplierChange}
+                          required
+                          className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
+                          placeholder="Supplier name"
+                        />
+                      </div>
+                      <div className="sm:col-span-1">
+                        <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Supplier Contact Details *</label>
+                        <input
+                          name="supplierContactDetails"
+                          value={formData.supplierDetails.supplierContactDetails}
+                          onChange={handleSupplierChange}
+                          required
+                          className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors"
+                          placeholder="Supplier phone/email"
+                        />
+                      </div>
+                    </>
+                  )}
                   <div className="sm:col-span-2">
                     <label className="text-[10px] tracking-[1px] uppercase text-gold-light mb-1.5 block">Additional Notes</label>
                     <textarea
+                      name="additionalNotes"
+                      value={formData.additionalNotes}
+                      onChange={handleChange}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-gold transition-colors resize-y"
                       placeholder="HS code (if known), special handling, urgent timeline…"
                       rows={3}
                     />
                   </div>
+                  {error ? <p className="sm:col-span-2 text-xs text-red-400">{error}</p> : null}
+                  <div className="sm:col-span-2">
+                    <button
+                      type="submit"
+                      disabled={submitting}
+                      className="mt-1 w-full bg-gradient-to-br from-gold to-gold-light text-black py-3 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none disabled:opacity-70"
+                    >
+                      {submitting ? 'Submitting...' : 'Submit Quote Request →'}
+                    </button>
+                  </div>
                 </form>
-
-                <button
-                  onClick={() => setSubmitted(true)}
-                  className="mt-5 w-full bg-gradient-to-br from-gold to-gold-light text-black py-3 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none"
-                >
-                  Submit Quote Request →
-                </button>
 
                 <p className="text-[10px] text-muted/60 text-center mt-3.5 leading-relaxed">
                   We respond within 2 hours on WhatsApp · Mon–Sat · No spam, no obligation
