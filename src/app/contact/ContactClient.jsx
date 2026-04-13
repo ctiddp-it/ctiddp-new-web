@@ -41,14 +41,15 @@ const SUBJECTS = [
   'Partnership / Agency',
   'General Question',
   'Complaint / Feedback',
+  'Others',
 ]
 
 // Time slots configuration
 const TIME_SLOTS = [
-  { value: '10-11', label: '10:00 AM - 11:59 AM' },
-  { value: '12-13', label: '12:00 PM - 1:59 PM' },
-  { value: '15-16', label: '3:00 PM - 4:59 PM' },
-  { value: '17-18', label: '5:00 PM - 6:00 PM' },
+  { value: '10:00 AM - 11:59 AM', label: '10:00 AM - 11:59 AM' },
+  { value: '12:00 PM - 1:59 PM', label: '12:00 PM - 1:59 PM' },
+  { value: '3:00 PM - 4:59 PM', label: '3:00 PM - 4:59 PM' },
+  { value: '5:00 PM - 6:00 PM', label: '5:00 PM - 6:00 PM' },
 ]
 
 // Helper function to check if a date is a working day
@@ -74,7 +75,11 @@ const getAvailableSlotsForDate = (date) => {
     // Saturday - only slots before 1:30 PM
     const currentTime = date.getHours() * 60 + date.getMinutes()
     return TIME_SLOTS.filter(slot => {
-      const [startHour] = slot.value.split('-').map(Number)
+      const [timePart] = slot.value.split(' - ')
+      const [time, meridian] = timePart.split(' ')
+      let [startHour] = time.split(':').map(Number)
+      if (meridian === 'PM' && startHour !== 12) startHour += 12
+      if (meridian === 'AM' && startHour === 12) startHour = 0
       const slotEndTime = (startHour + 1) * 60
       // Only show slots that haven't passed and end before 1:30 PM
       return slotEndTime <= 13 * 60 + 30 && slotEndTime > currentTime
@@ -83,7 +88,11 @@ const getAvailableSlotsForDate = (date) => {
   // Monday to Friday - all slots available, filter out passed slots
   const currentTime = date.getHours() * 60 + date.getMinutes()
   return TIME_SLOTS.filter(slot => {
-    const [startHour] = slot.value.split('-').map(Number)
+    const [timePart] = slot.value.split(' - ')
+    const [time, meridian] = timePart.split(' ')
+    let [startHour] = time.split(':').map(Number)
+    if (meridian === 'PM' && startHour !== 12) startHour += 12
+    if (meridian === 'AM' && startHour === 12) startHour = 0
     const slotStartTime = startHour * 60
     return slotStartTime > currentTime
   })
@@ -249,6 +258,8 @@ const CategoryAccordion = ({ category, isCategoryOpen, onCategoryToggle, openIte
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [scheduleCall, setScheduleCall] = useState(false)
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedSlot, setSelectedSlot] = useState('')
@@ -263,6 +274,7 @@ export default function ContactClient() {
     subject: SUBJECTS[0],
     message: ''
   })
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
 
   // Accordion state
   const [openCategories, setOpenCategories] = useState({
@@ -310,21 +322,40 @@ export default function ContactClient() {
     setSelectedSlot(slot)
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitting(true)
+    setSubmitError('')
+    try {
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        companyName: formData.company || undefined,
+        phone: formData.phone || undefined,
+        subject: formData.subject,
+        wantsCall: scheduleCall,
+        callDate: scheduleCall ? selectedDate : undefined,
+        callTimeSlot: scheduleCall ? selectedSlot : undefined,
+      }
 
-    // Here you would typically send the form data to your backend
-    const submissionData = {
-      ...formData,
-      scheduleCall,
-      ...(scheduleCall && {
-        callDate: selectedDate,
-        callSlot: selectedSlot
+      const response = await fetch(`${API_BASE}/contact-us`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       })
-    }
 
-    console.log('Form submitted:', submissionData)
-    setSubmitted(true)
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}))
+        throw new Error(body.message || 'Unable to submit contact request')
+      }
+
+      setSubmitted(true)
+    } catch (error) {
+      setSubmitError(error.message || 'Unable to submit contact request')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const minDate = getMinDate()
@@ -564,16 +595,18 @@ export default function ContactClient() {
 
                   <button
                     type="submit"
+                    disabled={submitting}
                     className="w-full mt-6 bg-gradient-to-br from-gold to-gold-light text-black px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
                   >
-                    Send Message →
+                    {submitting ? 'Sending...' : 'Send Message →'}
                   </button>
+                  {submitError ? <p className="text-xs text-red-400 mt-3">{submitError}</p> : null}
                 </form>
               ) : (
                 <div className="bg-[rgba(74,222,128,0.07)] border border-[rgba(74,222,128,0.25)] rounded-[4px] p-12 text-center">
                   <div className="text-[40px] mb-3.5">✅</div>
                   <div className="font-['Cormorant_Garamond',serif] text-[26px] font-semibold mb-2.5">Message Sent!</div>
-                  <p className="text-[13px] text-[rgba(250,250,248,0.6)] leading-relaxed">
+                  <p className="text-[13px] leading-relaxed">
                     {scheduleCall && selectedSlot
                       ? `We'll call you on ${formatDate(selectedDate)} at ${TIME_SLOTS.find(s => s.value === selectedSlot)?.label}.`
                       : "We'll reply within 2 hours on WhatsApp, or 4–6 hours by email."}

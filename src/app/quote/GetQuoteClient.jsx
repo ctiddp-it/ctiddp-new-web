@@ -396,8 +396,8 @@ export default function GetQuoteClient() {
               <div className="bg-[rgba(74,222,128,0.07)] border border-[rgba(74,222,128,0.25)] rounded-[4px] p-8 sm:p-12 text-center">
                 <FaCheckCircle className="text-green-400 w-12 h-12 mx-auto mb-4" />
                 <div className="font-['Cormorant_Garamond',serif] text-2xl sm:text-[28px] font-semibold mb-3">Quote Request Received!</div>
-                <p className="text-sm text-[rgba(250,250,248,0.6)] leading-relaxed mb-6">
-                  Our Operations Manager will review your details and send you a complete DDP quote with BCD+IGST breakdown within 2 hours on WhatsApp.
+                <p className="text-sm leading-relaxed mb-6">
+                  Our Team will review your details and send you a complete DDP quote with BCD+IGST breakdown within 2 hours on WhatsApp.
                 </p>
                 <a
                   href="https://wa.me/your-number"
