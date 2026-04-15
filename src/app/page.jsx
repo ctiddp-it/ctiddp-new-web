@@ -492,7 +492,7 @@ export default function HomePage() {
               Request a Quote →
             </Link>
             <a
-              href="https://wa.me/your-number"
+              href="https://wa.me/9346182901"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

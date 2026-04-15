@@ -12,17 +12,17 @@ const CONTACT_CHANNELS = [
   {
     icon: <FaEnvelope />,
     title: 'Email',
-    lines: ['hello@ctiddp.com', 'ops@ctiddp.com', 'compliance@ctiddp.com', 'sales@ctiddp.com'],
+    lines: ['info@ctiddp.com'],
   },
   {
     icon: <FaPhoneAlt />,
     title: 'India Office',
-    lines: ['+91 99520 44576 (Main)', 'Vizag HQ · Chennai Ops', 'Bangalore BD', 'Mon–Fri · 9am–6pm IST', 'Saturday · 9am–1:30pm IST'],
+    lines: ['+91 93461 82901 (Main)', 'Vizag HQ · Chennai Ops', 'Bangalore BD', 'Mon–Fri · 9am–6pm IST', 'Saturday · 9am–1:30pm IST'],
   },
   {
     icon: <FaPhoneAlt />,
     title: 'China Office',
-    lines: ['+86 134 2362 0005', 'Guangzhou Warehouse', 'Foshan QC · WeChat available', 'Mon–Sat · 9am–6pm CST', 'Saturday · 9am–1:30pm IST'],
+    lines: ['+86 159 1848 0524', 'Guangzhou Warehouse', 'Foshan QC · WeChat available', 'Mon–Sat · 9am–6pm CST', 'Saturday · 9am–1:30pm IST'],
   },
 ]
 
@@ -642,7 +642,8 @@ export default function ContactClient() {
                   </p>
                   <div className="text-xs text-muted"><div className="flex items-center gap-2">
                     <FaPhoneAlt />
-                    <span>Emergency: +91 98765 99999</span>
+                    <span>Emergency: +91 93461 82901</span>
+                   
                   </div></div>
                   <div className="text-[11px] text-muted/50 mt-1">🕐 24/7 for active shipments only</div>
                 </div>
@@ -688,9 +689,10 @@ export default function ContactClient() {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                 
                 {[
-                  { label: 'India Team', phone: '+91 99520 44576', hours: 'Mon–Sat · 9am–7pm IST' },
-                  { label: 'China Team', phone: '+86 134 2362 0005', hours: 'Mon–Sat · 9am–6pm CST' },
+                  { label: 'India Team', phone: '+91 93461 82901', hours: 'Mon–Sat · 9am–7pm IST' },
+                  { label: 'China Team', phone: '+86 159 1848 0524', hours: 'Mon–Sat · 9am–6pm CST' },
                 ].map(t => (
                   <a
                     key={t.label}
@@ -773,7 +775,7 @@ export default function ContactClient() {
                 Our team responds in under 2 hours on WhatsApp. We're here to help!
               </p>
               <a
-                href="https://wa.me/your-number"
+                href="https://wa.me/9346182901"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
@@ -801,7 +803,7 @@ export default function ContactClient() {
               Get DDP Quote →
             </Link>
             <a
-              href="https://wa.me/your-number"
+              href="https://wa.me/9346182901"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
