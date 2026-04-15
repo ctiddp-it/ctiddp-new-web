@@ -192,7 +192,6 @@ export function HeroSection() {
                             isFirstLoad && activeIndex === index ? 'animate-slide-in-left-4 opacity-0'
                             : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
                           } transition-all duration-1000 delay-900`}>
-                          <IndianRupee className="w-4 h-4" />
                           {slide.ctaPrimary}
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>

@@ -158,7 +158,7 @@ export default function PricingPage() {
           <p className="text-sm text-muted max-w-[420px] mx-auto mb-7">Share your cargo details and get a full DDP price within 2 hours.</p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/quote" className="bg-linear-to-br from-gold to-gold-light text-black py-[13px] px-8 rounded-sm font-bold text-[13px] tracking-[1px] uppercase no-underline inline-flex items-center gap-2 shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-all duration-200 cursor-none hover:-translate-y-0.5">Get Your Quote →</Link>
-            <a href="https://wa.me/9346182901" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green py-[13px] px-8 rounded-sm text-[13px] font-medium no-underline transition-all duration-200 cursor-none hover:bg-[rgba(37,211,102,0.13)]">💬 WhatsApp Us</a>
+            <a href="https://wa.me/8790013772" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green py-[13px] px-8 rounded-sm text-[13px] font-medium no-underline transition-all duration-200 cursor-none hover:bg-[rgba(37,211,102,0.13)]">💬 WhatsApp Us</a>
           </div>
         </div>
       </main>

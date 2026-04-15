@@ -27,11 +27,86 @@ const TEAM = [
 ]
 
 const LOCATIONS = [
-  { flag: '🇨🇳', city: 'Guangzhou', country: 'China', details: ['Primary operations hub', 'Canton Fair management', 'Supplier coordination', 'Export customs filing'] },
-  { flag: '🇨🇳', city: 'Foshan', country: 'China', details: ['QC warehouse facility', 'Pre-shipment inspection', 'Multi-vendor consolidation', 'Packing verification'] },
-  { flag: '🇮🇳', city: 'Visakhapatnam', country: 'India', details: ['Head office · India', 'Client management', 'Import consulting', 'Vizag port operations'] },
-  { flag: '🇮🇳', city: 'Chennai', country: 'India', details: ['India dispatch warehouse', 'Chennai port clearance', 'South India last-mile hub'] },
-]
+  {
+    flag: '/images/ctiddp-china.png',
+    city: 'Guangzhou',
+    country: 'China',
+    details: [
+      'Primary operations hub',
+      'Canton Fair management',
+      'Supplier coordination',
+      'Export customs filing'
+    ]
+  },
+  {
+    flag: '/images/ctiddp-china.png',
+    city: 'Foshan',
+    country: 'China',
+    details: [
+      'QC warehouse facility',
+      'Pre-shipment inspection',
+      'Multi-vendor consolidation',
+      'Packing verification'
+    ]
+  },
+  {
+    flag: '/images/ctiddp-india.png',
+    city: 'Visakhapatnam',
+    country: 'India',
+    details: [
+      'Head office · India',
+      'Client management',
+      'Import consulting',
+      'Vizag port operations'
+    ]
+  },
+  {
+    flag: '/images/ctiddp-india.png',
+    city: 'Chennai',
+    country: 'India',
+    details: [
+      'India dispatch warehouse',
+      'Chennai port clearance',
+      'South India last-mile hub'
+    ]
+  },
+  {
+    flag: '/images/ctiddp-india.png',
+    city: 'Bangalore',
+    country: 'India',
+    details: ['Bangalore office']
+  }
+];
+
+const chinaLocations = LOCATIONS.filter(l => l.country === 'China');
+const indiaLocations = LOCATIONS.filter(l => l.country === 'India');
+
+const OfficeCard = ({ l }) => (
+  <div className="reveal bg-[var(--overlay-card)] border border-border rounded-[4px] p-5 sm:p-6 text-center hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all">
+    
+    <Image
+      src={l.flag}
+      alt={l.country}
+      width={40}
+      height={28}
+      className="mx-auto mb-2 rounded-sm object-cover"
+    />
+
+    <div className="font-['Cormorant_Garamond',serif] text-lg font-semibold text-white">
+      {l.city}
+    </div>
+
+    <div className="text-[10px] tracking-[1.5px] uppercase text-gold mb-3">
+      {l.country}
+    </div>
+
+    {l.details.map(d => (
+      <div key={d} className="text-xs text-muted leading-relaxed">
+        · {d}
+      </div>
+    ))}
+  </div>
+);
 
 const MISSION_POINTS = [
   'Simplify international shipping with end-to-end DDP logistics',
@@ -207,8 +282,8 @@ export default function AboutPage() {
                 The People Behind <br />
                 <em className="italic bg-linear-to-br from-gold to-gold-pale font-semibold bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                   Your Shipments
-                </em>              
-                </h2>
+                </em>
+              </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
               {TEAM.map(m => (
@@ -338,54 +413,35 @@ export default function AboutPage() {
         {/* ── OFFICES ── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-black">
           <div className="max-w-[1200px] mx-auto">
+
+            {/* Header */}
             <div className="text-center mb-11">
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Our Offices
               </span>
               <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Two Countries.<br />
-                <em className="italic text-gold-light">Four Locations.</em>
+                <em className="italic text-gold-light">Five Locations.</em>
               </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
-              {LOCATIONS.map(l => (
-                <div key={l.city} className="reveal bg-[var(--overlay-card)] border border-border rounded-[4px] p-5 sm:p-6 text-center hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all">
-                  <div className="text-3xl mb-2">{l.flag}</div>
-                  <div className="font-['Cormorant_Garamond',serif] text-lg font-semibold text-white">{l.city}</div>
-                  <div className="text-[10px] tracking-[1.5px] uppercase text-gold mb-3">{l.country}</div>
-                  {l.details.map(d => (
-                    <div key={d} className="text-xs text-muted leading-relaxed">· {d}</div>
-                  ))}
-                </div>
+
+             {/* 🇮🇳 INDIA */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+              {indiaLocations.map(l => (
+                <OfficeCard key={l.city} l={l} />
               ))}
             </div>
+
+            {/* 🇨🇳 CHINA */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              {chinaLocations.map(l => (
+                <OfficeCard key={l.city} l={l} />
+              ))}
+            </div>
+
           </div>
         </section>
 
-        {/* ── SOPs ── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="text-center max-w-[580px] mx-auto mb-10">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                Process Excellence
-              </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                17 SOPs. Every<br />
-                <em className="italic text-gold-light">Shipment Covered.</em>
-              </h2>
-              <p className="text-sm text-muted leading-relaxed mt-2.5">
-                Every step of the DDP journey is documented with RACI matrices, control gates, and escalation protocols.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {SOPS.map(sop => (
-                <span key={sop} className="reveal bg-[rgba(37,99,235,0.06)] border border-[rgba(37,99,235,0.15)] text-muted text-xs py-1.5 px-3 sm:py-2 sm:px-4 rounded-sm hover:border-[rgba(37,99,235,0.3)] hover:bg-[rgba(37,99,235,0.1)] transition-all">
-                  {sop}
-                </span>
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* ── CTA BANNER ── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">

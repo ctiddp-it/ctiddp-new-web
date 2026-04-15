@@ -101,7 +101,7 @@ export default function Footer() {
               </div>
               <div className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[22px] font-bold tracking-[2px]">
                 <span className="text-gold-light">
-                  CTI<span className="text-white">DDP</span>
+                  CTI<span className="text-[#FFFFFF]">DDP</span>
                 </span>
               </div>
             </div>
@@ -134,7 +134,7 @@ export default function Footer() {
 
           {/* ── COL 2: Quick Links ── */}
           <div>
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white mb-5 pb-3 border-b border-[rgba(37,99,235,0.15)]">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#FFFFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.15)]">
               Quick Links
             </h4>
             <ul className="list-none flex flex-col gap-0">
@@ -154,7 +154,7 @@ export default function Footer() {
 
           {/* ── COL 3: Our Services ── */}
           <div>
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white mb-5 pb-3 border-b border-[rgba(37,99,235,0.15)]">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#FFFFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.15)]">
               Our Services
             </h4>
             <ul className="list-none flex flex-col gap-0">
@@ -164,7 +164,7 @@ export default function Footer() {
                     href={svc.href}
                     className="block py-[7px] no-underline group"
                   >
-                    <span className="text-[12.5px] font-medium text-white/90 group-hover:text-gold-light transition-colors duration-200 block leading-tight">
+                    <span className="text-[12.5px] font-medium text-[#FFFFFF]/90 group-hover:text-gold-light transition-colors duration-200 block leading-tight">
                       {svc.title}
                     </span>
                     <span className="text-[11px] text-muted leading-snug">
@@ -178,7 +178,7 @@ export default function Footer() {
 
           {/* ── COL 4: Contact Us ── */}
           <div>
-            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-white mb-5 pb-3 border-b border-[rgba(37,99,235,0.15)]">
+            <h4 className="text-[11px] font-bold tracking-[2px] uppercase text-[#FFFFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.15)]">
               Contact Us
             </h4>
 
@@ -190,7 +190,7 @@ export default function Footer() {
                   <HiOutlineMapPin size={14} />
                 </IconBorderWrapper>
                 <div>
-                  <p className="text-[12px] font-semibold text-white leading-tight">China Office</p>
+                  <p className="text-[12px] font-semibold text-[#FFFFFF] leading-tight">China Office</p>
                   <p className="text-[11px] text-muted mt-0.5">Guangzhou & Foshan</p>
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function Footer() {
                   <HiOutlineMapPin size={14} />
                 </IconBorderWrapper>
                 <div>
-                  <p className="text-[12px] font-semibold text-white leading-tight">India Office</p>
+                  <p className="text-[12px] font-semibold text-[#FFFFFF] leading-tight">India Office</p>
                   <p className="text-[11px] text-muted mt-0.5">Visakhapatnam,</p>
                   <p className="text-[11px] text-muted">Andhra Pradesh</p>
                 </div>
@@ -213,7 +213,7 @@ export default function Footer() {
                   <HiOutlinePhone size={14} />
                 </IconBorderWrapper>
                 <div>
-                  <p className="text-[12px] font-semibold text-white leading-tight">Call Us</p>
+                  <p className="text-[12px] font-semibold text-[#FFFFFF] leading-tight">Call Us</p>
                   <p className="text-[11px] text-muted mt-0.5">+86 159 1848 0524</p>
                   <p className="text-[11px] text-muted">+91 93461 82901</p>
                 </div>
@@ -225,7 +225,7 @@ export default function Footer() {
                   <HiOutlineEnvelope size={14} />
                 </IconBorderWrapper>
                 <div>
-                  <p className="text-[12px] font-semibold text-white leading-tight">Email Us</p>
+                  <p className="text-[12px] font-semibold text-[#FFFFFF] leading-tight">Email Us</p>
                   <a href="mailto:info@ctiddp.com" className="text-[11px] text-gold-light no-underline hover:underline mt-0.5 block">info@ctiddp.com</a>
                 </div>
               </div>
@@ -236,12 +236,12 @@ export default function Footer() {
                   <HiOutlineClock size={14} />
                 </IconBorderWrapper>
                 <div>
-                  <p className="text-[12px] font-semibold text-white leading-tight mb-1">Business Hours</p>
+                  <p className="text-[12px] font-semibold text-[#FFFFFF] leading-tight mb-1">Business Hours</p>
                   <div className="grid grid-cols-[50px_1fr] gap-x-2 gap-y-0.5">
                     <span className="text-[11px] text-muted">Mon – Fri:</span>
-                    <span className="text-[11px] text-white/80">9:00 am – 6:00 pm</span>
+                    <span className="text-[11px] text-[#FFFFFF]/80">9:00 am – 6:00 pm</span>
                     <span className="text-[11px] text-muted">Sat:</span>
-                    <span className="text-[11px] text-white/80">9:00 am – 1:30 pm</span>
+                    <span className="text-[11px] text-[#FFFFFF]/80">9:00 am – 1:30 pm</span>
                   </div>
                 </div>
               </div>
@@ -249,7 +249,7 @@ export default function Footer() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/9346182901"
+              href="https://wa.me/8790013772"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-[rgba(74,222,128,1)] py-2.5 px-4 rounded-sm text-[11px] font-medium no-underline transition-all duration-200 hover:bg-[rgba(37,211,102,0.12)] hover:border-[rgba(37,211,102,0.5)] w-full justify-center"
@@ -273,7 +273,7 @@ export default function Footer() {
             </div>
             <div className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[20px] font-bold tracking-[2px]">
               <span className="text-gold-light">
-                CTI<span className="text-white">DDP</span>
+                CTI<span className="text-[#FFFFFF]">DDP</span>
               </span>
             </div>
             <p className="text-xs text-muted leading-[1.8] mt-3 max-w-[280px] mx-auto">
@@ -334,7 +334,7 @@ export default function Footer() {
                   </div>
                 </div>
               ))}
-              <a href="https://wa.me/9346182901" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/8790013772" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-[rgba(74,222,128,1)] py-3 px-4 rounded-sm text-[11px] font-medium no-underline">
                 <FaWhatsapp size={22} />WhatsApp Us
               </a>

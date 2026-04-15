@@ -1,5 +1,6 @@
 import './globals.css'
 import { Playfair_Display, Outfit } from 'next/font/google'
+import Script from 'next/script'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ChatBot from '@/components/ui/ChatBot'
 import MegaNav from '@/components/layout/MegaNav'
@@ -10,7 +11,7 @@ const playfair = Playfair_Display({
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
-  variable: '--font-playfair', 
+  variable: '--font-playfair',
   display: 'swap',
 })
 const outfit = Outfit({
@@ -70,16 +71,28 @@ export const metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
-  verification: {
-    // google: 'your-google-verification-code',
-    // bing: 'your-bing-verification-code',
-  },
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`${playfair.variable} ${outfit.variable}`}>
       <head>
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5J51THMNKJ"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5J51THMNKJ');
+          `}
+        </Script>
+
+          {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -89,7 +102,7 @@ export default function RootLayout({ children }) {
               name: 'CTIDDP',
               url: 'https://ctiddp.com',
               logo: 'https://ctiddp.com/logo.png',
-              description: 'China to India DDP Shipping Specialists',
+              description: 'Cross Border Trade International DDP Specialists',
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'customer service',

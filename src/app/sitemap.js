@@ -12,14 +12,14 @@ export default function sitemap() {
     // { url: '/services/consolidation', priority: 0.8, changeFrequency: 'monthly' },
     // { url: '/services/customs-clearance', priority: 0.8, changeFrequency: 'monthly' },
     // { url: '/services/last-mile',     priority: 0.8, changeFrequency: 'monthly' },
-    { url: '/track',                     priority: 0.7, changeFrequency: 'monthly' },
-    { url: '/tools/duty-calculator',     priority: 0.8, changeFrequency: 'monthly' },
-    { url: '/pricing',                   priority: 0.8, changeFrequency: 'monthly' },
+    // { url: '/track',                     priority: 0.7, changeFrequency: 'monthly' },
+    // { url: '/tools/duty-calculator',     priority: 0.8, changeFrequency: 'monthly' },
+    // { url: '/pricing',                   priority: 0.8, changeFrequency: 'monthly' },
     { url: '/insights',                  priority: 0.7, changeFrequency: 'weekly'  },
     { url: '/faq',                       priority: 0.8, changeFrequency: 'monthly' },
     { url: '/about',                     priority: 0.7, changeFrequency: 'monthly' },
     { url: '/contact',                   priority: 0.7, changeFrequency: 'monthly' },
-    { url: '/get-quote',                 priority: 0.9, changeFrequency: 'monthly' },
+    { url: '/quote',                 priority: 0.9, changeFrequency: 'monthly' },
   ]
 
   return routes.map(r => ({
