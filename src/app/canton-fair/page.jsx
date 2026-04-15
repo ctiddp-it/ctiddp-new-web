@@ -125,7 +125,7 @@ export default function CantonFairPage() {
             {/* H1 */}
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(34px,5.5vw,60px)] font-light leading-[1.1] mb-[14px]">
               Canton Fair DDP.<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Booth to Your Door.
               </em>
             </h1>
@@ -174,12 +174,12 @@ export default function CantonFairPage() {
               <div className="flex gap-2.5 flex-wrap">
                 <a
                   href="#canton-fair-support-form"
-                  className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
+                  className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
                 >
                   Book Canton Fair Support →
                 </a>
                 <a
-                  href="https://wa.me/your-number"
+                  href="https://wa.me/8790013772"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-[13px] rounded-[3px] text-[13px] font-medium no-underline transition-all duration-200 cursor-none"
@@ -234,7 +234,7 @@ export default function CantonFairPage() {
               {/* Scroll to form */}
               <a
                 href="#canton-fair-support-form"
-                className="block text-center w-full bg-gradient-to-br from-gold to-gold-light text-black px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
+                className="block text-center w-full bg-linear-to-br from-gold to-gold-light text-black px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
               >
                 Reserve Your Support Slot →
               </a>
@@ -438,7 +438,7 @@ export default function CantonFairPage() {
         <CantonFairClient />
 
         {/* ── CTA Banner ── */}
-        <div className="bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-[48px] sm:py-[72px] text-center">
+        <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-[48px] sm:py-[72px] text-center">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-[14px]">
             Next Canton Fair:<br />
             <em className="italic text-gold-light">April 15, 2026.</em>
@@ -451,7 +451,7 @@ export default function CantonFairPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <a
               href="#canton-fair-support-form"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-[13px] rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase no-underline shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-[transform,box-shadow] duration-200 cursor-none"
             >
               Book Canton Fair Support →
             </a>

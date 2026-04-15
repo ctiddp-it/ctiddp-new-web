@@ -177,7 +177,7 @@ export default function TrackClient() {
                   onKeyDown={e => e.key === 'Enter' && doTrack()}
                 />
                 <button
-                  className="bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase whitespace-nowrap transition-all hover:scale-[1.02] cursor-none"
+                  className="bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase whitespace-nowrap transition-all hover:scale-[1.02] cursor-none"
                   onClick={() => doTrack()}
                 >
                   Track →
@@ -335,7 +335,7 @@ export default function TrackClient() {
         </section>
 
         {/* CTA Banner */}
-        <div className="bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
+        <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Want WhatsApp<br />
             <em className="italic text-gold-light">Milestone Alerts?</em>

@@ -206,7 +206,7 @@ export default function AboutPage() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Built for One Route.<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 China to India.
               </em>
             </h1>
@@ -216,15 +216,15 @@ export default function AboutPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <Link
                 href="/quote"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
               >
                 Get DDP Quote →
               </Link>
               <Link
-                href="/contact"
+                href="#founders"
                 className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] cursor-none"
               >
-                Meet the Team
+                Meet the Founders
               </Link>
             </div>
           </div>
@@ -272,7 +272,7 @@ export default function AboutPage() {
         </section>
 
         {/* ── TEAM ── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] ">
+        <section id="founders" className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] ">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-16">
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
@@ -322,7 +322,7 @@ export default function AboutPage() {
             </div>
 
             {/* Vision Card */}
-            <div className="reveal bg-gradient-to-br ttext-white border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
+            <div className="reveal bg-linear-to-br ttext-white border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
               <div className="text-[11px] tracking-[0.12em] uppercase text-gold-light mb-3 font-medium">Our Vision</div>
               <p className="text-lg text-white leading-relaxed font-['Cormorant_Garamond',serif] italic">
                 &ldquo;To become the most trusted logistics partner for businesses importing from China to India — delivering consistent, transparent, and scalable shipping solutions.&rdquo;
@@ -444,7 +444,7 @@ export default function AboutPage() {
 
 
         {/* ── CTA BANNER ── */}
-        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
+        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Work With a Team<br />
             <em className="italic text-gold-light">That&apos;s All-In.</em>
@@ -455,15 +455,9 @@ export default function AboutPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
             >
               Get DDP Quote →
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] cursor-none"
-            >
-              Meet the Founders
             </Link>
           </div>
         </div>

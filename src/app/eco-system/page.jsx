@@ -53,7 +53,7 @@ export default function EcosystemPage() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               One Platform.<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Endless Global Opportunities
               </em>
             </h1>
@@ -62,16 +62,10 @@ export default function EcosystemPage() {
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               <Link
-                href="/quote"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
-              >
-                Start Free Trial →
-              </Link>
-              <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] cursor-none"
+                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
               >
-                See Platform in Action
+                Join Us →
               </Link>
             </div>
             {/* Trust indicators */}
@@ -120,9 +114,9 @@ export default function EcosystemPage() {
                   <div className="text-[18px] font-semibold text-white">{item.title}</div>
                   <div className="text-[11px] font-bold tracking-[0.08em] uppercase text-gold-light">{item.subtitle}</div>
                   <div className="text-[13px] text-white leading-relaxed flex-grow">{item.desc}</div>
-                  <Link href={item.link} className="inline-flex items-center gap-2 text-gold-light text-[12px] font-medium mt-2 group">
+                  {/* <Link href={item.link} className="inline-flex items-center gap-2 text-gold-light text-[12px] font-medium mt-2 group">
                     Learn more <FiChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-all" />
-                  </Link>
+                  </Link> */}
                 </div>
               ))}
             </div>
@@ -259,27 +253,27 @@ export default function EcosystemPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4 mb-16">
               <Link
-                href="/supplier"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Join as Supplier →
               </Link>
               <Link
-                href="/importer"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
+                href="/quote"
+                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Join as Importer →
               </Link>
-              <Link
+              {/* <Link
                 href="/quote"
                 className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)]"
               >
                 Get DDP Quote
-              </Link>
+              </Link> */}
             </div>
 
             {/* Vision Card */}
-            <div className="bg-gradient-to-br from-[rgba(37,99,235,0.08)] to-[rgba(37,99,235,0.02)] border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-10">
+            <div className="bg-linear-to-br from-[rgba(37,99,235,0.08)] to-[rgba(37,99,235,0.02)] border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-10">
               <div className="inline-flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-full bg-[rgba(37,99,235,0.15)] flex items-center justify-center">
                   <FiZap className="w-4 h-4 text-gold-light" />

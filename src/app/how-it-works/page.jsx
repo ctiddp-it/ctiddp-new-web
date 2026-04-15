@@ -117,7 +117,7 @@ export default function HowItWorksPage() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,65px)] font-light leading-[1.1] mb-4">
               One Contract.<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Zero Worry.
               </em>
             </h1>
@@ -282,7 +282,7 @@ export default function HowItWorksPage() {
         </section>
 
         {/* CTA Banner */}
-        <div className="relative text-center px-4 sm:px-[60px] py-12 sm:py-16 overflow-hidden bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
+        <div className="relative text-center px-4 sm:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(28px,3.5vw,44px)] text-white leading-[1.2] mb-3">
             Understand It.<br />
             <em className="italic text-gold-light">Then Let Us Handle It.</em>
@@ -293,7 +293,7 @@ export default function HowItWorksPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
             >
               Get DDP Quote →
             </Link>

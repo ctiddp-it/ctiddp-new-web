@@ -418,7 +418,7 @@ export default function ContactClient() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
               Our Presence<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Two Countries, Five Locations.
               </em>
             </h1>
@@ -596,7 +596,7 @@ export default function ContactClient() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full mt-6 bg-gradient-to-br from-gold to-gold-light text-black px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+                    className="w-full mt-6 bg-linear-to-br from-gold to-gold-light text-black px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
                   >
                     {submitting ? 'Sending...' : 'Send Message →'}
                   </button>
@@ -778,7 +778,7 @@ export default function ContactClient() {
                 href="https://wa.me/8790013772"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+                className="inline-flex items-center justify-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
               >
                 <FaWhatsapp size={22} />WhatsApp Us Now
               </a>
@@ -787,7 +787,7 @@ export default function ContactClient() {
         </section>
 
         {/* CTA Banner */}
-        <div className="bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
+        <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Ready to Stop Wondering?<br />
             <em className="italic text-gold-light">Get a Quote.</em>
@@ -798,7 +798,7 @@ export default function ContactClient() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
             >
               Get DDP Quote →
             </Link>

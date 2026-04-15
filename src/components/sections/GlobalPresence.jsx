@@ -565,7 +565,7 @@ function NavBtn({ children, onClick, variant }) {
         "text-[0.77rem] tracking-[0.05em]",
         "whitespace-nowrap backdrop-blur-md cursor-pointer font-[inherit]",
         variant === "gold"
-          ? "bg-gradient-to-br from-gold to-gold-light border border-transparent font-semibold"
+          ? "bg-linear-to-br from-gold to-gold-light border border-transparent font-semibold"
           : "bg-white/5 border border-[rgba(37,99,235,0.2)] text-muted font-normal",
       ].join(" ")}
       style={variant === "gold" ? { color: "#050508" } : undefined}

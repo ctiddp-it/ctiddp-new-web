@@ -191,7 +191,7 @@ export default function CantonFairClient() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="flex-1 sm:flex-none bg-gradient-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase disabled:opacity-70 shadow-[0_8px_28px_rgba(37,99,235,0.25)] transition-opacity duration-150"
+                    className="flex-1 sm:flex-none bg-linear-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase disabled:opacity-70 shadow-[0_8px_28px_rgba(37,99,235,0.25)] transition-opacity duration-150"
                   >
                     {submitting ? 'Submitting…' : 'Reserve My Support Slot →'}
                   </button>

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from 'next/link'
 
 const services = [
     {
@@ -66,7 +67,7 @@ export default function ServicesSection() {
                     >
                         END-TO-END GLOBAL LOGISTICS
                     </h2>
-                    
+
                 </div>
 
                 {/* TWO COLUMN GRID */}
@@ -122,7 +123,7 @@ export default function ServicesSection() {
 
                         {/* BUTTON */}
                         <div className="mt-8">
-                            <button className="flex items-center gap-3 px-4 py-2 text-sm rounded-lg 
+                            <Link href="/services" className="inline-flex items-center gap-3 px-4 py-2 text-sm rounded-lg 
       bg-card border border-border text-white hover:bg-primary/10 transition">
 
                                 Explore Our Services
@@ -131,7 +132,7 @@ export default function ServicesSection() {
         bg-primary text-[#ffff] text-xs">
                                     ↗
                                 </span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

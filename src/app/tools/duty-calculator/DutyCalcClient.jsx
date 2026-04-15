@@ -78,7 +78,7 @@ export default function DutyCalcClient() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
               Know Your Duties<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Before You Ship.
               </em>
             </h1>
@@ -211,7 +211,7 @@ export default function DutyCalcClient() {
               {/* Calculate Button */}
               <button
                 onClick={calc}
-                className="w-full bg-gradient-to-br from-gold to-gold-light text-black px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none mb-5"
+                className="w-full bg-linear-to-br from-gold to-gold-light text-black px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none mb-5"
               >
                 Calculate Landed Cost →
               </button>
@@ -301,7 +301,7 @@ export default function DutyCalcClient() {
         </section>
 
         {/* CTA Banner */}
-        <div className="bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
+        <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Duties Calculated.<br />
             <em className="italic text-gold-light">Now Let Us Pay Them.</em>
@@ -312,7 +312,7 @@ export default function DutyCalcClient() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
             >
               Get Full DDP Quote →
             </Link>

@@ -67,7 +67,7 @@ export default function InsightsPage() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               DDP Shipping<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Insights & Guides
               </em>
             </h1>
@@ -102,7 +102,7 @@ export default function InsightsPage() {
                 </p>
                 <Link 
                   href={`/insights/${POSTS[0].slug}`} 
-                  className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-5 sm:px-6 py-2.5 rounded-[3px] font-bold text-xs tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none"
+                  className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-5 sm:px-6 py-2.5 rounded-[3px] font-bold text-xs tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none"
                 >
                   Read Guide →
                 </Link>
@@ -160,7 +160,7 @@ export default function InsightsPage() {
                 placeholder="Your email address" 
                 className="flex-1 bg-[var(--overlay-input)] border border-[var(--overlay-input-border)] rounded-[3px] py-3 px-4 text-white text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
-              <button className="bg-gradient-to-br from-gold to-gold-light text-black border-none py-3 px-6 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase cursor-none whitespace-nowrap transition-all hover:scale-[1.02]">
+              <button className="bg-linear-to-br from-gold to-gold-light text-black border-none py-3 px-6 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase cursor-none whitespace-nowrap transition-all hover:scale-[1.02]">
                 Subscribe →
               </button>
             </div>
@@ -168,7 +168,7 @@ export default function InsightsPage() {
         </section>
 
         {/* CTA Banner */}
-        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
+        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Ready to Import<br />
             <em className="italic text-gold-light">the Right Way?</em>
@@ -179,7 +179,7 @@ export default function InsightsPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
             >
               Get DDP Quote →
             </Link>

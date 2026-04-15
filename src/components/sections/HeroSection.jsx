@@ -79,12 +79,12 @@ export function HeroSection() {
 
   const getThemeColors = (theme) => {
     switch (theme) {
-      case 'blue':    return { accent: 'text-blue-300',    border: 'border-blue-500/30',    bg: 'bg-blue-600/20',    gradient: 'from-blue-600 to-blue-700',    hover: 'hover:bg-blue-700' };
+      case 'blue': return { accent: 'text-blue-300', border: 'border-blue-500/30', bg: 'bg-blue-600/20', gradient: 'from-blue-600 to-blue-700', hover: 'hover:bg-blue-700' };
       case 'emerald': return { accent: 'text-emerald-300', border: 'border-emerald-500/30', bg: 'bg-emerald-600/20', gradient: 'from-emerald-600 to-emerald-700', hover: 'hover:bg-emerald-700' };
-      case 'amber':   return { accent: 'text-amber-300',   border: 'border-amber-500/30',   bg: 'bg-amber-600/20',   gradient: 'from-amber-600 to-amber-700',   hover: 'hover:bg-amber-700' };
-      case 'purple':  return { accent: 'text-purple-300',  border: 'border-purple-500/30',  bg: 'bg-purple-600/20',  gradient: 'from-purple-600 to-purple-700',  hover: 'hover:bg-purple-700' };
-      case 'indigo':  return { accent: 'text-indigo-300',  border: 'border-indigo-500/30',  bg: 'bg-indigo-600/20',  gradient: 'from-indigo-600 to-indigo-700',  hover: 'hover:bg-indigo-700' };
-      default:        return { accent: 'text-blue-300',    border: 'border-blue-500/30',    bg: 'bg-blue-600/20',    gradient: 'from-blue-600 to-blue-700',    hover: 'hover:bg-blue-700' };
+      case 'amber': return { accent: 'text-amber-300', border: 'border-amber-500/30', bg: 'bg-amber-600/20', gradient: 'from-amber-600 to-amber-700', hover: 'hover:bg-amber-700' };
+      case 'purple': return { accent: 'text-purple-300', border: 'border-purple-500/30', bg: 'bg-purple-600/20', gradient: 'from-purple-600 to-purple-700', hover: 'hover:bg-purple-700' };
+      case 'indigo': return { accent: 'text-indigo-300', border: 'border-indigo-500/30', bg: 'bg-indigo-600/20', gradient: 'from-indigo-600 to-indigo-700', hover: 'hover:bg-indigo-700' };
+      default: return { accent: 'text-blue-300', border: 'border-blue-500/30', bg: 'bg-blue-600/20', gradient: 'from-blue-600 to-blue-700', hover: 'hover:bg-blue-700' };
     }
   };
 
@@ -150,37 +150,40 @@ export function HeroSection() {
                       className="w-full h-full bg-cover bg-center animate-continuous-zoom"
                       style={{ backgroundImage: resolveImageUrl(slide.image), filter: 'brightness(0.85)', willChange: 'transform' }}
                     />
-                    <div className="absolute inset-0 bg-linear-to-r from-gray-900/70 via-gray-900/40 to-gray-900/0 z-10" />
-                    <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 via-transparent to-transparent z-10" />
+                    {/* <div className="absolute inset-0 bg-linear-to-r from-gray-900/90 via-gray-900/30 to-transparent z-10" /> */}
+                    {/* <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 via-transparent to-transparent z-10" /> */}
+                    <div
+                      className="absolute inset-0 z-10"
+                      style={{
+                        background: "linear-gradient(to right, rgba(17,24,39,0.9) 0%, rgba(17,24,39,0.6) 30%, rgba(17,24,39,0.2) 45%, transparent 80%)"
+                      }}
+                    />
                   </div>
 
                   {/* Slide Content */}
                   <div className="relative z-20 h-full flex items-center">
-                    <div className="mx-auto px-6 md:px-1 py-12 md:py-12 w-full max-w-7xl md:ml-25"> 
+                    <div className="mx-auto px-6 md:px-1 py-12 md:py-12 w-full max-w-7xl md:ml-25">
 
                       {/* Trust Badge */}
-                      <div className={`flex items-center gap-2 ${theme.bg} px-4 py-3 rounded-full mb-6 w-fit border ${theme.border} backdrop-blur-sm ${
-                        isFirstLoad && activeIndex === index ? 'animate-slide-in-left-1 opacity-0'
-                        : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-                      } transition-all duration-1000 delay-300`}>
+                      <div className={`flex items-center gap-2 ${theme.bg} px-4 py-3 rounded-full mb-6 w-fit border ${theme.border} backdrop-blur-sm ${isFirstLoad && activeIndex === index ? 'animate-slide-in-left-1 opacity-0'
+                          : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                        } transition-all duration-1000 delay-300`}>
                         <Icon className="w-4 h-4 text-[#ffff]" />
                         <span className="text-sm font-medium text-[#ffff]">Trusted by 500+ Indian Importers</span>
                       </div>
 
                       {/* Heading */}
-                      <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${
-                        isFirstLoad && activeIndex === index ? 'animate-slide-in-left-2 opacity-0'
-                        : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-                      } transition-all duration-1000 delay-500`}>
+                      <h1 className={`text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight ${isFirstLoad && activeIndex === index ? 'animate-slide-in-left-2 opacity-0'
+                          : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                        } transition-all duration-1000 delay-500`}>
                         <span className="text-[#ffff]">{slide.title}</span><br />
                         <span className={theme.accent}>{slide.highlight}</span>
                       </h1>
 
                       {/* Subheading */}
-                      <p className={`text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl ${
-                        isFirstLoad && activeIndex === index ? 'animate-slide-in-left-3 opacity-0'
-                        : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-                      } transition-all duration-1000 delay-700`}>
+                      <p className={`text-xl md:text-2xl text-gray-300 mb-6 max-w-2xl ${isFirstLoad && activeIndex === index ? 'animate-slide-in-left-3 opacity-0'
+                          : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                        } transition-all duration-1000 delay-700`}>
                         {slide.subtitle}
                         <span className={`block text-lg md:text-xl ${theme.accent} mt-2`}>{slide.stats}</span>
                       </p>
@@ -188,28 +191,25 @@ export function HeroSection() {
                       {/* CTAs */}
                       <div className="flex flex-col sm:flex-row gap-4 mb-9">
                         <Link href="/quote"
-                          className={`group px-8 py-3 bg-linear-to-r ${theme.gradient} text-[#ffff] font-bold text-lg rounded-lg ${theme.hover} transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform ${
-                            isFirstLoad && activeIndex === index ? 'animate-slide-in-left-4 opacity-0'
-                            : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
-                          } transition-all duration-1000 delay-900`}>
+                          className={`group px-8 py-3 bg-linear-to-r ${theme.gradient} text-[#ffff] font-bold text-lg rounded-lg ${theme.hover} transition-all duration-300 inline-flex items-center gap-3 shadow-lg hover:shadow-xl hover:scale-105 transform ${isFirstLoad && activeIndex === index ? 'animate-slide-in-left-4 opacity-0'
+                              : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
+                            } transition-all duration-1000 delay-900`}>
                           {slide.ctaPrimary}
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link href="/services"
-                          className={`group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-[#ffff] font-bold text-lg rounded-lg hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-3 hover:scale-105 transform ${
-                            isFirstLoad && activeIndex === index ? 'animate-slide-in-right opacity-0'
-                            : activeIndex === index ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
-                          } transition-all duration-1000 delay-900`}>
+                          className={`group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-[#ffff] font-bold text-lg rounded-lg hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-3 hover:scale-105 transform ${isFirstLoad && activeIndex === index ? 'animate-slide-in-right opacity-0'
+                              : activeIndex === index ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
+                            } transition-all duration-1000 delay-900`}>
                           <Headphones className="w-5 h-5" />
                           {slide.ctaSecondary}
                         </Link>
                       </div>
 
                       {/* Trust Features */}
-                      <div className={`flex flex-wrap items-center gap-6 text-sm text-gray-400 ${
-                        isFirstLoad && activeIndex === index ? 'animate-slide-in-bottom opacity-0'
-                        : activeIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-                      } transition-all duration-1000 delay-1100`}>
+                      <div className={`flex flex-wrap items-center gap-6 text-sm text-gray-400 ${isFirstLoad && activeIndex === index ? 'animate-slide-in-bottom opacity-0'
+                          : activeIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                        } transition-all duration-1000 delay-1100`}>
                         {/* <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /><span>All-inclusive pricing</span></div>
                         <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-blue-400" /><span>Customs guarantee</span></div>
                         <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-yellow-400" /><span>24/7 Tracking</span></div> */}
@@ -236,7 +236,7 @@ export function HeroSection() {
           className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/50 transition-all duration-300 group">
           {isPlaying
             ? <Pause className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-            : <Play  className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />}
+            : <Play className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />}
         </button>
 
         {/* Progress Dots */}

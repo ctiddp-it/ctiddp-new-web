@@ -131,7 +131,7 @@ export default function GetQuoteClient() {
             </div>
             <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Get Your Full<br />
-              <em className="italic bg-gradient-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 DDP Quote
               </em>
             </h1>
@@ -381,7 +381,7 @@ export default function GetQuoteClient() {
                     <button
                       type="submit"
                       disabled={submitting}
-                      className="mt-1 w-full bg-gradient-to-br from-gold to-gold-light text-black py-3 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none disabled:opacity-70"
+                      className="mt-1 w-full bg-linear-to-br from-gold to-gold-light text-black py-3 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none disabled:opacity-70"
                     >
                       {submitting ? 'Submitting...' : 'Submit Quote Request →'}
                     </button>
@@ -414,7 +414,7 @@ export default function GetQuoteClient() {
         </section>
 
         {/* CTA Banner */}
-        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-gradient-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
+        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Have a Question<br />
             <em className="italic text-gold-light">Before You Quote?</em>
