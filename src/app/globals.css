@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* ── Class-based dark mode for Tailwind v4 ── */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /* ═══════════════════════════════════════════════
    DESIGN TOKENS — @theme compiles into TW utilities
    e.g. bg-black, text-primary, border-border, etc.
@@ -23,9 +20,12 @@
 
   /* Legacy aliases — keep TW utility names working */
   --color-gold:          #1E3A5F;
-  --color-gold-light:    #0EA5E9;
-  --color-gold-pale:     #BAE6FD;
-  --color-blue-light: #83b6de;
+  --color-blue-light:    #0EA5E9;
+  --color-blue-pale:     #BAE6FD;
+
+  /* Fonts */
+  --font-outfit: 'Outfit', sans-serif;
+  --font-garamond: 'Cormorant Garamond', serif;
 }
 
 /* ═══════════════════════════════════════════════
@@ -128,19 +128,6 @@
 .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.8s ease, transform 0.8s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ═══════════════════════════════════════════════
-   PARTICLES & FLARES
-═══════════════════════════════════════════════ */
-.particle {
-  position: absolute; width: 2px; height: 2px; background: var(--color-primary);
-  border-radius: 50%; opacity: 0;
-  animation: particleFloat var(--dur,6s) ease-in-out var(--delay,0s) infinite; z-index: 4;
-}
-.flare {
-  position: absolute; border-radius: 50%; opacity: 0;
-  animation: flareRise var(--fdur, 8s) ease-in-out var(--fdelay, 0s) infinite;
-  z-index: 4; filter: blur(1px);
-}
 
 /* ═══════════════════════════════════════════════
    ROUTE PATH — SVG stroke animation
@@ -177,7 +164,4 @@
   100% { opacity: 0; transform: translateY(-180px) scale(0.3); }
 }
 
-.font-playfair {
-  font-family: var(--font-playfair), 'Playfair Display', serif;
-}
 

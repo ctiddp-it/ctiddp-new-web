@@ -92,11 +92,11 @@ const OfficeCard = ({ l }) => (
       className="mx-auto mb-2 rounded-sm object-cover"
     />
 
-    <div className="font-['Cormorant_Garamond',serif] text-lg font-semibold text-white">
+    <div className="font-garamond text-lg font-semibold text-white">
       {l.city}
     </div>
 
-    <div className="text-[10px] tracking-[1.5px] uppercase text-gold mb-3">
+    <div className="text-[10px] tracking-[1.5px] uppercase text-blue mb-3">
       {l.country}
     </div>
 
@@ -193,20 +193,20 @@ export default function AboutPage() {
             <Link href="/" className="text-muted/60 no-underline">Home</Link>
           </span>
           <span className="text-[11px] text-[rgba(37,99,235,0.3)] whitespace-nowrap">›</span>
-          <span className="text-[11px] text-gold-light whitespace-nowrap">About Us</span>
+          <span className="text-[11px] text-blue-light whitespace-nowrap">About Us</span>
         </div>
 
         {/* ── HERO ── */}
         <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[45vh] px-4 sm:px-[60px] pt-[60px] sm:pt-[80px] pb-[60px] sm:pb-[80px] bg-black">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.1)_0%,transparent_70%)]" />
           <div className="relative z-10 max-w-[800px]">
-            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-gold-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
-              <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
+            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-blue-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Our Story
             </div>
-            <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Built for One Route.<br />
-              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic text-blue-light">
                 China to India.
               </em>
             </h1>
@@ -216,13 +216,13 @@ export default function AboutPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <Link
                 href="/quote"
-                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+                className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Get DDP Quote →
               </Link>
               <Link
                 href="#founders"
-                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] cursor-none"
+                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-blue-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] cursor-none"
               >
                 Meet the Founders
               </Link>
@@ -234,12 +234,12 @@ export default function AboutPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Who We Are
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-5">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-5">
                 Our Story —<br />
-                <em className="italic text-gold-light">How We Started</em>
+                <em className="italic text-blue-light">How We Started</em>
               </h2>
               <p className="text-[15px] text-muted leading-relaxed mb-5">
                 China to India DDP Shipping (CTI-DDP) is a specialized logistics partner focused on simplifying imports from China to India. We work closely with businesses, e-commerce brands, and bulk importers to handle the entire shipping process — from supplier pickup to final delivery.
@@ -259,7 +259,7 @@ export default function AboutPage() {
                 { num: '0', label: 'Hidden charges. Ever.' },
               ].map(s => (
                 <div key={s.label} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.15)] p-5 sm:p-[22px] rounded-[3px] flex items-center gap-5 hover:border-[rgba(37,99,235,0.3)] transition-colors">
-                  <div className="font-['Cormorant_Garamond',serif] text-4xl sm:text-[44px] font-semibold text-gold-light leading-none shrink-0">
+                  <div className="font-garamond text-4xl sm:text-[44px] font-semibold text-blue-light leading-none shrink-0">
                     {s.num}
                   </div>
                   <div className="text-[13px] text-muted leading-relaxed">
@@ -275,12 +275,12 @@ export default function AboutPage() {
         <section id="founders" className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] ">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-16">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 OUR FOUNDERS
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+              <h2 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
                 The People Behind <br />
-                <em className="italic bg-linear-to-br from-gold to-gold-pale font-semibold bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+                <em className="italic text-blue-light">
                   Your Shipments
                 </em>
               </h2>
@@ -312,30 +312,30 @@ export default function AboutPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[640px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Vision & Mission
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Where We&apos;re Going.<br />
-                <em className="italic text-gold-light">How We&apos;ll Get There.</em>
+                <em className="italic text-blue-light">How We&apos;ll Get There.</em>
               </h2>
             </div>
 
             {/* Vision Card */}
             <div className="reveal bg-linear-to-br ttext-white border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
-              <div className="text-[11px] tracking-[0.12em] uppercase text-gold-light mb-3 font-medium">Our Vision</div>
-              <p className="text-lg text-white leading-relaxed font-['Cormorant_Garamond',serif] italic">
+              <div className="text-[11px] tracking-[0.12em] uppercase text-blue-light mb-3 font-medium">Our Vision</div>
+              <p className="text-lg text-white leading-relaxed font-garamond italic">
                 &ldquo;To become the most trusted logistics partner for businesses importing from China to India — delivering consistent, transparent, and scalable shipping solutions.&rdquo;
               </p>
             </div>
 
             {/* Mission Points */}
             <div className="max-w-[760px] mx-auto">
-              <div className="text-[11px] tracking-[0.12em] uppercase text-gold-light mb-5 font-medium text-center">Our Mission</div>
+              <div className="text-[11px] tracking-[0.12em] uppercase text-blue-light mb-5 font-medium text-center">Our Mission</div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {MISSION_POINTS.map((point, i) => (
                   <div key={i} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[3px] p-4 sm:p-[18px] flex items-start gap-3 hover:border-[rgba(37,99,235,0.2)] transition-colors">
-                    <span className="text-gold-light text-base leading-none shrink-0 mt-0.5">✦</span>
+                    <span className="text-blue-light text-base leading-none shrink-0 mt-0.5">✦</span>
                     <span className="text-sm text-white leading-relaxed">{point}</span>
                   </div>
                 ))}
@@ -348,12 +348,12 @@ export default function AboutPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-black">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[580px] mx-auto mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Why Choose Us
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Most Companies Ship.<br />
-                <em className="italic text-gold-light">We Manage the Whole Import.</em>
+                <em className="italic text-blue-light">We Manage the Whole Import.</em>
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
                 Most logistics companies only handle transport. We handle the entire process — from supplier to your door.
@@ -363,7 +363,7 @@ export default function AboutPage() {
               {WHY_US.map((item, i) => (
                 <article key={i} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.12)] rounded-[4px] p-6 sm:p-7 flex flex-col gap-3 hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all">
                   <div className="mb-2">
-                    <div className="w-10 h-10 rounded-full border border-[rgba(37,99,235,0.35)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center text-gold-light transition-all duration-300 group-hover:scale-105 group-hover:border-[rgba(37,99,235,0.6)]">
+                    <div className="w-10 h-10 rounded-full border border-[rgba(37,99,235,0.35)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center text-blue-light transition-all duration-300 group-hover:scale-105 group-hover:border-[rgba(37,99,235,0.6)]">
                       <span className="text-[18px] leading-none">
                         {item.icon}
                       </span>
@@ -385,12 +385,12 @@ export default function AboutPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[560px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 How We Serve
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 A Structured Process.<br />
-                <em className="italic text-gold-light">Predictable Every Time.</em>
+                <em className="italic text-blue-light">Predictable Every Time.</em>
               </h2>
             </div>
             <div className="max-w-[720px] mx-auto relative">
@@ -398,7 +398,7 @@ export default function AboutPage() {
               {STEPS.map((step, i) => (
                 <div key={i} className={`reveal flex gap-5 sm:gap-7 items-start relative z-[1] ${i < STEPS.length - 1 ? 'mb-6 sm:mb-8' : ''}`}>
                   <div className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] rounded-full bg-deep border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0">
-                    <span className="font-['Cormorant_Garamond',serif] text-sm sm:text-base font-semibold text-gold-light">{step.num}</span>
+                    <span className="font-garamond text-sm sm:text-base font-semibold text-blue-light">{step.num}</span>
                   </div>
                   <div className="bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[4px] p-4 sm:p-5 flex-1 hover:border-[rgba(37,99,235,0.25)] transition-colors">
                     <div className="text-sm sm:text-[15px] font-semibold text-white mb-2">{step.title}</div>
@@ -416,12 +416,12 @@ export default function AboutPage() {
 
             {/* Header */}
             <div className="text-center mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Our Offices
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Two Countries.<br />
-                <em className="italic text-gold-light">Five Locations.</em>
+                <em className="italic text-blue-light">Five Locations.</em>
               </h2>
             </div>
 
@@ -445,9 +445,9 @@ export default function AboutPage() {
 
         {/* ── CTA BANNER ── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
+          <h2 className="font-garamond text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Work With a Team<br />
-            <em className="italic text-gold-light">That&apos;s All-In.</em>
+            <em className="italic text-blue-light">That&apos;s All-In.</em>
           </h2>
           <p className="text-sm text-muted max-w-[420px] mx-auto mb-7">
             No vendor chains. No hidden charges. One team, full accountability — China side and India side.
@@ -455,7 +455,7 @@ export default function AboutPage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+              className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
             >
               Get DDP Quote →
             </Link>

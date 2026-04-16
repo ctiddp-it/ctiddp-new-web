@@ -65,20 +65,20 @@ export default function DutyCalcClient() {
           <span className="text-[11px] text-[rgba(37,99,235,0.3)] whitespace-nowrap">›</span>
           <span className="text-[11px] text-muted/60 whitespace-nowrap">Resources</span>
           <span className="text-[11px] text-[rgba(37,99,235,0.3)] whitespace-nowrap">›</span>
-          <span className="text-[11px] text-gold-light whitespace-nowrap">Duty Calculator</span>
+          <span className="text-[11px] text-blue-light whitespace-nowrap">Duty Calculator</span>
         </div>
 
         {/* Hero Section */}
         <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[38vh] px-4 sm:px-[60px] pt-[60px] sm:pt-[90px] pb-[40px] sm:pb-[60px] bg-black">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.1)_0%,transparent_70%)]" />
           <div className="relative z-10 max-w-[740px]">
-            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-gold-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
+            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-blue-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               India Import Duty Calculator
             </div>
-            <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
+            <h1 className="font-garamond text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
               Know Your Duties<br />
-              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-blue-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Before You Ship.
               </em>
             </h1>
@@ -94,12 +94,12 @@ export default function DutyCalcClient() {
             
             {/* Left Column - Explanation */}
             <div>
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 How India Duties Work
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(24px,3.2vw,40px)] font-light leading-[1.1] mb-[14px]">
+              <h2 className="font-garamond text-[clamp(24px,3.2vw,40px)] font-light leading-[1.1] mb-[14px]">
                 What Duties Apply<br />
-                <em className="italic text-gold-light">To Your Goods?</em>
+                <em className="italic text-blue-light">To Your Goods?</em>
               </h2>
               <p className="text-[rgba(250,250,248,0.6)] text-[13.5px] leading-[1.8] mb-6">
                 India levies multiple taxes on imports. Understanding them upfront prevents costly port surprises.
@@ -131,7 +131,7 @@ export default function DutyCalcClient() {
 
               {/* Formula Breakdown */}
               <div className="mt-7 bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.12)] rounded-[4px] p-4 sm:p-5">
-                <div className="text-[10px] text-gold tracking-[2px] uppercase mb-3.5">Calculation Formula</div>
+                <div className="text-[10px] text-blue tracking-[2px] uppercase mb-3.5">Calculation Formula</div>
                 {[
                   'BCD = CIF × BCD Rate',
                   'SWS = BCD × 10%',
@@ -141,7 +141,7 @@ export default function DutyCalcClient() {
                 ].map((f, i) => (
                   <div
                     key={i}
-                    className={`font-mono text-xs py-1.5 ${i < 4 ? 'border-b border-[rgba(255,255,255,0.04)]' : ''} ${i === 4 ? 'text-gold-light font-semibold' : 'text-[rgba(250,250,248,0.6)]'}`}
+                    className={`font-mono text-xs py-1.5 ${i < 4 ? 'border-b border-[rgba(255,255,255,0.04)]' : ''} ${i === 4 ? 'text-blue-light font-semibold' : 'text-[rgba(250,250,248,0.6)]'}`}
                   >
                     {f}
                   </div>
@@ -151,7 +151,7 @@ export default function DutyCalcClient() {
 
             {/* Right Column - Calculator Card */}
             <div className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-5 sm:p-7">
-              <h3 className="font-['Cormorant_Garamond',serif] text-xl font-semibold mb-5 text-gold-light">
+              <h3 className="font-garamond text-xl font-semibold mb-5 text-blue-light">
                 📊 Calculate Your Landed Cost
               </h3>
 
@@ -232,7 +232,7 @@ export default function DutyCalcClient() {
                   ))}
                   <div className="flex justify-between items-center py-3 mt-1 bg-[rgba(37,99,235,0.05)] -mx-2 px-2 rounded">
                     <span className="text-[13px] font-semibold text-white">Total Landed Cost</span>
-                    <span className="text-base font-bold text-gold-light">{fmt(result.total)}</span>
+                    <span className="text-base font-bold text-blue-light">{fmt(result.total)}</span>
                   </div>
                   <div className="mt-3.5 p-2.5 bg-[rgba(74,222,128,0.06)] border border-[rgba(74,222,128,0.15)] rounded-[3px] text-[11px] text-green-400">
                     ✓ In our DDP service, this entire amount is pre-paid. You receive goods free of all port charges.
@@ -254,12 +254,12 @@ export default function DutyCalcClient() {
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-black">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Quick Reference
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
                 Common BCD Rates<br />
-                <em className="italic text-gold-light">for China Imports</em>
+                <em className="italic text-blue-light">for China Imports</em>
               </h2>
             </div>
 
@@ -269,7 +269,7 @@ export default function DutyCalcClient() {
                 <thead>
                   <tr className="border-b border-[rgba(37,99,235,0.2)]">
                     {['HS Chapter', 'Product Category', 'Typical BCD', 'IGST', 'Notes'].map(h => (
-                      <th key={h} className="text-left px-3 sm:px-3.5 py-2.5 text-[10px] tracking-[1.5px] uppercase text-gold font-semibold whitespace-nowrap">
+                      <th key={h} className="text-left px-3 sm:px-3.5 py-2.5 text-[10px] tracking-[1.5px] uppercase text-blue font-semibold whitespace-nowrap">
                         {h}
                       </th>
                     ))}
@@ -287,7 +287,7 @@ export default function DutyCalcClient() {
                     ['Ch. 95', 'Toys & Games', '60%', '12%', 'Very high BCD'],
                   ].map(([ch, cat, bcd, igst, note]) => (
                     <tr key={ch} className="border-b border-[rgba(255,255,255,0.04)]">
-                      <td className="px-3 sm:px-3.5 py-3 text-gold-light font-mono text-[11px] whitespace-nowrap">{ch}</td>
+                      <td className="px-3 sm:px-3.5 py-3 text-blue-light font-mono text-[11px] whitespace-nowrap">{ch}</td>
                       <td className="px-3 sm:px-3.5 py-3 text-white whitespace-nowrap">{cat}</td>
                       <td className="px-3 sm:px-3.5 py-3 text-muted font-medium whitespace-nowrap">{bcd}</td>
                       <td className="px-3 sm:px-3.5 py-3 text-muted whitespace-nowrap">{igst}</td>
@@ -302,9 +302,9 @@ export default function DutyCalcClient() {
 
         {/* CTA Banner */}
         <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-garamond text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Duties Calculated.<br />
-            <em className="italic text-gold-light">Now Let Us Pay Them.</em>
+            <em className="italic text-blue-light">Now Let Us Pay Them.</em>
           </h2>
           <p className="text-[15px] text-muted mb-8 max-w-[500px] mx-auto px-2">
             In our DDP service, every duty is pre-paid and included in your quote. Zero port surprises.

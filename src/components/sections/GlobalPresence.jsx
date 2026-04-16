@@ -246,14 +246,14 @@ export default function GlobalPresence() {
           className="text-center mb-8 sm:mb-10 z-10 relative px-2"
         >
           <div className="inline-flex items-center gap-3 mb-3 sm:mb-4">
-            <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[0.65rem] md:text-[0.68rem] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px]">
+            <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[0.65rem] md:text-[0.68rem] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px]">
               Our Reach
             </span>
           </div>
 
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-garamond text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
             Global{" "}
-            <span className="italic text-gold-light">Presence</span>
+            <span className="italic text-blue-light">Presence</span>
           </h2>
 
           <p className="text-[0.88rem] sm:text-[0.96rem] text-muted max-w-[320px] sm:max-w-[440px] mx-auto leading-[1.75]">

@@ -10,9 +10,9 @@ const DEMO_DATA = {
 }
 
 const MILESTONES = [
-  { done: true,   icon: '✓', label: 'Factory Pickup',     date: '05 Mar · Guangzhou',     colr: 'text-gold-light' },
-  { done: true,   icon: '✓', label: 'QC Inspection',      date: '06 Mar · Foshan Warehouse', colr: 'text-gold-light' },
-  { done: true,   icon: '✓', label: 'Export Customs',      date: '08 Mar · Nansha Port',   colr: 'text-gold-light' },
+  { done: true,   icon: '✓', label: 'Factory Pickup',     date: '05 Mar · Guangzhou',     colr: 'text-blue-light' },
+  { done: true,   icon: '✓', label: 'QC Inspection',      date: '06 Mar · Foshan Warehouse', colr: 'text-blue-light' },
+  { done: true,   icon: '✓', label: 'Export Customs',      date: '08 Mar · Nansha Port',   colr: 'text-blue-light' },
   { done: false,  icon: '🚢', label: 'Ocean Transit',      date: 'ETA 18 Mar · MV Chennai Express', colr: 'text-[#60a5fa]', active: true },
   { done: false,  icon: '🛃', label: 'India Customs',      date: 'JNPT / Chennai',         colr: 'text-muted' },
   { done: false,  icon: '📦', label: 'Delivered + POD',    date: 'Last-mile delivery',     colr: 'text-muted' },
@@ -34,9 +34,9 @@ export default function TrackingWidget() {
 
       <div className="max-w-[1200px] mx-auto relative z-[1]">
         <div className="text-center mb-12">
-          <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold block mb-3">Shipment Visibility</span>
+          <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue block mb-3">Shipment Visibility</span>
           <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">
-            Track Your<br /><em className="italic text-gold-light">DDP Shipment</em>
+            Track Your<br /><em className="italic text-blue-light">DDP Shipment</em>
           </h2>
         </div>
 
@@ -54,7 +54,7 @@ export default function TrackingWidget() {
           <div className="flex justify-center gap-2 mt-3 items-center">
             <span className="text-[rgba(255,255,255,0.3)] text-[10px]">Try demo:</span>
             <button
-              className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[11px] py-[3px] px-3 rounded-full cursor-none font-[var(--font-outfit),'Outfit',sans-serif] transition-colors duration-200 hover:bg-[rgba(37,99,235,0.15)]"
+              className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[11px] py-[3px] px-3 rounded-full cursor-none font-[var(--font-outfit),'Outfit',sans-serif] transition-colors duration-200 hover:bg-[rgba(37,99,235,0.15)]"
               onClick={() => { setTrackID(DEMO_DATA.id); setShowResult(true) }}
             >
               {DEMO_DATA.id}
@@ -69,7 +69,7 @@ export default function TrackingWidget() {
             <div className="p-5 border-b border-[rgba(255,255,255,0.07)] flex justify-between items-center flex-wrap gap-3">
               <div>
                 <div className="text-[10px] text-muted tracking-[1.5px] uppercase mb-1">Tracking Number</div>
-                <div className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[20px] font-semibold text-gold-light">{d.id}</div>
+                <div className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[20px] font-semibold text-blue-light">{d.id}</div>
               </div>
               <span className="inline-flex items-center gap-2 bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.25)] text-[#60a5fa] text-xs font-semibold py-1.5 px-4 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] animate-[pulse_2s_ease-in-out_infinite]" />
@@ -124,7 +124,7 @@ export default function TrackingWidget() {
 
         {/* Bottom */}
         <div className="text-center mt-8">
-          <Link href="/track" className="text-gold-light text-[13px] no-underline border-b border-[rgba(37,99,235,0.4)] cursor-none transition-all duration-200 hover:border-gold">Open Full Tracker →</Link>
+          <Link href="/track" className="text-blue-light text-[13px] no-underline border-b border-[rgba(37,99,235,0.4)] cursor-none transition-all duration-200 hover:border-gold">Open Full Tracker →</Link>
         </div>
       </div>
     </section>

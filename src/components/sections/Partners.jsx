@@ -99,12 +99,12 @@ export default function PartnersSection() {
   return (
     <section className="py-16 px-6 overflow-hidden text-center bg-gray-100 dark:bg-black">
       <div className="text-center max-w-150 mx-auto mb-0 md:mb-11">
-        <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+        <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
           Trusted by industry leaders
         </span>
-        <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
+        <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
           Our<br />
-          <em className="italic text-gold-light">Global Partners</em>
+          <em className="italic text-blue-light">Global Partners</em>
         </h2>
         <p className="text-[15px] text-muted leading-relaxed max-w-141 mx-auto">
           Collaborating with world-class platforms and logistics providers to deliver excellence.

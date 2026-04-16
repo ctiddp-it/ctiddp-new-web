@@ -54,12 +54,12 @@ export default function CantonFairClient() {
       <div className="max-w-[760px] mx-auto">
         {/* Section label */}
         <div className="text-center mb-10">
-          <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold mb-3 block">
+          <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue mb-3 block">
             Reserve Your Slot
           </span>
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(30px,4vw,52px)] font-light leading-[1.1] mb-[12px]">
+          <h2 className="font-garamond text-[clamp(30px,4vw,52px)] font-light leading-[1.1] mb-[12px]">
             Book Canton Fair<br />
-            <em className="italic text-gold-light">Support</em>
+            <em className="italic text-blue-light">Support</em>
           </h2>
           <p className="text-[14px] text-muted max-w-[420px] mx-auto">
             Submit your details and our Guangzhou team will confirm your dedicated support slot.
@@ -191,7 +191,7 @@ export default function CantonFairClient() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="flex-1 sm:flex-none bg-linear-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase disabled:opacity-70 shadow-[0_8px_28px_rgba(37,99,235,0.25)] transition-opacity duration-150"
+                    className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
                   >
                     {submitting ? 'Submitting…' : 'Reserve My Support Slot →'}
                   </button>
@@ -209,7 +209,7 @@ export default function CantonFairClient() {
           ) : (
             <div className="text-center py-10">
               <div className="text-4xl mb-5">✅</div>
-              <h3 className="font-['Cormorant_Garamond',serif] text-[32px] text-gold-light mb-3">
+              <h3 className="font-garamond text-[32px] text-blue-light mb-3">
                 Request Received
               </h3>
               <p className="text-[14px] text-muted max-w-[340px] mx-auto leading-[1.7]">

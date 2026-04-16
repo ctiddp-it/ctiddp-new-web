@@ -45,17 +45,17 @@ export default function PricingPage() {
 
         <nav className="py-3 px-15 text-[11px] text-muted flex items-center gap-2">
           <span><Link href="/" className="text-muted/60 no-underline">Home</Link></span>
-          <span className="text-[rgba(37,99,235,0.3)]">›</span><span className="text-gold-light">Pricing</span>
+          <span className="text-[rgba(37,99,235,0.3)]">›</span><span className="text-blue-light">Pricing</span>
         </nav>
 
         {/* Hero */}
         <section className="relative py-28 px-10 text-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_-10%,rgba(37,99,235,0.1),transparent_70%)]" />
           <div className="relative z-[1] max-w-[680px] mx-auto">
-            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-gold-light text-[11px] font-medium tracking-[2px] uppercase py-2 px-5 rounded-full mb-5">
+            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-blue-light text-[11px] font-medium tracking-[2px] uppercase py-2 px-5 rounded-full mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_var(--color-gold)]" />Transparent Pricing
             </div>
-            <h1 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] text-white mb-4">Simple, Transparent<br /><em className="italic text-gold-light">DDP Pricing.</em></h1>
+            <h1 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] text-white mb-4">Simple, Transparent<br /><em className="italic text-blue-light">DDP Pricing.</em></h1>
             <p className="text-[15px] text-muted leading-[1.7] max-w-[520px] mx-auto">One all-inclusive DDP price. No freight invoice. No customs invoice. No surprises.</p>
           </div>
         </section>
@@ -64,8 +64,8 @@ export default function PricingPage() {
         <section className="py-20 px-10">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-11">
-              <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold block mb-3">DDP Service Plans</span>
-              <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">Choose Your<br /><em className="italic text-gold-light">Service Level</em></h2>
+              <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue block mb-3">DDP Service Plans</span>
+              <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">Choose Your<br /><em className="italic text-blue-light">Service Level</em></h2>
               <p className="text-sm text-muted leading-[1.7] mt-2.5 max-w-[480px] mx-auto">All plans include full DDP with BCD+IGST pre-paid. Scale up as your volume grows.</p>
             </div>
 
@@ -73,14 +73,14 @@ export default function PricingPage() {
               {PLANS.map(plan => (
                 <div key={plan.name} className={`reveal rounded-[3px] py-8 px-7 flex flex-col${plan.featured ? ' bg-[rgba(37,99,235,0.06)] border-2 border-gold relative' : ' bg-surface border border-border'}`}>
                   {plan.featured && <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-[9px] font-bold tracking-[1.5px] uppercase bg-gold text-black py-1 px-3 rounded-full">Most Popular</div>}
-                  <span className="text-[9px] tracking-[2px] uppercase text-gold mb-2">{plan.tier}</span>
+                  <span className="text-[9px] tracking-[2px] uppercase text-blue mb-2">{plan.tier}</span>
                   <div className="font-[var(--font-playfair),'playfair_Garamond',serif] text-2xl font-semibold text-white mb-1">{plan.name}</div>
                   <div className="text-xs text-muted mb-4">{plan.tagline}</div>
-                  <div className="font-[var(--font-playfair),'playfair_Garamond',serif] text-4xl font-semibold text-gold-light mb-1">{plan.price}<span className="text-sm text-muted font-normal">{plan.per}</span></div>
+                  <div className="font-[var(--font-playfair),'playfair_Garamond',serif] text-4xl font-semibold text-blue-light mb-1">{plan.price}<span className="text-sm text-muted font-normal">{plan.per}</span></div>
                   <div className="h-px bg-[rgba(37,99,235,0.15)] my-5" />
                   {plan.features.map(f => (
                     <div key={f} className="flex items-start gap-2 text-xs text-[rgba(250,250,248,0.8)] mb-2">
-                      <span className="text-gold shrink-0">✓</span>{f}
+                      <span className="text-blue shrink-0">✓</span>{f}
                     </div>
                   ))}
                   {plan.noFeatures.map(f => (
@@ -88,7 +88,7 @@ export default function PricingPage() {
                       <span className="shrink-0">✕</span>{f}
                     </div>
                   ))}
-                  <Link href={plan.ctaHref} className={`mt-auto py-3 text-center rounded-sm text-xs font-bold tracking-[0.8px] uppercase no-underline transition-all duration-200 cursor-none block${plan.featured ? ' bg-linear-to-br from-gold to-gold-light text-black shadow-[0_6px_20px_rgba(37,99,235,0.3)] hover:-translate-y-0.5' : ' border border-[rgba(37,99,235,0.4)] text-gold-light hover:bg-[rgba(37,99,235,0.08)]'}`}>{plan.ctaLabel}</Link>
+                  <Link href={plan.ctaHref} className={`mt-auto py-3 text-center rounded-sm text-xs font-bold tracking-[0.8px] uppercase no-underline transition-all duration-200 cursor-none block${plan.featured ? ' bg-linear-to-br from-gold to-gold-light text-black shadow-[0_6px_20px_rgba(37,99,235,0.3)] hover:-translate-y-0.5' : ' border border-[rgba(37,99,235,0.4)] text-blue-light hover:bg-[rgba(37,99,235,0.08)]'}`}>{plan.ctaLabel}</Link>
                 </div>
               ))}
             </div>
@@ -107,23 +107,23 @@ export default function PricingPage() {
         <section className="py-20 px-10 bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center mb-10">
-              <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold block mb-3">How Landed Cost Works</span>
-              <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">Example Calculation<br /><em className="italic text-gold-light">of Landed Cost</em></h2>
+              <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue block mb-3">How Landed Cost Works</span>
+              <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">Example Calculation<br /><em className="italic text-blue-light">of Landed Cost</em></h2>
               <p className="text-sm text-muted leading-[1.7] mt-2.5 max-w-[580px] mx-auto">You bought 100 PU Bags @ 40 RMB/piece from Canton Fair. 1 CBM, 200 KG. Exchange rate 1 RMB = ₹10.8. Here&apos;s how the landed cost breaks down:</p>
             </div>
 
             <div className="reveal max-w-[820px] mx-auto bg-surface border border-[rgba(37,99,235,0.15)] rounded overflow-hidden">
               <div className="grid grid-cols-[60px_1fr_160px_140px] bg-[rgba(37,99,235,0.1)] border-b-2 border-b-[rgba(37,99,235,0.25)]">
                 {['S.NO', 'DESCRIPTION', 'DETAILS', 'AMOUNT (₹)'].map(h => (
-                  <div key={h} className="py-3 px-4 text-[10px] font-bold tracking-[1.5px] uppercase text-gold">{h}</div>
+                  <div key={h} className="py-3 px-4 text-[10px] font-bold tracking-[1.5px] uppercase text-blue">{h}</div>
                 ))}
               </div>
               {EXAMPLE_ROWS.map((row, i) => (
                 <div key={row.id} className={`grid grid-cols-[60px_1fr_160px_140px]${i < EXAMPLE_ROWS.length - 1 ? ' border-b border-[rgba(255,255,255,0.04)]' : ''}${row.highlight ? ' bg-[rgba(37,99,235,0.08)]' : ''}`}>
-                  <div className="py-[11px] px-4 text-[13px] text-gold-light font-semibold">{row.id}</div>
+                  <div className="py-[11px] px-4 text-[13px] text-blue-light font-semibold">{row.id}</div>
                   <div className={`py-[11px] px-4 text-[13px]${row.highlight ? ' text-white font-semibold' : ' text-[rgba(250,250,248,0.8)]'}`}>{row.desc}</div>
                   <div className="py-[11px] px-4 text-xs text-muted font-mono">{row.detail}</div>
-                  <div className={`py-[11px] px-4${row.highlight ? ' text-base text-gold-light font-bold font-[var(--font-playfair),\'playfair_Garamond\',serif]' : ' text-[13px] text-[rgba(250,250,248,0.8)]'}`}>₹{row.amount}</div>
+                  <div className={`py-[11px] px-4${row.highlight ? ' text-base text-blue-light font-bold font-[var(--font-playfair),\'playfair_Garamond\',serif]' : ' text-[13px] text-[rgba(250,250,248,0.8)]'}`}>₹{row.amount}</div>
                 </div>
               ))}
             </div>
@@ -139,8 +139,8 @@ export default function PricingPage() {
         <section className="py-20 px-10">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.6fr] gap-20 items-start">
             <div>
-              <span className="text-[10px] font-semibold tracking-[3px] uppercase text-gold block mb-3">Pricing FAQs</span>
-              <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">Common Pricing<br /><em className="italic text-gold-light">Questions</em></h2>
+              <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue block mb-3">Pricing FAQs</span>
+              <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">Common Pricing<br /><em className="italic text-blue-light">Questions</em></h2>
             </div>
             <div className="flex flex-col gap-4">
               {PRICING_FAQS.map(faq => (
@@ -154,7 +154,7 @@ export default function PricingPage() {
         </section>
 
         <div className="relative text-center py-16 px-10 overflow-hidden bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(37,99,235,0.08),transparent_70%)] border-y border-[rgba(37,99,235,0.1)]">
-          <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(28px,3.5vw,44px)] font-light text-white mb-3">Want a Quote<br /><em className="italic text-gold-light">Right Now?</em></h2>
+          <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(28px,3.5vw,44px)] font-light text-white mb-3">Want a Quote<br /><em className="italic text-blue-light">Right Now?</em></h2>
           <p className="text-sm text-muted max-w-[420px] mx-auto mb-7">Share your cargo details and get a full DDP price within 2 hours.</p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link href="/quote" className="bg-linear-to-br from-gold to-gold-light text-black py-[13px] px-8 rounded-sm font-bold text-[13px] tracking-[1px] uppercase no-underline inline-flex items-center gap-2 shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-all duration-200 cursor-none hover:-translate-y-0.5">Get Your Quote →</Link>

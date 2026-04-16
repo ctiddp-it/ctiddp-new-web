@@ -51,10 +51,10 @@ function MobileSection({ title, children }) {
         onClick={() => setOpen(o => !o)}
         className="w-full flex items-center justify-between py-4 bg-transparent border-none cursor-pointer text-left"
       >
-        <span className="text-[11px] font-bold tracking-[2px] uppercase text-gold">{title}</span>
+        <span className="text-[11px] font-bold tracking-[2px] uppercase text-blue">{title}</span>
         <svg
           width="12" height="12" viewBox="0 0 10 10" fill="none"
-          className={`transition-transform duration-200 text-gold shrink-0 ${open ? 'rotate-180' : ''}`}
+          className={`transition-transform duration-200 text-blue shrink-0 ${open ? 'rotate-180' : ''}`}
         >
           <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
@@ -69,7 +69,7 @@ function MobileSection({ title, children }) {
 /* Contact icon wrapper */
 function IconBorderWrapper({ children }) {
   return (
-     <div className="w-8 h-8 rounded-full border border-[rgba(37,99,235,0.35)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center text-gold-light shrink-0 mt-0.5 transition-all duration-300 group-hover:border-gold group-hover:bg-[rgba(37,99,235,0.15)]">
+     <div className="w-8 h-8 rounded-full border border-[rgba(37,99,235,0.35)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center text-blue-light shrink-0 mt-0.5 transition-all duration-300 group-hover:border-gold group-hover:bg-[rgba(37,99,235,0.15)]">
       {children}
     </div>
   )
@@ -100,7 +100,7 @@ export default function Footer() {
                 </svg>
               </div>
               <div className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[22px] font-bold tracking-[2px]">
-                <span className="text-gold-light">
+                <span className="text-blue-light">
                   CTI<span className="text-[#FFFFFF]">DDP</span>
                 </span>
               </div>
@@ -112,7 +112,7 @@ export default function Footer() {
 
             {/* Social */}
             <div>
-              <p className="text-[9px] font-bold tracking-[2px] uppercase text-gold mb-3">Follow Us</p>
+              <p className="text-[9px] font-bold tracking-[2px] uppercase text-blue mb-3">Follow Us</p>
               <div className="flex items-center gap-2">
                 {SOCIAL.map(s => (
                   <a
@@ -121,7 +121,7 @@ export default function Footer() {
                     aria-label={s.label}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-sm border border-[rgba(37,99,235,0.2)] bg-[rgba(37,99,235,0.04)] flex items-center justify-center text-muted hover:text-gold-light hover:border-[rgba(37,99,235,0.45)] hover:bg-[rgba(37,99,235,0.1)] transition-all duration-200 no-underline"
+                    className="w-9 h-9 rounded-sm border border-[rgba(37,99,235,0.2)] bg-[rgba(37,99,235,0.04)] flex items-center justify-center text-muted hover:text-blue-light hover:border-[rgba(37,99,235,0.45)] hover:bg-[rgba(37,99,235,0.1)] transition-all duration-200 no-underline"
                   >
                     <span className="text-[14px]">
                       {s.icon}
@@ -142,9 +142,9 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="flex items-center text-muted text-[13px] no-underline py-[7px] hover:text-gold-light transition-colors duration-200 group"
+                    className="flex items-center text-muted text-[13px] no-underline py-[7px] hover:text-blue-light transition-colors duration-200 group"
                   >
-                    <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-gold text-xs leading-none">›</span>
+                    <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 text-blue text-xs leading-none">›</span>
                     {link.label}
                   </Link>
                 </li>
@@ -164,7 +164,7 @@ export default function Footer() {
                     href={svc.href}
                     className="block py-[7px] no-underline group"
                   >
-                    <span className="text-[12.5px] font-medium text-[#FFFFFF]/90 group-hover:text-gold-light transition-colors duration-200 block leading-tight">
+                    <span className="text-[12.5px] font-medium text-[#FFFFFF]/90 group-hover:text-blue-light transition-colors duration-200 block leading-tight">
                       {svc.title}
                     </span>
                     <span className="text-[11px] text-muted leading-snug">
@@ -226,7 +226,7 @@ export default function Footer() {
                 </IconBorderWrapper>
                 <div>
                   <p className="text-[12px] font-semibold text-[#FFFFFF] leading-tight">Email Us</p>
-                  <a href="mailto:info@ctiddp.com" className="text-[11px] text-gold-light no-underline hover:underline mt-0.5 block">info@ctiddp.com</a>
+                  <a href="mailto:info@ctiddp.com" className="text-[11px] text-blue-light no-underline hover:underline mt-0.5 block">info@ctiddp.com</a>
                 </div>
               </div>
 
@@ -272,7 +272,7 @@ export default function Footer() {
               </svg>
             </div>
             <div className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[20px] font-bold tracking-[2px]">
-              <span className="text-gold-light">
+              <span className="text-blue-light">
                 CTI<span className="text-[#FFFFFF]">DDP</span>
               </span>
             </div>
@@ -281,11 +281,11 @@ export default function Footer() {
             </p>
             {/* Social mobile */}
             <div className="mt-4">
-              <p className="text-[9px] font-bold tracking-[2px] uppercase text-gold mb-2.5">Follow Us</p>
+              <p className="text-[9px] font-bold tracking-[2px] uppercase text-blue mb-2.5">Follow Us</p>
               <div className="flex items-center justify-center gap-2">
                 {SOCIAL.map(s => (
                   <a key={s.label} href={s.href} aria-label={s.label} target="_blank" rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-sm border border-[rgba(37,99,235,0.2)] bg-[rgba(37,99,235,0.04)] flex items-center justify-center text-muted hover:text-gold-light transition-all duration-200 no-underline">
+                    className="w-9 h-9 rounded-sm border border-[rgba(37,99,235,0.2)] bg-[rgba(37,99,235,0.04)] flex items-center justify-center text-muted hover:text-blue-light transition-all duration-200 no-underline">
                     {s.icon}
                   </a>
                 ))}
@@ -298,7 +298,7 @@ export default function Footer() {
             <ul className="list-none flex flex-col gap-0">
               {QUICK_LINKS.map(link => (
                 <li key={link.href}>
-                  <Link href={link.href} className="block text-muted text-[13px] no-underline py-2 hover:text-gold-light transition-colors duration-200">
+                  <Link href={link.href} className="block text-muted text-[13px] no-underline py-2 hover:text-blue-light transition-colors duration-200">
                     {link.label}
                   </Link>
                 </li>
@@ -311,7 +311,7 @@ export default function Footer() {
               {SERVICES.map(svc => (
                 <li key={svc.href}>
                   <Link href={svc.href} className="block py-2 no-underline group">
-                    <span className="text-[12.5px] font-medium text-white/90 group-hover:text-gold-light transition-colors duration-200 block">{svc.title}</span>
+                    <span className="text-[12.5px] font-medium text-white/90 group-hover:text-blue-light transition-colors duration-200 block">{svc.title}</span>
                     <span className="text-[11px] text-muted">{svc.desc}</span>
                   </Link>
                 </li>
@@ -327,7 +327,7 @@ export default function Footer() {
                 { icon: <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01-.01 1.17 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" /></svg>, title: 'Call Us', lines: ['+86 XXX XXXX XXXX', '+91 XXX XXXX XXXX'] },
               ].map(c => (
                 <div key={c.title} className="flex gap-3 items-start">
-                  <div className="w-7 h-7 rounded-full border border-[rgba(37,99,235,0.25)] flex items-center justify-center text-gold shrink-0">{c.icon}</div>
+                  <div className="w-7 h-7 rounded-full border border-[rgba(37,99,235,0.25)] flex items-center justify-center text-blue shrink-0">{c.icon}</div>
                   <div>
                     <p className="text-[12px] font-semibold text-white">{c.title}</p>
                     {c.lines.map(l => <p key={l} className="text-[11px] text-muted">{l}</p>)}
@@ -350,9 +350,9 @@ export default function Footer() {
             © {new Date().getFullYear()} CTIDDP. All rights reserved. China to India DDP Specialists.
           </p>
           <div className="flex items-center gap-4 flex-wrap justify-center">
-            <Link href="/privacy" className="text-[11px] text-gold/60 no-underline hover:text-gold transition-colors duration-200">Privacy Policy</Link>
+            <Link href="/privacy" className="text-[11px] text-blue/60 no-underline hover:text-blue transition-colors duration-200">Privacy Policy</Link>
             <span className="text-[rgba(37,99,235,0.2)] text-xs">|</span>
-            <Link href="/terms" className="text-[11px] text-gold/60 no-underline hover:text-gold transition-colors duration-200">Terms of Service</Link>
+            <Link href="/terms" className="text-[11px] text-blue/60 no-underline hover:text-blue transition-colors duration-200">Terms of Service</Link>
             <span className="text-[rgba(37,99,235,0.2)] text-xs hidden sm:inline">·</span>
             <p className="text-[11px] text-muted/50 hidden sm:block">
               Offices: Guangzhou 🇨🇳 · Foshan 🇨🇳 · Visakhapatnam 🇮🇳

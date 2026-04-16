@@ -183,12 +183,12 @@ const AccordionItem = ({ question, answer, isOpen, onClick }) => {
         onClick={onClick}
         className="w-full py-5 flex justify-between items-center text-left group cursor-none"
       >
-        <span className="text-[15px] font-medium text-white group-hover:text-gold-light transition-colors pr-4">
+        <span className="text-[15px] font-medium text-white group-hover:text-blue-light transition-colors pr-4">
           {question}
         </span>
         <span className={`flex-shrink-0 w-6 h-6 rounded-full border border-[rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 ${isOpen ? 'bg-gold/20 border-gold' : 'bg-transparent'}`}>
           <svg
-            className={`w-3 h-3 text-gold-light transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+            className={`w-3 h-3 text-blue-light transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -218,7 +218,7 @@ const CategoryAccordion = ({ category, isCategoryOpen, onCategoryToggle, openIte
       >
         <div className="flex items-center gap-3">
           <span className="text-xl">{category.icon}</span>
-          <span className="font-['Cormorant_Garamond',serif] text-lg font-semibold text-gold-light">
+          <span className="font-garamond text-lg font-semibold text-blue-light">
             {category.title}
           </span>
           <span className="text-[11px] text-muted bg-[var(--overlay-input)] px-2 py-0.5 rounded-full">
@@ -227,7 +227,7 @@ const CategoryAccordion = ({ category, isCategoryOpen, onCategoryToggle, openIte
         </div>
         <span className={`flex-shrink-0 w-7 h-7 rounded-full border border-[rgba(37,99,235,0.3)] flex items-center justify-center transition-all duration-300 ${isCategoryOpen ? 'bg-gold/20 border-gold' : 'bg-transparent'}`}>
           <svg
-            className={`w-3.5 h-3.5 text-gold-light transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`}
+            className={`w-3.5 h-3.5 text-blue-light transition-transform duration-300 ${isCategoryOpen ? 'rotate-180' : ''}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -405,20 +405,20 @@ export default function ContactClient() {
             <Link href="/" className="text-muted/60 no-underline">Home</Link>
           </span>
           <span className="text-[11px] text-[rgba(37,99,235,0.3)] whitespace-nowrap">›</span>
-          <span className="text-[11px] text-gold-light whitespace-nowrap">Contact</span>
+          <span className="text-[11px] text-blue-light whitespace-nowrap">Contact</span>
         </div>
 
         {/* Hero Section */}
         <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[38vh] px-4 sm:px-[60px] pt-[60px] sm:pt-[90px] pb-[40px] sm:pb-[60px] bg-black">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.1)_0%,transparent_70%)]" />
           <div className="relative z-10 max-w">
-            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-gold-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
+            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-blue-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Get in Touch
             </div>
-            <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
+            <h1 className="font-garamond text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
               Our Presence<br />
-              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic text-blue-light">
                 Two Countries, Five Locations.
               </em>
             </h1>
@@ -437,7 +437,7 @@ export default function ContactClient() {
               {/* Form Section */}
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-6 sm:p-7">
-                  <div className="font-['Cormorant_Garamond',serif] text-xl font-semibold text-gold-light mb-5">Send Us a Message</div>
+                  <div className="font-garamond text-xl font-semibold text-blue-light mb-5">Send Us a Message</div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="sm:col-span-1">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Name *</label>
@@ -525,8 +525,8 @@ export default function ContactClient() {
                           }}
                           className="w-4 h-4 rounded border-[rgba(37,99,235,0.3)] bg-transparent checked:bg-gold checked:border-gold focus:ring-gold focus:ring-offset-0 focus:ring-1 cursor-pointer"
                         />
-                        <span className="flex items-center gap-2 text-[13px] text-muted group-hover:text-gold-light transition-colors">
-                          <BsCalendarEvent className="text-gold-light w-4 h-4 shrink-0" />
+                        <span className="flex items-center gap-2 text-[13px] text-muted group-hover:text-blue-light transition-colors">
+                          <BsCalendarEvent className="text-blue-light w-4 h-4 shrink-0" />
                           <span>I'd like to schedule a call with the team</span>
                         </span>
                       </label>
@@ -535,7 +535,7 @@ export default function ContactClient() {
                     {/* Dynamic Schedule Call Section */}
                     {scheduleCall && (
                       <div className="sm:col-span-2 mt-4 p-4 bg-[rgba(37,99,235,0.05)] border border-[rgba(37,99,235,0.15)] rounded-[3px]">
-                        <div className="text-sm font-medium text-gold-light mb-3">Schedule a Call</div>
+                        <div className="text-sm font-medium text-blue-light mb-3">Schedule a Call</div>
 
                         {/* Date Selection */}
                         <div className="mb-4">
@@ -567,7 +567,7 @@ export default function ContactClient() {
                                   onClick={() => handleSlotSelect(slot.value)}
                                   className={`px-3 py-2 rounded-[3px] text-xs font-medium transition-all cursor-none ${selectedSlot === slot.value
                                     ? 'bg-gold text-black border border-gold'
-                                    : 'bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] text-muted hover:border-gold/50 hover:text-gold-light'
+                                    : 'bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] text-muted hover:border-gold/50 hover:text-blue-light'
                                     }`}
                                 >
                                   {slot.label}
@@ -596,7 +596,7 @@ export default function ContactClient() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full mt-6 bg-linear-to-br from-gold to-gold-light text-black px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+                    className="w-full mt-6 bg-linear-to-br from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
                   >
                     {submitting ? 'Sending...' : 'Send Message →'}
                   </button>
@@ -605,7 +605,7 @@ export default function ContactClient() {
               ) : (
                 <div className="bg-[rgba(74,222,128,0.07)] border border-[rgba(74,222,128,0.25)] rounded-[4px] p-12 text-center">
                   <div className="text-[40px] mb-3.5">✅</div>
-                  <div className="font-['Cormorant_Garamond',serif] text-[26px] font-semibold mb-2.5">Message Sent!</div>
+                  <div className="font-garamond text-[26px] font-semibold mb-2.5">Message Sent!</div>
                   <p className="text-[13px] leading-relaxed">
                     {scheduleCall && selectedSlot
                       ? `We'll call you on ${formatDate(selectedDate)} at ${TIME_SLOTS.find(s => s.value === selectedSlot)?.label}.`
@@ -618,7 +618,7 @@ export default function ContactClient() {
               <div className="flex flex-col gap-4">
                 {/* Response SLAs */}
                 <div className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.15)] p-[26px] rounded-[3px]">
-                  <div className="font-['Cormorant_Garamond',serif] text-[19px] font-semibold mb-4 text-gold-light">
+                  <div className="font-garamond text-[19px] font-semibold mb-4 text-blue-light">
                     Response SLAs
                   </div>
                   {SLAS.map(s => (
@@ -631,7 +631,7 @@ export default function ContactClient() {
 
                 {/* Emergency */}
                 <div className="bg-[rgba(239,68,68,0.05)] border border-[rgba(239,68,68,0.15)] p-[26px] rounded-[3px]">
-                  <div className="font-['Cormorant_Garamond',serif] text-[19px] font-semibold mb-2 text-red-400">
+                  <div className="font-garamond text-[19px] font-semibold mb-2 text-red-400">
                     <div className="flex items-center gap-2">
                       <MdEmergency className="text-red-400" size={20} />
                       <span>Emergency Escalation</span>
@@ -650,9 +650,9 @@ export default function ContactClient() {
 
                 {/* Working Hours Info */}
                 <div className="bg-surface border border-[rgba(37,99,235,0.12)] p-6 rounded-[3px]">
-                  <div className="font-['Cormorant_Garamond',serif] text-[17px] font-semibold text-gold-light mb-2.5">
+                  <div className="font-garamond text-[17px] font-semibold text-blue-light mb-2.5">
                     <div className="flex items-center gap-2">
-                      <FaClock className="text-gold-light w-4 h-4 shrink-0" />
+                      <FaClock className="text-blue-light w-4 h-4 shrink-0" />
                       <span>Working Hours</span>
                     </div>
                   </div>
@@ -680,7 +680,7 @@ export default function ContactClient() {
             {/* WhatsApp Primary CTA */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[rgba(37,211,102,0.06)] border border-[rgba(37,211,102,0.2)] p-6 sm:p-9 rounded-[3px] mb-5">
               <div>
-                <div className="font-['Cormorant_Garamond',serif] text-2xl font-semibold text-green-400 mb-2 flex items-center gap-2">
+                <div className="font-garamond text-2xl font-semibold text-green-400 mb-2 flex items-center gap-2">
                   <FaWhatsapp size={28} className="shrink-0" />
                   <span>WhatsApp — Fastest Response</span>
                 </div>
@@ -716,10 +716,10 @@ export default function ContactClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {CONTACT_CHANNELS.map(ch => (
                 <div key={ch.title} className="bg-surface border border-[rgba(37,99,235,0.12)] p-6 rounded-[3px]">
-                  <div className="font-['Cormorant_Garamond',serif] text-base font-semibold text-gold-light mb-3">
+                  <div className="font-garamond text-base font-semibold text-blue-light mb-3">
                     <div className="flex items-center gap-3">
                       <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.4)] shadow-[0_0_10px_rgba(37,99,235,0.25)]">
-                        <span className="text-gold-light text-sm">
+                        <span className="text-blue-light text-sm">
                           {ch.icon}
                         </span>
                       </span>
@@ -739,13 +739,13 @@ export default function ContactClient() {
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-black">
           <div className="max-w-[1000px] mx-auto">
             <div className="text-center mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                   <FaCircleQuestion className="w-3.5 h-3.5" />
                   Frequently Asked Questions
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
                 Everything You Wanted<br />
-                <em className="italic text-gold-light">To Ask</em>
+                <em className="italic text-blue-light">To Ask</em>
               </h2>
               <p className="text-[15px] text-muted max-w-[600px] mx-auto mt-4">
                 Answers to the most common questions about DDP shipping, duties, and our service. No jargon.
@@ -768,7 +768,7 @@ export default function ContactClient() {
 
             {/* Still Have Questions CTA */}
             <div className="mt-10 bg-gradient-to-r from-[rgba(37,99,235,0.08)] to-[rgba(37,99,235,0.03)] border border-[rgba(37,99,235,0.15)] p-8 rounded-[12px] text-center">
-              <div className="font-['Cormorant_Garamond',serif] text-2xl font-semibold mb-2 text-gold-light">
+              <div className="font-garamond text-2xl font-semibold mb-2 text-blue-light">
                 Still Have Questions?
               </div>
               <p className="text-sm text-muted mb-5 max-w-[400px] mx-auto">
@@ -778,7 +778,7 @@ export default function ContactClient() {
                 href="https://wa.me/8790013772"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+                className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
               >
                 <FaWhatsapp size={22} />WhatsApp Us Now
               </a>
@@ -788,9 +788,9 @@ export default function ContactClient() {
 
         {/* CTA Banner */}
         <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-garamond text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Ready to Stop Wondering?<br />
-            <em className="italic text-gold-light">Get a Quote.</em>
+            <em className="italic text-blue-light">Get a Quote.</em>
           </h2>
           <p className="text-[15px] text-muted mb-8 max-w-[500px] mx-auto px-2">
             Full DDP quote with duty pre-calculation. No commitment, just clarity.
@@ -798,7 +798,7 @@ export default function ContactClient() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
+              className="inline-flex items-center gap-2 bg-linear-to-br from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
             >
               Get DDP Quote →
             </Link>

@@ -40,20 +40,20 @@ export default function EcosystemPage() {
             <Link href="/" className="text-muted/60 no-underline">Home</Link>
           </span>
           <span className="text-[11px] text-[rgba(37,99,235,0.3)] whitespace-nowrap">›</span>
-          <span className="text-[11px] text-gold-light whitespace-nowrap">Ecosystem</span>
+          <span className="text-[11px] text-blue-light whitespace-nowrap">Ecosystem</span>
         </div>
 
         {/* ── HERO ── */}
         <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[45vh] px-4 sm:px-[60px] pt-[60px] sm:pt-[80px] pb-[60px] sm:pb-[80px] bg-black">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.1)_0%,transparent_70%)]" />
           <div className="relative z-10 max-w-[800px]">
-            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-gold-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
+            <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-blue-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Integrated Ecosystem
             </div>
-            <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               One Platform.<br />
-              <em className="italic bg-linear-to-br from-gold to-gold-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br from-gold to-blue-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Endless Global Opportunities
               </em>
             </h1>
@@ -63,7 +63,7 @@ export default function EcosystemPage() {
             <div className="flex gap-3 justify-center flex-wrap">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+                className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Join Us →
               </Link>
@@ -76,7 +76,7 @@ export default function EcosystemPage() {
                 { label: "Transaction Value", value: "$2.5B+" }
               ].map((stat, idx) => (
                 <div key={idx} className="text-center">
-                  <div className="text-2xl font-bold text-gold-light">{stat.value}</div>
+                  <div className="text-2xl font-bold text-blue-light">{stat.value}</div>
                   <div className="text-[11px] text-muted tracking-wide">{stat.label}</div>
                 </div>
               ))}
@@ -88,12 +88,12 @@ export default function EcosystemPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[640px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Three Pillars
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Three Pillars.<br />
-                <em className="italic text-gold-light">One Unified Platform.</em>
+                <em className="italic text-blue-light">One Unified Platform.</em>
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
                 A complete, integrated ecosystem designed for seamless global trade
@@ -107,14 +107,14 @@ export default function EcosystemPage() {
               ].map((item, i) => (
                 <div key={i} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.12)] rounded-[4px] p-6 sm:p-7 flex flex-col gap-3 hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all">
                   <div className="mb-2">
-                    <div className="w-10 h-10 rounded-full border border-[rgba(37,99,235,0.35)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center text-gold-light">
+                    <div className="w-10 h-10 rounded-full border border-[rgba(37,99,235,0.35)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center text-blue-light">
                       {item.icon}
                     </div>
                   </div>
                   <div className="text-[18px] font-semibold text-white">{item.title}</div>
-                  <div className="text-[11px] font-bold tracking-[0.08em] uppercase text-gold-light">{item.subtitle}</div>
+                  <div className="text-[11px] font-bold tracking-[0.08em] uppercase text-blue-light">{item.subtitle}</div>
                   <div className="text-[13px] text-white leading-relaxed flex-grow">{item.desc}</div>
-                  {/* <Link href={item.link} className="inline-flex items-center gap-2 text-gold-light text-[12px] font-medium mt-2 group">
+                  {/* <Link href={item.link} className="inline-flex items-center gap-2 text-blue-light text-[12px] font-medium mt-2 group">
                     Learn more <FiChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-all" />
                   </Link> */}
                 </div>
@@ -127,12 +127,12 @@ export default function EcosystemPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-black">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[640px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 How It Works
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 One Ecosystem.<br />
-                <em className="italic text-gold-light">Multiple Advantages.</em>
+                <em className="italic text-blue-light">Multiple Advantages.</em>
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
                 A seamless journey from discovery to delivery, powered by our integrated platform
@@ -150,12 +150,12 @@ export default function EcosystemPage() {
               ].map((step, i) => (
                 <div key={i} className={`reveal flex gap-5 sm:gap-7 items-start relative z-[1] ${i < 4 ? 'mb-6 sm:mb-8' : ''}`}>
                   <div className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] rounded-full bg-deep border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0">
-                    <span className="font-['Cormorant_Garamond',serif] text-sm sm:text-base font-semibold text-gold-light">{step.num}</span>
+                    <span className="font-garamond text-sm sm:text-base font-semibold text-blue-light">{step.num}</span>
                   </div>
                   <div className="bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[4px] p-4 sm:p-5 flex-1 hover:border-[rgba(37,99,235,0.25)] transition-colors">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <div className="text-sm sm:text-[15px] font-semibold text-white">{step.title}</div>
-                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-[rgba(37,99,235,0.15)] text-gold-light border border-[rgba(37,99,235,0.2)]">
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-[rgba(37,99,235,0.15)] text-blue-light border border-[rgba(37,99,235,0.2)]">
                         {step.badge}
                       </span>
                     </div>
@@ -171,12 +171,12 @@ export default function EcosystemPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[640px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Why Choose Us
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Businesses Choose<br />
-                <em className="italic text-gold-light">Our Ecosystem</em>
+                <em className="italic text-blue-light">Our Ecosystem</em>
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
                 Join thousands of businesses that have transformed their global trade operations
@@ -192,11 +192,11 @@ export default function EcosystemPage() {
                 { icon: <TbWorld className="text-[18px]" />, title: "Access to 45+ countries", stat: "Global" },
               ].map((item, i) => (
                 <div key={i} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[3px] p-4 flex items-center gap-4 hover:border-[rgba(37,99,235,0.2)] transition-colors">
-                  <div className="w-8 h-8 rounded-full bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center text-gold-light shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center text-blue-light shrink-0">
                     {item.icon}
                   </div>
                   <div className="flex-1">
-                    <div className="text-[11px] font-medium text-gold-light mb-0.5">{item.stat}</div>
+                    <div className="text-[11px] font-medium text-blue-light mb-0.5">{item.stat}</div>
                     <div className="text-[13px] text-white leading-tight">{item.title}</div>
                   </div>
                 </div>
@@ -209,10 +209,10 @@ export default function EcosystemPage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-black">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[640px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Built For
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Who This Is For
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
@@ -228,7 +228,7 @@ export default function EcosystemPage() {
                 { icon: <FiUsers className="text-[20px]" />, title: "B2B Distributors", desc: "Scale your distribution network" },
               ].map((item, i) => (
                 <div key={i} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.12)] rounded-[4px] p-5 text-center hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all">
-                  <div className="w-10 h-10 rounded-full bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center text-gold-light mx-auto mb-3">
+                  <div className="w-10 h-10 rounded-full bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center text-blue-light mx-auto mb-3">
                     {item.icon}
                   </div>
                   <div className="text-[14px] font-semibold text-white mb-1">{item.title}</div>
@@ -242,10 +242,10 @@ export default function EcosystemPage() {
         {/* ── CTA + VISION ── */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[900px] mx-auto text-center">
-            <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-6">
+            <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-6">
               Get Started Today
             </span>
-            <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-4">
+            <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-4">
               Join Our Global Trade Ecosystem
             </h2>
             <p className="text-[15px] text-muted max-w-[500px] mx-auto mb-8">
@@ -254,19 +254,19 @@ export default function EcosystemPage() {
             <div className="flex flex-wrap justify-center gap-4 mb-16">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Join as Supplier →
               </Link>
               <Link
-                href="/quote"
-                className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
+                    href="/quote"
+                    className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Join as Importer →
               </Link>
               {/* <Link
                 href="/quote"
-                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)]"
+                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-blue-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)]"
               >
                 Get DDP Quote
               </Link> */}
@@ -276,24 +276,24 @@ export default function EcosystemPage() {
             <div className="bg-linear-to-br from-[rgba(37,99,235,0.08)] to-[rgba(37,99,235,0.02)] border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-10">
               <div className="inline-flex items-center gap-2 mb-4">
                 <div className="w-8 h-8 rounded-full bg-[rgba(37,99,235,0.15)] flex items-center justify-center">
-                  <FiZap className="w-4 h-4 text-gold-light" />
+                  <FiZap className="w-4 h-4 text-blue-light" />
                 </div>
-                <span className="text-[11px] font-bold tracking-[1.5px] uppercase text-gold-light">Our Vision</span>
+                <span className="text-[11px] font-bold tracking-[1.5px] uppercase text-blue-light">Our Vision</span>
               </div>
-              <p className="text-lg sm:text-xl text-white leading-relaxed font-['Cormorant_Garamond',serif] italic max-w-[600px] mx-auto">
+              <p className="text-lg sm:text-xl text-white leading-relaxed font-garamond italic max-w-[600px] mx-auto">
                 To build a seamless global trade ecosystem where businesses can source, ship, and scale without barriers.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-muted text-[11px]">
                 <div className="flex items-center gap-2">
-                  <FiCheckCircle className="w-3.5 h-3.5 text-gold-light" />
+                  <FiCheckCircle className="w-3.5 h-3.5 text-blue-light" />
                   <span>Trusted Network</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FiCheckCircle className="w-3.5 h-3.5 text-gold-light" />
+                  <FiCheckCircle className="w-3.5 h-3.5 text-blue-light" />
                   <span>Global Coverage</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FiCheckCircle className="w-3.5 h-3.5 text-gold-light" />
+                  <FiCheckCircle className="w-3.5 h-3.5 text-blue-light" />
                   <span>24/7 Support</span>
                 </div>
               </div>

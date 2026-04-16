@@ -236,12 +236,12 @@ export default function HomePage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[580px] mx-auto mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Know Before You Ship
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
                 What Does DDP Mean<br />
-                <em className="italic text-gold-light">For Your Shipment?</em>
+                <em className="italic text-blue-light">For Your Shipment?</em>
               </h2>
               <p className="text-[15px] text-muted leading-relaxed max-w-[520px] mx-auto">
                 Most importers are surprised by what&apos;s NOT included in their current shipping terms.
@@ -266,7 +266,7 @@ export default function HomePage() {
                   >
                     {card.badge}
                   </div>
-                  <h3 className="font-['Cormorant_Garamond',serif] text-xl font-semibold text-white mb-3">
+                  <h3 className="font-garamond text-xl font-semibold text-white mb-3">
                     {card.title}
                   </h3>
                   <p className="text-[13px] text-muted leading-relaxed mb-[18px]">{card.desc}</p>
@@ -289,12 +289,12 @@ export default function HomePage() {
           <div className="max-w-[1200px] mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-11 md:items-end">
               <div>
-                <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+                <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                   Our Services
                 </span>
-                <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+                <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                   Six Ways We<br />
-                  <em className="italic text-gold-light">Serve You.</em>
+                  <em className="italic text-blue-light">Serve You.</em>
                 </h2>
               </div>
               <p className="text-[15px] text-muted leading-relaxed max-w-[520px]">
@@ -316,11 +316,11 @@ export default function HomePage() {
                       }`}
                   >
                     <div className="w-11 h-11 border border-[rgba(37,99,235,0.3)] rounded-[10px] flex items-center justify-center mb-[18px] bg-[rgba(37,99,235,0.05)] group-hover:border-gold transition-colors">
-                      <span className="text-[20px] text-gold-light">
+                      <span className="text-[20px] text-blue-light">
                         {s.icon}
                       </span>
                     </div>
-                    <div className="font-['Cormorant_Garamond',serif] text-[19px] font-semibold mb-2 text-white group-hover:text-gold-light transition-colors">
+                    <div className="font-garamond text-[19px] font-semibold mb-2 text-white group-hover:text-blue-light transition-colors">
                       {s.title}
                     </div>
                     <div className="text-[13px] text-muted leading-relaxed">{s.desc}</div>
@@ -337,25 +337,25 @@ export default function HomePage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             <div>
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 The DDP Journey
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
                 One Contract.<br />
-                <em className="italic text-gold-light">Zero Worry.</em>
+                <em className="italic text-blue-light">Zero Worry.</em>
               </h2>
               <p className="text-[15px] text-muted leading-relaxed mb-6">
                 Every step, every cost, every risk — from supplier to your warehouse door.
               </p>
               <div className="py-4 px-[18px] bg-[rgba(37,99,235,0.06)] border-l-2 border-gold text-[13px] text-muted mb-6 flex items-start gap-2">
-                <HiOutlineCalendarDays className="text-gold-light mt-[2px] shrink-0" size={18} />
+                <HiOutlineCalendarDays className="text-blue-light mt-[2px] shrink-0" size={18} />
                 <span>
-                  Typical total: <strong className="text-gold-light">38–50 days</strong> factory pickup → India warehouse (including customs)
+                  Typical total: <strong className="text-blue-light">38–50 days</strong> factory pickup → India warehouse (including customs)
                 </span>
               </div>
               <Link
                 href="/how-it-works"
-                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] hover:border-gold cursor-none"
+                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-blue-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] hover:border-gold cursor-none"
               >
                 See Full Process →
               </Link>
@@ -363,13 +363,13 @@ export default function HomePage() {
             <div>
               {HOW_IT_WORKS.map(s => (
                 <div key={s.n} className="reveal flex gap-5 items-start py-6 border-b border-[rgba(37,99,235,0.07)] last:border-0">
-                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-['Cormorant_Garamond',serif] text-[13px] font-semibold text-gold">
+                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-garamond text-[13px] font-semibold text-blue">
                     {s.n}
                   </div>
                   <div className="flex-1">
                     <div className="text-sm font-medium text-white mb-1">{s.t}</div>
                     <div className="text-xs text-muted leading-relaxed">{s.d}</div>
-                    <span className="inline-block mt-2 text-[9px] tracking-[1px] uppercase py-1 px-2.5 rounded-full text-gold bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)]">
+                    <span className="inline-block mt-2 text-[9px] tracking-[1px] uppercase py-1 px-2.5 rounded-full text-blue bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)]">
                       {s.tag}
                     </span>
                   </div>
@@ -391,18 +391,18 @@ export default function HomePage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[560px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Client Reviews
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 What Our Clients<br />
-                <em className="italic text-gold-light">Say About Us</em>
+                <em className="italic text-blue-light">Say About Us</em>
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {TESTIMONIALS.map(t => (
                 <div key={t.name} className="reveal bg-[var(--overlay-card)] border border-[var(--overlay-card-border)] p-6 sm:p-7 rounded-[4px] transition-all duration-300 hover:border-[rgba(37,99,235,0.25)]">
-                  <div className="text-gold text-xs mb-3.5">{'★'.repeat(t.stars)}</div>
+                  <div className="text-blue text-xs mb-3.5">{'★'.repeat(t.stars)}</div>
                   <p className="text-[13px] text-muted leading-relaxed italic mb-5">"{t.text}"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-9 h-9 rounded-full bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center text-base">
@@ -425,12 +425,12 @@ export default function HomePage() {
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[620px] mx-auto mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Why CTIDDP
               </span>
-              <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 We Don&apos;t Just Ship.<br />
-                <em className="italic text-gold-light">We Deliver Certainty.</em>
+                <em className="italic text-blue-light">We Deliver Certainty.</em>
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
@@ -444,12 +444,12 @@ export default function HomePage() {
                 >
                   <div className="mb-3.5">
                     <div className="w-11 h-11 rounded-full border border-[rgba(37,99,235,0.4)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center transition-all duration-300 group-hover:border-gold group-hover:bg-[rgba(37,99,235,0.15)]">
-                      <span className="text-[20px] text-gold-light transition-transform duration-300 group-hover:scale-110">
+                      <span className="text-[20px] text-blue-light transition-transform duration-300 group-hover:scale-110">
                         {w.icon}
                       </span>
                     </div>
                   </div>
-                  <div className="font-['Cormorant_Garamond',serif] text-[19px] font-semibold mb-2 text-white">{w.title}</div>
+                  <div className="font-garamond text-[19px] font-semibold mb-2 text-white">{w.title}</div>
                   <div className="text-[13px] text-muted leading-relaxed">{w.desc}</div>
                 </div>
               ))}
@@ -459,12 +459,12 @@ export default function HomePage() {
                 <div key={a.title} className="reveal bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.15)] p-[26px] rounded-[4px]">
                   <div className="flex items-start gap-3 mb-2">
                     <div className="w-9 h-9 rounded-xl border border-[rgba(37,99,235,0.4)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-gold group-hover:bg-[rgba(37,99,235,0.15)]">
-                      <span className="text-[18px] text-gold-light transition-transform duration-300 group-hover:scale-110">
+                      <span className="text-[18px] text-blue-light transition-transform duration-300 group-hover:scale-110">
                         {a.icon}
                       </span>
                     </div>
 
-                    <h4 className="font-['Cormorant_Garamond',serif] text-base font-semibold">
+                    <h4 className="font-garamond text-base font-semibold">
                       {a.title}
                     </h4>
                   </div>
@@ -477,9 +477,9 @@ export default function HomePage() {
 
         {/* ── 10. CTA BANNER ────────────────────────────────────────────────── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[72px] overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-garamond text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
             Ready to Ship<br />
-            <em className="italic text-gold-light">the Right Way?</em>
+            <em className="italic text-blue-light">the Right Way?</em>
           </h2>
           <p className="text-[15px] text-muted mb-8 max-w-[460px] mx-auto">
             Get a full DDP quote with duty pre-calculation. 24-hour response, no commitment.

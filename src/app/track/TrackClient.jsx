@@ -144,7 +144,7 @@ export default function TrackClient() {
             <Link href="/" className="text-muted/60 no-underline">Home</Link>
           </span>
           <span className="text-[11px] text-[rgba(37,99,235,0.3)] whitespace-nowrap">›</span>
-          <span className="text-[11px] text-gold-light whitespace-nowrap">Track Shipment</span>
+          <span className="text-[11px] text-blue-light whitespace-nowrap">Track Shipment</span>
         </div>
 
         {/* Tracking section */}
@@ -155,11 +155,11 @@ export default function TrackClient() {
           <div className="relative z-10 max-w-[1200px] mx-auto">
             {/* Header */}
             <div className="text-center mb-11">
-              <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.3)] text-gold-light text-[10px] font-bold tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-[18px]">
+              <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.3)] text-blue-light text-[10px] font-bold tracking-[2px] uppercase px-4 py-1.5 rounded-full mb-[18px]">
                 📍 Live Tracking
               </div>
-              <h1 className="font-['Cormorant_Garamond',serif] text-[clamp(26px,3.5vw,44px)] font-light text-white mb-2.5">
-                Track Your <em className="italic text-gold-light">Shipment</em>
+              <h1 className="font-garamond text-[clamp(26px,3.5vw,44px)] font-light text-white mb-2.5">
+                Track Your <em className="italic text-blue-light">Shipment</em>
               </h1>
               <p className="text-muted text-sm max-w-[460px] mx-auto">
                 Enter your CTIDDP tracking number or Bill of Lading number for real-time status.
@@ -189,7 +189,7 @@ export default function TrackClient() {
                   <button
                     key={id}
                     onClick={() => loadDemo(id)}
-                    className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] text-gold-light text-[11px] px-3 py-1 rounded-full cursor-none hover:bg-[rgba(37,99,235,0.15)] transition-colors"
+                    className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[11px] px-3 py-1 rounded-full cursor-none hover:bg-[rgba(37,99,235,0.15)] transition-colors"
                   >
                     {id}
                   </button>
@@ -210,7 +210,7 @@ export default function TrackClient() {
                 <div className="px-5 sm:px-7 py-5 border-b border-[rgba(255,255,255,0.07)] flex flex-wrap justify-between items-center gap-3">
                   <div>
                     <div className="text-[10px] text-muted tracking-[1.5px] uppercase mb-1">Tracking Number</div>
-                    <div className="font-['Cormorant_Garamond',serif] text-[22px] font-semibold text-gold-light">{result.id}</div>
+                    <div className="font-garamond text-[22px] font-semibold text-blue-light">{result.id}</div>
                   </div>
                   <div className={`inline-flex items-center gap-1.5 ${sc.bg} border ${sc.border} ${sc.text} text-xs font-semibold px-3.5 py-1.5 rounded-full`}>
                     {sc.dot && <span className={`w-1.5 h-1.5 rounded-full ${sc.dot} shrink-0`} />}
@@ -247,7 +247,7 @@ export default function TrackClient() {
                     {result.progressPoints.map((pt, i) => (
                       <div
                         key={i}
-                        className={`text-[9px] text-center leading-tight ${i <= result.activePoint ? 'text-gold-light' : 'text-muted/50'}`}
+                        className={`text-[9px] text-center leading-tight ${i <= result.activePoint ? 'text-blue-light' : 'text-muted/50'}`}
                       >
                         {pt}
                       </div>
@@ -287,7 +287,7 @@ export default function TrackClient() {
                 <div className="px-5 sm:px-7 py-3.5 border-b border-[rgba(255,255,255,0.07)] flex flex-wrap items-center gap-2.5">
                   <span className="text-[9px] text-[rgba(255,255,255,0.35)] font-bold tracking-[1px] uppercase shrink-0">Documents</span>
                   {result.docs.map(doc => (
-                    <span key={doc} className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] text-gold-light text-[11px] px-2.5 py-0.5 rounded-[3px]">
+                    <span key={doc} className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.18)] text-blue-light text-[11px] px-2.5 py-0.5 rounded-[3px]">
                       {doc}
                     </span>
                   ))}
@@ -336,9 +336,9 @@ export default function TrackClient() {
 
         {/* CTA Banner */}
         <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
-          <h2 className="font-['Cormorant_Garamond',serif] text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-garamond text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Want WhatsApp<br />
-            <em className="italic text-gold-light">Milestone Alerts?</em>
+            <em className="italic text-blue-light">Milestone Alerts?</em>
           </h2>
           <p className="text-[15px] text-muted mb-8 max-w-[500px] mx-auto px-2">
             Every shipment update sent directly to your WhatsApp — cargo ready, vessel departure, customs, delivery.
@@ -354,7 +354,7 @@ export default function TrackClient() {
             </a>
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.3)] text-gold-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,99,235,0.05)] cursor-none"
+              className="inline-flex items-center gap-2 bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.3)] text-blue-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,99,235,0.05)] cursor-none"
             >
               Get a New Quote
             </Link>
