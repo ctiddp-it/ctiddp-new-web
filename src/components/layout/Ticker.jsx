@@ -1,9 +1,11 @@
 const ITEMS = [
-  'Canton Fair Spring 2026 — Book your DDP shipment slot now',
-  'New LCL route: Foshan → Bangalore · Every 14 days',
-  'BIS compliance support now available for electronics importers',
-  'WhatsApp response under 2 hours · Mon–Sat',
-  'Hyderabad office opening August 2026',
+  'Canton Fair 2026 is LIVE - Book Your DDP Shipping Slot Now',
+  'Peak Season Shipping Started - Avoid Delays & Price Surge',
+  'Talk to Our Experts Today: +91 8790013772',
+  'WhatsApp response under 2 hours · Mon-Sat',
+  'Save Up to 30-40% on Bulk Imports from China',
+  'From Factory Pickup to Final Delivery – We Handle Everything',
+  'Limited Container Slots Available This Month – Enquire Today'
 ]
 
 export default function Ticker() {

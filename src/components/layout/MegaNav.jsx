@@ -67,7 +67,7 @@ export default function MegaNav() {
 
   return (
     <>
-      {/* <Ticker /> */}
+      <Ticker />
 
       {/* ── NAVBAR ── */}
       <nav className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-13 h-[78px] bg-[var(--overlay-nav)] backdrop-blur-xl border-b border-[rgba(37,99,235,0.1)] transition-shadow duration-300${scrolled ? ' shadow-[0_4px_40px_var(--shadow-scroll)]' : ''}`}>
