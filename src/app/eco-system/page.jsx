@@ -28,11 +28,105 @@ import { MdOutlineWarehouse, MdOutlineInstallMobile } from "react-icons/md";
 import Link from 'next/link'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 
+
+export const metadata = {
+  title: 'B2B Trade Ecosystem Platform | Global Sourcing & Logistics Network',
+  description:
+    'B2B sourcing platform connecting global suppliers with India, integrating sourcing, logistics, and cross-border trade solutions.',
+  keywords: [
+    'B2B sourcing platform India',
+    'global trade platform B2B',
+    'supplier network China India',
+    'import export business platform',
+    'Alibaba alternative India',
+    'B2B marketplace logistics integration',
+    'supplier to buyer connection service',
+    'cross border trade platform',
+    'global supplier sourcing India',
+    'digital trade ecosystem platform',
+    'B2B import solution India',
+    'sourcing and logistics combined',
+    'global business connection platform',
+    'China supplier connection India',
+    'B2B global sourcing network',
+  ],
+  openGraph: {
+    title: 'B2B Trade Ecosystem Platform | Global Sourcing & Logistics Network',
+    description:
+      'B2B sourcing platform connecting global suppliers with India, integrating sourcing, logistics, and cross-border trade solutions.',
+    url: 'https://www.ctiddp.com/eco-system/',
+    siteName: 'CTIDDP',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/eco-system/',
+  },
+};
+
 export default function EcosystemPage() {
   return (
     <>
       <ScrollRevealInit />
       <main className="bg-black text-white font-['Outfit',sans-serif]">
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'Service',
+                  '@id': 'https://www.ctiddp.com/eco-system/#service',
+                  name: 'B2B Trade Ecosystem Platform',
+                  provider: {
+                    '@type': 'Organization',
+                    name: 'CTIDDP',
+                    url: 'https://www.ctiddp.com/',
+                  },
+                  serviceType: 'B2B Sourcing & Logistics Platform',
+                  description:
+                    'B2B sourcing platform connecting global suppliers with India, integrating sourcing, logistics, and cross-border trade solutions.',
+                  areaServed: {
+                    '@type': 'Country',
+                    name: 'India',
+                  },
+                  url: 'https://www.ctiddp.com/eco-system/',
+                },
+                {
+                  '@type': 'WebPage',
+                  '@id': 'https://www.ctiddp.com/eco-system/#webpage',
+                  url: 'https://www.ctiddp.com/eco-system/',
+                  name: 'B2B Trade Ecosystem Platform | Global Sourcing & Logistics Network',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
+                  },
+                  mainEntity: {
+                    '@id': 'https://www.ctiddp.com/eco-system/#service',
+                  },
+                },
+                {
+                  '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/eco-system/#breadcrumb',
+                  itemListElement: [
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'Ecosystem',
+                      item: 'https://www.ctiddp.com/eco-system/',
+                    },
+                  ],
+                },
+              ],
+            }),
+          }}
+        />
 
         {/* Breadcrumb */}
         <div className="flex items-center gap-[7px] px-4 sm:px-[60px] py-[11px] bg-[rgba(37,99,235,0.03)] border-b border-[rgba(37,99,235,0.07)] overflow-x-auto">
@@ -259,8 +353,8 @@ export default function EcosystemPage() {
                 Join as Supplier →
               </Link>
               <Link
-                    href="/quote"
-                    className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
+                href="/quote"
+                className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
               >
                 Join as Importer →
               </Link>

@@ -375,27 +375,49 @@ export default function ContactClient() {
               '@graph': [
                 {
                   '@type': 'ContactPage',
+                  '@id': 'https://www.ctiddp.com/contact/#contactpage',
                   name: 'Contact CTIDDP',
-                  url: 'https://ctiddp.com/contact',
-                  description: 'Contact the CTIDDP team in India or China for DDP shipping enquiries.',
+                  url: 'https://www.ctiddp.com/contact/',
+                  description:
+                    'Contact the CTIDDP team in India or China for DDP shipping enquiries.',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
+                  },
                 },
                 {
                   '@type': 'FAQPage',
-                  mainEntity: FAQ_CATEGORIES.flatMap(c => c.items).map(item => ({
-                    '@type': 'Question',
-                    name: item.q,
-                    acceptedAnswer: { '@type': 'Answer', text: item.a },
-                  })),
+                  '@id': 'https://www.ctiddp.com/contact/#faq',
+                  mainEntity: FAQ_CATEGORIES.flatMap(c =>
+                    c.items.map(item => ({
+                      '@type': 'Question',
+                      name: item.q,
+                      acceptedAnswer: {
+                        '@type': 'Answer',
+                        text: item.a,
+                      },
+                    }))
+                  ),
                 },
                 {
                   '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/contact/#breadcrumb',
                   itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' },
-                    { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://ctiddp.com/contact' },
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'Contact',
+                      item: 'https://www.ctiddp.com/contact/',
+                    },
                   ],
                 },
               ],
-            })
+            }),
           }}
         />
 
@@ -643,7 +665,7 @@ export default function ContactClient() {
                   <div className="text-xs text-muted"><div className="flex items-center gap-2">
                     <FaPhoneAlt />
                     <span>Emergency: +91 87900 13772</span>
-                   
+
                   </div></div>
                   <div className="text-[11px] text-muted/50 mt-1">🕐 24/7 for active shipments only</div>
                 </div>
@@ -689,7 +711,7 @@ export default function ContactClient() {
                 </p>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                 
+
                 {[
                   { label: 'India Team', phone: '+91 87900 13772', hours: 'Mon–Sat · 9am–7pm IST' },
                   { label: 'China Team', phone: '+86 188 1874 9844', hours: 'Mon–Sat · 9am–6pm CST' },
@@ -740,8 +762,8 @@ export default function ContactClient() {
           <div className="max-w-[1000px] mx-auto">
             <div className="text-center mb-12">
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                  <FaCircleQuestion className="w-3.5 h-3.5" />
-                  Frequently Asked Questions
+                <FaCircleQuestion className="w-3.5 h-3.5" />
+                Frequently Asked Questions
               </span>
               <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
                 Everything You Wanted<br />

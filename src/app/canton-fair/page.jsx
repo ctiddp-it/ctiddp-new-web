@@ -11,24 +11,38 @@ import Link from 'next/link'
 import CantonFairClient from './CantonFairClient'
 
 export const metadata = {
-  title: 'Canton Fair DDP Support — Booth to Your India Door',
+  title: 'Canton Fair Shipping Support | Global DDP Experts',
   description:
-    'CTIDDP attends the Canton Fair Spring & Autumn on your behalf. Mandarin negotiation, on-spot QC, multi-booth consolidation, and full DDP shipping to India. April & October 2026.',
+    'Get end-to-end Canton Fair sourcing and shipping support with DDP delivery to India and global markets.',
   keywords: [
-    'Canton Fair DDP shipping India',
-    'Canton Fair support Indian importers',
-    'Canton Fair 2026 Guangzhou',
-    'China Canton Fair buying agent India',
-    'Guangzhou trade fair DDP',
+    'Canton Fair shipping to India',
+    'how to ship goods from Canton Fair',
+    'Canton Fair sourcing support',
+    'China exhibition shipping services',
+    'Guangzhou sourcing agent India',
+    'Canton Fair logistics India',
+    'buying from Canton Fair India',
+    'Canton Fair import process',
+    'ship products from China exhibition',
+    'Canton Fair freight forwarder',
+    'sourcing agent China for India',
+    'Canton Fair delivery to India',
+    'China trade fair shipping company',
+    'import from Canton Fair to India',
+    'Canton Fair support services',
   ],
   openGraph: {
-    title: 'Canton Fair DDP Support — CTIDDP',
+    title: 'Canton Fair Shipping Support | Global DDP Experts',
     description:
-      'We attend the Canton Fair with you, handle Mandarin negotiation, inspect goods, and ship DDP to India under one service.',
-    url: 'https://ctiddp.com/services/canton-fair',
+      'Get end-to-end Canton Fair sourcing and shipping support with DDP delivery to India and global markets.',
+    url: 'https://www.ctiddp.com/canton-fair/',
+    siteName: 'CTIDDP',
+    type: 'website',
   },
-  alternates: { canonical: 'https://ctiddp.com/services/canton-fair' },
-}
+  alternates: {
+    canonical: 'https://www.ctiddp.com/canton-fair/',
+  },
+};
 
 // ── Data ────────────────────────────────────────────────────────────────────
 const PHASES_SPRING = [
@@ -82,22 +96,54 @@ export default function CantonFairPage() {
               '@graph': [
                 {
                   '@type': 'Service',
+                  '@id': 'https://www.ctiddp.com/canton-fair/#service',
                   name: 'Canton Fair DDP Support',
-                  provider: { '@type': 'Organization', name: 'CTIDDP', url: 'https://ctiddp.com' },
-                  description: 'Attend Canton Fair on your behalf, negotiate in Mandarin, inspect goods, consolidate from multiple booths, and ship DDP to India.',
+                  provider: {
+                    '@type': 'Organization',
+                    name: 'CTIDDP',
+                    url: 'https://www.ctiddp.com/',
+                  },
+                  description:
+                    'Attend Canton Fair on your behalf, negotiate in Mandarin, inspect goods, consolidate from multiple booths, and ship DDP to India.',
                   serviceType: 'Trade Fair Support & DDP Shipping',
-                  areaServed: { '@type': 'Country', name: 'India' },
-                  url: 'https://ctiddp.com/services/canton-fair',
+                  areaServed: {
+                    '@type': 'Country',
+                    name: 'India',
+                  },
+                  url: 'https://www.ctiddp.com/canton-fair/',
+                },
+                {
+                  '@type': 'WebPage',
+                  '@id': 'https://www.ctiddp.com/canton-fair/#webpage',
+                  url: 'https://www.ctiddp.com/canton-fair/',
+                  name: 'Canton Fair Shipping Support | Global DDP Experts',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
+                  },
+                  mainEntity: {
+                    '@id': 'https://www.ctiddp.com/canton-fair/#service',
+                  },
                 },
                 {
                   '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/canton-fair/#breadcrumb',
                   itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' },
-                    { '@type': 'ListItem', position: 2, name: 'Canton Fair', item: 'https://ctiddp.com/services/canton-fair' },
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'Canton Fair',
+                      item: 'https://www.ctiddp.com/canton-fair/',
+                    },
                   ],
                 },
               ],
-            })
+            }),
           }}
         />
 

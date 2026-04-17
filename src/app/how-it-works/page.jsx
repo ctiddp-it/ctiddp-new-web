@@ -6,17 +6,44 @@ import {
   FiFileText,
   FiTruck,
 } from "react-icons/fi";
-import {HiOutlineCalendarDays} from "react-icons/hi2";
+import { HiOutlineCalendarDays } from "react-icons/hi2";
 import { FaShip, FaPlane } from "react-icons/fa6";
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'How DDP Shipping Works — China to India',
-  description: 'Understand the complete China to India DDP shipping process — from factory pickup and QC to customs clearance and PAN-India delivery. 38–50 days door-to-door.',
-  openGraph: { title: 'How China to India DDP Shipping Works', description: 'Step-by-step guide to the China to India DDP process. From factory QC to customs clearance and PAN-India delivery in 38–50 days.', url: 'https://ctiddp.com/how-it-works' },
-  alternates: { canonical: 'https://ctiddp.com/how-it-works' },
-}
+  title: 'How DDP Shipping Works | Global Import Process',
+  description:
+    'Understand how DDP shipping works from supplier pickup to global delivery with full logistics support.',
+  keywords: [
+    'how DDP shipping works',
+    'what is DDP shipping',
+    'import process China to India',
+    'customs clearance process India import',
+    'how to import goods from China',
+    'step by step import guide India',
+    'shipping process China to India',
+    'DDP vs DDU difference',
+    'import documentation India',
+    'international shipping process explained',
+    'freight forwarding process',
+    'China import steps for beginners',
+    'import tax India calculation',
+    'how logistics works globally',
+    'customs duty India process',
+  ],
+  openGraph: {
+    title: 'How DDP Shipping Works | Global Import Process',
+    description:
+      'Understand how DDP shipping works from supplier pickup to global delivery with full logistics support.',
+    url: 'https://www.ctiddp.com/how-it-works/',
+    siteName: 'CTIDDP',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/how-it-works/',
+  },
+};
 
 const PHASE1 = [
   { n: '01', title: 'Vendor Coordination & Pricing', desc: 'We engage existing suppliers or source new ones. Negotiate on your behalf in Mandarin, verify factory credentials.', tag: '1–3 Days' },
@@ -74,27 +101,87 @@ export default function HowItWorksPage() {
               '@graph': [
                 {
                   '@type': 'HowTo',
+                  '@id': 'https://www.ctiddp.com/how-it-works/#howto',
                   name: 'How China to India DDP Shipping Works',
-                  description: 'Complete guide to the China to India DDP freight process.',
+                  description:
+                    'Complete guide to the China to India DDP freight process.',
                   step: [
-                    { '@type': 'HowToStep', position: 1, name: 'Vendor Coordination', text: 'Mandarin negotiation with China suppliers.' },
-                    { '@type': 'HowToStep', position: 2, name: 'QC Inspection', text: 'Pre-shipment quality inspection at Foshan.' },
-                    { '@type': 'HowToStep', position: 3, name: 'Consolidation', text: 'Multi-vendor LCL groupage at Guangzhou.' },
-                    { '@type': 'HowToStep', position: 4, name: 'China Export Customs', text: 'Export declaration within 48 hours.' },
-                    { '@type': 'HowToStep', position: 5, name: 'Transit', text: 'Full DDP transit — freight, insurance covered.' },
-                    { '@type': 'HowToStep', position: 6, name: 'India Import', text: 'BE filing, BCD+IGST+SWS payment, OOC.' },
-                    { '@type': 'HowToStep', position: 7, name: 'Delivery', text: 'Delivery with Proof of Delivery.' }
-                  ]
+                    {
+                      '@type': 'HowToStep',
+                      position: 1,
+                      name: 'Vendor Coordination',
+                      text: 'Mandarin negotiation with China suppliers.',
+                    },
+                    {
+                      '@type': 'HowToStep',
+                      position: 2,
+                      name: 'QC Inspection',
+                      text: 'Pre-shipment quality inspection at Foshan.',
+                    },
+                    {
+                      '@type': 'HowToStep',
+                      position: 3,
+                      name: 'Consolidation',
+                      text: 'Multi-vendor LCL groupage at Guangzhou.',
+                    },
+                    {
+                      '@type': 'HowToStep',
+                      position: 4,
+                      name: 'China Export Customs',
+                      text: 'Export declaration within 48 hours.',
+                    },
+                    {
+                      '@type': 'HowToStep',
+                      position: 5,
+                      name: 'Transit',
+                      text: 'Full DDP transit — freight, insurance covered.',
+                    },
+                    {
+                      '@type': 'HowToStep',
+                      position: 6,
+                      name: 'India Import',
+                      text: 'BE filing, BCD+IGST+SWS payment, OOC.',
+                    },
+                    {
+                      '@type': 'HowToStep',
+                      position: 7,
+                      name: 'Delivery',
+                      text: 'Delivery with Proof of Delivery.',
+                    },
+                  ],
+                },
+                {
+                  '@type': 'WebPage',
+                  '@id': 'https://www.ctiddp.com/how-it-works/#webpage',
+                  url: 'https://www.ctiddp.com/how-it-works/',
+                  name: 'How DDP Shipping Works | Global Import Process',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
+                  },
+                  mainEntity: {
+                    '@id': 'https://www.ctiddp.com/how-it-works/#howto',
+                  },
                 },
                 {
                   '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/how-it-works/#breadcrumb',
                   itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' },
-                    { '@type': 'ListItem', position: 2, name: 'How It Works', item: 'https://ctiddp.com/how-it-works' }
-                  ]
-                }
-              ]
-            })
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'How It Works',
+                      item: 'https://www.ctiddp.com/how-it-works/',
+                    },
+                  ],
+                },
+              ],
+            }),
           }}
         />
 
@@ -160,7 +247,7 @@ export default function HowItWorksPage() {
 
             {/* Total Timeline Badge */}
             <div className="text-center mt-6">
-              <span className="inline-flex items-center gap-2.5 bg-[rgba(37,99,235,0.07)] border border-[rgba(37,99,235,0.15)] py-2.5 px-5 sm:py-3 sm:px-[22px] rounded-[3px] text-[12px] sm:text-[13px] text-muted">                
+              <span className="inline-flex items-center gap-2.5 bg-[rgba(37,99,235,0.07)] border border-[rgba(37,99,235,0.15)] py-2.5 px-5 sm:py-3 sm:px-[22px] rounded-[3px] text-[12px] sm:text-[13px] text-muted">
                 <HiOutlineCalendarDays className="text-blue-light mt-[2px] shrink-0" size={22} />
                 Total: <strong className="text-blue-light text-sm sm:text-base">38–50 days</strong> factory pickup to India warehouse
               </span>

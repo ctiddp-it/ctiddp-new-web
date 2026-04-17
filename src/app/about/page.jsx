@@ -11,15 +11,38 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata = {
-  title: 'About CTIDDP — China to India Shipping (DDP) | CTIDDP Logistics Company',
-  description: 'Learn about CTIDDP — China to India DDP shipping specialists. End-to-end freight forwarding, door-to-door delivery across India, zero hidden costs. Meet the founders.',
+  title: 'About CTIDDP | Global Trade & DDP Logistics Experts',
+  description:
+    'CTIDDP enables global trade with China to India DDP shipping and international logistics solutions.',
+  keywords: [
+    'global logistics company India',
+    'cross border trade company India',
+    'DDP logistics experts India',
+    'China to India shipping experts',
+    'international freight company India',
+    'global shipping partner India',
+    'trusted logistics company India',
+    'import export logistics company India',
+    'supply chain company India',
+    'freight forwarding company India',
+    'global trade solutions company',
+    'international shipping experts India',
+    'logistics partner for importers',
+    'China India trade company',
+    'global freight experts India',
+  ],
   openGraph: {
-    title: 'About CTIDDP — China to India DDP Specialists',
-    description: 'Founded by Mallesh and Balu Gujjala. 500+ DDP shipments, 17 SOPs, zero hidden charges. Full-service China to India import logistics.',
-    url: 'https://ctiddp.com/about',
+    title: 'About CTIDDP | Global Trade & DDP Logistics Experts',
+    description:
+      'CTIDDP enables global trade with China to India DDP shipping and international logistics solutions.',
+    url: 'https://www.ctiddp.com/about/',
+    siteName: 'CTIDDP',
+    type: 'website',
   },
-  alternates: { canonical: 'https://ctiddp.com/about' },
-}
+  alternates: {
+    canonical: 'https://www.ctiddp.com/about/',
+  },
+};
 
 const TEAM = [
   { image: '/images/mallesh-gujjala-founder-ceo-ctiddp.png', name: 'Mallesh Gujjala', role: 'Founder & CEO', bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports from the ground up — from supplier networks in Guangdong to last-mile delivery across India.' },
@@ -83,7 +106,7 @@ const indiaLocations = LOCATIONS.filter(l => l.country === 'India');
 
 const OfficeCard = ({ l }) => (
   <div className="reveal bg-[var(--overlay-card)] border border-border rounded-[4px] p-5 sm:p-6 text-center hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all">
-    
+
     <Image
       src={l.flag}
       alt={l.country}
@@ -155,35 +178,79 @@ export default function AboutPage() {
               '@graph': [
                 {
                   '@type': 'LocalBusiness',
-                  '@id': 'https://ctiddp.com/about',
+                  '@id': 'https://www.ctiddp.com/#business',
                   name: 'CTIDDP',
-                  description: 'China to India DDP Shipping Specialists — end-to-end freight forwarding, customs clearance, and door delivery across India.',
-                  url: 'https://ctiddp.com',
-                  logo: 'https://ctiddp.com/logo.png',
+                  description:
+                    'China to India DDP Shipping Specialists — end-to-end freight forwarding, customs clearance, and door delivery across India.',
+                  url: 'https://www.ctiddp.com/',
+                  // logo: 'https://www.ctiddp.com/logo.png',
                   founder: [
-                    { '@type': 'Person', name: 'Mallesh Gujjala', jobTitle: 'Founder & CEO' },
-                    { '@type': 'Person', name: 'Balu Gujjala', jobTitle: 'Co-Founder & India Operations' }
+                    {
+                      '@type': 'Person',
+                      name: 'Mallesh Gujjala',
+                      jobTitle: 'Founder & CEO',
+                    },
+                    {
+                      '@type': 'Person',
+                      name: 'Balu Gujjala',
+                      jobTitle: 'Co-Founder & India Operations',
+                    },
                   ],
                   address: [
-                    { '@type': 'PostalAddress', addressLocality: 'Visakhapatnam', addressRegion: 'Andhra Pradesh', addressCountry: 'IN' },
-                    { '@type': 'PostalAddress', addressLocality: 'Guangzhou', addressRegion: 'Guangdong', addressCountry: 'CN' }
+                    {
+                      '@type': 'PostalAddress',
+                      addressLocality: 'Visakhapatnam',
+                      addressRegion: 'Andhra Pradesh',
+                      addressCountry: 'IN',
+                    },
+                    {
+                      '@type': 'PostalAddress',
+                      addressLocality: 'Guangzhou',
+                      addressRegion: 'Guangdong',
+                      addressCountry: 'CN',
+                    },
                   ],
-                  contactPoint: {
-                    '@type': 'ContactPoint',
-                    contactType: 'customer service',
-                    availableLanguage: ['English', 'Hindi', 'Telugu', 'Chinese']
+                  contactPoint: [
+                    {
+                      '@type': 'ContactPoint',
+                      contactType: 'customer service',
+                      availableLanguage: ['English', 'Hindi', 'Telugu', 'Chinese'],
+                    },
+                  ],
+                  sameAs: ['https://wa.me/918790013772', 'https://wa.me/8618818749844'],
+                },
+                {
+                  '@type': 'WebPage',
+                  '@id': 'https://www.ctiddp.com/about/#webpage',
+                  url: 'https://www.ctiddp.com/about/',
+                  name: 'About CTIDDP | Global Trade & DDP Logistics Experts',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
                   },
-                  sameAs: ['https://wa.me/your-number']
+                  about: {
+                    '@id': 'https://www.ctiddp.com/#business',
+                  },
                 },
                 {
                   '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/about/#breadcrumb',
                   itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' },
-                    { '@type': 'ListItem', position: 2, name: 'About', item: 'https://ctiddp.com/about' }
-                  ]
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'About',
+                      item: 'https://www.ctiddp.com/about/',
+                    },
+                  ],
                 },
               ],
-            })
+            }),
           }}
         />
 
@@ -425,7 +492,7 @@ export default function AboutPage() {
               </h2>
             </div>
 
-             {/* 🇮🇳 INDIA */}
+            {/* 🇮🇳 INDIA */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
               {indiaLocations.map(l => (
                 <OfficeCard key={l.city} l={l} />

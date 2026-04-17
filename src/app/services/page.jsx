@@ -11,12 +11,37 @@ import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'DDP Shipping Services — China to India',
-  description: 'Six end-to-end China to India DDP services: sea & air freight, QC, multi-vendor consolidation, customs clearance, Canton Fair support, and PAN-India last-mile delivery.',
-  keywords: ['DDP shipping services China India', 'China India freight forwarding', 'pre-shipment inspection India', 'Canton Fair shipping service', 'India customs clearance service', 'last mile delivery India'],
-  openGraph: { title: 'China to India DDP Shipping Services — CTIDDP', description: 'Six end-to-end DDP services: sea & air freight, QC, consolidation, customs clearance, Canton Fair, and PAN-India last-mile.', url: 'https://ctiddp.com/services' },
-  alternates: { canonical: 'https://ctiddp.com/services' },
-}
+  title: 'DDP Shipping Services | Global Freight & India Imports',
+  description:
+    'Explore global freight services including DDP shipping, air and sea cargo, and door-to-door logistics.',
+  keywords: [
+    'what is DDP shipping',
+    'import process China to India',
+    'customs clearance process India import',
+    'how to import goods from China',
+    'step by step import guide India',
+    'shipping process China to India',
+    'DDP vs DDU difference',
+    'import documentation India',
+    'international shipping process explained',
+    'freight forwarding process',
+    'China import steps for beginners',
+    'import tax India calculation',
+    'how logistics works globally',
+    'customs duty India process',
+  ],
+  openGraph: {
+    title: 'DDP Shipping Services | Global Freight & India Imports',
+    description:
+      'Explore global freight services including DDP shipping, air and sea cargo, and door-to-door logistics.',
+    url: 'https://www.ctiddp.com/services/',
+    siteName: 'CTIDDP',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/services/',
+  },
+};
 
 const SERVICES = [
   {
@@ -108,23 +133,53 @@ export default function ServicesPage() {
               '@graph': [
                 {
                   '@type': 'Service',
-                  '@id': 'https://ctiddp.com/services',
+                  '@id': 'https://www.ctiddp.com/services/#service',
                   name: 'China to India DDP Shipping',
-                  provider: { '@type': 'Organization', name: 'CTIDDP', url: 'https://ctiddp.com' },
+                  provider: {
+                    '@type': 'Organization',
+                    name: 'CTIDDP',
+                    url: 'https://www.ctiddp.com/',
+                  },
                   serviceType: 'Freight Forwarding',
                   description: 'End-to-end DDP freight from China to India.',
-                  areaServed: { '@type': 'Country', name: 'India' },
-                  url: 'https://ctiddp.com/services'
+                  areaServed: {
+                    '@type': 'Country',
+                    name: 'India',
+                  },
+                  url: 'https://www.ctiddp.com/services/',
+                },
+                {
+                  '@type': 'WebPage',
+                  '@id': 'https://www.ctiddp.com/services/#webpage',
+                  url: 'https://www.ctiddp.com/services/',
+                  name: 'DDP Shipping Services | Global Freight & India Imports',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
+                  },
+                  mainEntity: {
+                    '@id': 'https://www.ctiddp.com/services/#service',
+                  },
                 },
                 {
                   '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/services/#breadcrumb',
                   itemListElement: [
-                    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' },
-                    { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://ctiddp.com/services' }
-                  ]
-                }
-              ]
-            })
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'Services',
+                      item: 'https://www.ctiddp.com/services/',
+                    },
+                  ],
+                },
+              ],
+            }),
           }}
         />
 

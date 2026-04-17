@@ -4,10 +4,35 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'Insights & Blog — China India DDP Import Guides',
-  description: 'Import guides, duty update alerts, Canton Fair tips, and DDP shipping intelligence for Indian importers buying from China.',
-  openGraph: { title: 'DDP Shipping Insights & Guides — CTIDDP', description: 'Import guides, duty updates, and Canton Fair tips for Indian importers buying from China.', url: 'https://ctiddp.com/insights' },
-  alternates: { canonical: 'https://ctiddp.com/insights' },
-}
+  description:
+    'Import guides, duty update alerts, Canton Fair tips, and DDP shipping intelligence for Indian importers buying from China.',
+  keywords: [
+    'how to import from China to India',
+    'best products to import from China',
+    'China import business ideas India',
+    'DDP vs CIF vs FOB',
+    'import duty India calculator',
+    'shipping cost China to India guide',
+    'China sourcing tips India',
+    'Canton Fair buying guide',
+    'import export business India tips',
+    'freight forwarding explained',
+    'international logistics trends',
+    'China wholesale sourcing guide',
+    'import documentation India guide',
+    'customs clearance India guide',
+    'global trade insights blog',
+  ],
+  openGraph: {
+    title: 'DDP Shipping Insights & Guides — CTIDDP',
+    description:
+      'Import guides, duty updates, and Canton Fair tips for Indian importers buying from China.',
+    url: 'https://www.ctiddp.com/insights/',
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/insights/',
+  },
+};
 
 const POSTS = [
   { emoji: '📦', category: 'DDP Guide', date: '12 Mar 2025', title: 'The Complete Guide to DDP Shipping from China to India in 2025', excerpt: "Everything Indian importers need to know about DDP Incoterms — what's included, what it costs, and why it's the safest way to import from China.", slug: 'guide-ddp-shipping-china-india-2025' },
@@ -27,25 +52,55 @@ export default function InsightsPage() {
         {/* JSON-LD */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'Blog',
-                '@id': 'https://ctiddp.com/insights',
-                name: 'CTIDDP Insights',
-                url: 'https://ctiddp.com/insights',
-                publisher: { '@type': 'Organization', name: 'CTIDDP' }
-              },
-              {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ctiddp.com' },
-                  { '@type': 'ListItem', position: 2, name: 'Insights', item: 'https://ctiddp.com/insights' }
-                ]
-              }
-            ]
-          }) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'Blog',
+                  '@id': 'https://www.ctiddp.com/insights/#blog',
+                  name: 'CTIDDP Insights',
+                  url: 'https://www.ctiddp.com/insights/',
+                  publisher: {
+                    '@type': 'Organization',
+                    name: 'CTIDDP',
+                  },
+                },
+                {
+                  '@type': 'WebPage',
+                  '@id': 'https://www.ctiddp.com/insights/#webpage',
+                  url: 'https://www.ctiddp.com/insights/',
+                  name: 'Insights & Blog — China India DDP Import Guides',
+                  description:
+                    'Import guides, duty update alerts, Canton Fair tips, and DDP shipping intelligence for Indian importers buying from China.',
+                  isPartOf: {
+                    '@id': 'https://www.ctiddp.com/#website',
+                  },
+                  mainEntity: {
+                    '@id': 'https://www.ctiddp.com/insights/#blog',
+                  },
+                },
+                {
+                  '@type': 'BreadcrumbList',
+                  '@id': 'https://www.ctiddp.com/insights/#breadcrumb',
+                  itemListElement: [
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://www.ctiddp.com/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'Insights',
+                      item: 'https://www.ctiddp.com/insights/',
+                    },
+                  ],
+                },
+              ],
+            }),
+          }}
         />
 
         {/* Breadcrumb */}
@@ -80,7 +135,7 @@ export default function InsightsPage() {
         {/* Main Content */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto">
-            
+
             {/* Featured Post */}
             <div className="mb-12">
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
@@ -100,8 +155,8 @@ export default function InsightsPage() {
                 <p className="text-sm text-muted leading-relaxed mb-5 max-w-[640px]">
                   {POSTS[0].excerpt}
                 </p>
-                <Link 
-                  href={`/insights/${POSTS[0].slug}`} 
+                <Link
+                  href={`/insights/${POSTS[0].slug}`}
                   className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-5 sm:px-6 py-2.5 rounded-[3px] font-bold text-xs tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none"
                 >
                   Read Guide →
@@ -115,7 +170,7 @@ export default function InsightsPage() {
                 All Articles
               </span>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {POSTS.slice(1).map(post => (
                 <Link key={post.slug} href={`/insights/${post.slug}`} className="no-underline group">
@@ -155,9 +210,9 @@ export default function InsightsPage() {
               Get monthly duty rate updates, Canton Fair prep guides, and DDP shipping tips directly to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-[440px] mx-auto">
-              <input 
-                type="email" 
-                placeholder="Your email address" 
+              <input
+                type="email"
+                placeholder="Your email address"
                 className="flex-1 bg-[var(--overlay-input)] border border-[var(--overlay-input-border)] rounded-[3px] py-3 px-4 text-white text-sm outline-none focus:border-gold transition-colors placeholder:text-muted"
               />
               <button className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]">

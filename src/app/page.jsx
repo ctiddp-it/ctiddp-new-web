@@ -22,29 +22,43 @@ import StatsSection from "@/components/sections/StatsSection";
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'CTIDDP — China to India DDP Shipping | All Duties Paid',
+  title: 'CTIDDP | Global Shipping & China to India DDP Experts',
   description:
-    'CTIDDP is India\'s specialist China to India DDP freight forwarder. Sea & air shipping with BCD, IGST & SWS pre-paid. Factory QC, consolidation, customs clearance & PAN-India delivery under one DDP contract.',
+    'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
   keywords: [
-    'DDP shipping China to India', 'China India freight forwarder', 'Delivered Duty Paid India',
-    'import from China to India', 'China India customs clearance', 'BCD IGST SWS shipping',
-    'Canton Fair shipping', 'DDP logistics India',
+    'shipping from China to India cost',
+    'import from China to India',
+    'DDP shipping China to India',
+    'door to door shipping China India',
+    'China to India shipping company',
+    'best freight forwarder India China',
+    'China import logistics company India',
+    'shipping agent China to India',
+    'international shipping company India',
+    'global logistics company India',
+    'cross border shipping solutions',
+    'import without customs hassle India',
+    'China sourcing and shipping service',
+    'full service logistics provider India',
+    'end to end import services India',
   ],
   openGraph: {
-    title: 'CTIDDP — China to India DDP Shipping Specialists',
-    description: 'End-to-end DDP freight from China to India. All duties pre-paid. One contract, zero surprises.',
-    url: 'https://ctiddp.com',
+    title: 'CTIDDP | Global Shipping & China to India DDP Experts',
+    description:
+      'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
+    url: 'https://www.ctiddp.com/',
     siteName: 'CTIDDP',
     type: 'website',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'CTIDDP DDP Shipping' }],
   },
-  alternates: { canonical: 'https://ctiddp.com' },
-}
+  alternates: {
+    canonical: 'https://www.ctiddp.com/',
+  },
+};
 
 const STATS = [
-  { digits: '30',    suffix: '+', label: 'Expert Team Members' },
-  { digits: '300',   suffix: '+', label: 'Containers Imported' },
-  { digits: '1200',  suffix: '+', label: 'Shipments Cleared' },
+  { digits: '30', suffix: '+', label: 'Expert Team Members' },
+  { digits: '300', suffix: '+', label: 'Containers Imported' },
+  { digits: '1200', suffix: '+', label: 'Shipments Cleared' },
   { digits: '16250', suffix: '+', label: 'CBM Shipped' },
 ];
 
@@ -200,27 +214,45 @@ export default function HomePage() {
             '@graph': [
               {
                 '@type': 'Organization',
+                '@id': 'https://www.ctiddp.com/#organization',
                 name: 'CTIDDP',
-                url: 'https://ctiddp.com',
-                logo: 'https://ctiddp.com/logo.png',
-                description: 'China to India DDP shipping specialists. All duties pre-paid.',
+                url: 'https://www.ctiddp.com/',
+                // logo: 'https://www.ctiddp.com/logo.png',
+                description:
+                  'China to India DDP shipping specialists. All duties pre-paid.',
                 contactPoint: [
-                  { '@type': 'ContactPoint', telephone: '+91-99520-44576', contactType: 'customer service', areaServed: 'IN', availableLanguage: ['English', 'Hindi'] },
-                  { '@type': 'ContactPoint', telephone: '+86-134-2362-0005', contactType: 'customer service', areaServed: 'CN', availableLanguage: ['Chinese', 'English'] },
+                  {
+                    '@type': 'ContactPoint',
+                    telephone: '+91-87900-13772',
+                    contactType: 'customer service',
+                    areaServed: 'IN',
+                    availableLanguage: ['English', 'Hindi','Telugu'],
+                  },
+                  {
+                    '@type': 'ContactPoint',
+                    telephone: '+86-188-1874-9844',
+                    contactType: 'customer service',
+                    areaServed: 'CN',
+                    availableLanguage: ['Chinese', 'English'],
+                  },
                 ],
               },
               {
                 '@type': 'WebSite',
-                url: 'https://ctiddp.com',
+                '@id': 'https://www.ctiddp.com/#website',
+                url: 'https://www.ctiddp.com/',
                 name: 'CTIDDP',
+                publisher: {
+                  '@id': 'https://www.ctiddp.com/#organization',
+                },
                 potentialAction: {
                   '@type': 'SearchAction',
-                  target: 'https://ctiddp.com/track?q={search_term_string}',
+                  target: 'https://www.ctiddp.com/track?q={search_term_string}',
                   'query-input': 'required name=search_term_string',
                 },
               },
             ],
-          })
+          }),
         }}
       />
       <ScrollRevealInit />
@@ -502,7 +534,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <SampleComponent/>
+        <SampleComponent />
 
       </main>
 
