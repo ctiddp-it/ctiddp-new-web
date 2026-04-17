@@ -274,7 +274,7 @@ export default function ContactClient() {
     subject: SUBJECTS[0],
     message: ''
   })
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
   // Accordion state
   const [openCategories, setOpenCategories] = useState({

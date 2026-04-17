@@ -40,7 +40,7 @@ export default function GetQuoteClient() {
     additionalNotes: '',
   })
 
-  const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
   const handleChange = (event) => {
     const { name, value } = event.target
