@@ -27,10 +27,10 @@ export const metadata = {
     title: 'DDP Shipping Insights & Guides — CTIDDP',
     description:
       'Import guides, duty updates, and Canton Fair tips for Indian importers buying from China.',
-    url: 'https://www.ctiddp.com/insights/',
+    url: 'https://www.ctiddp.com/blog/',
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/insights/',
+    canonical: 'https://www.ctiddp.com/blog/',
   },
 };
 
@@ -58,9 +58,9 @@ export default function InsightsPage() {
               '@graph': [
                 {
                   '@type': 'Blog',
-                  '@id': 'https://www.ctiddp.com/insights/#blog',
+                  '@id': 'https://www.ctiddp.com/blog/#blog',
                   name: 'CTIDDP Insights',
-                  url: 'https://www.ctiddp.com/insights/',
+                  url: 'https://www.ctiddp.com/blog/',
                   publisher: {
                     '@type': 'Organization',
                     name: 'CTIDDP',
@@ -68,8 +68,8 @@ export default function InsightsPage() {
                 },
                 {
                   '@type': 'WebPage',
-                  '@id': 'https://www.ctiddp.com/insights/#webpage',
-                  url: 'https://www.ctiddp.com/insights/',
+                  '@id': 'https://www.ctiddp.com/blog/#webpage',
+                  url: 'https://www.ctiddp.com/blog/',
                   name: 'Insights & Blog — China India DDP Import Guides',
                   description:
                     'Import guides, duty update alerts, Canton Fair tips, and DDP shipping intelligence for Indian importers buying from China.',
@@ -77,12 +77,12 @@ export default function InsightsPage() {
                     '@id': 'https://www.ctiddp.com/#website',
                   },
                   mainEntity: {
-                    '@id': 'https://www.ctiddp.com/insights/#blog',
+                    '@id': 'https://www.ctiddp.com/blog/#blog',
                   },
                 },
                 {
                   '@type': 'BreadcrumbList',
-                  '@id': 'https://www.ctiddp.com/insights/#breadcrumb',
+                  '@id': 'https://www.ctiddp.com/blog/#breadcrumb',
                   itemListElement: [
                     {
                       '@type': 'ListItem',
@@ -94,7 +94,7 @@ export default function InsightsPage() {
                       '@type': 'ListItem',
                       position: 2,
                       name: 'Insights',
-                      item: 'https://www.ctiddp.com/insights/',
+                      item: 'https://www.ctiddp.com/blog/',
                     },
                   ],
                 },
@@ -156,7 +156,7 @@ export default function InsightsPage() {
                   {POSTS[0].excerpt}
                 </p>
                 <Link
-                  href={`/insights/${POSTS[0].slug}`}
+                  href={`/blog/${POSTS[0].slug}`}
                   className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-5 sm:px-6 py-2.5 rounded-[3px] font-bold text-xs tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none"
                 >
                   Read Guide →
@@ -173,7 +173,7 @@ export default function InsightsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {POSTS.slice(1).map(post => (
-                <Link key={post.slug} href={`/insights/${post.slug}`} className="no-underline group">
+                <Link key={post.slug} href={`/blog/${post.slug}`} className="no-underline group">
                   <div className="reveal bg-[var(--overlay-card)] border border-border rounded-[4px] overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-1">
                     <div className="h-40 bg-[rgba(37,99,235,0.05)] flex items-center justify-center relative">
                       <span className="text-[9px] tracking-[1.5px] uppercase text-blue bg-[rgba(37,99,235,0.12)] py-1 px-2.5 rounded-sm absolute top-3 left-3">
