@@ -64,7 +64,7 @@ function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
           justify-content: center;
           font-size: clamp(28px, 10vw, 100px);
           font-weight: 600;
-          font-family: 'Cormorant Garamond', Georgia, serif;
+          font-family: var(--font-heading);
           line-height: 1;
           flex-shrink: 0;
           user-select: none;
@@ -145,7 +145,7 @@ function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
                 {suffix && (
                     <div style={{
                         fontSize: 'clamp(28px, 6vw, 60px)', fontWeight: 600,
-                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontFamily: "var(--font-heading)",
                         color: 'inherit', lineHeight: `${CELL_H}px`, paddingLeft: '1px',
                     }}>
                         {suffix}

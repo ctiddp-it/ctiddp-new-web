@@ -169,7 +169,7 @@ export default function CantonFairPage() {
             </div>
 
             {/* H1 */}
-            <h1 className="font-garamond text-[clamp(34px,5.5vw,60px)] font-light leading-[1.1] mb-[14px]">
+            <h1 className="font-heading text-[clamp(34px,5.5vw,60px)] font-light leading-[1.1] mb-[14px]">
               Canton Fair DDP.<br />
               <em className="italic text-blue-light">
                 Booth to Your Door.
@@ -192,7 +192,7 @@ export default function CantonFairPage() {
                 🎪 Canton Fair Support
               </span>
 
-              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
+              <h2 className="font-heading text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
                 We Go to the Fair.<br />
                 <em className="italic text-blue-light">You Get the Goods.</em>
               </h2>
@@ -237,7 +237,7 @@ export default function CantonFairPage() {
 
             {/* ── Right column — schedule card ── */}
             <div className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-5 sm:p-7">
-              <h4 className="font-garamond text-[20px] font-semibold mb-5 text-blue-light">
+              <h4 className="font-heading text-[20px] font-semibold mb-5 text-blue-light">
                 2026 Canton Fair Schedule
               </h4>
 
@@ -295,7 +295,7 @@ export default function CantonFairPage() {
               <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue mb-3 block">
                 Perfect Match
               </span>
-              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
+              <h2 className="font-heading text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
                 Who This Is<br />
                 <em className="italic text-blue-light">For</em>
               </h2>
@@ -317,7 +317,7 @@ export default function CantonFairPage() {
                   className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.15)] p-5 sm:p-[26px] rounded-[3px] hover:border-[rgba(37,99,235,0.3)] transition-all duration-200"
                 >
                   <div className="text-2xl mb-3">{item.icon}</div>
-                  <h4 className="font-garamond text-[16px] font-semibold mb-2 text-white">
+                  <h4 className="font-heading text-[16px] font-semibold mb-2 text-white">
                     {item.title}
                   </h4>
                   <p className="text-[12px] text-muted leading-[1.7]">{item.desc}</p>
@@ -334,7 +334,7 @@ export default function CantonFairPage() {
               <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue mb-3 block">
                 Why Choose Us
               </span>
-              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
+              <h2 className="font-heading text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
                 With & Without<br />
                 <em className="italic text-blue-light">CTIDDP Support</em>
               </h2>
@@ -406,7 +406,7 @@ export default function CantonFairPage() {
               <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue mb-3 block">
                 What's Included
               </span>
-              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
+              <h2 className="font-heading text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
                 Full Canton Fair<br />
                 <em className="italic text-blue-light">Service Scope</em>
               </h2>
@@ -418,7 +418,7 @@ export default function CantonFairPage() {
                   key={s.title}
                   className="reveal bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.15)] p-5 sm:p-[26px] rounded-[3px]"
                 >
-                  <h4 className="font-garamond text-[16px] font-semibold mb-2 text-white">
+                  <h4 className="font-heading text-[16px] font-semibold mb-2 text-white">
                     {s.icon} {s.title}
                   </h4>
                   <p className="text-[12px] text-muted leading-[1.7]">{s.desc}</p>
@@ -437,7 +437,7 @@ export default function CantonFairPage() {
               <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue mb-3 block">
                 Beyond the Fair
               </span>
-              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
+              <h2 className="font-heading text-[clamp(30px,4vw,56px)] font-light leading-[1.1] mb-[14px]">
                 Year-Round<br />
                 <em className="italic text-blue-light">Sourcing Support</em>
               </h2>
@@ -458,7 +458,7 @@ export default function CantonFairPage() {
 
             {/* Right — How to book */}
             <div className="bg-surface border border-[rgba(37,99,235,0.15)] p-6 sm:p-8 rounded-[3px]">
-              <h3 className="font-garamond text-[22px] font-semibold mb-4 text-blue-light">
+              <h3 className="font-heading text-[22px] font-semibold mb-4 text-blue-light">
                 How to Book Canton Fair Support
               </h3>
 
@@ -467,7 +467,7 @@ export default function CantonFairPage() {
                   key={s.n}
                   className={`flex gap-4 sm:gap-5 py-5 sm:py-6 ${idx < STEPS.length - 1 ? 'border-b border-[rgba(37,99,235,0.07)]' : ''}`}
                 >
-                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-garamond text-[13px] font-semibold text-blue">
+                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-heading text-[13px] font-semibold text-blue">
                     {s.n}
                   </div>
                   <div>
@@ -485,7 +485,7 @@ export default function CantonFairPage() {
 
         {/* ── CTA Banner ── */}
         <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-[48px] sm:py-[72px] text-center">
-          <h2 className="font-garamond text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-[14px]">
+          <h2 className="font-heading text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-[14px]">
             Next Canton Fair:<br />
             <em className="italic text-blue-light">April 15, 2026.</em>
           </h2>

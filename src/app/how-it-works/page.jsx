@@ -72,7 +72,7 @@ const PROCESS_MAP = [
 function StepItem({ s }) {
   return (
     <div className="reveal flex gap-4 items-start py-5 px-5 border-b border-[rgba(37,99,235,0.08)] last:border-0 hover:bg-[rgba(37,99,235,0.02)] transition-colors">
-      <div className="font-garamond text-[32px] font-light text-[rgba(37,99,235,0.35)] leading-none shrink-0">
+      <div className="font-heading text-[32px] font-light text-[rgba(37,99,235,0.35)] leading-none shrink-0">
         {s.n}
       </div>
       <div className="flex-1">
@@ -202,7 +202,7 @@ export default function HowItWorksPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               The DDP Journey
             </div>
-            <h1 className="font-garamond text-[clamp(36px,5vw,65px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-heading text-[clamp(36px,5vw,65px)] font-light leading-[1.1] mb-4">
               One Contract.<br />
               <em className="italic text-blue-light">
                 Zero Worry.
@@ -264,7 +264,7 @@ export default function HowItWorksPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Phase 1 — China
               </span>
-              <h2 className="font-garamond text-[32px] sm:text-[38px] font-light text-white leading-[1.2] mb-6">
+              <h2 className="font-heading text-[32px] sm:text-[38px] font-light text-white leading-[1.2] mb-6">
                 From Factory<br />
                 <em className="italic text-blue-light">To Port</em>
               </h2>
@@ -278,7 +278,7 @@ export default function HowItWorksPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Phase 2 — India
               </span>
-              <h2 className="font-garamond text-[32px] sm:text-[38px] font-light text-white leading-[1.2] mb-6">
+              <h2 className="font-heading text-[32px] sm:text-[38px] font-light text-white leading-[1.2] mb-6">
                 From Port<br />
                 <em className="italic text-blue-light">To Door</em>
               </h2>
@@ -296,7 +296,7 @@ export default function HowItWorksPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Transit Timelines
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 How Long Does<br />
                 <em className="italic text-blue-light">It Take?</em>
               </h2>
@@ -307,7 +307,7 @@ export default function HowItWorksPage() {
               <div className="reveal bg-[var(--overlay-input)] border border-[var(--overlay-card-border)] rounded-[4px] p-6 sm:p-[34px] hover:border-[rgba(37,99,235,0.2)] transition-all">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-3xl"><FaShip /></span>
-                  <span className="font-garamond text-2xl font-semibold text-white">Sea Freight</span>
+                  <span className="font-heading text-2xl font-semibold text-white">Sea Freight</span>
                 </div>
                 <div className="space-y-0">
                   {[
@@ -327,7 +327,7 @@ export default function HowItWorksPage() {
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs text-muted">Total Door-to-Door</span>
                     <div className="text-right">
-                      <span className="font-garamond text-[32px] font-semibold text-blue-light">38–50</span>
+                      <span className="font-heading text-[32px] font-semibold text-blue-light">38–50</span>
                       <span className="text-xs text-muted ml-1">days</span>
                     </div>
                   </div>
@@ -338,7 +338,7 @@ export default function HowItWorksPage() {
               <div className="reveal bg-[var(--overlay-input)] border border-[var(--overlay-card-border)] rounded-[4px] p-6 sm:p-[34px] hover:border-[rgba(37,99,235,0.2)] transition-all">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-3xl"><FaPlane /></span>
-                  <span className="font-garamond text-2xl font-semibold text-white">Air Freight</span>
+                  <span className="font-heading text-2xl font-semibold text-white">Air Freight</span>
                 </div>
                 <div className="space-y-0">
                   {[
@@ -358,7 +358,7 @@ export default function HowItWorksPage() {
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs text-muted">Total Door-to-Door</span>
                     <div className="text-right">
-                      <span className="font-garamond text-[32px] font-semibold text-blue-light">5–9</span>
+                      <span className="font-heading text-[32px] font-semibold text-blue-light">5–9</span>
                       <span className="text-xs text-muted ml-1">days</span>
                     </div>
                   </div>
@@ -370,7 +370,7 @@ export default function HowItWorksPage() {
 
         {/* CTA Banner */}
         <div className="relative text-center px-4 sm:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-garamond text-[clamp(28px,3.5vw,44px)] text-white leading-[1.2] mb-3">
+          <h2 className="font-heading text-[clamp(28px,3.5vw,44px)] text-white leading-[1.2] mb-3">
             Understand It.<br />
             <em className="italic text-blue-light">Then Let Us Handle It.</em>
           </h2>

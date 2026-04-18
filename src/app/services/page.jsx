@@ -200,7 +200,7 @@ export default function ServicesPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Six Core Services
             </div>
-            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Everything You Need.<br />
               <em className="italic text-blue-light">
                 Under One Contract.
@@ -226,7 +226,7 @@ export default function ServicesPage() {
                   text-blue-light mb-4 group-hover:scale-120 transition-all">
                     <s.icon size={20} />
                   </div>
-                  <h2 className="font-garamond text-xl font-semibold text-white mb-2 group-hover:text-blue-light transition-colors">
+                  <h2 className="font-heading text-xl font-semibold text-white mb-2 group-hover:text-blue-light transition-colors">
                     {s.title}
                   </h2>
                   <p className="text-[12px] text-muted leading-relaxed mb-4">
@@ -262,7 +262,7 @@ export default function ServicesPage() {
 
         {/* CTA Banner */}
         <div className="relative text-center px-4 sm:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-garamond text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
+          <h2 className="font-heading text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Need All Six?<br />
             <em className="italic text-blue-light">We Bundle Them.</em>
           </h2>

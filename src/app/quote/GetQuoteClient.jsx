@@ -129,7 +129,7 @@ export default function GetQuoteClient() {
               <span className="w-1.5 h-1.5 rounded-full bg-blue shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               DDP Quote Request
             </div>
-            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Get Your Full<br />
               <em className="italic text-blue-light">
                 DDP Quote
@@ -150,7 +150,7 @@ export default function GetQuoteClient() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 What You Receive
               </span>
-              <h2 className="font-garamond text-[clamp(24px,3.2vw,40px)] font-light leading-[1.1] mb-3">
+              <h2 className="font-heading text-[clamp(24px,3.2vw,40px)] font-light leading-[1.1] mb-3">
                 A Quote That<br />
                 <em className="italic text-blue-light">Covers Everything</em>
               </h2>
@@ -194,7 +194,7 @@ export default function GetQuoteClient() {
             {/* Right Column - Form */}
             {!submitted ? (
               <div className="bg-[rgba(255,255,255,0.02)] border border-border rounded-[4px] p-5 sm:p-7">
-                <div className="font-garamond text-xl font-semibold text-white mb-5">
+                <div className="font-heading text-xl font-semibold text-white mb-5">
                   <div className="flex items-center gap-2">
                     <FaFileInvoice className="text-blue-light w-5 h-5" />
                     <span>Tell Us About Your Shipment</span>
@@ -395,7 +395,7 @@ export default function GetQuoteClient() {
             ) : (
               <div className="bg-[rgba(74,222,128,0.07)] border border-[rgba(74,222,128,0.25)] rounded-[4px] p-8 sm:p-12 text-center">
                 <FaCheckCircle className="text-green-400 w-12 h-12 mx-auto mb-4" />
-                <div className="font-garamond text-2xl sm:text-[28px] font-semibold mb-3">Quote Request Received!</div>
+                <div className="font-heading text-2xl sm:text-[28px] font-semibold mb-3">Quote Request Received!</div>
                 <p className="text-sm leading-relaxed mb-6">
                   Our Team will review your details and send you a complete DDP quote with BCD+IGST breakdown within 2 hours on WhatsApp.
                 </p>
@@ -415,7 +415,7 @@ export default function GetQuoteClient() {
 
         {/* CTA Banner */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-garamond text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
+          <h2 className="font-heading text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Have a Question<br />
             <em className="italic text-blue-light">Before You Quote?</em>
           </h2>

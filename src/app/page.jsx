@@ -133,7 +133,7 @@ const SERVICES = [
   {
     icon: <HiOutlineShieldCheck />,
     title: 'Customs Clearance & Duty Mgmt',
-    desc: 'BCD, IGST, FTA benefits, BIS certification, FSSAI for food — all handled by our compliance team.',
+    desc: 'BCD, IGST, FTA benefits. Pre-calculation, pre-payment, and full handling of Indian customs clearance process.',
     href: '/services/customs-clearance',
     highlight: false,
   },
@@ -271,7 +271,7 @@ export default function HomePage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Know Before You Ship
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
                 What Does DDP Mean<br />
                 <em className="italic text-blue-light">For Your Shipment?</em>
               </h2>
@@ -298,7 +298,7 @@ export default function HomePage() {
                   >
                     {card.badge}
                   </div>
-                  <h3 className="font-garamond text-xl font-semibold text-white mb-3">
+                  <h3 className="font-heading text-xl font-semibold text-white mb-3">
                     {card.title}
                   </h3>
                   <p className="text-[13px] text-muted leading-relaxed mb-[18px]">{card.desc}</p>
@@ -324,7 +324,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                   Our Services
                 </span>
-                <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+                <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                   Six Ways We<br />
                   <em className="italic text-blue-light">Serve You.</em>
                 </h2>
@@ -352,7 +352,7 @@ export default function HomePage() {
                         {s.icon}
                       </span>
                     </div>
-                    <div className="font-garamond text-[19px] font-semibold mb-2 text-white group-hover:text-blue-light transition-colors">
+                    <div className="font-heading text-[19px] font-semibold mb-2 text-white group-hover:text-blue-light transition-colors">
                       {s.title}
                     </div>
                     <div className="text-[13px] text-muted leading-relaxed">{s.desc}</div>
@@ -372,7 +372,7 @@ export default function HomePage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 The DDP Journey
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
                 One Contract.<br />
                 <em className="italic text-blue-light">Zero Worry.</em>
               </h2>
@@ -395,7 +395,7 @@ export default function HomePage() {
             <div>
               {HOW_IT_WORKS.map(s => (
                 <div key={s.n} className="reveal flex gap-5 items-start py-6 border-b border-[rgba(37,99,235,0.07)] last:border-0">
-                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-garamond text-[13px] font-semibold text-blue">
+                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-heading text-[13px] font-semibold text-blue">
                     {s.n}
                   </div>
                   <div className="flex-1">
@@ -426,7 +426,7 @@ export default function HomePage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Client Reviews
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 What Our Clients<br />
                 <em className="italic text-blue-light">Say About Us</em>
               </h2>
@@ -460,7 +460,7 @@ export default function HomePage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Why CTIDDP
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 We Don&apos;t Just Ship.<br />
                 <em className="italic text-blue-light">We Deliver Certainty.</em>
               </h2>
@@ -481,7 +481,7 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <div className="font-garamond text-[19px] font-semibold mb-2 text-white">{w.title}</div>
+                  <div className="font-heading text-[19px] font-semibold mb-2 text-white">{w.title}</div>
                   <div className="text-[13px] text-muted leading-relaxed">{w.desc}</div>
                 </div>
               ))}
@@ -496,7 +496,7 @@ export default function HomePage() {
                       </span>
                     </div>
 
-                    <h4 className="font-garamond text-base font-semibold">
+                    <h4 className="font-heading text-base font-semibold">
                       {a.title}
                     </h4>
                   </div>
@@ -509,7 +509,7 @@ export default function HomePage() {
 
         {/* ── 10. CTA BANNER ────────────────────────────────────────────────── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[72px] overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-garamond text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-heading text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
             Ready to Ship<br />
             <em className="italic text-blue-light">the Right Way?</em>
           </h2>
@@ -519,7 +519,7 @@ export default function HomePage() {
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
               href="/quote"
-              className="inline-flex items-center gap-2 bg-linear-to-br from-gold to-gold-light text-black px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+              className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
             >
               Request a Quote →
             </Link>

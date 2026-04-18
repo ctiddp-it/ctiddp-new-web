@@ -35,7 +35,7 @@ export default function TrackingWidget() {
       <div className="max-w-[1200px] mx-auto relative z-[1]">
         <div className="text-center mb-12">
           <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue block mb-3">Shipment Visibility</span>
-          <h2 className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[clamp(32px,4vw,52px)] font-light text-white">
+          <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light text-white">
             Track Your<br /><em className="italic text-blue-light">DDP Shipment</em>
           </h2>
         </div>
@@ -44,7 +44,7 @@ export default function TrackingWidget() {
         <div className="max-w-[700px] mx-auto mb-8 reveal">
           <div className="flex gap-3">
             <input
-              className="flex-1 bg-[var(--overlay-input)] border border-[var(--overlay-input-border)] rounded-sm py-3 px-4 text-white text-sm outline-none font-[var(--font-outfit),'Outfit',sans-serif] placeholder:text-muted focus:border-gold transition-colors duration-200"
+              className="flex-1 bg-[var(--overlay-input)] border border-[var(--overlay-input-border)] rounded-sm py-3 px-4 text-white text-sm outline-none  placeholder:text-muted focus:border-gold transition-colors duration-200"
               placeholder="Enter tracking number — e.g. CTI-2025-04817"
               value={trackID} onChange={e => setTrackID(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleTrack()}
@@ -54,7 +54,7 @@ export default function TrackingWidget() {
           <div className="flex justify-center gap-2 mt-3 items-center">
             <span className="text-[rgba(255,255,255,0.3)] text-[10px]">Try demo:</span>
             <button
-              className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[11px] py-[3px] px-3 rounded-full cursor-none font-[var(--font-outfit),'Outfit',sans-serif] transition-colors duration-200 hover:bg-[rgba(37,99,235,0.15)]"
+              className="bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[11px] py-[3px] px-3 rounded-full cursor-none  transition-colors duration-200 hover:bg-[rgba(37,99,235,0.15)]"
               onClick={() => { setTrackID(DEMO_DATA.id); setShowResult(true) }}
             >
               {DEMO_DATA.id}
@@ -69,7 +69,7 @@ export default function TrackingWidget() {
             <div className="p-5 border-b border-[rgba(255,255,255,0.07)] flex justify-between items-center flex-wrap gap-3">
               <div>
                 <div className="text-[10px] text-muted tracking-[1.5px] uppercase mb-1">Tracking Number</div>
-                <div className="font-[var(--font-playfair),'playfair_Garamond',serif] text-[20px] font-semibold text-blue-light">{d.id}</div>
+                <div className="font-heading text-[20px] font-semibold text-blue-light">{d.id}</div>
               </div>
               <span className="inline-flex items-center gap-2 bg-[rgba(59,130,246,0.1)] border border-[rgba(59,130,246,0.25)] text-[#60a5fa] text-xs font-semibold py-1.5 px-4 rounded-full">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] animate-[pulse_2s_ease-in-out_infinite]" />

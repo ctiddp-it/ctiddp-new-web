@@ -110,7 +110,7 @@ export default function EcosystemClient() {
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Integrated Ecosystem
             </div>
-            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               One Platform.<br />
               <em className="italic bg-linear-to-br from-gold to-blue-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Endless Global Opportunities
@@ -150,7 +150,7 @@ export default function EcosystemClient() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Three Pillars
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Three Pillars.<br />
                 <em className="italic text-blue-light">One Unified Platform.</em>
               </h2>
@@ -186,7 +186,7 @@ export default function EcosystemClient() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 How It Works
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 One Ecosystem.<br />
                 <em className="italic text-blue-light">Multiple Advantages.</em>
               </h2>
@@ -206,7 +206,7 @@ export default function EcosystemClient() {
               ].map((step, i) => (
                 <div key={i} className={`reveal flex gap-5 sm:gap-7 items-start relative z-[1] ${i < 4 ? 'mb-6 sm:mb-8' : ''}`}>
                   <div className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] rounded-full bg-deep border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0">
-                    <span className="font-garamond text-sm sm:text-base font-semibold text-blue-light">{step.num}</span>
+                    <span className="font-heading text-sm sm:text-base font-semibold text-blue-light">{step.num}</span>
                   </div>
                   <div className="bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[4px] p-4 sm:p-5 flex-1 hover:border-[rgba(37,99,235,0.25)] transition-colors">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
@@ -230,7 +230,7 @@ export default function EcosystemClient() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Why Choose Us
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Businesses Choose<br />
                 <em className="italic text-blue-light">Our Ecosystem</em>
               </h2>
@@ -268,7 +268,7 @@ export default function EcosystemClient() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Built For
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Who This Is For
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
@@ -301,7 +301,7 @@ export default function EcosystemClient() {
             <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-6">
               Get Started Today
             </span>
-            <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-4">
+            <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-4">
               Join Our Global Trade Ecosystem
             </h2>
             <p className="text-[15px] text-muted max-w-[500px] mx-auto mb-8">
@@ -330,7 +330,7 @@ export default function EcosystemClient() {
                 </div>
                 <span className="text-[11px] font-bold tracking-[1.5px] uppercase text-blue-light">Our Vision</span>
               </div>
-              <p className="text-lg sm:text-xl text-white leading-relaxed font-garamond italic max-w-[600px] mx-auto">
+              <p className="text-lg sm:text-xl text-white leading-relaxed font-heading italic max-w-[600px] mx-auto">
                 To build a seamless global trade ecosystem where businesses can source, ship, and scale without barriers.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-6 mt-6 text-muted text-[11px]">

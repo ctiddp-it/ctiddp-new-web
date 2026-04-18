@@ -115,7 +115,7 @@ const OfficeCard = ({ l }) => (
       className="mx-auto mb-2 rounded-sm object-cover"
     />
 
-    <div className="font-garamond text-lg font-semibold text-white">
+    <div className="font-heading text-lg font-semibold text-white">
       {l.city}
     </div>
 
@@ -271,7 +271,7 @@ export default function AboutPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-blue shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Our Story
             </div>
-            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Built for One Route.<br />
               <em className="italic text-blue-light">
                 China to India.
@@ -304,7 +304,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Who We Are
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-5">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-5">
                 Our Story —<br />
                 <em className="italic text-blue-light">How We Started</em>
               </h2>
@@ -326,7 +326,7 @@ export default function AboutPage() {
                 { num: '0', label: 'Hidden charges. Ever.' },
               ].map(s => (
                 <div key={s.label} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.15)] p-5 sm:p-[22px] rounded-[3px] flex items-center gap-5 hover:border-[rgba(37,99,235,0.3)] transition-colors">
-                  <div className="font-garamond text-4xl sm:text-[44px] font-semibold text-blue-light leading-none shrink-0">
+                  <div className="font-heading text-4xl sm:text-[44px] font-semibold text-blue-light leading-none shrink-0">
                     {s.num}
                   </div>
                   <div className="text-[13px] text-muted leading-relaxed">
@@ -345,7 +345,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 OUR FOUNDERS
               </span>
-              <h2 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+              <h2 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
                 The People Behind <br />
                 <em className="italic text-blue-light">
                   Your Shipments
@@ -382,7 +382,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Vision & Mission
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Where We&apos;re Going.<br />
                 <em className="italic text-blue-light">How We&apos;ll Get There.</em>
               </h2>
@@ -391,7 +391,7 @@ export default function AboutPage() {
             {/* Vision Card */}
             <div className="reveal bg-linear-to-br ttext-white border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
               <div className="text-[11px] tracking-[0.12em] uppercase text-blue-light mb-3 font-medium">Our Vision</div>
-              <p className="text-lg text-white leading-relaxed font-garamond italic">
+              <p className="text-lg text-white leading-relaxed font-heading italic">
                 &ldquo;To become the most trusted logistics partner for businesses importing from China to India — delivering consistent, transparent, and scalable shipping solutions.&rdquo;
               </p>
             </div>
@@ -418,7 +418,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Why Choose Us
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Most Companies Ship.<br />
                 <em className="italic text-blue-light">We Manage the Whole Import.</em>
               </h2>
@@ -455,7 +455,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 How We Serve
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 A Structured Process.<br />
                 <em className="italic text-blue-light">Predictable Every Time.</em>
               </h2>
@@ -465,7 +465,7 @@ export default function AboutPage() {
               {STEPS.map((step, i) => (
                 <div key={i} className={`reveal flex gap-5 sm:gap-7 items-start relative z-[1] ${i < STEPS.length - 1 ? 'mb-6 sm:mb-8' : ''}`}>
                   <div className="w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] rounded-full bg-deep border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0">
-                    <span className="font-garamond text-sm sm:text-base font-semibold text-blue-light">{step.num}</span>
+                    <span className="font-heading text-sm sm:text-base font-semibold text-blue-light">{step.num}</span>
                   </div>
                   <div className="bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.1)] rounded-[4px] p-4 sm:p-5 flex-1 hover:border-[rgba(37,99,235,0.25)] transition-colors">
                     <div className="text-sm sm:text-[15px] font-semibold text-white mb-2">{step.title}</div>
@@ -486,7 +486,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
                 Our Offices
               </span>
-              <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Two Countries.<br />
                 <em className="italic text-blue-light">Five Locations.</em>
               </h2>
@@ -512,7 +512,7 @@ export default function AboutPage() {
 
         {/* ── CTA BANNER ── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-garamond text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
+          <h2 className="font-heading text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Work With a Team<br />
             <em className="italic text-blue-light">That&apos;s All-In.</em>
           </h2>

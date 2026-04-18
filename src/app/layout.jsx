@@ -1,5 +1,4 @@
 import './globals.css'
-import { Playfair_Display, Outfit } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
 import CustomCursor from '@/components/ui/CustomCursor'
 import ChatBot from '@/components/ui/ChatBot'
@@ -7,19 +6,6 @@ import MegaNav from '@/components/layout/MegaNav'
 import Footer from '@/components/layout/Footer'
 import ThemeProvider from '@/components/providers/ThemeProvider'
 
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['200', '300', '400', '500', '600', '700'],
-  variable: '--font-outfit',
-  display: 'swap',
-})
 
 export const metadata = {
   metadataBase: new URL('https://www.ctiddp.com/'),
@@ -88,7 +74,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth" className={`${playfair.variable} ${outfit.variable}`}>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
 
         {/* GTM injects both the <head> script and <body> noscript automatically */}

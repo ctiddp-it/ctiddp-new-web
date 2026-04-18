@@ -102,7 +102,7 @@ export default function PartnersSection() {
         <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
           Trusted by industry leaders
         </span>
-        <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
+        <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
           Our<br />
           <em className="italic text-blue-light">Global Partners</em>
         </h2>

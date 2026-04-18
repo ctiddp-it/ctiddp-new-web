@@ -99,7 +99,7 @@ export default function Footer() {
                   <path d="M4 33 Q10 30 16 33 Q22 36 28 33 Q34 30 38 33" stroke="rgba(59,130,246,0.7)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
                 </svg>
               </div>
-              <div className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[22px] font-bold tracking-[2px]">
+              <div className="font-heading text-[22px] font-bold tracking-[2px]">
                 <span className="text-blue-light">
                   CTI<span className="text-[#FFFFFF]">DDP</span>
                 </span>
@@ -271,7 +271,7 @@ export default function Footer() {
                 <path d="M4 33 Q10 30 16 33 Q22 36 28 33 Q34 30 38 33" stroke="rgba(59,130,246,0.7)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
               </svg>
             </div>
-            <div className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[20px] font-bold tracking-[2px]">
+            <div className="font-heading text-[20px] font-bold tracking-[2px]">
               <span className="text-blue-light">
                 CTI<span className="text-[#FFFFFF]">DDP</span>
               </span>

@@ -73,9 +73,9 @@ export default function MegaNav() {
       <nav className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-13 h-[78px] bg-[var(--overlay-nav)] backdrop-blur-xl border-b border-[rgba(37,99,235,0.1)] transition-shadow duration-300${scrolled ? ' shadow-[0_4px_40px_var(--shadow-scroll)]' : ''}`}>
 
         {/* Logo */}
-        <Link href="/" className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[21px]  tracking-[2px] px-2 py-2 text-[#ffff] font-semibold rounded-lg shrink-0">
+        <Link href="/" className="font-heading text-[21px]  tracking-[2px] px-2 py-2 text-[#ffff] font-semibold rounded-lg shrink-0">
           <span className="text-white"> CTIDDP</span>
-          <span className="block font-[var(--font-outfit),'Outfit',sans-serif] text-[9px] tracking-[2px] uppercase text-muted font-normal mt-px"> DDP Specialists</span>
+          <span className="block  text-[9px] tracking-[2px] uppercase text-muted font-normal mt-px"> DDP Specialists</span>
         </Link>
 
         {/* ── DESKTOP MENU ── */}
@@ -156,9 +156,9 @@ export default function MegaNav() {
           </a>
           <Link href="/quote" className="px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">Get Free Quote</Link>
           <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
-            <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light font-[var(--font-outfit),'Outfit',sans-serif] text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
+            <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
             <div className="w-px h-7 bg-[rgba(37,99,235,0.2)]" />
-            <button className="bg-transparent border-none text-muted font-[var(--font-outfit),'Outfit',sans-serif] text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200 hover:bg-[rgba(37,99,235,0.15)] hover:text-primary-light">中文</button>
+            <button className="bg-transparent border-none text-muted  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200 hover:bg-[rgba(37,99,235,0.15)] hover:text-primary-light">中文</button>
           </div>
           <ThemeToggle />
         </div>
@@ -192,7 +192,7 @@ export default function MegaNav() {
         className={`fixed top-0 right-0 h-full w-75 max-w-[85vw] z-[1000] lg:hidden flex flex-col bg-[var(--overlay-drawer)] border-l border-[rgba(37,99,235,0.15)] transition-transform duration-300 ease-in-out${drawerOpen ? ' translate-x-0' : ' translate-x-full'}`}
       >
         <div className="flex items-center justify-between px-5 h-[68px] border-b border-[rgba(37,99,235,0.1)] shrink-0">
-          <Link href="/" className="font-[var(--font-cormorant),'Cormorant_Garamond',serif] text-[18px] tracking-[2px] px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl" onClick={() => setDrawerOpen(false)}>
+          <Link href="/" className="font-heading text-[18px] tracking-[2px] px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl" onClick={() => setDrawerOpen(false)}>
             CTI<span className="text-[#ffff]">DDP</span>
           </Link>
           <button onClick={() => setDrawerOpen(false)} className="w-8 h-8 flex items-center justify-center text-muted hover:text-white text-lg border border-[rgba(37,99,235,0.2)] rounded-sm bg-transparent cursor-pointer">
@@ -288,9 +288,9 @@ export default function MegaNav() {
           <div className="flex justify-center items-center gap-3 mt-1">
             <ThemeToggle />
             <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
-              <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light font-[var(--font-outfit),'Outfit',sans-serif] text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
+              <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
               <div className="w-px h-7 bg-[rgba(37,99,235,0.2)]" />
-              <button className="bg-transparent border-none text-muted font-[var(--font-outfit),'Outfit',sans-serif] text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">中文</button>
+              <button className="bg-transparent border-none text-muted  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">中文</button>
             </div>
           </div>
         </div>

@@ -58,7 +58,7 @@ export default function ServicesSection() {
                     <h2
                         className="font-semibold text-white uppercase text-center"
                         style={{
-                            fontFamily: "font-garamond",
+                            fontFamily: "var(--font-heading)",
                             fontSize: "clamp(36px, 5.5vw, 56px)",
                             letterSpacing: "0.01em",
                             lineHeight: 1.05,

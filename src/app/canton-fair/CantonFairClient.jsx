@@ -57,7 +57,7 @@ export default function CantonFairClient() {
           <span className="text-[10px] font-semibold tracking-[3px] uppercase text-blue mb-3 block">
             Reserve Your Slot
           </span>
-          <h2 className="font-garamond text-[clamp(30px,4vw,52px)] font-light leading-[1.1] mb-[12px]">
+          <h2 className="font-heading text-[clamp(30px,4vw,52px)] font-light leading-[1.1] mb-[12px]">
             Book Canton Fair<br />
             <em className="italic text-blue-light">Support</em>
           </h2>
@@ -209,7 +209,7 @@ export default function CantonFairClient() {
           ) : (
             <div className="text-center py-10">
               <div className="text-4xl mb-5">✅</div>
-              <h3 className="font-garamond text-[32px] text-blue-light mb-3">
+              <h3 className="font-heading text-[32px] text-blue-light mb-3">
                 Request Received
               </h3>
               <p className="text-[14px] text-muted max-w-[340px] mx-auto leading-[1.7]">

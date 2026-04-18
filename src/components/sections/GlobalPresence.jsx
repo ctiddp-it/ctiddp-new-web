@@ -251,7 +251,7 @@ export default function GlobalPresence() {
             </span>
           </div>
 
-          <h2 className="font-garamond text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-heading text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
             Global{" "}
             <span className="italic text-blue-light">Presence</span>
           </h2>
@@ -486,7 +486,7 @@ export default function GlobalPresence() {
             >
               <div className="italic bg-linear-to-br font-bold text-blue-500"
               style={{
-                fontFamily: "var(--font-playfair, 'Playfair Display', serif)",
+                fontFamily: "var(--font-heading)",
                 fontSize: 'clamp(40px, 7.5vw, 35px)',
               }}
               >

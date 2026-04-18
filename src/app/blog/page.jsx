@@ -120,7 +120,7 @@ export default function InsightsPage() {
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Import Intelligence
             </div>
-            <h1 className="font-garamond text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
+            <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               DDP Shipping<br />
               <em className="italic text-blue-light">
                 Insights & Guides
@@ -149,7 +149,7 @@ export default function InsightsPage() {
                   </span>
                   <span className="text-[10px] text-muted">{POSTS[0].date}</span>
                 </div>
-                <h2 className="font-garamond text-[clamp(22px,2.8vw,34px)] font-semibold leading-tight mb-3.5 text-white">
+                <h2 className="font-heading text-[clamp(22px,2.8vw,34px)] font-semibold leading-tight mb-3.5 text-white">
                   {POSTS[0].title}
                 </h2>
                 <p className="text-sm text-muted leading-relaxed mb-5 max-w-[640px]">
@@ -183,7 +183,7 @@ export default function InsightsPage() {
                     </div>
                     <div className="p-5">
                       <div className="text-[10px] text-muted mb-2">{post.date}</div>
-                      <h3 className="font-garamond text-[17px] font-semibold text-white leading-tight mb-2 group-hover:text-blue-light transition-colors line-clamp-2">
+                      <h3 className="font-heading text-[17px] font-semibold text-white leading-tight mb-2 group-hover:text-blue-light transition-colors line-clamp-2">
                         {post.title}
                       </h3>
                       <p className="text-xs text-muted leading-relaxed mb-3 line-clamp-2">{post.excerpt}</p>
@@ -202,7 +202,7 @@ export default function InsightsPage() {
             <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
               Stay Updated
             </span>
-            <h2 className="font-garamond text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+            <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
               Duty Updates &<br />
               <em className="italic text-blue-light">Import Intelligence</em>
             </h2>
@@ -224,7 +224,7 @@ export default function InsightsPage() {
 
         {/* CTA Banner */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-garamond text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
+          <h2 className="font-heading text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
             Ready to Import<br />
             <em className="italic text-blue-light">the Right Way?</em>
           </h2>

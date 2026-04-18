@@ -218,7 +218,7 @@ const CategoryAccordion = ({ category, isCategoryOpen, onCategoryToggle, openIte
       >
         <div className="flex items-center gap-3">
           <span className="text-xl">{category.icon}</span>
-          <span className="font-garamond text-lg font-semibold text-blue-light">
+          <span className="font-heading text-lg font-semibold text-blue-light">
             {category.title}
           </span>
           <span className="text-[11px] text-muted bg-[var(--overlay-input)] px-2 py-0.5 rounded-full">
@@ -438,7 +438,7 @@ export default function ContactClient() {
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
               Get in Touch
             </div>
-            <h1 className="font-garamond text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
+            <h1 className="font-heading text-[clamp(34px,5.5vw,68px)] font-light leading-[1.1] mb-[14px]">
               Our Presence<br />
               <em className="italic text-blue-light">
                 Two Countries, Five Locations.
@@ -459,7 +459,7 @@ export default function ContactClient() {
               {/* Form Section */}
               {!submitted ? (
                 <form onSubmit={handleSubmit} className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-6 sm:p-7">
-                  <div className="font-garamond text-xl font-semibold text-blue-light mb-5">Send Us a Message</div>
+                  <div className="font-heading text-xl font-semibold text-blue-light mb-5">Send Us a Message</div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="sm:col-span-1">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Name *</label>
@@ -627,7 +627,7 @@ export default function ContactClient() {
               ) : (
                 <div className="bg-[rgba(74,222,128,0.07)] border border-[rgba(74,222,128,0.25)] rounded-[4px] p-12 text-center">
                   <div className="text-[40px] mb-3.5">✅</div>
-                  <div className="font-garamond text-[26px] font-semibold mb-2.5">Message Sent!</div>
+                  <div className="font-heading text-[26px] font-semibold mb-2.5">Message Sent!</div>
                   <p className="text-[13px] leading-relaxed">
                     {scheduleCall && selectedSlot
                       ? `We'll call you on ${formatDate(selectedDate)} at ${TIME_SLOTS.find(s => s.value === selectedSlot)?.label}.`
@@ -640,7 +640,7 @@ export default function ContactClient() {
               <div className="flex flex-col gap-4">
                 {/* Response SLAs */}
                 <div className="bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.15)] p-[26px] rounded-[3px]">
-                  <div className="font-garamond text-[19px] font-semibold mb-4 text-blue-light">
+                  <div className="font-heading text-[19px] font-semibold mb-4 text-blue-light">
                     Response SLAs
                   </div>
                   {SLAS.map(s => (
@@ -653,7 +653,7 @@ export default function ContactClient() {
 
                 {/* Emergency */}
                 <div className="bg-[rgba(239,68,68,0.05)] border border-[rgba(239,68,68,0.15)] p-[26px] rounded-[3px]">
-                  <div className="font-garamond text-[19px] font-semibold mb-2 text-red-400">
+                  <div className="font-heading text-[19px] font-semibold mb-2 text-red-400">
                     <div className="flex items-center gap-2">
                       <MdEmergency className="text-red-400" size={20} />
                       <span>Emergency Escalation</span>
@@ -672,7 +672,7 @@ export default function ContactClient() {
 
                 {/* Working Hours Info */}
                 <div className="bg-surface border border-[rgba(37,99,235,0.12)] p-6 rounded-[3px]">
-                  <div className="font-garamond text-[17px] font-semibold text-blue-light mb-2.5">
+                  <div className="font-heading text-[17px] font-semibold text-blue-light mb-2.5">
                     <div className="flex items-center gap-2">
                       <FaClock className="text-blue-light w-4 h-4 shrink-0" />
                       <span>Working Hours</span>
@@ -702,7 +702,7 @@ export default function ContactClient() {
             {/* WhatsApp Primary CTA */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-[rgba(37,211,102,0.06)] border border-[rgba(37,211,102,0.2)] p-6 sm:p-9 rounded-[3px] mb-5">
               <div>
-                <div className="font-garamond text-2xl font-semibold text-green-400 mb-2 flex items-center gap-2">
+                <div className="font-heading text-2xl font-semibold text-green-400 mb-2 flex items-center gap-2">
                   <FaWhatsapp size={28} className="shrink-0" />
                   <span>WhatsApp — Fastest Response</span>
                 </div>
@@ -738,7 +738,7 @@ export default function ContactClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
               {CONTACT_CHANNELS.map(ch => (
                 <div key={ch.title} className="bg-surface border border-[rgba(37,99,235,0.12)] p-6 rounded-[3px]">
-                  <div className="font-garamond text-base font-semibold text-blue-light mb-3">
+                  <div className="font-heading text-base font-semibold text-blue-light mb-3">
                     <div className="flex items-center gap-3">
                       <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[rgba(37,99,235,0.12)] border border-[rgba(37,99,235,0.4)] shadow-[0_0_10px_rgba(37,99,235,0.25)]">
                         <span className="text-blue-light text-sm">
@@ -765,7 +765,7 @@ export default function ContactClient() {
                 <FaCircleQuestion className="w-3.5 h-3.5" />
                 Frequently Asked Questions
               </span>
-              <h2 className="font-garamond text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
+              <h2 className="font-heading text-[clamp(30px,4vw,56px)] font-light leading-[1.1]">
                 Everything You Wanted<br />
                 <em className="italic text-blue-light">To Ask</em>
               </h2>
@@ -790,7 +790,7 @@ export default function ContactClient() {
 
             {/* Still Have Questions CTA */}
             <div className="mt-10 bg-gradient-to-r from-[rgba(37,99,235,0.08)] to-[rgba(37,99,235,0.03)] border border-[rgba(37,99,235,0.15)] p-8 rounded-[12px] text-center">
-              <div className="font-garamond text-2xl font-semibold mb-2 text-blue-light">
+              <div className="font-heading text-2xl font-semibold mb-2 text-blue-light">
                 Still Have Questions?
               </div>
               <p className="text-sm text-muted mb-5 max-w-[400px] mx-auto">
@@ -810,7 +810,7 @@ export default function ContactClient() {
 
         {/* CTA Banner */}
         <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-12 sm:py-[60px] text-center">
-          <h2 className="font-garamond text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
+          <h2 className="font-heading text-[clamp(32px,4.5vw,48px)] font-light leading-[1.1] mb-3.5">
             Ready to Stop Wondering?<br />
             <em className="italic text-blue-light">Get a Quote.</em>
           </h2>
