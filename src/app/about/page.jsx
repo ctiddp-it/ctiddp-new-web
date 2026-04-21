@@ -7,8 +7,23 @@ import {
   FiShield
 } from "react-icons/fi";
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
+import InfiniteCarousel from "@/components/sections/InfiniteCarousel";
 import Link from 'next/link'
 import Image from 'next/image'
+
+const images = [
+  "/images/about/ctiddp-team-02.jpeg",
+  "/images/about/ctiddp-client-interaction.jpeg",
+  "/images/about/ctiddp-mentor.jpeg",
+  "/images/about/ctiddp-team-04.jpeg",
+  "/images/about/ctiddp-foshan-office.jpeg",
+  "/images/about/ctiddp-team-bangalore-office.jpeg",
+  "/images/about/ctiddp-client-interaction.jpg",
+  "/images/about/ctiddp-team.jpg",
+  "/images/about/ctiddp-team-celebrations.jpg",
+  "/images/about/ctiddp-team-trekking.jpg",
+];
+
 
 export const metadata = {
   title: 'About CTIDDP | Global Trade & DDP Logistics Experts',
@@ -509,6 +524,27 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Left → Right (default behavior visually right-to-left scroll) */}
+        {/* <InfiniteCarousel images={images} direction="left" curveDirection="up" /> */}
+
+        <InfiniteCarousel
+          images={images}
+          direction="left"
+          curveDirection="up"
+          centerContent={
+            <div className="text-center max-w-[640px] mx-auto mb-87.5">
+              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
+                Life at CTIDDP
+              </span>
+              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
+                Our Journey<br />
+                <em className="italic text-blue-light">Built on Precision, Driven by Trust</em>
+              </h2>
+            </div>
+          }
+        />
+
+        {/* <InfiniteCarousel images={images2} direction="right" curveDirection="down" /> */}
 
         {/* ── CTA BANNER ── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">

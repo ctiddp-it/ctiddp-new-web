@@ -4,21 +4,13 @@ export default function sitemap() {
 
   const routes = [
     { url: '/',                          priority: 1.0, changeFrequency: 'weekly'  },
+    { url: '/about',                     priority: 0.7, changeFrequency: 'monthly' },
     { url: '/how-it-works',              priority: 0.9, changeFrequency: 'monthly' },
     { url: '/services',                  priority: 0.9, changeFrequency: 'monthly' },
-    { url: '/services/canton-fair',      priority: 0.8, changeFrequency: 'monthly' },
-    // Sub-service pages — uncomment when pages are built:
-    // { url: '/services/qc-sourcing',   priority: 0.8, changeFrequency: 'monthly' },
-    // { url: '/services/consolidation', priority: 0.8, changeFrequency: 'monthly' },
-    // { url: '/services/customs-clearance', priority: 0.8, changeFrequency: 'monthly' },
-    // { url: '/services/last-mile',     priority: 0.8, changeFrequency: 'monthly' },
-    // { url: '/track',                     priority: 0.7, changeFrequency: 'monthly' },
-    // { url: '/tools/duty-calculator',     priority: 0.8, changeFrequency: 'monthly' },
-    // { url: '/pricing',                   priority: 0.8, changeFrequency: 'monthly' },
-    { url: '/insights',                  priority: 0.7, changeFrequency: 'weekly'  },
-    { url: '/faq',                       priority: 0.8, changeFrequency: 'monthly' },
-    { url: '/about',                     priority: 0.7, changeFrequency: 'monthly' },
-    { url: '/contact',                   priority: 0.7, changeFrequency: 'monthly' },
+    { url: '/eco-system',                 priority: 0.8, changeFrequency: 'monthly' },
+    { url: '/canton-fair',                priority: 0.8, changeFrequency: 'monthly' },
+    { url: '/blog',                  priority: 0.7, changeFrequency: 'weekly'  },
+    { url: '/contact',                   priority: 0.8, changeFrequency: 'monthly' },
     { url: '/quote',                 priority: 0.9, changeFrequency: 'monthly' },
   ]
 

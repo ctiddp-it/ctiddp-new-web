@@ -63,8 +63,8 @@ function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
           align-items: center;
           justify-content: center;
           font-size: clamp(28px, 10vw, 100px);
-          font-weight: 600;
-          font-family: var(--font-heading);
+          font-weight: 800;
+          font-family: var(--font-poppins);
           line-height: 1;
           flex-shrink: 0;
           user-select: none;
@@ -152,7 +152,7 @@ function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
                     </div>
                 )}
             </div>
-            <span className="block text-[10px] md:text-[25px] tracking-[1.5px] uppercase mt-2 text-gray-900 font-bold md:font-normal">
+            <span className="block text-[10px] md:text-[25px] tracking-[1.5px] uppercase mt-2 text-white font-bold md:font-normal">
                 {label}
             </span>
         </div>
@@ -164,7 +164,7 @@ export default function StatsSection() {
         <section className="w-full h-[310px] md:h-[500px] relative overflow-hidden bg-surface flex items-center">
             {/* DOTTED MAP BACKGROUND */}
             <div
-                className="absolute inset-0 pointer-events-none opacity-25
+                className="absolute inset-0 pointer-events-none opacity-25 dark:invert dark:brightness-250
         bg-[url('/images/bg-map.png')] bg-no-repeat bg-center bg-size-[150%] md:bg-size-[78%]"
                 style={{
                     maskImage:
