@@ -113,7 +113,7 @@ const SERVICES = [
     icon: <HiOutlineMagnifyingGlass />,
     title: 'Product Sourcing & Supplier Mgmt',
     desc: 'On-ground Guangzhou & Foshan teams. Mandarin negotiation, factory verification, quality inspection.',
-    href: '/services/qc-sourcing',
+    href: '/services',
     highlight: false,
   },
   {
@@ -127,21 +127,21 @@ const SERVICES = [
     icon: <HiOutlineBuildingStorefront />,
     title: 'Warehousing & Consolidation',
     desc: 'Foshan QC warehouse + Guangzhou multi-vendor consolidation hub. Pre-shipment inspection included.',
-    href: '/services/consolidation',
+    href: '/services',
     highlight: false,
   },
   {
     icon: <HiOutlineShieldCheck />,
     title: 'Customs Clearance & Duty Mgmt',
     desc: 'BCD, IGST, FTA benefits. Pre-calculation, pre-payment, and full handling of Indian customs clearance process.',
-    href: '/services/customs-clearance',
+    href: '/services',
     highlight: false,
   },
   {
     icon: <HiOutlineChartBar />,
     title: 'Trade Consulting & Strategy',
     desc: 'HS code classification, duty optimisation, FTA strategy, import compliance planning.',
-    href: '/about/sop',
+    href: '/services',
     highlight: true,
   },
 ];
