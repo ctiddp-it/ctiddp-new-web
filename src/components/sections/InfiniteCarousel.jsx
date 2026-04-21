@@ -30,11 +30,12 @@ export default function InfiniteCarousel({
   
   // Responsive sizing state
   const [dimensions, setDimensions] = useState({
-    cardWidth: baseCardWidth,
-    cardHeight: baseCardHeight,
-    gap: baseGap,
-    curveAmount: baseCurveAmount,
-  });
+  cardWidth: baseCardWidth,
+  cardHeight: baseCardHeight,
+  gap: baseGap,
+  curveAmount: baseCurveAmount,
+  isMobile: false,
+});
 
   // ─── Responsive sizing logic ────────────────────────────────────────────────
   const updateDimensions = useCallback(() => {
@@ -47,6 +48,7 @@ export default function InfiniteCarousel({
         cardHeight: Math.min(200, width * 0.57),
         gap: 12,
         curveAmount: 120,
+        isMobile: true,
       });
     } 
     // Tablet (640px - 1024px)
@@ -57,6 +59,7 @@ export default function InfiniteCarousel({
         cardHeight: 220 + (width - 640) * 0.15,
         gap: 14,
         curveAmount: 160 + (width - 640) * 0.15,
+        isMobile: false,
       });
     } 
     // Small Desktop (1024px - 1440px)
@@ -67,6 +70,7 @@ export default function InfiniteCarousel({
         cardHeight: 250 + 50 * scale,
         gap: 16,
         curveAmount: 200 + 50 * scale,
+        isMobile: false,
       });
     } 
     // Large Desktop (1440px+)
@@ -76,6 +80,7 @@ export default function InfiniteCarousel({
         cardHeight: baseCardHeight,
         gap: baseGap,
         curveAmount: baseCurveAmount,
+        isMobile: false,
       });
     }
   }, [baseCardWidth, baseCardHeight, baseGap, baseCurveAmount]);
@@ -212,7 +217,7 @@ export default function InfiniteCarousel({
 
   // Calculate responsive vertical padding
   const verticalPaddingTop = Math.max(curveAmount + 40, 100);
-  const verticalPaddingBottom = window.innerWidth < 640 ? 60 : 40;
+  const verticalPaddingBottom = dimensions.isMobile ? 60 : 40;
 
   return (
     <div
