@@ -60,8 +60,8 @@ export const metadata = {
 };
 
 const TEAM = [
-  { image: '/images/mallesh-gujjala-founder-ceo-ctiddp.png', name: 'Mallesh Gujjala', role: 'Founder & CEO', bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports from the ground up — from supplier networks in Guangdong to last-mile delivery across India.' },
-  { image: '/images/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png', name: 'Balu Gujjala', role: 'Co-Founder & India Operations', bio: 'Based in Visakhapatnam. Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA with 10+ years in Indian import logistics and port operations.' },
+  { image: '/images/about/founders/mallesh-gujjala-founder-ceo-ctiddp.png', name: 'Mallesh Gujjala', role: 'Founder & CEO', bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports from the ground up — from supplier networks in Guangdong to last-mile delivery across India.' },
+  { image: '/images/about/founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png', name: 'Balu Gujjala', role: 'Co-Founder & India Operations', bio: 'Based in Visakhapatnam. Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA with 10+ years in Indian import logistics and port operations.' },
 ]
 
 const LOCATIONS = [
@@ -127,7 +127,7 @@ const OfficeCard = ({ l }) => (
       alt={l.country}
       width={40}
       height={28}
-      className="mx-auto mb-2 rounded-sm object-cover"
+      className="mx-auto mb-2 rounded-sm object-contain"
     />
 
     <div className="font-heading text-lg font-semibold text-white">

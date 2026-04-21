@@ -5,7 +5,7 @@ import ChatBot from '@/components/ui/ChatBot'
 import MegaNav from '@/components/layout/MegaNav'
 import Footer from '@/components/layout/Footer'
 import ThemeProvider from '@/components/providers/ThemeProvider'
-
+import ScrollToTop from '@/components/ui/ScrollToTop'
 
 export const metadata = {
   metadataBase: new URL('https://www.ctiddp.com/'),
@@ -143,6 +143,7 @@ export default function RootLayout({ children }) {
           {children}
           <ChatBot />
           <Footer />
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
