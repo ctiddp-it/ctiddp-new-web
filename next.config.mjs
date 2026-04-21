@@ -26,8 +26,18 @@ const nextConfig = {
 
   async redirects() {
     return [
-      // Add your redirects here if migrating from another URL structure
-      // { source: '/old-path', destination: '/new-path', permanent: true },
+      {
+        // Redirects any request from ctiddp.com to www.ctiddp.com
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'ctiddp.com',
+          },
+        ],
+        destination: 'https://www.ctiddp.com/:path*',
+        permanent: true,
+      },
     ]
   },
 }

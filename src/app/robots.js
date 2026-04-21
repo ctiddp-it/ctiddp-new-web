@@ -4,11 +4,11 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: ['/api/'],
       },
     ],
-    sitemap: 'https://ctiddp.com/sitemap.xml',
-    host: 'https://ctiddp.com',
+    sitemap: 'https://www.ctiddp.com/sitemap.xml',
+    host: 'https://www.ctiddp.com/',
   }
 }
  

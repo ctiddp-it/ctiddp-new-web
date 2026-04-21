@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const BASE = 'https://ctiddp.com'
+  const BASE = 'https://www.ctiddp.com/'
   const now = new Date()
 
   const routes = [
