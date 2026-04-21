@@ -14,9 +14,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 
-// Import local images
-import air_frieght from '@/assets/air_frieght.jpg';
-
 
 // ── Main HeroSection ────────────────────────────────────────────────────────
 export function HeroSection() {
@@ -29,7 +26,7 @@ export function HeroSection() {
   const slides = [
     {
       id: 1,
-      image: "/images/Home/ctiddp-landingpage-chinatoindiaddp.jpg",
+      image: "/images/home/ctiddp-sea-frieght.jpg",
       icon: Ship,
       title: 'Ocean Shipping',
       highlight: 'Bulk & Container Solutions',
@@ -41,7 +38,7 @@ export function HeroSection() {
     },
     {
       id: 2,
-      image: air_frieght,
+      image: "/images/home/ctiddp-air-frieght.jpg",
       icon: Plane,
       title: 'Air Freight Excellence',
       highlight: 'Express Global Delivery',
@@ -53,7 +50,7 @@ export function HeroSection() {
     },
     {
       id: 3,
-      image: '/images/Home/china-to-india-ddp-shipping-warehouse.webp',
+      image: '/images/home/china-to-india-ddp-shipping-warehouse.webp',
       icon: FileCheck,
       title: 'Customs Expertise',
       highlight: 'Stress-Free Clearance',
@@ -65,7 +62,7 @@ export function HeroSection() {
     },
     {
       id: 4,
-      image: '/images/Home/door-to-door-delivery-china-imports-india.jpg',
+      image: '/images/home/door-to-door-delivery-china-imports-india.jpg',
       icon: Truck,
       title: 'Last Mile Delivery',
       highlight: 'Pan-India Network',
