@@ -1,8 +1,10 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export default function CustomCursor() {
+  const [enabled, setEnabled] = useState(false)
+
   const dotRef = useRef(null)
   const ringRef = useRef(null)
   const rx = useRef(0)
@@ -11,7 +13,20 @@ export default function CustomCursor() {
   const my = useRef(0)
   const rafId = useRef(0)
 
+  // Detect if device supports a fine pointer (mouse)
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(pointer: fine)')
+    setEnabled(mediaQuery.matches)
+
+    const handleChange = (e) => setEnabled(e.matches)
+    mediaQuery.addEventListener('change', handleChange)
+
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  useEffect(() => {
+    if (!enabled) return
+
     const dot = dotRef.current
     const ring = ringRef.current
     if (!dot || !ring) return
@@ -32,13 +47,15 @@ export default function CustomCursor() {
     }
     animRing()
 
-    const INTERACTIVE = 'a,button,.wf-card,.t-card,.ddp-card,.blog-card,.loc-card,.team-card,.pricing-card,.mega-item,.qr-b,.nav-link,.btn-primary,.btn-ghost,.btn-wa,.nav-btn-wa,.nav-btn-quote'
+    const INTERACTIVE =
+      'a,button,.wf-card,.t-card,.ddp-card,.blog-card,.loc-card,.team-card,.pricing-card,.mega-item,.qr-b,.nav-link,.btn-primary,.btn-ghost,.btn-wa,.nav-btn-wa,.nav-btn-quote'
 
     const expand = (e) => {
-      if ((e.target)?.closest(INTERACTIVE)) ring.classList.add('expanded')
+      if (e.target?.closest(INTERACTIVE)) ring.classList.add('expanded')
     }
+
     const shrink = (e) => {
-      if ((e.target)?.closest(INTERACTIVE)) ring.classList.remove('expanded')
+      if (e.target?.closest(INTERACTIVE)) ring.classList.remove('expanded')
     }
 
     document.addEventListener('mousemove', onMove)
@@ -51,7 +68,10 @@ export default function CustomCursor() {
       document.removeEventListener('mouseout', shrink)
       cancelAnimationFrame(rafId.current)
     }
-  }, [])
+  }, [enabled])
+
+  // ❌ Don’t render anything on mobile
+  if (!enabled) return null
 
   return (
     <>
