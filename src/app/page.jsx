@@ -104,43 +104,57 @@ const DDP_COMPARE = [
 const SERVICES = [
   {
     icon: <HiOutlineGlobeAlt />,
-    title: 'China to India DDP Shipping',
-    desc: 'Sea & air freight, end-to-end DDP. JNPT, Mundra, Chennai, Vizag, Delhi ICD — all major Indian ports.',
-    href: '/services',
-    highlight: false,
-  },
-  {
-    icon: <HiOutlineMagnifyingGlass />,
-    title: 'Product Sourcing & Supplier Mgmt',
-    desc: 'On-ground Guangzhou & Foshan teams. Mandarin negotiation, factory verification, quality inspection.',
+    title: 'Global DDP Shipping',
+    desc: ' Our DDP (Delivered Duty Paid) shipping service covers sea and air freight with all duties, taxes, and compliance included. No hidden costs.',
     href: '/services',
     highlight: false,
   },
   {
     icon: <HiOutlineCreditCard />,
     title: 'Supplier Payments',
-    desc: 'Secure cross-border payment management to your Chinese suppliers. Fully documented and traceable.',
+    desc: 'We manage secure international supplier payments with full documentation, compliance, and traceability. Avoid fraud risks, currency fluctuations, and payment delays.',
+    href: '/services',
+    highlight: false,
+  },
+  {
+    icon: <HiOutlineMagnifyingGlass />,
+    title: 'QC & Pre-Shipment Inspection',
+    desc: ' We conduct AQL-based inspections, product testing, and packaging checks with photo/video reports. Ensure your shipment meets quality standards before dispatch.',
     href: '/services',
     highlight: false,
   },
   {
     icon: <HiOutlineBuildingStorefront />,
     title: 'Warehousing & Consolidation',
-    desc: 'Foshan QC warehouse + Guangzhou multi-vendor consolidation hub. Pre-shipment inspection included.',
+    desc: ' Our warehouses in Guangzhou & Foshan support inventory storage, repacking, labeling, and dispatch planning for optimized logistics flow.',
     href: '/services',
     highlight: false,
   },
   {
     icon: <HiOutlineShieldCheck />,
-    title: 'Customs Clearance & Duty Mgmt',
-    desc: 'BCD, IGST, FTA benefits. Pre-calculation, pre-payment, and full handling of Indian customs clearance process.',
+    title: 'Customs Clearance',
+    desc: 'We handle BCD, IGST, HS code classification, and FTA benefits with accurate pre-calculation. Full compliance with Indian import regulations.',
     href: '/services',
     highlight: false,
   },
   {
     icon: <HiOutlineChartBar />,
-    title: 'Trade Consulting & Strategy',
-    desc: 'HS code classification, duty optimisation, FTA strategy, import compliance planning.',
+    title: 'Last-Mile Delivery',
+    desc: ' From ports to final destination, we ensure secure last-mile delivery with POD confirmation, warehousing options, and express delivery timelines.',
+    href: '/services',
+    highlight: false,
+  },
+  {
+    icon: <HiOutlineChartBar />,
+    title: 'Multi-Vendor Consolidation',
+    desc: '  We collect goods from different factories and consolidate them into a single shipment. This reduces freight costs, simplifies documentation, and speeds up delivery.',
+    href: '/services',
+    highlight: true,
+  },
+  {
+    icon: <HiOutlineChartBar />,
+    title: 'Canton Fair Support',
+    desc: ' Our on-ground team assists with supplier negotiation, product verification, translation, and order management during Canton Fair events.',
     href: '/services',
     highlight: true,
   },
@@ -325,13 +339,10 @@ export default function HomePage() {
                   Our Services
                 </span>
                 <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                  Six Ways We<br />
-                  <em className="italic text-blue-light">Serve You.</em>
+                  8 Ways We Power Your<br />
+                  <em className="italic text-blue-light">Global Supply Chain</em>
                 </h2>
-              </div>
-              <p className="text-[15px] text-muted leading-relaxed max-w-[520px]">
-                One partner. One contract. Full responsibility from Chinese factory floor to Indian customer door.
-              </p>
+              </div>         
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {SERVICES.map(s => (

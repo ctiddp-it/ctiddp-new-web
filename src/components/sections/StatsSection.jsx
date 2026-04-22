@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 
 const STATS = [
-    { digits: "100", suffix: "%", label: "Customs Clearance Success Rate" },
+    { digits: "100", suffix: "%", label: "Customs Clearance" },
     { digits: "300", suffix: "+", label: "Containers Imported" },
     { digits: "1200", suffix: "+", label: "Shipments Cleared" },
     { digits: "16250", suffix: "+", label: "CBM Shipped" },

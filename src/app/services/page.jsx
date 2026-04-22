@@ -5,7 +5,10 @@ import {
   FaBoxes,
   FaFileInvoiceDollar,
   FaStore,
-  FaTruck
+  FaTruck,
+  FaMoneyBillWave,
+  FaWarehouse,
+  FaPassport,
 } from "react-icons/fa"
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
@@ -46,33 +49,76 @@ export const metadata = {
 const SERVICES = [
   {
     icon: FaShip,
-    title: 'China to India DDP Shipping',
-    desc: 'Full DDP sea and air freight from China to any Indian port...',
-    tags: ['Sea LCL / FCL', 'Air Freight', 'Full DDP', 'All Ports'],
+    title: 'Global DDP Shipping',
+    desc: ' From the factory floor in China to your warehouse in India, fully managed.',
+    tags: ['Sea LCL / FCL', 'Air Freight', 'Full DDP'],
     bullets: [
-      'JNPT, Chennai, Vizag, Mundra covered',
+      'Secure international supplier payments with full documentation',
       'BCD + IGST + SWS pre-paid',
-      'Full cargo insurance included',
-      'Real-time WhatsApp tracking'
+      'Full cargo insurance included',    ]
+  },
+  {
+    icon: FaMoneyBillWave,
+    title: 'Supplier Payments',
+    desc: 'Pay your suppliers safely, without currency risks or delays.',
+    tags: ['Cross-border payments', 'Currency risk-free', 'Global coverage'],
+    bullets: [
+      'Supplier payments in China',
+      'Cross-border payments in India',
+      'Import payments management'
     ]
   },
   {
     icon: FaSearch,
     title: 'QC & Pre-Shipment Inspection',
-    desc: 'Catch problems before goods leave China...',
-    tags: ['Foshan Warehouse', 'Photo Report', 'AQL Standard'],
+    desc: 'Catch defects before your goods leave China.',
+    tags: ['Pre-shipment Inspection', 'QC Services', 'Product Quality Check'],
     bullets: [
-      'Random sampling to AQL 2.5',
       'Full photo & video documentation',
       'Defect resolution before export',
       'Dimensional and packaging checks'
     ]
   },
   {
+    icon: FaWarehouse,
+    title: 'Warehousing & Consolidation',
+    desc: 'Store, sort, and streamline your cargo before shipping.',
+    tags: ['Foshan Office','Guangzhou Warehouse', 'Photo Report', 'Cargo Consolidation'],
+    bullets: [
+      'Warehouse in Guangzhou & Foshan Inventory management',
+      'Cargo consolidation from multiple suppliers',
+      'Pre-shipment photo report',
+    ]
+  },
+  {
+    icon: FaPassport,
+    title: 'Customs Clearance',
+    desc: 'We handle 100% of import process clearance.',
+    tags: ['BE Filing', 'BCD + IGST', 'FTA Rates'],
+    bullets: [
+      'BCD + IGST + SWS pre-calculated',
+      'FTA preferential rates applied',
+      'Examination & stuffing handled',
+      'OOC in 7-14 working days'
+    ]
+  },
+  {
+    icon: FaTruck,
+    title: 'Last-Mile Delivery',
+    desc: ' Delivered to your doorstep anywhere in India.',
+    tags: ['All India States', 'POD Included', 'B2B'],
+    bullets: [
+      'From ports to final destination',
+      'Proof of Delivery (POD) guaranteed',
+      'Warehouse storage available',
+      'Express delivery'
+    ]
+  },
+  {
     icon: FaBoxes,
     title: 'Multi-Vendor Consolidation',
-    desc: 'Source from 10 suppliers across Guangdong...',
-    tags: ['LCL Groupage', 'Guangzhou Hub', 'HS Code Verify'],
+    desc: 'Combine shipments from multiple suppliers into one cost-effective load.',
+    tags: ['Cargo Consolidation China', 'Multi-Vendor Logistics', 'LCL Consolidation Services'],
     bullets: [
       'Accept from any China address',
       'HS code verification & SWS calc',
@@ -80,42 +126,20 @@ const SERVICES = [
       'Arrival photo at consolidation'
     ]
   },
-  {
-    icon: FaFileInvoiceDollar,
-    title: 'India Customs Clearance',
-    desc: 'We handle 100% of the India import process...',
-    tags: ['BE Filing', 'BCD + IGST', 'FTA Rates', '4 Major Ports'],
-    bullets: [
-      'BCD + IGST + SWS pre-calculated',
-      'FTA preferential rates applied',
-      'Examination & stuffing handled',
-      'OOC in 9–11 working days'
-    ]
-  },
+  
   {
     icon: FaStore,
     title: 'Canton Fair Support',
-    desc: 'We attend the Canton Fair Spring & Autumn...',
-    tags: ['Spring & Autumn', 'Mandarin Negotiation', 'Sample Inspection'],
+    desc: 'Source better products with expert support at Canton Fair.',
+    tags: ['Spring & Autumn', 'Mandarin Negotiation', 'Sample Inspection', 'Canton Fair Sourcing Support'],
     bullets: [
       'Guangzhou-based team on the floor',
       'Real-time translation & negotiation',
-      'Sample dispatch to India',
-      'Consolidate fair + Alibaba orders'
+      'Supplier verification & sample checks',
+      'Post-fair sourcing strategy support'
     ]
   },
-  {
-    icon: FaTruck,
-    title: 'Last-Mile PAN-India Delivery',
-    desc: 'From our Chennai warehouse to your doorstep...',
-    tags: ['All India States', 'POD Included', 'B2B & B2C'],
-    bullets: [
-      'Next-day metro, 2–3 day other cities',
-      'Cold chain on request',
-      'Proof of Delivery (POD) guaranteed',
-      'Warehouse storage available'
-    ]
-  },
+  
 ]
 
 export default function ServicesPage() {
