@@ -80,7 +80,7 @@ export default function ServicesSection() {
                             style={{ height: "clamp(300px, 42vw, 720px)" }}
                         >
                             <Image
-                                src="/images/home/hassle-free-customs-clearance-india-imports.jpg"
+                                src="/images/home/hassle-free-customs-clearance-india-imports.JPG"
                                 alt="Cargo ship at sea"
                                 fill
                                 sizes="(max-width: 768px) 100vw, 50vw"

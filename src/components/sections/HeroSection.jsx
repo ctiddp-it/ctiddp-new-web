@@ -26,7 +26,7 @@ export function HeroSection() {
   const slides = [
     {
       id: 1,
-      image: "/images/home/ctiddp-sea-frieght.jpg",
+      image: "/images/home/ctiddp-sea-frieght.JPG",
       icon: Ship,
       title: 'Ocean Shipping',
       highlight: 'Bulk & Container Solutions',
@@ -38,7 +38,7 @@ export function HeroSection() {
     },
     {
       id: 2,
-      image: "/images/home/ctiddp-air-frieght.jpg",
+      image: "/images/home/ctiddp-air-frieght.JPG",
       icon: Plane,
       title: 'Air Freight Excellence',
       highlight: 'Express Global Delivery',
@@ -50,7 +50,7 @@ export function HeroSection() {
     },
     {
       id: 3,
-      image: '/images/home/china-to-india-ddp-shipping-warehouse.webp',
+      image: '/images/home/china-to-india-ddp-shipping-warehouse.WEBP',
       icon: FileCheck,
       title: 'Customs Expertise',
       highlight: 'Stress-Free Clearance',
@@ -62,7 +62,7 @@ export function HeroSection() {
     },
     {
       id: 4,
-      image: '/images/home/door-to-door-delivery-china-imports-india.jpg',
+      image: '/images/home/door-to-door-delivery-china-imports-india.JPG',
       icon: Truck,
       title: 'Last Mile Delivery',
       highlight: 'Pan-India Network',
