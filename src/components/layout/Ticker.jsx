@@ -1,7 +1,7 @@
 const ITEMS = [
   'Canton Fair 2026 is LIVE - Book Your DDP Shipping Slot Now',
   'Peak Season Shipping Started - Avoid Delays & Price Surge',
-  'Talk to Our Experts Today: +91 918790013772',
+  'Talk to Our Experts Today: +91 8790013772',
   'WhatsApp response under 2 hours · Mon-Sat',
   'Save Up to 30-40% on Bulk Imports from China',
   'From Factory Pickup to Final Delivery – We Handle Everything',
