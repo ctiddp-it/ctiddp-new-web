@@ -185,6 +185,7 @@ export default function PartnersSection() {
                       fill
                       className="object-contain"
                       sizes={`${size}px`}
+                      priority={isCenter}
                     />
                   </div>
 

@@ -127,7 +127,7 @@ const OfficeCard = ({ l }) => (
       alt={l.country}
       width={40}
       height={28}
-      className="mx-auto mb-2 rounded-sm object-contain"
+      className="mx-auto mb-2 rounded-sm object-contain w-auto h-auto"
     />
 
     <div className="font-heading text-lg font-semibold text-white">
