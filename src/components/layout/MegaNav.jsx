@@ -151,7 +151,7 @@ export default function MegaNav() {
 
         {/* ── DESKTOP ACTIONS ── */}
         <div className="hidden lg:flex items-center gap-2 shrink-0">
-          <a href="https://wa.me/8790013772" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 border border-[rgba(74,222,128,0.35)] text-green  py-2 px-4 rounded-sm text-[11px] font-medium no-underline tracking-[0.3px] transition-all duration-200 whitespace-nowrap cursor-none hover:bg-[rgba(74,222,128,0.07)] hover:border-[rgba(74,222,128,0.6)]">
+          <a href="https://wa.me/918790013772" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 border border-[rgba(74,222,128,0.35)] text-green  py-2 px-4 rounded-sm text-[11px] font-medium no-underline tracking-[0.3px] transition-all duration-200 whitespace-nowrap cursor-none hover:bg-[rgba(74,222,128,0.07)] hover:border-[rgba(74,222,128,0.6)]">
             <FaWhatsapp size={22} className="text-green-500" />
           </a>
           <Link href="/quote" className="px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">Get Free Quote</Link>
@@ -282,7 +282,7 @@ export default function MegaNav() {
           <Link href="/quote" onClick={() => setDrawerOpen(false)} className="bg-linear-to-br bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] py-3 px-8 rounded-sm font-bold text-xs tracking-[1px] uppercase no-underline inline-flex items-center justify-center gap-2 shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-all duration-200 cursor-none text-center">
             Get Free Quote →
           </Link>
-          <a href="https://wa.me/8790013772" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green py-3 px-8 rounded-sm text-xs font-medium no-underline transition-all duration-200 cursor-none text-center">
+          <a href="https://wa.me/918790013772" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green py-3 px-8 rounded-sm text-xs font-medium no-underline transition-all duration-200 cursor-none text-center">
             <FaWhatsapp size={22} />WhatsApp Us
           </a>
           <div className="flex justify-center items-center gap-3 mt-1">

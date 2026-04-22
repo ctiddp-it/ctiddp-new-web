@@ -797,7 +797,7 @@ export default function ContactClient() {
                 Our team responds in under 2 hours on WhatsApp. We're here to help!
               </p>
               <a
-                href="https://wa.me/8790013772"
+                href="https://wa.me/918790013772"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
@@ -825,7 +825,7 @@ export default function ContactClient() {
               Get DDP Quote →
             </Link>
             <a
-              href="https://wa.me/8790013772"
+              href="https://wa.me/918790013772"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

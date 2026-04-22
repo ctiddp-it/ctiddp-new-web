@@ -7,7 +7,7 @@ export default function ChatBot() {
   const [open, setOpen] = useState(false)
   const [activeChat, setActiveChat] = useState('whatsapp') // Change this to 'chatbot' or 'whatsapp' to switch between them
 
-  const whatsappNumber = "8790013772" // Removed space from phone number
+  const whatsappNumber = "918790013772" // Removed space from phone number
   const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
 
   const handleWhatsAppClick = () => {

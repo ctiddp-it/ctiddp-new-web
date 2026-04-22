@@ -249,7 +249,7 @@ export default function Footer() {
 
             {/* WhatsApp CTA */}
             <a
-              href="https://wa.me/8790013772"
+              href="https://wa.me/918790013772"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-[rgba(74,222,128,1)] py-2.5 px-4 rounded-sm text-[11px] font-medium no-underline transition-all duration-200 hover:bg-[rgba(37,211,102,0.12)] hover:border-[rgba(37,211,102,0.5)] w-full justify-center"
@@ -334,7 +334,7 @@ export default function Footer() {
                   </div>
                 </div>
               ))}
-              <a href="https://wa.me/8790013772" target="_blank" rel="noopener noreferrer"
+              <a href="https://wa.me/918790013772" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-[rgba(74,222,128,1)] py-3 px-4 rounded-sm text-[11px] font-medium no-underline">
                 <FaWhatsapp size={22} />WhatsApp Us
               </a>

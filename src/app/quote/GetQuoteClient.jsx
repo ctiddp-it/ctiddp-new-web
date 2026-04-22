@@ -400,7 +400,7 @@ export default function GetQuoteClient() {
                   Our Team will review your details and send you a complete DDP quote with BCD+IGST breakdown within 2 hours on WhatsApp.
                 </p>
                 <a
-                  href="https://wa.me/8790013772"
+                  href="https://wa.me/918790013772"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green-400 py-3 px-8 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
@@ -424,7 +424,7 @@ export default function GetQuoteClient() {
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <a
-              href="https://wa.me/8790013772"
+              href="https://wa.me/918790013772"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green-400 px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
