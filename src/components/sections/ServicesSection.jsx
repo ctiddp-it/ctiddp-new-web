@@ -5,7 +5,7 @@ import Link from 'next/link'
 const services = [
     {
         title: "DDP Shipment Management",
-        desc: "We handle everything from factory pickup to final delivery at your doorstep — customs, duties, and last-mile included.",
+        desc: "We handle everything from factory pickup to final delivery at your doorstep - customs, duties, and last-mile included.",
     },
     {
         title: "Sourcing & Quality Control",

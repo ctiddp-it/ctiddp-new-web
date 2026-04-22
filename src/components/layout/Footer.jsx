@@ -405,7 +405,7 @@ export default function Footer() {
             <Link href="/terms" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Terms of Service</Link>
             <span className="text-[rgba(37,99,235,0.2)] text-xs hidden md:inline">·</span>
             <p className="text-xs text-gray-500 hidden md:block">
-              Offices: Guangzhou 🇨🇳 · Foshan 🇨🇳 · Visakhapatnam 🇮🇳
+              Offices: Guangzhou 🇨🇳 · Foshan 🇨🇳 · Visakhapatnam 🇮🇳 · Bangalore 🇮🇳 · Chennai 🇮🇳
             </p>
           </div>
         </div>

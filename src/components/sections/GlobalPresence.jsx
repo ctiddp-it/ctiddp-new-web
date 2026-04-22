@@ -220,7 +220,7 @@ export default function GlobalPresence() {
       className="relative w-full bg-black overflow-hidden
                  flex flex-col items-center justify-center
                  px-0
-                 pt-10 md:pt-20 pb-10 md:pb-20"
+                 pt-10 md:pt-20"
     >
       {/* Ambient glow */}
       <div
@@ -247,17 +247,17 @@ export default function GlobalPresence() {
         >
           <div className="inline-flex items-center gap-3 mb-3 sm:mb-4">
             <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[0.65rem] md:text-[0.68rem] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px]">
-              Our Reach
+              Across Countries
             </span>
           </div>
 
           <h2 className="font-heading text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
-            Global{" "}
+           Our Global{" "}
             <span className="italic text-blue-light">Presence</span>
           </h2>
 
           <p className="text-[0.88rem] sm:text-[0.96rem] text-muted max-w-[320px] sm:max-w-[440px] mx-auto leading-[1.75]">
-            End-to-end DDP logistics, seamlessly bridging India &amp; China
+            End-to-end DDP logistics, seamlessly bridging Nations
             for businesses that demand precision.
           </p>
         </motion.div>
@@ -467,38 +467,6 @@ export default function GlobalPresence() {
           )}
         </AnimatePresence>
       </motion.div>
-
-      {/* ── STATS ── */}
-      <div className="px-4 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 22 }}
-          animate={revealed ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.55, ease: soft }}
-          className="mt-24 sm:mt-28 flex flex-wrap gap-x-8 gap-y-6 sm:gap-x-12 md:gap-x-[clamp(2.5rem,7vw,5.5rem)] justify-center z-[5] relative"
-        >
-          {STATS.map((s, i) => (
-            <motion.div
-              key={`stat-${s.label}`}
-              initial={{ opacity: 0, y: 12 }}
-              animate={revealed ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.65 + i * 0.1, ease: soft }}
-              className="text-center"
-            >
-              <div className="italic bg-linear-to-br font-bold text-blue-500"
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: 'clamp(40px, 7.5vw, 35px)',
-              }}
-              >
-                {s.value}
-              </div>
-              <div className="text-[0.62rem] sm:text-[0.68rem] text-muted mt-1.5 tracking-[0.12em] uppercase">
-                {s.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
 
       {/* ── Styles ── */}
       <style>{`

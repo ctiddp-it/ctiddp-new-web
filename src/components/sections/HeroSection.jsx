@@ -31,7 +31,7 @@ export function HeroSection() {
       title: 'Ocean Shipping',
       highlight: 'Bulk & Container Solutions',
       subtitle: 'FCL and LCL options with optimized routing and consolidation.',
-      stats: '40% cost reduction on bulk shipments',
+      stats: 'Cost reduction on bulk shipments',
       ctaPrimary: 'Ocean Quote',
       ctaSecondary: 'Port Schedule',
       theme: 'amber',
@@ -43,7 +43,7 @@ export function HeroSection() {
       title: 'Air Freight Excellence',
       highlight: 'Express Global Delivery',
       subtitle: 'Priority air cargo with real-time tracking and temperature control.',
-      stats: '48-72 hour delivery across major Asian hubs',
+      stats: 'Delivery across major Asian hubs',
       ctaPrimary: 'Book Air Freight',
       ctaSecondary: 'Check Rates',
       theme: 'emerald',
@@ -55,7 +55,7 @@ export function HeroSection() {
       title: 'Customs Expertise',
       highlight: 'Stress-Free Clearance',
       subtitle: 'Dedicated customs brokerage with guaranteed clearance timelines.',
-      stats: '48-hour customs clearance guarantee',
+      stats: 'Assured customs clearance',
       ctaPrimary: 'Clearance Check',
       ctaSecondary: 'Speak with Expert',
       theme: 'purple',
@@ -67,7 +67,7 @@ export function HeroSection() {
       title: 'Last Mile Delivery',
       highlight: 'Pan-India Network',
       subtitle: 'Warehousing, distribution and final delivery across all Indian states.',
-      stats: '98.5% on-time delivery guarantee',
+      stats: 'On-time delivery guarantee',
       ctaPrimary: 'Delivery Quote',
       ctaSecondary: 'Warehouse Tour',
       theme: 'indigo',
@@ -166,7 +166,7 @@ export function HeroSection() {
                           : activeIndex === index ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'
                         } transition-all duration-1000 delay-300`}>
                         <Icon className="w-4 h-4 text-[#ffff]" />
-                        <span className="text-sm font-medium text-[#ffff]">Trusted by 500+ Indian Importers</span>
+                        <span className="text-sm font-medium text-[#ffff]">Trusted by 500+ Importers</span>
                       </div>
 
                       {/* Heading */}

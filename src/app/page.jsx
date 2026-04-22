@@ -19,6 +19,7 @@ import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Partners from "@/components/sections/Partners";
 import SampleComponent from "@/components/sections/ServicesSection";
 import StatsSection from "@/components/sections/StatsSection";
+import ReviewsCarousel from "@/components/sections/ReviewsCarousel";
 import Link from 'next/link'
 
 export const metadata = {
@@ -66,7 +67,7 @@ const DDP_COMPARE = [
   {
     badge: 'FOB',
     title: 'Free On Board',
-    desc: 'Seller loads goods onto the vessel. After that — sea freight, insurance, customs, duties, last-mile — all your responsibility.',
+    desc: 'Seller loads goods onto the vessel. After that - sea freight, insurance, customs, duties, last-mile - all your responsibility.',
     marker: '⚠️ Risk transfers at port',
     markerBg: 'rgba(251,191,36,0.15)',
     markerBorder: 'rgba(251,191,36,0.3)',
@@ -78,7 +79,7 @@ const DDP_COMPARE = [
   {
     badge: 'CIF',
     title: 'Cost, Insurance & Freight',
-    desc: 'Seller handles sea freight and insurance. But you still handle Indian customs, BCD+IGST payment, port formalities, and delivery.',
+    desc: 'Seller handles sea freight and insurance. But you still handle Import customs, BCD+IGST payment, port formalities, and delivery.',
     marker: '⚠️ Duties & last-mile still yours',
     markerBg: 'rgba(251,191,36,0.15)',
     markerBorder: 'rgba(251,191,36,0.3)',
@@ -90,7 +91,7 @@ const DDP_COMPARE = [
   {
     badge: 'DDP — What We Do',
     title: 'Delivered Duty Paid',
-    desc: 'We handle everything: China export, sea freight, insurance, Indian customs filing, BCD+IGST payment, and last-mile delivery. One invoice.',
+    desc: 'We handle everything: China export, sea freight, insurance, customs filing, BCD+IGST payment, and last-mile delivery. One invoice.',
     marker: '✓ We handle it all',
     markerBg: 'rgba(74,222,128,0.1)',
     markerBorder: 'rgba(74,222,128,0.3)',
@@ -162,16 +163,18 @@ const SERVICES = [
 
 const HOW_IT_WORKS = [
   { n: '01', t: 'Supplier Coordination & Factory QC', d: 'Vendor sourcing, negotiation, quality inspection at Foshan before goods move.', tag: 'Foshan · China' },
-  { n: '02', t: 'Cargo Consolidation & Export Prep', d: 'Multi-vendor consolidation at Guangzhou. HS code check, packing list, commercial invoice.', tag: 'Guangzhou' },
-  { n: '03', t: 'China Export Customs · 48 hrs', d: 'Export declaration, LEO clearance, EGM verification — all within 48 hours.', tag: '48 Hours' },
-  { n: '04', t: 'International Sea / Air Transit', d: 'Full DDP Incoterms 2020. Freight, insurance, all risk on us throughout transit.', tag: '18–35 Days Sea' },
-  { n: '05', t: 'India Customs + Last-Mile Delivery', d: 'BE filing, BCD+IGST paid, OOC, Chennai warehouse, PAN-India last mile + POD.', tag: '9–11 Days Clearance' },
+  { n: '02', t: 'Cargo Consolidation & Export Preparation', d: 'Multi-vendor consolidation at Guangzhou. HS code check, packing list, commercial invoice.', tag: 'Guangzhou' },
+  { n: '03', t: 'China Export Customs · 48 hrs', d: 'Export declaration, LEO clearance, EGM verification - all within 48 hours.', tag: '48 Hours' },
+  { n: '04', t: 'International Sea / Air Transit', d: 'Full DDP Incoterms 2020. Freight, insurance, all risk on us throughout transit.', tag: '18–25 Days Sea/ 7-9 Days Air' },
+  { n: '05', t: 'Customs + Last-Mile Delivery', d: 'BE filing, BCD+IGST paid, OOC, Our warehouse, Last mile + POD.', tag: '9–15 Days Clearance' },
 ]
 
 const TESTIMONIALS = [
-  { stars: 5, text: 'CTIDDP handled our first China shipment completely — not a single customs document to deal with. The duty pre-calculation was exactly right, zero surprises at Chennai port.', name: 'Rajesh Kumar', role: 'Electronics Importer · Hyderabad' },
-  { stars: 5, text: '8 months with CTIDDP. WhatsApp updates on every milestone are excellent. When one shipment hit a customs query, their team handled it all — we just waited for the good news.', name: 'Priya Sharma', role: 'Textile Importer · Bangalore' },
-  { stars: 5, text: 'Their Canton Fair support was invaluable. Mandarin-speaking team negotiated for us, saved significant cost. Shipped everything DDP in one container — incredibly smooth.', name: 'Venkat Rao', role: 'Machine Parts Importer · Vizag' },
+  { stars: 5, text: 'As a small business owner, importing from China always felt overwhelming until I found CTIDDP. Their DDP service is a lifesaver. I didn’t have to worry about hidden customs fees or complex paperwork. Everything was delivered right to my warehouse in Delhi exactly as promised. Special thanks to the Guangzhou team for the quick QC photos.', name: 'Rajasekhar B', time: "2 weeks ago", },
+  { stars: 5, text: 'I contacted the company after getting their contact while visiting Canton Fare in 2025. I was offered a better rate for DDP Shipping to India compared to other companies. Moreover I could make direct payment from my company account to their local account in India. The transport service by sea and the DDP Service was very fast and efficient. Overall I am very happy with their service and the shipping rates offered by them. Highly recommended transport company.', name: 'Sathyanarayanan G', time: "1 month ago", },
+  { stars: 5, text: 'I reached this company to ship goods from China to rural areas of India. Their team in China and India are very skilled and efficient. They never lost any goods, which is very important, although delivery times were occasionally delayed by a few days.', name: 'G. Wohbig', time: "3 weeks ago", },
+  { stars: 5, text: 'Highly recommend for bulk sea freight. We had goods coming from four different factories in Foshan, and CTIDDP consolidated everything at their hub perfectly. Their rates are the most competitive we’ve found for China-to-India shipping. No damages, no delays, and total transparency on the duties paid. Five stars.', name: 'Anjali M', time: "2 months ago", },
+  { stars: 5, text: 'We had a tight deadline for our shipment to Chennai, and CTIDDP delivered on time with their DDP service. The best part was that they handled all the customs clearance and duties without any hiccups. The last-mile delivery was smooth, and we received our goods in perfect condition. Highly recommend for hassle-free China to India shipping.', name: 'Vikram S', time: "1 week ago", },
 ]
 
 const WHY_US = [
@@ -240,7 +243,7 @@ export default function HomePage() {
                     telephone: '+91-87900-13772',
                     contactType: 'customer service',
                     areaServed: 'IN',
-                    availableLanguage: ['English', 'Hindi','Telugu'],
+                    availableLanguage: ['English', 'Hindi', 'Telugu'],
                   },
                   {
                     '@type': 'ContactPoint',
@@ -342,7 +345,7 @@ export default function HomePage() {
                   8 Ways We Power Your<br />
                   <em className="italic text-blue-light">Global Supply Chain</em>
                 </h2>
-              </div>         
+              </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {SERVICES.map(s => (
@@ -384,16 +387,16 @@ export default function HomePage() {
                 The DDP Journey
               </span>
               <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
-                One Contract.<br />
-                <em className="italic text-blue-light">Zero Worry.</em>
+                One Contract<br />
+                <em className="italic text-blue-light">Zero Worry</em>
               </h2>
               <p className="text-[15px] text-muted leading-relaxed mb-6">
-                Every step, every cost, every risk — from supplier to your warehouse door.
+                Every step & every cost - from supplier to your door.
               </p>
               <div className="py-4 px-[18px] bg-[rgba(37,99,235,0.06)] border-l-2 border-gold text-[13px] text-muted mb-6 flex items-start gap-2">
                 <HiOutlineCalendarDays className="text-blue-light mt-[2px] shrink-0" size={18} />
                 <span>
-                  Typical total: <strong className="text-blue-light">38–50 days</strong> factory pickup → India warehouse (including customs)
+                  Typical total: <strong className="text-blue-light">38–50 days</strong> factory pickup → Warehouse (including customs)
                 </span>
               </div>
               <Link
@@ -431,94 +434,20 @@ export default function HomePage() {
         <GlobalPresence />
 
         {/* ── 8. TESTIMONIALS ──────────────────────────────────────────────── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="text-center max-w-[560px] mx-auto mb-12">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                Client Reviews
-              </span>
-              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                What Our Clients<br />
-                <em className="italic text-blue-light">Say About Us</em>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {TESTIMONIALS.map(t => (
-                <div key={t.name} className="reveal bg-[var(--overlay-card)] border border-[var(--overlay-card-border)] p-6 sm:p-7 rounded-[4px] transition-all duration-300 hover:border-[rgba(37,99,235,0.25)]">
-                  <div className="text-blue text-xs mb-3.5">{'★'.repeat(t.stars)}</div>
-                  <p className="text-[13px] text-muted leading-relaxed italic mb-5">"{t.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] flex items-center justify-center text-base">
-                      👤
-                    </div>
-                    <div>
-                      <div className="text-[13px] font-medium text-white">{t.name}</div>
-                      <div className="text-[11px] text-muted">{t.role}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ReviewsCarousel
+          testimonials={TESTIMONIALS}
+          rating="4.9"
+          reviewCount="150+"
+          reviewsUrl="https://g.page/r/your-google-review-link"
+          autoPlayMs={5000}
+          headingLine1="What our clients are"
+          headingLine2="saying on Google"
+        />
 
         <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
 
-        {/* ── 9. WHY US + ASSURANCES ───────────────────────────────────────── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="text-center max-w-[620px] mx-auto mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                Why CTIDDP
-              </span>
-              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                We Don&apos;t Just Ship.<br />
-                <em className="italic text-blue-light">We Deliver Certainty.</em>
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-              {WHY_US.map(w => (
-                <div
-                  key={w.title}
-                  className="group reveal relative overflow-hidden bg-[rgba(255,255,255,0.015)] border border-[var(--overlay-card-border)] p-6 sm:p-7 rounded-[4px] transition-all duration-300 hover:border-[rgba(37,99,235,0.3)] hover:-translate-y-1
-                    before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[2px]
-                    before:bg-gradient-to-r before:from-transparent before:via-gold before:to-transparent
-                    before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100"
-                >
-                  <div className="mb-3.5">
-                    <div className="w-11 h-11 rounded-full border border-[rgba(37,99,235,0.4)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center transition-all duration-300 group-hover:border-gold group-hover:bg-[rgba(37,99,235,0.15)]">
-                      <span className="text-[20px] text-blue-light transition-transform duration-300 group-hover:scale-110">
-                        {w.icon}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="font-heading text-[19px] font-semibold mb-2 text-white">{w.title}</div>
-                  <div className="text-[13px] text-muted leading-relaxed">{w.desc}</div>
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {ASSURANCES.map(a => (
-                <div key={a.title} className="reveal bg-[rgba(37,99,235,0.04)] border border-[rgba(37,99,235,0.15)] p-[26px] rounded-[4px]">
-                  <div className="flex items-start gap-3 mb-2">
-                    <div className="w-9 h-9 rounded-xl border border-[rgba(37,99,235,0.4)] bg-[rgba(37,99,235,0.08)] flex items-center justify-center shrink-0 transition-all duration-300 group-hover:border-gold group-hover:bg-[rgba(37,99,235,0.15)]">
-                      <span className="text-[18px] text-blue-light transition-transform duration-300 group-hover:scale-110">
-                        {a.icon}
-                      </span>
-                    </div>
 
-                    <h4 className="font-heading text-base font-semibold">
-                      {a.title}
-                    </h4>
-                  </div>
-                  <p className="text-xs text-muted leading-relaxed">{a.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── 10. CTA BANNER ────────────────────────────────────────────────── */}
+        {/* ── 9. CTA BANNER ────────────────────────────────────────────────── */}
         <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[72px] overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-heading text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
             Ready to Ship<br />
@@ -545,7 +474,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <SampleComponent />
+        {/* <SampleComponent /> */}
 
       </main>
 
