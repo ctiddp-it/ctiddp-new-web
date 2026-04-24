@@ -41,7 +41,7 @@ export const metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/how-it-works/',
+    canonical: 'https://www.ctiddp.com/how-it-works',
   },
 };
 

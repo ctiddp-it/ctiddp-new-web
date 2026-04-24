@@ -8,7 +8,6 @@ export default function robots() {
       },
     ],
     sitemap: 'https://www.ctiddp.com/sitemap.xml',
-    host: 'https://www.ctiddp.com/',
+    host: 'https://www.ctiddp.com',
   }
 }
- 

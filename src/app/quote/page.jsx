@@ -30,7 +30,7 @@ export const metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/quote/',
+    canonical: 'https://www.ctiddp.com/quote',
   },
 };
 

@@ -30,7 +30,7 @@ export const metadata = {
     url: 'https://www.ctiddp.com/blog/',
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/blog/',
+    canonical: 'https://www.ctiddp.com/blog',
   },
 };
 

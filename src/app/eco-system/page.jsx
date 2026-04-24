@@ -30,7 +30,7 @@ export const metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/eco-system/',
+    canonical: 'https://www.ctiddp.com/eco-system',
   },
 }
 

@@ -42,7 +42,7 @@ export const metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/services/',
+    canonical: 'https://www.ctiddp.com/services',
   },
 };
 
@@ -50,6 +50,7 @@ const SERVICES = [
   {
     icon: FaShip,
     title: 'Global DDP Shipping',
+    href: '/services/global-ddp-shipping',
     desc: ' From the factory floor in China to your warehouse in India, fully managed.',
     tags: ['Sea LCL / FCL', 'Air Freight', 'Full DDP'],
     bullets: [
@@ -60,6 +61,7 @@ const SERVICES = [
   {
     icon: FaMoneyBillWave,
     title: 'Supplier Payments',
+    href: '/services/supplier-payments',
     desc: 'Pay your suppliers safely, without currency risks or delays.',
     tags: ['Cross-border payments', 'Currency risk-free', 'Global coverage'],
     bullets: [
@@ -71,6 +73,7 @@ const SERVICES = [
   {
     icon: FaSearch,
     title: 'QC & Pre-Shipment Inspection',
+    href: '/services/qc-inspection',
     desc: 'Catch defects before your goods leave China.',
     tags: ['Pre-shipment Inspection', 'QC Services', 'Product Quality Check'],
     bullets: [
@@ -82,6 +85,7 @@ const SERVICES = [
   {
     icon: FaWarehouse,
     title: 'Warehousing & Consolidation',
+    href: '/services/warehousing',
     desc: 'Store, sort, and streamline your cargo before shipping.',
     tags: ['Foshan Office','Guangzhou Warehouse', 'Photo Report', 'Cargo Consolidation'],
     bullets: [
@@ -93,6 +97,7 @@ const SERVICES = [
   {
     icon: FaPassport,
     title: 'Customs Clearance',
+    href: '/services/customs-clearance',
     desc: 'We handle 100% of import process clearance.',
     tags: ['BE Filing', 'BCD + IGST', 'FTA Rates'],
     bullets: [
@@ -105,6 +110,7 @@ const SERVICES = [
   {
     icon: FaTruck,
     title: 'Last-Mile Delivery',
+    href: '/services/last-mile-delivery',
     desc: ' Delivered to your doorstep anywhere in India.',
     tags: ['All India States', 'POD Included', 'B2B'],
     bullets: [
@@ -117,6 +123,7 @@ const SERVICES = [
   {
     icon: FaBoxes,
     title: 'Multi-Vendor Consolidation',
+    href: '/services/multi-vendor-consolidation',
     desc: 'Combine shipments from multiple suppliers into one cost-effective load.',
     tags: ['Cargo Consolidation China', 'Multi-Vendor Logistics', 'LCL Consolidation Services'],
     bullets: [
@@ -130,6 +137,7 @@ const SERVICES = [
   {
     icon: FaStore,
     title: 'Canton Fair Support',
+    href: '/services/canton-fair-support',
     desc: 'Source better products with expert support at Canton Fair.',
     tags: ['Spring & Autumn', 'Mandarin Negotiation', 'Sample Inspection', 'Canton Fair Sourcing Support'],
     bullets: [
@@ -277,6 +285,14 @@ export default function ServicesPage() {
                         {t}
                       </span>
                     ))}
+                  </div>
+                  <div className="mt-5">
+                    <Link
+                      href={s.href}
+                      className="inline-flex items-center gap-2 text-[11px] tracking-[1px] uppercase text-blue-light border border-[rgba(37,99,235,0.35)] px-3 py-2 rounded-[3px] hover:bg-[rgba(37,99,235,0.1)] transition-colors"
+                    >
+                      View Service Details
+                    </Link>
                   </div>
                 </div>
               ))}
