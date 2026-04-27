@@ -2,12 +2,28 @@
 
 import { motion } from "framer-motion"
 
-export default function Hero({ title, subtitle, badge = "Service Detail" }) {
+export default function Hero({
+  title,
+  subtitle,
+  badge = "Service Detail",
+  bgImage = "/images/hero-default.jpg", // fallback image
+}) {
   return (
-    <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[40vh] px-4 sm:px-[60px] pt-[60px] sm:pt-[80px] pb-[52px] sm:pb-[64px] bg-black">
+    <section className="relative overflow-hidden flex items-center justify-center text-center min-h-[40vh] px-4 sm:px-[60px] pt-[60px] sm:pt-[80px] pb-[52px] sm:pb-[64px]">
 
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.1)_0%,transparent_70%)]" />
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${bgImage})`,
+        }}
+      />
+
+      {/* Dark Overlay (important for readability) */}
+      <div className="absolute inset-0 bg-black/70" />
+
+      {/* Gradient Glow (keep your design identity) */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(37,99,235,0.15)_0%,transparent_70%)]" />
 
       <div className="relative z-10 max-w-[920px]">
 
@@ -37,7 +53,7 @@ export default function Hero({ title, subtitle, badge = "Service Detail" }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-[15px] text-muted max-w-[800px] mx-auto"
+          className="text-[15px] text-white/80 max-w-[800px] mx-auto"
         >
           {subtitle}
         </motion.p>
