@@ -60,8 +60,8 @@ export const metadata = {
 };
 
 const TEAM = [
-  { image: '/images/about/founders/mallesh-gujjala-founder-ceo-ctiddp.png', name: 'Mallesh Gujjala', role: 'Founder & CEO', bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports from the ground up — from supplier networks in Guangdong to last-mile delivery across India.' },
-  { image: '/images/about/founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png', name: 'Balu Gujjala', role: 'Co-Founder & India Operations', bio: 'Based in Visakhapatnam. Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA with 10+ years in Indian import logistics and port operations.' },
+  { image: '/images/about/founders/mallesh-gujjala-founder-ceo-ctiddp.png', name: 'Mallesh Gujjala', role: 'Founder & CEO', bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports from the ground up -  factory coordination, supplier relations, quality inspection & compliance.' },
+  { image: '/images/about/founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png', name: 'Balu Gujjala', role: 'Co-Founder & India Operations', bio: 'Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA in Indian import logistics - port handling, customs clearance & last-mile delivery.' },
 ]
 
 const LOCATIONS = [
@@ -154,19 +154,19 @@ const MISSION_POINTS = [
 ]
 
 const WHY_US = [
-  { icon: <FiRepeat />, title: 'End-to-End DDP Shipping', desc: 'Supplier pickup in China to door delivery in India — fully managed under one system. No handoffs, no gaps.', keyword: 'DDP shipping services' },
-  { icon: <FiShield />, title: 'No Hidden Costs', desc: 'Clear, upfront pricing before every shipment. What you\'re quoted is what you pay — every time.', keyword: 'transparent freight forwarding' },
-  { icon: <FiMapPin />, title: 'On-Ground China Coordination', desc: 'We coordinate directly with suppliers and warehouses in Guangzhou. Nothing is managed blindly.', keyword: 'China to India freight forwarding' },
-  { icon: <FiPackage />, title: 'Built for Importers & E-commerce', desc: 'Repeat shipments, tight timelines, inventory pressure — our process is designed for how importers actually work.', keyword: 'import logistics India' },
-  { icon: <FiZap />, title: 'Faster, Controlled Deliveries', desc: 'We plan shipments before they leave the supplier — reducing delays through proactive coordination.', keyword: 'door-to-door delivery India' },
+  { icon: <FiRepeat />, title: 'End-to-End DDP Ownership', desc: 'Supplier pickup in China to door delivery in India - fully managed under one system. No handoffs, no gaps.', keyword: 'DDP shipping services' },
+  { icon: <FiShield />, title: 'No Hidden Costs', desc: 'Clear, upfront pricing before every shipment. What you\'re quoted is what you pay - every time.', keyword: 'Transparent pricing' },
+  { icon: <FiMapPin />, title: 'On-Ground Expertise in China', desc: 'We coordinate directly with suppliers and warehouses in Guangzhou. Nothing is managed blindly.', keyword: 'China to India freight forwarding' },
+  { icon: <FiPackage />, title: 'Built for Importers & E-commerce', desc: 'Repeat shipments, tight timelines, inventory pressure - our process is designed for how importers actually work.', keyword: 'import logistics India' },
+  { icon: <FiZap />, title: 'Faster, Controlled Deliveries', desc: 'We plan shipments before they leave the supplier - reducing delays through proactive coordination.', keyword: 'door-to-door delivery India' },
   { icon: <FiTarget />, title: 'Dedicated Single-Team Support', desc: 'No chasing multiple agents. One team handles your entire shipment from China pickup to Indian delivery.', keyword: 'dedicated import support' },
 ]
 
 const STEPS = [
-  { num: '01', title: 'Supplier Coordination', desc: 'We connect with your supplier in China and verify shipment readiness — quantities, packaging, and documentation — before anything moves.' },
+  { num: '01', title: 'Supplier Coordination', desc: 'We connect with your supplier in China and verify shipment readiness - quantities, packaging, and documentation - before anything moves.' },
   { num: '02', title: 'Pickup & Consolidation', desc: 'Goods are picked up from factories or warehouses. If you have multiple vendors, we consolidate into a single shipment to save cost.' },
-  { num: '03', title: 'DDP Shipping', desc: 'We handle everything: Air or Sea freight, China export customs, India import customs clearance, duties and taxes — fully covered under DDP terms.' },
-  { num: '04', title: 'Final Delivery in India', desc: 'Your shipment is delivered directly to your warehouse or address across India — safely, on time, with full documentation.' },
+  { num: '03', title: 'DDP Shipping', desc: 'We handle everything: Air or Sea freight, China export customs, India import customs clearance, duties and taxes - fully covered under DDP terms.' },
+  { num: '04', title: 'Final Delivery in India', desc: 'Your shipment is delivered directly to your warehouse or address across India - safely, on time, with full documentation.' },
   { num: '05', title: 'Continuous Support', desc: 'We assist with real-time tracking updates, post-delivery queries, and proactive planning for your next shipment cycle.' },
 ]
 
@@ -196,7 +196,7 @@ export default function AboutPage() {
                   '@id': 'https://www.ctiddp.com/#business',
                   name: 'CTIDDP',
                   description:
-                    'China to India DDP Shipping Specialists — end-to-end freight forwarding, customs clearance, and door delivery across India.',
+                    'China to India DDP Shipping Specialists - end-to-end freight forwarding, customs clearance, and door delivery across India.',
                   url: 'https://www.ctiddp.com/',
                   // logo: 'https://www.ctiddp.com/logo.png',
                   founder: [
@@ -289,11 +289,11 @@ export default function AboutPage() {
             <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Built for One Route.<br />
               <em className="italic text-blue-light">
-                China to India.
+                Trusted Across Borders.
               </em>
             </h1>
             <p className="text-[15px] text-muted max-w-[520px] mx-auto mb-8">
-              We&apos;re not a general freight forwarder. We&apos;re specialists — every SOP, every hire, every process built exclusively for China-to-India DDP shipping.
+              CTIDDP is a specialized end-to-end DDP logistics partner, helping businesses move goods seamlessly from global sourcing hubs to final destinations.
             </p>
             <div className="flex gap-3 justify-center flex-wrap">
               <Link
@@ -320,25 +320,25 @@ export default function AboutPage() {
                 Who We Are
               </span>
               <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-5">
-                Our Story —<br />
-                <em className="italic text-blue-light">How We Started</em>
+                Our Story -<br />
+                <em className="italic text-blue-light">Built to Simplify Global Trade</em>
               </h2>
               <p className="text-[15px] text-muted leading-relaxed mb-5">
-                China to India DDP Shipping (CTI-DDP) is a specialized logistics partner focused on simplifying imports from China to India. We work closely with businesses, e-commerce brands, and bulk importers to handle the entire shipping process — from supplier pickup to final delivery.
+                Cross Border Trade International Delivered Duty Paid (CTIDDP) is a specialized logistics partner focused on simplifying imports from China to India. We work closely with businesses, e-commerce brands, and bulk importers to handle the entire shipping process - from supplier pickup to final delivery.
               </p>
               <p className="text-[15px] text-muted leading-relaxed mb-5">
                 Our journey started with a simple observation: <strong className="text-white">most importers struggle not with sourcing, but with shipping, customs clearance, and coordination.</strong> That&apos;s where we built our expertise.
               </p>
               <p className="text-[15px] text-muted leading-relaxed">
-                Today we provide end-to-end DDP shipping services from China to India — with on-ground presence in China and active coordination with Indian clients, bridging the gap between suppliers and delivery.
+                Today we provide end-to-end DDP shipping services from China to India - with on-ground presence in China and active coordination with Indian clients, bridging the gap between suppliers and delivery.
               </p>
             </div>
             <div className="flex flex-col gap-4">
               {[
                 { num: '500+', label: 'Successful DDP Shipments' },
-                { num: '17+', label: 'Documented SOPs' },
-                { num: '4', label: 'Offices: Guangzhou, Foshan, Vizag, Chennai' },
-                { num: '0', label: 'Hidden charges. Ever.' },
+                { num: '10+', label: 'Years of Combined Experience' },
+                { num: '5', label: 'Strategic Locations (India & China)' },
+                { num: '100', label: 'Focused Trade Route Expertise' },
               ].map(s => (
                 <div key={s.label} className="reveal bg-[var(--overlay-card)] border border-[rgba(37,99,235,0.15)] p-5 sm:p-[22px] rounded-[3px] flex items-center gap-5 hover:border-[rgba(37,99,235,0.3)] transition-colors">
                   <div className="font-heading text-4xl sm:text-[44px] font-semibold text-blue-light leading-none shrink-0">
@@ -361,9 +361,9 @@ export default function AboutPage() {
                 OUR FOUNDERS
               </span>
               <h2 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
-                The People Behind <br />
+                 Leadership & <br />
                 <em className="italic text-blue-light">
-                  Your Shipments
+                  Core Team
                 </em>
               </h2>
             </div>
@@ -373,7 +373,7 @@ export default function AboutPage() {
                   <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
                     <Image
                       src={m.image}
-                      alt={`${m.name} — ${m.role}`}
+                      alt={`${m.name} - ${m.role}`}
                       fill
                       className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 400px"
@@ -407,7 +407,7 @@ export default function AboutPage() {
             <div className="reveal bg-linear-to-br ttext-white border border-[rgba(37,99,235,0.25)] rounded-[4px] p-8 sm:p-9 mb-8 max-w-[760px] mx-auto">
               <div className="text-[11px] tracking-[0.12em] uppercase text-blue-light mb-3 font-medium">Our Vision</div>
               <p className="text-lg text-white leading-relaxed font-heading italic">
-                &ldquo;To become the most trusted logistics partner for businesses importing from China to India — delivering consistent, transparent, and scalable shipping solutions.&rdquo;
+                &ldquo;To become the most trusted logistics partner for businesses importing from China to India - delivering consistent, transparent, and scalable shipping solutions.&rdquo;
               </p>
             </div>
 
@@ -434,11 +434,11 @@ export default function AboutPage() {
                 Why Choose Us
               </span>
               <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                Most Companies Ship.<br />
-                <em className="italic text-blue-light">We Manage the Whole Import.</em>
+                Why Businesses Choose<br />
+                <em className="italic text-blue-light">CTIDDP</em>
               </h2>
               <p className="text-sm text-muted leading-relaxed mt-2.5">
-                Most logistics companies only handle transport. We handle the entire process — from supplier to your door.
+                We handle the entire process - from supplier to your door.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
@@ -468,11 +468,11 @@ export default function AboutPage() {
           <div className="max-w-[1200px] mx-auto">
             <div className="text-center max-w-[560px] mx-auto mb-12">
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                How We Serve
+                Our Process
               </span>
               <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                A Structured Process.<br />
-                <em className="italic text-blue-light">Predictable Every Time.</em>
+                Structured, Predictable & 
+                <em className="italic text-blue-light"> Scalable Every Time.</em>
               </h2>
             </div>
             <div className="max-w-[720px] mx-auto relative">
@@ -538,7 +538,7 @@ export default function AboutPage() {
               </span>
               <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
                 Our Journey<br />
-                <em className="italic text-blue-light">Built on Precision, Driven by Trust</em>
+                <em className="italic text-blue-light">Built on Trust & Execution</em>
               </h2>
             </div>
           }
@@ -553,7 +553,7 @@ export default function AboutPage() {
             <em className="italic text-blue-light">That&apos;s All-In.</em>
           </h2>
           <p className="text-sm text-muted max-w-[420px] mx-auto mb-7">
-            No vendor chains. No hidden charges. One team, full accountability — China side and India side.
+            No vendor chains. No hidden charges. One team, full accountability - China side and India side.
           </p>
           <div className="flex gap-3 justify-center flex-wrap">
             <Link
