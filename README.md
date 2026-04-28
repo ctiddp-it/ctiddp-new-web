@@ -1,14 +1,14 @@
 # CTIDDP Website
 
-China to India DDP Shipping Specialists — built with Next.js 16.2.1, Tailwind CSS v4, and full SEO infrastructure.
+China to India DDP Shipping Specialists - built with Next.js 16.2.1, Tailwind CSS v4, and full SEO infrastructure.
 
 ## Stack
 
-- **Framework** — Next.js 16.2.1 (App Router)
-- **Styling** — Tailwind CSS v4 + custom CSS design tokens
-- **Fonts** — playfair Garamond + Outfit via `next/font/google`
-- **Language** — JavaScript (JSX)
-- **Deployment** — Vercel
+- **Framework** - Next.js 16.2.1 (App Router)
+- **Styling** - Tailwind CSS v4 + custom CSS design tokens
+- **Fonts** - playfair Garamond + Outfit via `next/font/google`
+- **Language** - JavaScript (JSX)
+- **Deployment** - Vercel
 
 ---
 
@@ -41,21 +41,21 @@ src/
 │   ├── faq/page.jsx                    # /faq
 │   ├── about/page.jsx                  # /about
 │   ├── contact/
-│   │   ├── page.jsx                    # server wrapper — exports metadata
+│   │   ├── page.jsx                    # server wrapper - exports metadata
 │   │   └── ContactClient.jsx           # interactive contact + call booking
 │   ├── get-quote/
-│   │   ├── page.jsx                    # server wrapper — exports metadata
+│   │   ├── page.jsx                    # server wrapper - exports metadata
 │   │   └── GetQuoteClient.jsx          # interactive quote form
 │   ├── track/
-│   │   ├── page.jsx                    # server wrapper — exports metadata
+│   │   ├── page.jsx                    # server wrapper - exports metadata
 │   │   └── TrackClient.jsx             # interactive shipment tracker
 │   └── tools/duty-calculator/
-│       ├── page.jsx                    # server wrapper — exports metadata
+│       ├── page.jsx                    # server wrapper - exports metadata
 │       └── DutyCalcClient.jsx          # BCD + IGST + SWS calculator
 │
 ├── components/
 │   ├── layout/
-│   │   ├── MegaNav.jsx                 # Sticky nav — mega dropdowns desktop, drawer mobile
+│   │   ├── MegaNav.jsx                 # Sticky nav - mega dropdowns desktop, drawer mobile
 │   │   ├── Ticker.jsx                  # Announcement ticker
 │   │   └── Footer.jsx                  # 5-column footer
 │   ├── sections/
@@ -75,7 +75,7 @@ src/
 
 | Route | Description |
 |---|---|
-| `/` | Home — hero, services, process, testimonials, CTA |
+| `/` | Home - hero, services, process, testimonials, CTA |
 | `/how-it-works` | 8-step DDP process map with transit timelines |
 | `/services` | All 6 DDP services with feature breakdowns |
 | `/track` | Shipment tracker with milestone timeline |
@@ -109,7 +109,7 @@ Additional structured data schemas:
 
 ### Server / client page split
 
-Pages that need `useState` or `useEffect` cannot export `metadata` directly — Next.js does not allow `'use client'` and `export const metadata` in the same file. These pages are split into a thin server `page.jsx` that exports metadata, and a `*Client.jsx` that handles interactivity. This applies to `/contact`, `/get-quote`, `/track`, and `/tools/duty-calculator`.
+Pages that need `useState` or `useEffect` cannot export `metadata` directly - Next.js does not allow `'use client'` and `export const metadata` in the same file. These pages are split into a thin server `page.jsx` that exports metadata, and a `*Client.jsx` that handles interactivity. This applies to `/contact`, `/get-quote`, `/track`, and `/tools/duty-calculator`.
 
 ---
 
@@ -139,7 +139,7 @@ CONTACT_FORM_EMAIL=hello@ctiddp.com
 ## Before Going Live
 
 - Replace every `your-number` with the real WhatsApp number
-- Replace `https://ctiddp.com` with the real domain in `layout.jsx` and all page metadata
+- Replace `https://www.ctiddp.com` with the real domain in `layout.jsx` and all page metadata
 - Replace `hello@ctiddp.com` and `IECGSTGSTIN` placeholder in `Footer.jsx`
 - Add `public/og-image.jpg` at 1200×630 for social sharing previews
 - Add `public/favicon.ico`, `public/favicon-16x16.png`, `public/apple-touch-icon.png`
@@ -164,4 +164,4 @@ After deploy: verify domain in Google Search Console, submit `/sitemap.xml`, and
 2. Export `metadata` with `title`, `description`, `canonical`, and `openGraph`
 3. Add a `BreadcrumbList` JSON-LD `<script>` inside `<main>`
 4. Add the route to `src/app/sitemap.js`
-5. If the page needs React state or browser APIs, split it — `page.jsx` stays as a server component, move interactive code to `YourRouteClient.jsx` with `'use client'` at the top
+5. If the page needs React state or browser APIs, split it - `page.jsx` stays as a server component, move interactive code to `YourRouteClient.jsx` with `'use client'` at the top

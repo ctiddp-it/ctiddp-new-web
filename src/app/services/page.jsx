@@ -151,6 +151,9 @@ const SERVICES = [
 ]
 
 export default function ServicesPage() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <>
       <ScrollRevealInit />
@@ -230,7 +233,7 @@ export default function ServicesPage() {
           <div className="relative z-10 max-w-[800px]">
             <div className="inline-flex items-center gap-2 bg-[rgba(37,99,235,0.1)] border border-border text-blue-light text-[11px] font-medium tracking-[2px] uppercase px-5 py-2 rounded-full mb-7">
               <span className="w-1.5 h-1.5 rounded-full bg-gold shadow-[0_0_8px_#2563EB] animate-[pulse_2s_ease-in-out_infinite] shrink-0" />
-              Six Core Services
+              Eight Core Services
             </div>
             <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               Everything You Need.<br />
@@ -239,7 +242,7 @@ export default function ServicesPage() {
               </em>
             </h1>
             <p className="text-[15px] text-muted max-w-[520px] mx-auto">
-              From factory gate in China to customer door in India — six specialised services, one accountable partner.
+              From factory gate in China to customer door in India - eight specialised services, one accountable partner.
             </p>
           </div>
         </section>
@@ -303,7 +306,7 @@ export default function ServicesPage() {
         {/* CTA Banner */}
         <div className="relative text-center px-4 sm:px-[60px] py-12 sm:py-16 overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
           <h2 className="font-heading text-[clamp(28px,3.5vw,44px)] font-light text-white leading-[1.2] mb-3">
-            Need All Six?<br />
+            Need All Eight?<br />
             <em className="italic text-blue-light">We Bundle Them.</em>
           </h2>
           <p className="text-sm text-muted max-w-[420px] mx-auto mb-7">
@@ -317,7 +320,7 @@ export default function ServicesPage() {
               Get DDP Quote →
             </Link>
             <a
-              href="https://wa.me/918790013772"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

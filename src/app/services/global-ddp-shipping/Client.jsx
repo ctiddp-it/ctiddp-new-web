@@ -93,7 +93,7 @@ export default function GlobalDDPServicePage() {
                         <motion.span {...fadeUp} className="text-blue-400 text-sm font-semibold uppercase tracking-wider">What's Included</motion.span>
                         <motion.h2 {...fadeUp} className="text-4xl md:text-5xl font-bold mt-3 font-heading">Scope & Deliverables</motion.h2>
                         <motion.p {...fadeUp} className="text-white/60 max-w-2xl mx-auto mt-4">
-                            Everything under one contract — from supplier coordination to door delivery.
+                            Everything under one contract - from supplier coordination to door delivery.
                         </motion.p>
                     </div>
 
@@ -166,7 +166,7 @@ export default function GlobalDDPServicePage() {
                             {[
                                 { icon: Ship, title: "Sea Freight (FCL / LCL)", desc: "Ideal for bulk shipments and heavy cargo. Cost-efficient for large volumes with consolidation options available." },
                                 { icon: Plane, title: "Air Freight", desc: "Faster transit for urgent shipments. Ideal for high-value or time-sensitive cargo." },
-                                { icon: Globe, title: "Hybrid Solutions", desc: "Mix of air + sea for cost and speed balance — best of both worlds." },
+                                { icon: Globe, title: "Hybrid Solutions", desc: "Mix of air + sea for cost and speed balance - best of both worlds." },
                             ].map((item, i) => (
                                 <motion.div key={i} {...fadeUp} transition={{ delay: i * 0.1 }} className="flex gap-5 p-5 rounded-xl border border-white/10 hover:bg-white/5 transition">
                                     <item.icon className="w-8 h-8 text-blue-400 flex-shrink-0" />
@@ -182,7 +182,7 @@ export default function GlobalDDPServicePage() {
                     {/* Right: Process Flow */}
                     <div>
                         <motion.span {...fadeUp} className="text-blue-400 text-sm font-semibold uppercase tracking-wider font-heading">Step by Step</motion.span>
-                        <motion.h2 {...fadeUp} className="text-3xl md:text-4xl font-bold mt-3 mb-8 font-heading">Process Flow — From China to Your Warehouse</motion.h2>
+                        <motion.h2 {...fadeUp} className="text-3xl md:text-4xl font-bold mt-3 mb-8 font-heading">Process Flow - From China to Your Warehouse</motion.h2>
                         <div className="space-y-3">
                             {[
                                 "Supplier finalisation & shipment readiness",
@@ -272,7 +272,7 @@ export default function GlobalDDPServicePage() {
                                 ))}
                             </div>
                             <div className="bg-blue-500/10 rounded-xl p-4 border border-blue-500/20">
-                                <p className="text-blue-300 text-sm font-medium">📦 CTIDDP provides a single consolidated DDP quote — eliminating fragmented cost planning.</p>
+                                <p className="text-blue-300 text-sm font-medium">📦 CTIDDP provides a single consolidated DDP quote - eliminating fragmented cost planning.</p>
                             </div>
                         </div>
                     </div>

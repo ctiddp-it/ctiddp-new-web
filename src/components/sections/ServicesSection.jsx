@@ -24,7 +24,7 @@ export default function ServicesSection() {
             style={{ position: "relative", overflow: "hidden" }}
         >
             {/*
-             * BG-MAP — anchored to bottom-right corner of the entire section.
+             * BG-MAP - anchored to bottom-right corner of the entire section.
              * Bleeds off the right edge intentionally (overflow:hidden on section clips it).
              * Diagonal mask: fully transparent top-left → solid bottom-right,
              * so it only appears in the lower-right quadrant as in the reference.
@@ -89,7 +89,7 @@ export default function ServicesSection() {
                         </div>
                     </div>
 
-                    {/* RIGHT COLUMN: Services list — no relative/absolute bg here */}
+                    {/* RIGHT COLUMN: Services list - no relative/absolute bg here */}
                     <div className="flex flex-col pt-10 md:pt-20">
 
                         {services.map((item, i) => (

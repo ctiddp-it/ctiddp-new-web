@@ -47,26 +47,26 @@ export const metadata = {
 
 const PHASE1 = [
   { n: '01', title: 'Vendor Coordination & Pricing', desc: 'We engage existing suppliers or source new ones. Negotiate on your behalf in Mandarin, verify factory credentials.', tag: '1–3 Days' },
-  { n: '02', title: 'Pre-Shipment Quality Check', desc: 'Foshan warehouse team conducts physical inspection. Quality issues resolved before any goods leave China.', tag: 'Foshan Warehouse' },
-  { n: '03', title: 'Multi-Vendor Consolidation', desc: 'Goods from multiple suppliers consolidated at Guangzhou. HS code verification, docs finalized.', tag: 'Guangzhou' },
-  { n: '04', title: 'China Export Customs · 48 hours', desc: 'Export declaration submitted, LEO obtained, EGM verified — all within 48 hours guaranteed.', tag: '48 Hours' },
+  { n: '02', title: 'Pre-Shipment Quality Check', desc: 'Guangzhou warehouse team conducts physical inspection. Quality issues resolved before any goods leave China.', tag: 'Guangzhou  Warehouse' },
+  { n: '03', title: 'Multi-Vendor Consolidation & Client Coordination', desc: 'Goods from multiple suppliers consolidated at Foshan. HS code verification, docs finalized.', tag: 'Foshan' },
+  { n: '04', title: 'China Export Customs ', desc: 'Export declaration submitted, LEO obtained, EGM verified.', tag: 'Export Clearance' },
 ]
 
 const PHASE2 = [
-  { n: '05', title: 'International DDP Transit', desc: 'Sea freight (28–35 days) or air freight (4–7 days). Full DDP — freight, insurance, risk all on us.', tag: 'Sea / Air' },
-  { n: '06', title: 'India Import Customs · 9–11 days', desc: 'BE filing, BCD+IGST+SWS payment, FTA rates applied, OOC obtained at JNPT/Chennai/Vizag/Mundra.', tag: '9–11 Working Days' },
+  { n: '05', title: 'International DDP Transit', desc: 'Sea freight (28–35 days) or air freight (7–14 days). Full DDP - freight, insurance, risk all on us.', tag: 'Sea / Air' },
+  { n: '06', title: 'India Import Customs · 9–15 days', desc: 'BE filing, BCD+IGST+SWS payment, FTA rates applied, OOC obtained at Chennai/Vizag.', tag: '9–15 Working Days' },
   { n: '07', title: 'Warehouse Inbound & Inspection', desc: 'Physical count, condition inspection, inventory updated. Dispatch from our Chennai warehouse.', tag: 'Chennai' },
-  { n: '08', title: 'Last-Mile PAN-India + POD', desc: 'Dispatched to your customer or warehouse. Proof of Delivery collected and shared on completion.', tag: 'POD Included' },
+  { n: '08', title: 'Last-Mile Delivery + POD', desc: 'Dispatched to your customer or warehouse. Proof of Delivery collected and shared on completion.', tag: 'POD Included' },
 ]
 
 const PROCESS_MAP = [
   { icon: <FiPackage />, label: 'Supplier', sub: 'China' },
-  { icon: <FiSearch />, label: 'QC Warehouse', sub: 'Foshan' },
-  { icon: <FiLayers />, label: 'Consolidation', sub: 'Guangzhou' },
-  { icon: <FiFileText />, label: 'Export Customs', sub: '48 hrs' },
+  { icon: <FiSearch />, label: 'QC Warehouse', sub: 'Guangzhou' },
+  { icon: <FiLayers />, label: 'Consolidation', sub: 'Foshan' },
+  { icon: <FiFileText />, label: 'Export Customs', sub: 'Clearance' },
   { icon: <FaShip />, label: 'Sea / Air Transit', sub: '18–35 days' },
-  { icon: <FiFileText />, label: 'India Customs', sub: '9–11 days' },
-  { icon: <FiTruck />, label: 'Last Mile', sub: 'PAN-India' },
+  { icon: <FiFileText />, label: 'India Customs', sub: '9–15 days' },
+  { icon: <FiTruck />, label: 'Last Mile', sub: 'Delivery' },
 ]
 
 function StepItem({ s }) {
@@ -87,6 +87,9 @@ function StepItem({ s }) {
 }
 
 export default function HowItWorksPage() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <>
       <ScrollRevealInit />
@@ -134,7 +137,7 @@ export default function HowItWorksPage() {
                       '@type': 'HowToStep',
                       position: 5,
                       name: 'Transit',
-                      text: 'Full DDP transit — freight, insurance covered.',
+                      text: 'Full DDP transit - freight, insurance covered.',
                     },
                     {
                       '@type': 'HowToStep',
@@ -262,7 +265,7 @@ export default function HowItWorksPage() {
             {/* Phase 1 - China */}
             <div>
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                Phase 1 — China
+                Phase 1 - China
               </span>
               <h2 className="font-heading text-[32px] sm:text-[38px] font-light text-white leading-[1.2] mb-6">
                 From Factory<br />
@@ -276,7 +279,7 @@ export default function HowItWorksPage() {
             {/* Phase 2 - India */}
             <div>
               <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                Phase 2 — India
+                Phase 2 - India
               </span>
               <h2 className="font-heading text-[32px] sm:text-[38px] font-light text-white leading-[1.2] mb-6">
                 From Port<br />
@@ -311,10 +314,10 @@ export default function HowItWorksPage() {
                 </div>
                 <div className="space-y-0">
                   {[
-                    ['Supplier → Port', '2–4 days'],
+                    ['Supplier → China Port', '2–4 days'],
                     ['China Export Customs', '1–2 days'],
                     ['Ocean Transit', '18–28 days'],
-                    ['India Import Clearance', '9–11 days'],
+                    ['India Import Clearance', '9–15 days'],
                     ['Last Mile', '1–3 days'],
                   ].map(([label, val]) => (
                     <div key={label} className="flex justify-between items-center py-2.5 border-b border-[var(--overlay-card-border)] last:border-0">
@@ -342,11 +345,11 @@ export default function HowItWorksPage() {
                 </div>
                 <div className="space-y-0">
                   {[
-                    ['Supplier → Airport', '1–2 days'],
+                    ['Supplier → Airport', '1–3 days'],
                     ['China Export Customs', 'Same day'],
-                    ['Air Transit', '2–4 days'],
-                    ['India Import Clearance', '1–2 days'],
-                    ['Last Mile', '1 day'],
+                    ['Air Transit', '2–6 days'],
+                    ['India Import Clearance', '1–3 days'],
+                    ['Last Mile', '4–7 days'],
                   ].map(([label, val]) => (
                     <div key={label} className="flex justify-between items-center py-2.5 border-b border-[var(--overlay-card-border)] last:border-0">
                       <span className="text-xs text-muted">{label}</span>
@@ -358,7 +361,7 @@ export default function HowItWorksPage() {
                   <div className="flex items-baseline justify-between">
                     <span className="text-xs text-muted">Total Door-to-Door</span>
                     <div className="text-right">
-                      <span className="font-heading text-[32px] font-semibold text-blue-light">5–9</span>
+                      <span className="font-heading text-[32px] font-semibold text-blue-light">7–14</span>
                       <span className="text-xs text-muted ml-1">days</span>
                     </div>
                   </div>
@@ -385,7 +388,7 @@ export default function HowItWorksPage() {
               Get DDP Quote →
             </Link>
             <a
-              href="https://wa.me/918790013772"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

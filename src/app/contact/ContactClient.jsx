@@ -129,8 +129,8 @@ const FAQ_CATEGORIES = [
     title: 'DDP Basics',
     icon: <FaBoxOpen />,
     items: [
-      { q: 'What does DDP mean?', a: 'DDP stands for Delivered Duty Paid. Under DDP terms, the seller (us) bears full responsibility and cost for delivering goods to your address in India — including all freight, insurance, export customs, import customs, and all duties (BCD, IGST, SWS). You receive the goods free of any port charges.' },
-      { q: 'Why use DDP instead of FOB or CIF?', a: 'FOB and CIF leave customs, duties, and last-mile delivery to you. DDP means zero customs complexity — we handle everything. For India importers, this means no dealing with Indian customs, no surprise duty bills at port, and no logistics coordination at the Indian end.' },
+      { q: 'What does DDP mean?', a: 'DDP stands for Delivered Duty Paid. Under DDP terms, the seller (us) bears full responsibility and cost for delivering goods to your address in India - including all freight, insurance, export customs, import customs, and all duties (BCD, IGST, SWS). You receive the goods free of any port charges.' },
+      { q: 'Why use DDP instead of FOB or CIF?', a: 'FOB and CIF leave customs, duties, and last-mile delivery to you. DDP means zero customs complexity - we handle everything. For India importers, this means no dealing with Indian customs, no surprise duty bills at port, and no logistics coordination at the Indian end.' },
       { q: 'Do I need an IEC (Import Export Code) to use your DDP service?', a: 'No. Under DDP, we act as the importer of record. However, if you plan to claim IGST as Input Tax Credit (ITC), you will need your own IEC and GSTIN. We can advise on the best structure for your situation.' },
     ],
   },
@@ -140,9 +140,9 @@ const FAQ_CATEGORIES = [
     icon: <FaScaleBalanced />,
     items: [
       { q: 'How do you calculate duties before quoting?', a: 'Our Operations Manager manually verifies the HS code, applies the current BCD rate, calculates SWS (10% of BCD), and computes IGST on the assessable value (CIF + BCD + SWS). This signed duty calculation is included in every DDP quote before goods move.' },
-      { q: 'What if actual duties at the port differ from your quote?', a: 'We bear that risk — not you. Our DDP contract fixes the total price. If customs assesses a higher duty due to valuation or classification, we absorb the difference. This is the core benefit of DDP.' },
+      { q: 'What if actual duties at the port differ from your quote?', a: 'We bear that risk - not you. Our DDP contract fixes the total price. If customs assesses a higher duty due to valuation or classification, we absorb the difference. This is the core benefit of DDP.' },
       { q: 'Can you apply Free Trade Agreement (FTA) rates for India-China trade?', a: 'India-China FTA rates are limited. However, ASEAN-India FTA rates can apply to eligible goods transiting through ASEAN countries. We evaluate FTA applicability for every shipment and apply preferential rates wherever legally possible.' },
-      { q: 'Do you handle BIS, FSSAI, or other import licences?', a: 'Yes. We support BIS (Bureau of Indian Standards) licence requirements for electronics, FSSAI for food products, and other product-specific certifications. We flag licence requirements upfront in the quotation stage — no surprises at the port.' },
+      { q: 'Do you handle BIS, FSSAI, or other import licences?', a: 'Yes. We support BIS (Bureau of Indian Standards) licence requirements for electronics, FSSAI for food products, and other product-specific certifications. We flag licence requirements upfront in the quotation stage - no surprises at the port.' },
     ],
   },
   {
@@ -151,7 +151,7 @@ const FAQ_CATEGORIES = [
     icon: <FaStore />,
     items: [
       { q: 'How does Canton Fair support work?', a: 'Our Guangzhou team attends the fair with you (or on your behalf), handles Mandarin negotiation, inspects samples, consolidates purchases from multiple booths, and ships everything DDP to your India address.' },
-      { q: 'Can you source products from China year-round?', a: 'Yes. Our on-ground teams in Guangzhou and Foshan identify verified suppliers, negotiate prices in Mandarin, and arrange samples for any product category — not just during the fair.' },
+      { q: 'Can you source products from China year-round?', a: 'Yes. Our on-ground teams in Guangzhou and Foshan identify verified suppliers, negotiate prices in Mandarin, and arrange samples for any product category - not just during the fair.' },
     ],
   },
   {
@@ -160,8 +160,8 @@ const FAQ_CATEGORIES = [
     icon: <FaClock />,
     items: [
       { q: 'How long does sea freight DDP take?', a: 'Typically 38–50 days door-to-door: 2–4 days consolidation, 18–28 days ocean transit, 9–11 days India customs, 1–3 days last mile.' },
-      { q: 'Can I track my shipment?', a: 'Yes. We provide WhatsApp and email updates at every milestone — cargo ready, vessel departure, arrival at Indian port, customs clearance, and delivery confirmation with POD.' },
-      { q: 'Do you deliver to cities other than Chennai?', a: 'Yes — PAN-India. JNPT, Mundra, Chennai, Vizag, Delhi ICD. Last-mile to any Indian city or warehouse included in your DDP price.' },
+      { q: 'Can I track my shipment?', a: 'Yes. We provide WhatsApp and email updates at every milestone - cargo ready, vessel departure, arrival at Indian port, customs clearance, and delivery confirmation with POD.' },
+      { q: 'Do you deliver to cities other than Chennai?', a: 'Yes - PAN-India. JNPT, Mundra, Chennai, Vizag, Delhi ICD. Last-mile to any Indian city or warehouse included in your DDP price.' },
     ],
   },
   {
@@ -361,6 +361,10 @@ export default function ContactClient() {
   const minDate = getMinDate()
   const maxDate = getMaxDate()
 
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
+
   return (
     <>
       <ScrollRevealInit />
@@ -445,7 +449,7 @@ export default function ContactClient() {
               </em>
             </h1>
             <p className="text-[15px] text-muted max-w-[500px] mx-auto px-2">
-              Real people, Fast responses. China or India team — reach us directly.
+              Real people, Fast responses. China or India team - reach us directly.
             </p>
           </div>
         </section>
@@ -660,7 +664,7 @@ export default function ContactClient() {
                     </div>
                   </div>
                   <p className="text-xs text-muted leading-relaxed mb-3">
-                    For urgent issues — cargo held, damage discovered, critical delays. 24/7 for active shipments.
+                    For urgent issues - cargo held, damage discovered, critical delays. 24/7 for active shipments.
                   </p>
                   <div className="text-xs text-muted"><div className="flex items-center gap-2">
                     <FaPhoneAlt />
@@ -704,7 +708,7 @@ export default function ContactClient() {
               <div>
                 <div className="font-heading text-2xl font-semibold text-green-400 mb-2 flex items-center gap-2">
                   <FaWhatsapp size={28} className="shrink-0" />
-                  <span>WhatsApp — Fastest Response</span>
+                  <span>WhatsApp - Fastest Response</span>
                 </div>
                 <p className="text-[13px] text-muted leading-relaxed">
                   Our preferred channel. Send cargo details and get a response within 2 hours. English, Hindi, and Chinese supported.
@@ -714,11 +718,10 @@ export default function ContactClient() {
 
                 {[
                   { label: 'India Team', phone: '+91 87900 13772', hours: 'Mon–Sat · 9am–7pm IST' },
-                  { label: 'China Team', phone: '+86 188 1874 9844', hours: 'Mon–Sat · 9am–6pm CST' },
                 ].map(t => (
                   <a
                     key={t.label}
-                    href={`https://wa.me/${t.phone.replace(/\s/g, '')}`}
+                    href={`https://wa.me/${t.phone.replace(/\s/g, '')}?text=${encodeURIComponent(whatsappMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-[rgba(74,222,128,0.05)] border border-[rgba(74,222,128,0.15)] p-5 rounded-[3px] no-underline hover:bg-[rgba(74,222,128,0.1)] transition-colors cursor-none"
@@ -797,7 +800,7 @@ export default function ContactClient() {
                 Our team responds in under 2 hours on WhatsApp. We're here to help!
               </p>
               <a
-                href="https://wa.me/918790013772"
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
@@ -825,7 +828,7 @@ export default function ContactClient() {
               Get DDP Quote →
             </Link>
             <a
-              href="https://wa.me/918790013772"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

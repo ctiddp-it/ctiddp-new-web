@@ -173,7 +173,7 @@ export default function CantonFairSupportClient() {
                         End-to-End Sourcing Support
                     </motion.h2>
                     <motion.p {...fadeUp} className="text-white/60 mt-3 max-w-2xl mx-auto">
-                        From fair to shipment planning — everything under one roof
+                        From fair to shipment planning - everything under one roof
                     </motion.p>
                 </div>
 
@@ -318,7 +318,7 @@ export default function CantonFairSupportClient() {
             {/* FINAL CTA */}
             <CTA
                 title="Make Your Canton Fair Visit Result-Driven"
-                text="Turn your sourcing into a complete logistics solution. From exhibition hall to your warehouse — one partner, complete control."
+                text="Turn your sourcing into a complete logistics solution. From exhibition hall to your warehouse - one partner, complete control."
                 buttonLabel="Get DDP Quote"
             />
         </main>

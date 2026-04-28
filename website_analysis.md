@@ -131,12 +131,12 @@ src/app/
 ├── robots.js                            # Auto-generated /robots.txt for SEO
 ├── sitemap.js                           # Auto-generated /sitemap.xml for SEO
 │
-├── about/page.jsx                       # /about — Team, offices, CSR initiatives
-├── blog/page.jsx                        # /blog — Blog index & article listings
-├── services/page.jsx                    # /services — 6 DDP service offerings
-├── pricing/page.jsx                     # /pricing — 3 subscription plan options
-├── canton-fair/page.jsx                 # /canton-fair — Event specialization info
-├── how-it-works/page.jsx                # /how-it-works — 8-step DDP process guide
+├── about/page.jsx                       # /about - Team, offices, CSR initiatives
+├── blog/page.jsx                        # /blog - Blog index & article listings
+├── services/page.jsx                    # /services - 6 DDP service offerings
+├── pricing/page.jsx                     # /pricing - 3 subscription plan options
+├── canton-fair/page.jsx                 # /canton-fair - Event specialization info
+├── how-it-works/page.jsx                # /how-it-works - 8-step DDP process guide
 │
 ├── contact/                             # /contact
 │   ├── page.jsx                         # Server component (metadata wrapper)
@@ -156,7 +156,7 @@ src/app/
 │                                        # ├─ FAQ collapsible section
 │                                        # └─ FAQ schema JSON-LD
 │
-├── track/                               # /track — Shipment tracking
+├── track/                               # /track - Shipment tracking
 │   ├── page.jsx                         # Server component (metadata wrapper)
 │   └── TrackClient.jsx                  # Interactive shipment tracker
 │                                        # ├─ Dropdown to select from mock shipments

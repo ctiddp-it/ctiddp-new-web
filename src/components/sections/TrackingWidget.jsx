@@ -45,7 +45,7 @@ export default function TrackingWidget() {
           <div className="flex gap-3">
             <input
               className="flex-1 bg-[var(--overlay-input)] border border-[var(--overlay-input-border)] rounded-sm py-3 px-4 text-white text-sm outline-none  placeholder:text-muted focus:border-gold transition-colors duration-200"
-              placeholder="Enter tracking number — e.g. CTI-2025-04817"
+              placeholder="Enter tracking number - e.g. CTI-2025-04817"
               value={trackID} onChange={e => setTrackID(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleTrack()}
             />

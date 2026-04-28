@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
   @import "tailwindcss";
   /* ═══════════════════════════════════════════════
-    DESIGN TOKENS — @theme compiles into TW utilities
+    DESIGN TOKENS - @theme compiles into TW utilities
     e.g. bg-black, text-primary, border-border, etc.
   ═══════════════════════════════════════════════ */
   @theme {
@@ -18,12 +18,12 @@
     --color-border: rgba(30, 58, 95, 0.15);
     --spacing-nav: 68px;
 
-    /* Legacy aliases — keep TW utility names working */
+    /* Legacy aliases - keep TW utility names working */
     --color-gold: #1E3A5F;
     --color-blue-light: #0EA5E9;
     --color-blue-pale: #BAE6FD;
 
-    /* Fonts — single source of truth for the entire site */
+    /* Fonts - single source of truth for the entire site */
     --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
     --font-heading: 'Cormorant Garamond', Georgia, serif;
      --font-outfit: 'Outfit', system-ui, -apple-system, sans-serif;
@@ -31,7 +31,7 @@
   }
 
   /* ═══════════════════════════════════════════════
-    THEME OVERRIDES — flip token values per light/dark
+    THEME OVERRIDES - flip token values per light/dark
     so ALL existing Tailwind utilities adapt automatically
   ═══════════════════════════════════════════════ */
   @layer base {
@@ -109,7 +109,7 @@
   }
 
   /* ═══════════════════════════════════════════════
-    CURSOR — JS-driven positioning, must stay as CSS
+    CURSOR - JS-driven positioning, must stay as CSS
   ═══════════════════════════════════════════════ */
   #cursor-dot {
     position: fixed;
@@ -150,7 +150,7 @@
   }
 
   /* ═══════════════════════════════════════════════
-    SCROLL REVEAL — toggled by IntersectionObserver
+    SCROLL REVEAL - toggled by IntersectionObserver
   ═══════════════════════════════════════════════ */
   .reveal {
     opacity: 0;
@@ -165,7 +165,7 @@
 
 
   /* ═══════════════════════════════════════════════
-    ROUTE PATH — SVG stroke animation
+    ROUTE PATH - SVG stroke animation
   ═══════════════════════════════════════════════ */
   .route-path {
     stroke: var(--color-primary-light);

@@ -6,6 +6,7 @@ import {
   FiRepeat,
   FiShield
 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa6";
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import InfiniteCarousel from "@/components/sections/InfiniteCarousel";
 import Link from 'next/link'
@@ -179,6 +180,9 @@ const SOPS = [
 ]
 
 export default function AboutPage() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <>
       <ScrollRevealInit />
@@ -361,7 +365,7 @@ export default function AboutPage() {
                 OUR FOUNDERS
               </span>
               <h2 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
-                 Leadership & <br />
+                Leadership & <br />
                 <em className="italic text-blue-light">
                   Core Team
                 </em>
@@ -471,7 +475,7 @@ export default function AboutPage() {
                 Our Process
               </span>
               <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                Structured, Predictable & 
+                Structured, Predictable &
                 <em className="italic text-blue-light"> Scalable Every Time.</em>
               </h2>
             </div>
@@ -562,6 +566,14 @@ export default function AboutPage() {
             >
               Get DDP Quote →
             </Link>
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
+            >
+              <FaWhatsapp size={22} />Connect with Us
+            </a>
           </div>
         </div>
 

@@ -162,9 +162,9 @@ export default function GetQuoteClient() {
               <div className="flex flex-col gap-3.5">
                 {[
                   { icon: <FaTruck />, title: 'Origin Freight', desc: 'From supplier to China port or airport, including domestic trucking.' },
-                  { icon: <FaShip />, title: 'Sea / Air Freight', desc: 'LCL or FCL ocean freight, or air freight — whichever mode you need.' },
+                  { icon: <FaShip />, title: 'Sea / Air Freight', desc: 'LCL or FCL ocean freight, or air freight - whichever mode you need.' },
                   { icon: <FaFileInvoice />, title: 'Customs Clearance (Both Ends)', desc: 'China export + India import documentation, filing, and handling.' },
-                  { icon: <FaIndianRupeeSign />, title: 'All India Duties Pre-Paid', desc: 'BCD + SWS + IGST — calculated, signed off, and included in the quote.' },
+                  { icon: <FaIndianRupeeSign />, title: 'All India Duties Pre-Paid', desc: 'BCD + SWS + IGST - calculated, signed off, and included in the quote.' },
                   { icon: <FaTruck />, title: 'Last-Mile Delivery', desc: 'From Indian port or warehouse to your delivery address anywhere in India.' },
                   { icon: <FaShieldHalved />, title: 'Cargo Insurance', desc: 'All-risk marine cargo insurance included end-to-end.' },
                 ].map(item => (

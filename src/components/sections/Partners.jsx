@@ -189,7 +189,7 @@ export default function PartnersSection() {
                     />
                   </div>
 
-                  {/* Name label — center slot only */}
+                  {/* Name label - center slot only */}
                   {isCenter && (
                     <span
                       className="block whitespace-nowrap font-medium"

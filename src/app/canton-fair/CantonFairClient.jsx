@@ -19,6 +19,10 @@ export default function CantonFairClient() {
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
+
   const handleChange = (event) => {
     const { name, value } = event.target
     setFormData((prev) => ({ ...prev, [name]: value }))
@@ -159,8 +163,8 @@ export default function CantonFairClient() {
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] transition-colors duration-150 [color-scheme:dark]"
                   >
                     <option value="" className="bg-[#0a0a0a]">Select an option</option>
-                    <option value="attend-with-team" className="bg-[#0a0a0a]">Yes — I'll attend with your team</option>
-                    <option value="team-solo" className="bg-[#0a0a0a]">No — Your team represents me solo</option>
+                    <option value="attend-with-team" className="bg-[#0a0a0a]">Yes - I'll attend with your team</option>
+                    <option value="team-solo" className="bg-[#0a0a0a]">No - Your team represents me solo</option>
                   </select>
                 </div>
 
@@ -196,7 +200,7 @@ export default function CantonFairClient() {
                     {submitting ? 'Submitting…' : 'Reserve My Support Slot →'}
                   </button>
                   <a
-                    href="https://wa.me/918790013772"
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 py-3 rounded-[3px] text-[13px] font-medium no-underline transition-all duration-200"

@@ -8,7 +8,7 @@ const DEFAULT_TESTIMONIALS = [
   {
     name: "Rajesh Kumar",
     stars: 5,
-    text: "CTIDDP made our China sourcing seamless. Their DDP model meant zero customs headaches — everything arrived at our warehouse ready to sell. Truly professional team.",
+    text: "CTIDDP made our China sourcing seamless. Their DDP model meant zero customs headaches - everything arrived at our warehouse ready to sell. Truly professional team.",
     time: "2 weeks ago",
   },
   {
@@ -235,7 +235,7 @@ const ReviewsCarousel = ({
           onTouchEnd={onTouchEnd}
         >
 
-          {/* Cards — responsive slots */}
+          {/* Cards - responsive slots */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-6">
             {/* Mobile: 1 card */}
             {[current].map((idx) => (

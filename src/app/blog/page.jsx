@@ -3,7 +3,7 @@ import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Insights & Blog — China India DDP Import Guides',
+  title: 'Insights & Blog - China India DDP Import Guides',
   description:
     'Import guides, duty update alerts, Canton Fair tips, and DDP shipping intelligence for Indian importers buying from China.',
   keywords: [
@@ -24,7 +24,7 @@ export const metadata = {
     'global trade insights blog',
   ],
   openGraph: {
-    title: 'DDP Shipping Insights & Guides — CTIDDP',
+    title: 'DDP Shipping Insights & Guides - CTIDDP',
     description:
       'Import guides, duty updates, and Canton Fair tips for Indian importers buying from China.',
     url: 'https://www.ctiddp.com/blog/',
@@ -35,15 +35,18 @@ export const metadata = {
 };
 
 const POSTS = [
-  { emoji: '📦', category: 'DDP Guide', date: '12 Mar 2025', title: 'The Complete Guide to DDP Shipping from China to India in 2025', excerpt: "Everything Indian importers need to know about DDP Incoterms — what's included, what it costs, and why it's the safest way to import from China.", slug: 'guide-ddp-shipping-china-india-2025' },
-  { emoji: '💰', category: 'Duty Rates', date: '05 Mar 2025', title: 'India Import Duty Rates for Electronics from China: BCD, IGST & SWS Explained', excerpt: 'A plain-English breakdown of how Basic Customs Duty, IGST, and Social Welfare Surcharge apply to electronics imports — with worked examples.', slug: 'india-import-duty-electronics-china' },
+  { emoji: '📦', category: 'DDP Guide', date: '12 Mar 2025', title: 'The Complete Guide to DDP Shipping from China to India in 2025', excerpt: "Everything Indian importers need to know about DDP Incoterms - what's included, what it costs, and why it's the safest way to import from China.", slug: 'guide-ddp-shipping-china-india-2025' },
+  { emoji: '💰', category: 'Duty Rates', date: '05 Mar 2025', title: 'India Import Duty Rates for Electronics from China: BCD, IGST & SWS Explained', excerpt: 'A plain-English breakdown of how Basic Customs Duty, IGST, and Social Welfare Surcharge apply to electronics imports - with worked examples.', slug: 'india-import-duty-electronics-china' },
   { emoji: '🎪', category: 'Canton Fair', date: '28 Feb 2025', title: 'Canton Fair Spring 2025: Your Complete DDP Shipping Guide', excerpt: 'How to consolidate Canton Fair purchases, ship them DDP to India, and avoid the common mistakes that cost importers weeks of delays.', slug: 'canton-fair-spring-2025-ddp-guide' },
   { emoji: '🚢', category: 'Logistics', date: '20 Feb 2025', title: 'Sea vs Air Freight from China to India: A DDP Cost Comparison', excerpt: 'When does air freight make sense over sea? We break down the real costs, timelines, and duty implications for both modes under a DDP contract.', slug: 'sea-vs-air-freight-china-india-ddp' },
   { emoji: '🔍', category: 'Compliance', date: '14 Feb 2025', title: 'BIS Certification for Electronics Imports: What Every India Importer Must Know', excerpt: "India's BIS compulsory registration scheme (CRS) applies to dozens of electronics categories. Here's what you need before goods leave China.", slug: 'bis-certification-electronics-imports-india' },
-  { emoji: '📋', category: 'Process', date: '07 Feb 2025', title: 'How India Customs Clearance Works: A Step-by-Step Guide for Importers', excerpt: "From Bill of Entry filing to Out of Charge — we document every step of India's import customs process, including typical timelines at JNPT, Chennai, and Vizag.", slug: 'india-customs-clearance-step-by-step-guide' },
+  { emoji: '📋', category: 'Process', date: '07 Feb 2025', title: 'How India Customs Clearance Works: A Step-by-Step Guide for Importers', excerpt: "From Bill of Entry filing to Out of Charge - we document every step of India's import customs process, including typical timelines at JNPT, Chennai, and Vizag.", slug: 'india-customs-clearance-step-by-step-guide' },
 ]
 
 export default function InsightsPage() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <>
       <ScrollRevealInit />
@@ -70,7 +73,7 @@ export default function InsightsPage() {
                   '@type': 'WebPage',
                   '@id': 'https://www.ctiddp.com/blog/#webpage',
                   url: 'https://www.ctiddp.com/blog/',
-                  name: 'Insights & Blog — China India DDP Import Guides',
+                  name: 'Insights & Blog - China India DDP Import Guides',
                   description:
                     'Import guides, duty update alerts, Canton Fair tips, and DDP shipping intelligence for Indian importers buying from China.',
                   isPartOf: {
@@ -239,7 +242,7 @@ export default function InsightsPage() {
               Get DDP Quote →
             </Link>
             <a
-              href="https://wa.me/918790013772"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

@@ -3,7 +3,7 @@
 import { useRef, useEffect, useCallback, useState } from "react";
 
 /**
- * InfiniteCarousel — Curved row carousel matching the Dribbble effect.
+ * InfiniteCarousel - Curved row carousel matching the Dribbble effect.
  * 
  * Fully responsive - automatically adjusts card sizes, curve amount,
  * and spacing based on viewport size while maintaining the visual effect.

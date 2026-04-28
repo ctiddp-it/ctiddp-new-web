@@ -90,7 +90,7 @@ export default function QcInspectionClient() {
                     <div className="text-center mb-16">
                         <motion.span {...fadeUp} className="text-blue-400 text-sm font-semibold uppercase tracking-wider">Comprehensive Checks</motion.span>
                         <motion.h2 {...fadeUp} className="text-4xl md:text-5xl font-bold mt-3 mb-5">
-                            CTIDDP QC Coverage — What We Inspect
+                            CTIDDP QC Coverage - What We Inspect
                         </motion.h2>
                         <motion.p {...fadeUp} className="text-white/60 max-w-2xl mx-auto">
                             Every aspect of your shipment is verified against your specifications
@@ -255,7 +255,7 @@ export default function QcInspectionClient() {
                         <motion.h2 {...fadeUp} className="text-3xl md:text-4xl font-bold mt-3 mb-8">Integration with DDP Shipping</motion.h2>
                         <div className="bg-white/5 rounded-2xl p-8 border border-white/10">
                             <div className="text-center mb-6">
-                                <p className="text-white/80 text-lg">Quality to Delivery — One Flow</p>
+                                <p className="text-white/80 text-lg">Quality to Delivery - One Flow</p>
                                 <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
                                     {["QC", "Approval", "Pickup", "Freight", "Customs", "Delivery"].map((stage, i) => (
                                         <div key={i} className="flex items-center">

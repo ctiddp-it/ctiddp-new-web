@@ -62,13 +62,13 @@ const FEATURES = [
   { icon: <FaComments />, title: 'Mandarin Negotiation', desc: 'Direct negotiation in Mandarin for better prices and terms' },
   { icon: <FaSearch />, title: 'On-the-Spot QC', desc: 'Quality verification of samples before you commit to any supplier' },
   { icon: <FaBoxes />, title: 'Multi-Booth Consolidation', desc: 'Collect from multiple exhibitors, consolidate at Guangzhou warehouse' },
-  { icon: <FaShip />, title: 'Direct DDP to India', desc: 'All goods shipped DDP to your India address — one price, no surprises' },
+  { icon: <FaShip />, title: 'Direct DDP to India', desc: 'All goods shipped DDP to your India address - one price, no surprises' },
 ]
 
 const STEPS = [
-  { n: '01', t: 'Contact us 4+ weeks before the fair', d: 'Via WhatsApp or the form below — share your product categories.' },
+  { n: '01', t: 'Contact us 4+ weeks before the fair', d: 'Via WhatsApp or the form below - share your product categories.' },
   { n: '02', t: 'We assign your Guangzhou support team', d: 'Dedicated Mandarin-speaking team member confirmed for your visit.' },
-  { n: '03', t: 'Attend the fair together (or we go solo)', d: 'Your choice — attend with us or let us represent you fully.' },
+  { n: '03', t: 'Attend the fair together (or we go solo)', d: 'Your choice - attend with us or let us represent you fully.' },
   { n: '04', t: 'Goods consolidated and shipped DDP', d: 'Everything collected, consolidated at Guangzhou, shipped DDP to India.' },
 ]
 
@@ -82,6 +82,9 @@ const SOURCING_ITEMS = [
 
 // ── Page ────────────────────────────────────────────────────────────────────
 export default function CantonFairPage() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <>
       <ScrollRevealInit />
@@ -177,12 +180,12 @@ export default function CantonFairPage() {
             </h1>
 
             <p className="text-[15px] text-muted max-w-[500px] mx-auto px-2">
-              We attend the fair with you, handle everything in Mandarin, inspect goods, and ship DDP to India — under one service.
+              We attend the fair with you, handle everything in Mandarin, inspect goods, and ship DDP to India - under one service.
             </p>
           </div>
         </section>
 
-        {/* ── Main content — two column ── */}
+        {/* ── Main content - two column ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[40px] sm:gap-[52px] items-start">
 
@@ -216,7 +219,7 @@ export default function CantonFairPage() {
                 ))}
               </div>
 
-              {/* CTAs — scroll to form */}
+              {/* CTAs - scroll to form */}
               <div className="flex gap-2.5 flex-wrap">
                 <a
                   href="#canton-fair-support-form"
@@ -225,7 +228,7 @@ export default function CantonFairPage() {
                   Book Canton Fair Support →
                 </a>
                 <a
-                  href="https://wa.me/918790013772"
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-[13px] rounded-[3px] text-[13px] font-medium no-underline transition-all duration-200 cursor-none"
@@ -235,7 +238,7 @@ export default function CantonFairPage() {
               </div>
             </div>
 
-            {/* ── Right column — schedule card ── */}
+            {/* ── Right column - schedule card ── */}
             <div className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-5 sm:p-7">
               <h4 className="font-heading text-[20px] font-semibold mb-5 text-blue-light">
                 2026 Canton Fair Schedule
@@ -443,7 +446,7 @@ export default function CantonFairPage() {
               </h2>
 
               <p className="text-[15px] font-light text-muted leading-[1.8] max-w-[520px] mb-6">
-                Can't make it to the fair? Our Guangzhou and Foshan teams source products, vet suppliers, and negotiate year-round — not just during Canton Fair season.
+                Can't make it to the fair? Our Guangzhou and Foshan teams source products, vet suppliers, and negotiate year-round - not just during Canton Fair season.
               </p>
 
               <div className="flex flex-col gap-3">
@@ -456,7 +459,7 @@ export default function CantonFairPage() {
               </div>
             </div>
 
-            {/* Right — How to book */}
+            {/* Right - How to book */}
             <div className="bg-surface border border-[rgba(37,99,235,0.15)] p-6 sm:p-8 rounded-[3px]">
               <h3 className="font-heading text-[22px] font-semibold mb-4 text-blue-light">
                 How to Book Canton Fair Support
@@ -480,13 +483,13 @@ export default function CantonFairPage() {
           </div>
         </section>
 
-        {/* ── FORM — Client Component ── */}
+        {/* ── FORM - Client Component ── */}
         <CantonFairClient />
 
         {/* ── CTA Banner ── */}
         <div className="bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-t border-b border-[rgba(37,99,235,0.15)] px-4 sm:px-[60px] py-[48px] sm:py-[72px] text-center">
           <h2 className="font-heading text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-[14px]">
-            Next Canton Fair:<br />
+            Next Canton Fair<br />
             <em className="italic text-blue-light">April 15, 2026.</em>
           </h2>
 
@@ -502,7 +505,7 @@ export default function CantonFairPage() {
               Book Canton Fair Support →
             </a>
             <a
-              href="https://wa.me/your-number"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-[13px] rounded-[3px] text-[13px] font-medium no-underline transition-all duration-200 cursor-none"

@@ -355,7 +355,7 @@ export default function GlobalPresence() {
               );
             })}
 
-            {/* City pins — zoomed region view */}
+            {/* City pins - zoomed region view */}
             {view !== "world" && cityPx[view]?.map((city, idx) => {
               const [px, py] = city.px;
               const isHov    = hovered === city.id;

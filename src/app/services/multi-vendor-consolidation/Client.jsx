@@ -295,7 +295,7 @@ export default function MultiVendorConsolidationClient() {
                                 Integrated with CTIDDP Ecosystem
                             </motion.h2>
                             <motion.p {...fadeUp} className="text-white/60 max-w-2xl mx-auto">
-                                One partner for complete flow — from supplier to delivery
+                                One partner for complete flow - from supplier to delivery
                             </motion.p>
                         </div>
 

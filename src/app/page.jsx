@@ -89,7 +89,7 @@ const DDP_COMPARE = [
     highlight: false,
   },
   {
-    badge: 'DDP — What We Do',
+    badge: 'DDP - What We Do',
     title: 'Delivered Duty Paid',
     desc: 'We handle everything: China export, sea freight, insurance, customs filing, BCD+IGST payment, and last-mile delivery. One invoice.',
     marker: '✓ We handle it all',
@@ -190,13 +190,13 @@ const WHY_US = [
   },
   {
     icon: <HiOutlineClipboardDocumentList />,
-    title: '17+ SOPs — Fully Documented',
+    title: '17+ SOPs - Fully Documented',
     desc: 'RACI matrices, control gates, KPI dashboards, escalation protocols. Your cargo never slips through the cracks.',
   },
   {
     icon: <HiOutlineLockClosed />,
     title: 'Zero Hidden Charges',
-    desc: 'Full duty calculation before goods move. Freight, BCD, IGST, SWS, last-mile — all in one quote. Always.',
+    desc: 'Full duty calculation before goods move. Freight, BCD, IGST, SWS, last-mile - all in one quote. Always.',
   },
 ];
 
@@ -221,6 +221,9 @@ const ASSURANCES = [
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <>
       <script
@@ -293,7 +296,7 @@ export default function HomePage() {
                 <em className="italic text-blue-light">For Your Shipment?</em>
               </h2>
               <p className="text-[15px] text-muted leading-relaxed max-w-[520px] mx-auto">
-                Most importers are surprised by what&apos;s NOT included in their current shipping terms.
+                Most importers are surprised by what&apos;s NOT included in their shipping terms.
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -464,7 +467,7 @@ export default function HomePage() {
               Request a Quote →
             </Link>
             <a
-              href="https://wa.me/918790013772"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"

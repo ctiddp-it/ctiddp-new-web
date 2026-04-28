@@ -10,7 +10,7 @@ import ScrollToTop from '@/components/ui/ScrollToTop'
 export const metadata = {
   metadataBase: new URL('https://www.ctiddp.com/'),
   title: {
-    default: 'CTIDDP — China to India DDP Shipping Specialists',
+    default: 'CTIDDP - China to India DDP Shipping Specialists',
     template: '%s | CTIDDP',
   },
   description:
@@ -44,7 +44,7 @@ export const metadata = {
     locale: 'en_IN',
     url: 'https://www.ctiddp.com/',
     siteName: 'CTIDDP',
-    title: 'CTIDDP — China to India DDP Shipping Specialists',
+    title: 'CTIDDP - China to India DDP Shipping Specialists',
     description:
       'End-to-end China to India DDP shipping. Sea & air freight, customs clearance, last-mile PAN-India. All duties pre-paid. Zero surprises.',
     images: [
@@ -52,13 +52,13 @@ export const metadata = {
         url: 'https://www.ctiddp.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'CTIDDP — China to India DDP Shipping',
+        alt: 'CTIDDP - China to India DDP Shipping',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CTIDDP — China to India DDP Shipping',
+    title: 'CTIDDP - China to India DDP Shipping',
     description: 'End-to-end DDP freight. All duties pre-paid. Zero surprises.',
     images: ['https://www.ctiddp.com/og-image.jpg'],
   },

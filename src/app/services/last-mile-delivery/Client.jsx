@@ -228,7 +228,7 @@ export default function LastMileDeliveryClient() {
                 <div className="text-center mb-12">
                     <motion.span {...fadeUp} className="text-blue-400 text-sm font-semibold uppercase tracking-wider">Step by Step</motion.span>
                     <motion.h2 {...fadeUp} className="text-3xl md:text-4xl font-bold mt-3 font-heading">
-                        Delivery Process — Final Stage Execution
+                        Delivery Process - Final Stage Execution
                     </motion.h2>
                 </div>
 

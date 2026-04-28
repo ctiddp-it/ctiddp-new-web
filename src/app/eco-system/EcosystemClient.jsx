@@ -112,7 +112,7 @@ export default function EcosystemClient() {
             </div>
             <h1 className="font-heading text-[clamp(36px,5vw,60px)] font-light leading-[1.1] mb-4">
               One Platform.<br />
-              <em className="italic bg-linear-to-br from-gold to-blue-pale bg-clip-text text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
+              <em className="italic bg-linear-to-br text-blue-light">
                 Endless Global Opportunities
               </em>
             </h1>

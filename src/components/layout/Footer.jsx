@@ -78,6 +78,9 @@ function IconBorderWrapper({ children }) {
 }
 
 export default function Footer() {
+  const whatsappNumber = "918790013772" // Removed space from phone number
+  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
+
   return (
     <footer className="bg-[var(--overlay-footer)] border-t border-[rgba(37,99,235,0.12)]">
 
@@ -89,7 +92,7 @@ export default function Footer() {
 
           {/* ── COL 1: Brand ── */}
           <div>
-            {/* Logo mark — ship icon placeholder with brand text */}
+            {/* Logo mark - ship icon placeholder with brand text */}
             <div className="mb-5">
               <div className="w-[72px] h-[72px] rounded-full bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.25)] flex items-center justify-center mb-4">
                 <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-label="CTIDDP Logo">
@@ -229,7 +232,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Business Hours — full width */}
+              {/* Business Hours - full width */}
               <div className="col-span-2 flex gap-3 items-start pt-1 group">
                 <IconBorderWrapper>
                   <HiOutlineClock size={16} />
@@ -248,7 +251,7 @@ export default function Footer() {
 
             {/* WhatsApp CTA - improved styling */}
             <a
-              href="https://wa.me/918790013772"
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center justify-center gap-2.5 bg-[rgba(37,211,102,0.08)] border border-[rgba(37,211,102,0.35)] text-[#4ade80] py-2.5 px-4 rounded-lg text-sm font-medium no-underline transition-all duration-200 hover:bg-[rgba(37,211,102,0.15)] hover:border-[rgba(37,211,102,0.6)] w-full"
@@ -383,7 +386,7 @@ export default function Footer() {
               </div>
 
               {/* WhatsApp CTA */}
-              <a href="https://wa.me/918790013772" target="_blank" rel="noopener noreferrer"
+              <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.08)] border border-[rgba(37,211,102,0.35)] text-[#4ade80] py-3 px-4 rounded-lg text-sm font-medium no-underline mt-2">
                 <FaWhatsapp size={20} />
                 <span>WhatsApp Us</span>

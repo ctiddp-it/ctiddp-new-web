@@ -232,7 +232,7 @@ export default function CustomsClearanceClient() {
                             Integrated with CTIDDP Ecosystem
                         </motion.h2>
                         <motion.p {...fadeUp} className="text-white/60 max-w-2xl mx-auto">
-                            One Partner, One Flow — Complete visibility across every stage
+                            One Partner, One Flow - Complete visibility across every stage
                         </motion.p>
                     </div>
 

@@ -84,7 +84,7 @@ export default function SupplierPaymentsClient() {
                             CTIDDP Supplier Payment Solution
                         </motion.h2>
                         <motion.p {...fadeUp} className="text-white/60 max-w-2xl mx-auto">
-                            What we handle — from verification to dispatch coordination
+                            What we handle - from verification to dispatch coordination
                         </motion.p>
                     </div>
 
@@ -259,7 +259,7 @@ export default function SupplierPaymentsClient() {
                         <motion.h2 {...fadeUp} className="text-3xl md:text-4xl font-bold mt-3 mb-8 font-heading">Integrated with DDP Shipping</motion.h2>
                         <div className="bg-gradient-to-br from-blue-500/10 to-transparent rounded-2xl p-8 border border-blue-500/20">
                             <div className="text-center mb-6">
-                                <p className="text-white/80 text-lg">One Flow — Payment to Delivery</p>
+                                <p className="text-white/80 text-lg">One Flow - Payment to Delivery</p>
                                 <div className="flex items-center justify-center gap-2 mt-4 flex-wrap">
                                     {["Payment", "Production", "Pickup", "Shipping", "Delivery"].map((stage, i) => (
                                         <div key={i} className="flex items-center">
@@ -341,7 +341,7 @@ export default function SupplierPaymentsClient() {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {[
-                        { icon: Users, title: "One Partner", desc: "One partner for payment + shipping — no middlemen" },
+                        { icon: Users, title: "One Partner", desc: "One partner for payment + shipping - no middlemen" },
                         { icon: Globe, title: "Cross-Border Expertise", desc: "Structured cross-border transaction process" },
                         { icon: BadgeCheck, title: "Supplier Coordination", desc: "Supplier coordination handled professionally" },
                         { icon: Clock, title: "Reduced Effort", desc: "Reduced operational effort for your team" },
