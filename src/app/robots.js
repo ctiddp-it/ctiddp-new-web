@@ -1,13 +1,10 @@
 export default function robots() {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/'],
-      },
-    ],
-    sitemap: 'https://www.ctiddp.com/sitemap.xml',
-    host: 'https://www.ctiddp.com',
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: "/api/",
+    },
+    sitemap: "https://www.ctiddp.com/sitemap.xml",
   }
 }

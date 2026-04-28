@@ -3,16 +3,17 @@ import {
   HiOutlineGlobeAlt,
   HiOutlineMagnifyingGlass,
   HiOutlineCreditCard,
-  HiOutlineBuildingStorefront,
   HiOutlineShieldCheck,
-  HiOutlineChartBar,
   HiOutlineCalendarDays,
   HiOutlineCursorArrowRays,
   HiOutlineClipboardDocumentList,
   HiOutlineLockClosed,
   HiOutlineBolt,
   HiOutlineBellAlert,
+  HiOutlineCube,
+  HiOutlineBuildingStorefront,
 } from "react-icons/hi2";
+import { CiDeliveryTruck } from "react-icons/ci";
 import { HeroSection } from '@/components/sections/HeroSection'
 import GlobalPresence from '@/components/sections/GlobalPresence'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
@@ -139,21 +140,21 @@ const SERVICES = [
     highlight: false,
   },
   {
-    icon: <HiOutlineChartBar />,
+    icon: <CiDeliveryTruck />,
     title: 'Last-Mile Delivery',
     desc: ' From ports to final destination, we ensure secure last-mile delivery with POD confirmation, warehousing options, and express delivery timelines.',
     href: '/services/last-mile-delivery',
     highlight: false,
   },
   {
-    icon: <HiOutlineChartBar />,
+    icon: <HiOutlineCube />,
     title: 'Multi-Vendor Consolidation',
     desc: '  We collect goods from different factories and consolidate them into a single shipment. This reduces freight costs, simplifies documentation, and speeds up delivery.',
     href: '/services/multi-vendor-consolidation',
     highlight: true,
   },
   {
-    icon: <HiOutlineChartBar />,
+    icon: <HiOutlineCalendarDays />,
     title: 'Canton Fair Support',
     desc: ' Our on-ground team assists with supplier negotiation, product verification, translation, and order management during Canton Fair events.',
     href: '/services/canton-fair-support',
@@ -373,6 +374,19 @@ export default function HomePage() {
                       {s.title}
                     </div>
                     <div className="text-[13px] text-muted leading-relaxed">{s.desc}</div>
+                    <div className="mt-6 flex items-center justify-end">                   
+
+                      <div className="flex items-end gap-2 text-[13px] font-medium text-blue-light group-hover:text-gold transition-all duration-300">
+                        <span className="relative">
+                          Explore Service
+                          <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
+                        </span>
+
+                        <span className="transform transition-transform duration-300 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </Link>
               ))}

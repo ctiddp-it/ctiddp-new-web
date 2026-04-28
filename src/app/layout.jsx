@@ -62,9 +62,6 @@ export const metadata = {
     description: 'End-to-end DDP freight. All duties pre-paid. Zero surprises.',
     images: ['https://www.ctiddp.com/og-image.jpg'],
   },
-  alternates: {
-    canonical: 'https://www.ctiddp.com/',
-  },
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon-16x16.png',
