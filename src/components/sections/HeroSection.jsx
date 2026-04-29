@@ -33,7 +33,6 @@ export function HeroSection() {
       subtitle: 'FCL and LCL options with optimized routing and consolidation.',
       stats: 'Cost reduction on bulk shipments',
       ctaPrimary: 'Ocean Quote',
-      ctaSecondary: 'Port Schedule',
       theme: 'amber',
     },
     {
@@ -45,7 +44,6 @@ export function HeroSection() {
       subtitle: 'Priority air cargo with real-time tracking and temperature control.',
       stats: 'Delivery across major Asian hubs',
       ctaPrimary: 'Book Air Freight',
-      ctaSecondary: 'Check Rates',
       theme: 'emerald',
     },
     {
@@ -57,7 +55,6 @@ export function HeroSection() {
       subtitle: 'Dedicated customs brokerage with guaranteed clearance timelines.',
       stats: 'Assured customs clearance',
       ctaPrimary: 'Clearance Check',
-      ctaSecondary: 'Speak with Expert',
       theme: 'purple',
     },
     {
@@ -69,7 +66,6 @@ export function HeroSection() {
       subtitle: 'Warehousing, distribution and final delivery across all Indian states.',
       stats: 'On-time delivery guarantee',
       ctaPrimary: 'Delivery Quote',
-      ctaSecondary: 'Warehouse Tour',
       theme: 'indigo',
     },
   ];
@@ -194,13 +190,7 @@ export function HeroSection() {
                           {slide.ctaPrimary}
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link href="/services"
-                          className={`group px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-[#ffff] font-bold text-lg rounded-lg hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-3 hover:scale-105 transform ${isFirstLoad && activeIndex === index ? 'animate-slide-in-right opacity-0'
-                              : activeIndex === index ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'
-                            } transition-all duration-1000 delay-900`}>
-                          <Headphones className="w-5 h-5" />
-                          {slide.ctaSecondary}
-                        </Link>
+                        
                       </div>
 
                       {/* Trust Features */}
@@ -221,23 +211,24 @@ export function HeroSection() {
         </Swiper>
 
         {/* Navigation Arrows */}
-        <button className="swiper-button-prev hidden! md:flex! absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
+        {/* <button className="swiper-button-prev hidden! md:flex! absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
           <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
         </button>
         <button className="swiper-button-next hidden! md:flex! absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
           <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-        </button>
+        </button> */}
 
         {/* Play/Pause */}
-        <button onClick={toggleAutoplay}
+        {/* <button onClick={toggleAutoplay}
           className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/50 transition-all duration-300 group">
           {isPlaying
             ? <Pause className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
             : <Play className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />}
-        </button>
+        </button> */}
 
         {/* Progress Dots */}
-        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2
+                md:top-1/2 md:right-6 md:left-auto md:-translate-y-1/2 md:flex-col md:gap-3 md:bottom-auto">
           {slides.map((slide, index) => (
             <button
               key={slide.id}

@@ -30,6 +30,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -43,7 +44,7 @@ export default function QcInspectionClient() {
                 title="QC and Pre-Shipment Inspection in China | Quality Control for Imports to India"
                 subtitle="Ensure every shipment meets your specifications before it leaves the factory with structured QC checks and report-based decisions."
                 badge="Quality Control & PSI"
-                bgImage="/images/services/young-female-warehouse-worker-checks-counting-cardboard-boxes-warehouse-using.jpg"
+                bgImage="/images/services/young-female-warehouse-worker-checks-counting-cardboard-boxes-warehouse-using.jpeg"
             />
 
             {/* WHAT IS PRE-SHIPMENT INSPECTION - New explanatory section */}

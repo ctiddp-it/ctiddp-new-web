@@ -26,6 +26,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -39,7 +40,7 @@ export default function LastMileDeliveryClient() {
                 title="Last-Mile Delivery in India | Final Leg DDP Shipping by CTIDDP"
                 subtitle="Complete your import journey with reliable final delivery from port or airport to your warehouse anywhere in India."
                 badge="PAN India Delivery"
-                bgImage="/images/services/warehouse-logistics-streamlined-delivery-process-with-boxes-loaded-onto-cargo-truck-generative-ai.jpg"
+                bgImage="/images/services/warehouse-logistics-streamlined-delivery-process-with-boxes-loaded-onto-cargo-truck-generative-ai.jpeg"
             />
 
             {/* WHAT IS LAST-MILE DELIVERY - Explanatory section */}

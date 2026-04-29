@@ -12,6 +12,7 @@ import {
   HiOutlineBellAlert,
   HiOutlineCube,
   HiOutlineBuildingStorefront,
+  HiOutlineExclamationTriangle
 } from "react-icons/hi2";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { HeroSection } from '@/components/sections/HeroSection'
@@ -69,7 +70,8 @@ const DDP_COMPARE = [
     badge: 'FOB',
     title: 'Free On Board',
     desc: 'Seller loads goods onto the vessel. After that - sea freight, insurance, customs, duties, last-mile - all your responsibility.',
-    marker: '⚠️ Risk transfers at port',
+    marker: 'Risk transfers at port',
+    markerIcon: <HiOutlineExclamationTriangle size={16} />,
     markerBg: 'rgba(251,191,36,0.15)',
     markerBorder: 'rgba(251,191,36,0.3)',
     markerText: '#FCD34D',
@@ -81,7 +83,8 @@ const DDP_COMPARE = [
     badge: 'CIF',
     title: 'Cost, Insurance & Freight',
     desc: 'Seller handles sea freight and insurance. But you still handle Import customs, BCD+IGST payment, port formalities, and delivery.',
-    marker: '⚠️ Duties & last-mile still yours',
+    marker: 'Duties & last-mile still yours',
+    markerIcon: <HiOutlineExclamationTriangle size={16} />,
     markerBg: 'rgba(251,191,36,0.15)',
     markerBorder: 'rgba(251,191,36,0.3)',
     markerText: '#FCD34D',
@@ -93,7 +96,8 @@ const DDP_COMPARE = [
     badge: 'DDP - What We Do',
     title: 'Delivered Duty Paid',
     desc: 'We handle everything: China export, sea freight, insurance, customs filing, BCD+IGST payment, and last-mile delivery. One invoice.',
-    marker: '✓ We handle it all',
+    marker: 'We handle it all',
+    markerIcon: <HiOutlineShieldCheck size={16} />,
     markerBg: 'rgba(74,222,128,0.1)',
     markerBorder: 'rgba(74,222,128,0.3)',
     markerText: '#4ADE80',
@@ -324,10 +328,20 @@ export default function HomePage() {
                   </h3>
                   <p className="text-[13px] text-muted leading-relaxed mb-[18px]">{card.desc}</p>
                   <div
-                    className="text-[12px] font-medium py-2 px-3.5 rounded-[3px]"
-                    style={{ background: card.markerBg, border: `1px solid ${card.markerBorder}`, color: card.markerText }}
+                    className="flex items-center gap-2 text-[12px] font-medium py-2 px-3.5 rounded-[3px]"
+                    style={{
+                      background: card.markerBg,
+                      border: `1px solid ${card.markerBorder}`,
+                      color: card.markerText
+                    }}
                   >
-                    {card.marker}
+                    <span className="shrink-0">
+                      {card.markerIcon}
+                    </span>
+
+                    <span>
+                      {card.marker}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -374,7 +388,7 @@ export default function HomePage() {
                       {s.title}
                     </div>
                     <div className="text-[13px] text-muted leading-relaxed">{s.desc}</div>
-                    <div className="mt-6 flex items-center justify-end">                   
+                    <div className="mt-6 flex items-center justify-end">
 
                       <div className="flex items-end gap-2 text-[13px] font-medium text-blue-light group-hover:text-gold transition-all duration-300">
                         <span className="relative">

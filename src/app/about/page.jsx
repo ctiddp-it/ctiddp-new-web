@@ -22,7 +22,7 @@ const images = [
   "/images/about/ctiddp-client-interaction.jpg",
   "/images/about/ctiddp-team.jpg",
   "/images/about/ctiddp-team-celebrations.jpg",
-  "/images/about/ctiddp-team-trekking.jpg",
+  "/images/about/ctiddp-team-trekking.jpeg",
 ];
 
 

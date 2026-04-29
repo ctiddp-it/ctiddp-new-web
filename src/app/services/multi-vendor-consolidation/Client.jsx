@@ -28,6 +28,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -41,7 +42,7 @@ export default function MultiVendorConsolidationClient() {
                 title="Multi-Vendor Consolidation in China | Reduce Costs with Smart DDP Shipping"
                 subtitle="Optimize your imports by combining shipments from multiple suppliers into a single cost-efficient cargo. CTIDDP manages collection, consolidation, documentation, and dispatch, ensuring smooth movement from multiple factories to one final delivery in India."
                 badge="Smart Consolidation"
-                bgImage="/images/services/arranging-order-deliveries-using-invoice-identification-codes.jpg"
+                bgImage="/images/services/arranging-order-deliveries-using-invoice-identification-codes.jpeg"
             />
 
             {/* WHAT IS MULTI-VENDOR CONSOLIDATION - Explanatory section */}

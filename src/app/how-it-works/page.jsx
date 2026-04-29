@@ -342,7 +342,7 @@ export default function HowItWorksPage() {
           {...CTIDDP_CONTENT1}
           initialLayout="content-right"
           showToggle={false}
-          imageSrc="/images/howitworks/landed-cost-logistics-india-delivery-ctiddp.jpg"
+          imageSrc="/images/howitworks/landed-cost-logistics-india-delivery-ctiddp.jpeg"
           imageAlt="Global cargo shipping"
         />
 
@@ -384,7 +384,7 @@ export default function HowItWorksPage() {
           {...CTIDDP_CONTENT2}
           initialLayout="content-left"
           showToggle={false}
-          imageSrc="/images/howitworks/door-to-door-service-china-india-ctiddp.jpg"
+          imageSrc="/images/howitworks/door-to-door-service-china-india-ctiddp.jpeg"
           imageAlt="Global Delivery"
         />
 

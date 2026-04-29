@@ -27,6 +27,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -40,7 +41,7 @@ export default function CustomsClearanceClient() {
                 title="Customs Clearance Services | China to India Import Compliance (DDP)"
                 subtitle="Ensure fast, compliant entry of your cargo into India with end-to-end customs clearance under DDP. CTIDDP manages documentation, duty calculation, and clearance execution, so your shipments move from port to delivery without friction."
                 badge="India Import Compliance"
-                bgImage="/images/services/worker-factory-checking-number-white-plastic-bottles-warehouse.jpg"
+                bgImage="/images/services/worker-factory-checking-number-white-plastic-bottles-warehouse.jpeg"
             />
 
             {/* WHAT IS CUSTOMS CLEARANCE - New explanatory section */}

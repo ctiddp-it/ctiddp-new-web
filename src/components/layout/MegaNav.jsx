@@ -87,7 +87,7 @@ const dropPos = (item) => item.dropAlign === 'right' ? 'right-0' : 'left-0'
 function MegaItem({ child }) {
   return (
     <Link href={child.href} className="flex items-start gap-2.5 py-2.5 px-3 rounded-sm no-underline transition-colors duration-150 cursor-none hover:bg-[rgba(37,99,235,0.07)]">
-      <div className="w-[34px] h-[34px] rounded-lg bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.15)] flex items-center justify-center text-sm shrink-0 transition-colors duration-150 group-hover/item:bg-[rgba(37,99,235,0.15)]">{child.icon}</div>
+      <div className="w-[34px] h-[34px] rounded-lg text-blue-light bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.15)] flex items-center justify-center text-sm shrink-0 transition-colors duration-150 group-hover/item:bg-[rgba(37,99,235,0.15)]">{child.icon}</div>
       <div>
         <span className="text-[12.5px] font-medium text-white block mb-0.5">{child.title}</span>
         <span className="text-[11px] text-muted leading-[1.4]">{child.desc}</span>
@@ -173,7 +173,7 @@ export default function MegaNav() {
                 <>
                   <Link
                     href={item.href || '#'}
-                    className={`flex items-center gap-[5px] h-full px-3.5 text-white no-underline text-xs font-bold tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${isActiveParent(item) ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
+                    className={`flex items-center gap-[5px] h-full px-3.5 text-white no-underline text-xs font-semibold tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${isActiveParent(item) ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
                   >
                     {item.label}
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform duration-200 shrink-0 group-hover:rotate-180">
@@ -317,7 +317,7 @@ export default function MegaNav() {
                           {item.col2.items.map(child => (
                             <Link key={child.href} href={child.href} onClick={() => setDrawerOpen(false)}
                               className={`flex items-center gap-3 px-5 py-2.5 no-underline transition-colors duration-150${pathname === child.href ? ' bg-[rgba(37,99,235,0.08)]' : ' hover:bg-[var(--overlay-card)]'}`}>
-                              <span className="text-[15px] shrink-0">{child.icon}</span>
+                              <span className="text-[15px] shrink-0 text-blue-light">{child.icon}</span>
                               <div className="min-w-0">
                                 <div className={`text-xs font-medium leading-tight${pathname === child.href ? ' text-primary-light' : ' text-white'}`}>{child.title}</div>
                                 <div className="text-[11px] text-muted mt-0.5 leading-snug truncate">{child.desc}</div>
@@ -329,7 +329,7 @@ export default function MegaNav() {
                         item.children?.map(child => (
                           <Link key={child.href} href={child.href} onClick={() => setDrawerOpen(false)}
                             className={`flex items-center gap-3 px-5 py-2.5 no-underline transition-colors duration-150${pathname === child.href ? ' bg-[rgba(37,99,235,0.08)]' : ' hover:bg-[var(--overlay-card)]'}`}>
-                            <span className="text-[15px] shrink-0">{child.icon}</span>
+                            <span className="text-[15px] shrink-0 text-blue-light">{child.icon}</span>
                             <div className="min-w-0">
                               <div className={`text-xs font-medium leading-tight${pathname === child.href ? ' text-primary-light' : ' text-white'}`}>{child.title}</div>
                               <div className="text-[11px] text-muted mt-0.5 leading-snug truncate">{child.desc}</div>

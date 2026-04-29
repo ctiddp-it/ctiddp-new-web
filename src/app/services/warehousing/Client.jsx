@@ -28,6 +28,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -41,7 +42,7 @@ export default function WarehousingClient() {
                 title="Warehousing and Consolidation in China | Smart Cargo Management for India Imports"
                 subtitle="Reduce shipping cost and simplify multi-supplier sourcing with warehouse consolidation in China. CTIDDP receives goods from different suppliers, verifies, sorts, repacks, and ships them as a single optimized DDP shipment to India."
                 badge="Warehouse Consolidation"
-                bgImage="/images/services/warehouse-workers-checking-inventory-goods-distribution-large-storehouse.jpg"
+                bgImage="/images/services/warehouse-workers-checking-inventory-goods-distribution-large-storehouse.jpeg"
             />
 
             {/* WHAT IS WAREHOUSING & CONSOLIDATION - New explanatory section */}

@@ -29,6 +29,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -42,7 +43,7 @@ export default function CantonFairSupportClient() {
                 title="Canton Fair Support Services | Source Smarter with On-Ground Experts"
                 subtitle="Maximise your sourcing at the Canton Fair with end-to-end on-ground support. CTIDDP helps you identify reliable suppliers, negotiate effectively, verify products, and plan shipping, all from a single coordinated system."
                 badge="On-Ground Experts"
-                bgImage="/images/services/male-entrepreneur-businessman-expert-reading-documents.jpg"
+                bgImage="/images/services/male-entrepreneur-businessman-expert-reading-documents.jpeg"
             />
 
             {/* WHAT IS CANTON FAIR SUPPORT - Explanatory section */}

@@ -28,12 +28,14 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
 const staggerContainer = {
     initial: { opacity: 0 },
     whileInView: { opacity: 1 },
+    viewport: { once: true, amount: 0.25 },
     transition: { staggerChildren: 0.1 },
 }
 
@@ -48,7 +50,7 @@ export default function GlobalDDPServicePage() {
                 title="Global DDP Shipping from China to India | CTIDDP"
                 subtitle="Move your goods from factory floor in China to your warehouse in India under a single, fixed DDP contract with one accountable partner."
                 badge="End-to-End DDP Solution"
-                bgImage="/images/services/aerial-view-commercial-dock.jpg"
+                bgImage="/images/services/aerial-view-commercial-dock.jpeg"
             />
 
             {/* WHAT IS DDP - More visual and explanatory */}
@@ -115,6 +117,7 @@ export default function GlobalDDPServicePage() {
                                 variants={fadeUp}
                                 initial="initial"
                                 whileInView="whileInView"
+                                viewport={{ once: true, amount: 0.25 }}
                                 className="flex items-center gap-3 p-3 rounded-lg"
                             >
                                 <CheckCircle2 className="w-5 h-5 text-blue-400 flex-shrink-0" />

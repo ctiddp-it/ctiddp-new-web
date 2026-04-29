@@ -25,6 +25,7 @@ import {
 const fadeUp = {
     initial: { opacity: 0, y: 40 },
     whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.25 },
     transition: { duration: 0.5, ease: "easeOut" },
 }
 
@@ -44,7 +45,7 @@ export default function SupplierPaymentsClient() {
                 title="Secure Supplier Payments in China | Cross-Border Payment Management by CTIDDP"
                 subtitle="Pay your China suppliers with confidence and control through a managed payment process aligned with your shipment execution."
                 badge="Cross-Border Payment Management"
-                bgImage="/images/services/businessman-uses-online-shopping-card-pay-via-mobile-phone-network.jpg"
+                bgImage="/images/services/businessman-uses-online-shopping-card-pay-via-mobile-phone-network.jpeg"
             />
 
             {/* WHAT IS SUPPLIER PAYMENT MANAGEMENT - New explanatory section */}
