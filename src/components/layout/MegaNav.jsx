@@ -1,6 +1,16 @@
 'use client'
 
 import { FaWhatsapp } from "react-icons/fa6";
+import {
+  FaGlobe,
+  FaMoneyBillWave,
+  FaSearch,
+  FaWarehouse,
+  FaFileInvoice,
+  FaTruck,
+  FaLayerGroup,
+  FaBuilding,
+} from 'react-icons/fa'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -11,7 +21,60 @@ const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'How It Works', href: '/how-it-works' },
-  { label: "Services", href: "/services" },
+  {
+    label: 'Services',
+    href: '/services',
+    children: [
+  {
+    href: '/services/global-ddp-shipping',
+    title: 'Global DDP Shipping',
+    desc: 'End-to-end shipping with pre-paid customs duties.',
+    icon: <FaGlobe />,
+  },
+  {
+    href: '/services/supplier-payments',
+    title: 'Supplier Payments',
+    desc: 'Secure and efficient payment processing for suppliers.',
+    icon: <FaMoneyBillWave />,
+  },
+  {
+    href: '/services/qc-inspection',
+    title: 'QC Inspection',
+    desc: 'Thorough quality checks to ensure product standards.',
+    icon: <FaSearch />,
+  },
+  {
+    href: '/services/warehousing',
+    title: 'Warehousing & Consolidation',
+    desc: 'Collect and combine cargo for lower freight costs.',
+    icon: <FaWarehouse />,
+  },
+  {
+    href: '/services/customs-clearance',
+    title: 'Customs Clearance',
+    desc: 'Smooth import clearance with compliant paperwork.',
+    icon: <FaFileInvoice />,
+  },
+  {
+    href: '/services/last-mile-delivery',
+    title: 'DDP Delivery',
+    desc: 'Door delivery in India with duties pre-paid.',
+    icon: <FaTruck />,
+  },
+  {
+    href: '/services/multi-vendor-consolidation',
+    title: 'Multi-Vendor Consolidation',
+    desc: 'Combine shipments from multiple vendors for cost savings.',
+    icon: <FaLayerGroup />,
+  },
+  {
+    href: '/services/canton-fair-support',
+    title: 'Canton Fair Support',
+    desc: 'On-ground trade fair sourcing and shipping support.',
+    icon: <FaBuilding />,
+  },
+],
+  },
   { label: "Ecosystem", href: "/eco-system" },
   { label: 'Canton Fair', href: '/canton-fair' },
   { label: 'Blog', href: '/blog' },
@@ -71,7 +134,10 @@ export default function MegaNav() {
   }, [drawerOpen])
 
   const toggleSection = (label) => setOpenSection(prev => prev === label ? null : label)
-  const isActiveParent = (item) => item.children?.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
+  const isActiveParent = (item) =>
+    pathname === item.href ||
+    pathname.startsWith((item.href || '') + '/') ||
+    item.children?.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
 
   return (
     <>
@@ -91,7 +157,7 @@ export default function MegaNav() {
           {NAV_ITEMS.map((item) => (
             <li key={item.label} className="relative h-full flex items-center group">
 
-              {item.href ? (
+              {!item.children ? (
                 <Link
                   href={item.href}
                   className={`flex items-center gap-[5px] h-full px-3.5 text-gray-900 dark:text-white no-underline text-xs font-semibold tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${pathname === item.href ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
@@ -105,16 +171,15 @@ export default function MegaNav() {
                 </Link>
               ) : (
                 <>
-                  <a
-                    href="#"
-                    className={`flex items-center gap-[5px] h-full px-3.5 text-muted no-underline text-xs font-normal tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${isActiveParent(item) ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
-                    onClick={e => e.preventDefault()}
+                  <Link
+                    href={item.href || '#'}
+                    className={`flex items-center gap-[5px] h-full px-3.5 text-white no-underline text-xs font-bold tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${isActiveParent(item) ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
                   >
                     {item.label}
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform duration-200 shrink-0 group-hover:rotate-180">
                       <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
-                  </a>
+                  </Link>
 
                   {/* ── DROPDOWN ── */}
                   <div className={`absolute top-[66px] ${dropPos(item)} bg-[var(--overlay-dropdown)] backdrop-blur-xl border border-[rgba(37,99,235,0.15)] border-t-2 border-t-primary rounded-b-md p-7 hidden group-hover:block z-[999] shadow-[0_20px_60px_var(--shadow-scroll)]`}>
@@ -139,13 +204,7 @@ export default function MegaNav() {
                       </div>
                     ) : (
                       /* ── STANDARD GRID (Services) ── */
-                      <div
-                        className="grid gap-1.5"
-                        style={{
-                          gridTemplateColumns: (item.children?.length ?? 0) >= 5 ? '1fr 1fr' : '1fr',
-                          minWidth: (item.children?.length ?? 0) >= 5 ? 560 : 300,
-                        }}
-                      >
+                      <div className="grid gap-1.5 grid-cols-2 min-w-[560px]">
                         <div className="col-span-full text-[9px] tracking-[2px] uppercase text-primary font-semibold mb-3.5 pb-2.5 border-b border-[rgba(37,99,235,0.1)]">{item.label}</div>
                         {item.children?.map(child => <MegaItem key={child.href} child={child} />)}
                       </div>
@@ -211,7 +270,7 @@ export default function MegaNav() {
         <div className="flex-1 overflow-y-auto py-4">
           {NAV_ITEMS.map((item) => (
             <div key={item.label}>
-              {item.href ? (
+              {!item.children ? (
                 <Link
                   href={item.href}
                   onClick={() => setDrawerOpen(false)}
@@ -245,7 +304,7 @@ export default function MegaNav() {
                           {item.col1.items.map(child => (
                             <Link key={child.href} href={child.href} onClick={() => setDrawerOpen(false)}
                               className={`flex items-center gap-3 px-5 py-2.5 no-underline transition-colors duration-150${pathname === child.href ? ' bg-[rgba(37,99,235,0.08)]' : ' hover:bg-[var(--overlay-card)]'}`}>
-                              <span className="text-[15px] shrink-0">{child.icon}</span>
+                              <span className="text-[15px] text-blue-light shrink-0">{child.icon}</span>
                               <div className="min-w-0">
                                 <div className={`text-xs font-medium leading-tight${pathname === child.href ? ' text-primary-light' : ' text-white'}`}>{child.title}</div>
                                 <div className="text-[11px] text-muted mt-0.5 leading-snug truncate">{child.desc}</div>

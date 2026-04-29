@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { geoMercator, geoPath, geoGraticule } from "d3-geo";
 import { feature } from "topojson-client";
@@ -17,9 +17,9 @@ const LOCATIONS = {
     markerLonLat: [78.9629, 20.5937],
     viewBox: "615 185 220 116",
     cities: [
-      { id: "vizag",     name: "Visakhapatnam", lonLat: [83.3180, 17.6868] },
-      { id: "chennai",   name: "Chennai",        lonLat: [80.2707, 13.0827] },
-      { id: "bangalore", name: "Bengaluru",      lonLat: [77.5946, 12.9716] },
+      { id: "vizag", name: "Visakhapatnam", lonLat: [83.3180, 17.6868] },
+      { id: "chennai", name: "Chennai", lonLat: [80.2707, 13.0827] },
+      { id: "bangalore", name: "Bengaluru", lonLat: [77.5946, 12.9716] },
     ],
   },
   china: {
@@ -28,54 +28,61 @@ const LOCATIONS = {
     viewBox: "698 158 200 105",
     cities: [
       { id: "guangzhou", name: "Guangzhou", lonLat: [113.2644, 23.1291] },
-      { id: "foshan",    name: "Foshan",    lonLat: [113.1216, 23.0219], labelBelow: true },
+      { id: "foshan", name: "Foshan", lonLat: [113.1216, 23.0219], labelBelow: true },
     ],
   },
 };
 
-const TRADE_DESTINATIONS = [
-  { id: "india",        label: "India",        lonLat: [78.9629, 20.5937],   countryId: "356"  },
-  { id: "usa",          label: "USA",          lonLat: [-98.5795, 39.8283],  countryId: "840"  },
-  { id: "saudi",        label: "Saudi Arabia", lonLat: [45.0792, 23.8859],   countryId: "682"  },
-  { id: "iran",         label: "Iran",         lonLat: [53.6880, 32.4279],   countryId: "364"  },
-  { id: "iraq",         label: "Iraq",         lonLat: [43.6793, 33.2232],   countryId: "368"  },
-  { id: "israel",       label: "Israel",       lonLat: [34.8516, 31.0461],   countryId: "376"  },
-  { id: "kuwait",       label: "Kuwait",       lonLat: [47.4818, 29.3117],   countryId: "414"  },
-  { id: "canada",       label: "Canada",       lonLat: [-96.8165, 56.1304],  countryId: "124"  },
-  { id: "uk",           label: "UK",           lonLat: [-3.4360, 55.3781],   countryId: "826"  },
-  { id: "europe",       label: "Europe",       lonLat: [10.4515, 51.1657],   countryId: "276"  },
-  { id: "russia",       label: "Russia",       lonLat: [105.3188, 61.5240],  countryId: "643"  },
-  { id: "brazil",       label: "Brazil",       lonLat: [-51.9253, -14.2350], countryId: "76"   },
-  { id: "australia",    label: "Australia",    lonLat: [133.7751, -25.2744], countryId: "36"   },
-  { id: "africa",       label: "Africa",       lonLat: [34.5085, -8.7832],   countryId: "404"  },
-  { id: "japan",        label: "Japan",        lonLat: [138.2529, 36.2048],  countryId: "392"  },
-  { id: "korea",        label: "South Korea",  lonLat: [127.7669, 35.9078],  countryId: "410"  },
+// ----- Separate trade destination lists for China and India -----
+const CHINA_DESTINATIONS = [
+  { id: "india", label: "India", lonLat: [78.9629, 20.5937], countryId: "356" },
+  { id: "usa", label: "USA", lonLat: [-98.5795, 39.8283], countryId: "840" },
+  { id: "saudi", label: "Saudi Arabia", lonLat: [45.0792, 23.8859], countryId: "682" },
+  { id: "iran", label: "Iran", lonLat: [53.6880, 32.4279], countryId: "364" },
+  { id: "iraq", label: "Iraq", lonLat: [43.6793, 33.2232], countryId: "368" },
+  { id: "israel", label: "Israel", lonLat: [34.8516, 31.0461], countryId: "376" },
+  { id: "kuwait", label: "Kuwait", lonLat: [47.4818, 29.3117], countryId: "414" },
+  { id: "russia", label: "Russia", lonLat: [105.3188, 61.5240], countryId: "643" },
 ];
 
-const TRADE_PARTNER_IDS = new Set(TRADE_DESTINATIONS.map(d => d.countryId));
+const INDIA_DESTINATIONS = [
+  { id: "china", label: "China", lonLat: [104.1954, 35.8617], countryId: "156" },
+  { id: "canada", label: "Canada", lonLat: [-96.8165, 56.1304], countryId: "124" },
+  { id: "europe", label: "Europe", lonLat: [10.4515, 51.1657], countryId: "276" },
+  { id: "brazil", label: "Brazil", lonLat: [-51.9253, -14.2350], countryId: "76" },
+  { id: "australia", label: "Australia", lonLat: [133.7751, -25.2744], countryId: "36" },
+  { id: "japan", label: "Japan", lonLat: [138.2529, 36.2048], countryId: "392" },
+];
+
+const ALL_ROUTES = [
+  ...CHINA_DESTINATIONS.map(dest => ({ origin: "china", dest })),
+  ...INDIA_DESTINATIONS.map(dest => ({ origin: "india", dest })),
+];
+
+const ALL_DESTINATIONS_MAP = new Map();
+[...CHINA_DESTINATIONS, ...INDIA_DESTINATIONS].forEach(d => {
+  if (!ALL_DESTINATIONS_MAP.has(d.id)) ALL_DESTINATIONS_MAP.set(d.id, d);
+});
+const ALL_DESTINATIONS = Array.from(ALL_DESTINATIONS_MAP.values());
+
+const TRADE_PARTNER_IDS = new Set(ALL_DESTINATIONS.map(d => d.countryId));
 
 const WORLD_VIEWBOX = `0 0 ${W} ${H}`;
-const COUNTRY_IDS   = { "356": "india", "156": "china" };
-const GOLD       = "#2563EB";
-const BLUE       = "#FFF";
+const COUNTRY_IDS = { "356": "india", "156": "china" };
+const GOLD = "#2563EB";
+const BLUE = "#FFF";
 const GOLD_LIGHT = "#60A5FA";
-const soft      = [0.43, 0.13, 0.23, 0.96];
-const cinematic = [0.76, 0,    0.24, 1   ];
+const soft = [0.43, 0.13, 0.23, 0.96];
+const cinematic = [0.76, 0, 0.24, 1];
 
 const PARTICLES = [
-  { x: "8%",  y: "15%", s: 2,   d: 0   },
+  { x: "8%", y: "15%", s: 2, d: 0 },
   { x: "15%", y: "72%", s: 1.5, d: 0.8 },
   { x: "22%", y: "38%", s: 2.5, d: 1.6 },
-  { x: "44%", y: "12%", s: 2,   d: 2.1 },
-  { x: "63%", y: "25%", s: 1,   d: 0.9 },
+  { x: "44%", y: "12%", s: 2, d: 2.1 },
+  { x: "63%", y: "25%", s: 1, d: 0.9 },
   { x: "80%", y: "42%", s: 1.5, d: 0.3 },
-  { x: "88%", y: "78%", s: 1,   d: 2.4 },
-];
-
-const STATS = [
-  { value: "5",    label: "Operataional Hubs"       },
-  { value: "17",   label: "Countries Served" },
-  { value: "8+",  label: "Years in DDP"      },
+  { x: "88%", y: "78%", s: 1, d: 2.4 },
 ];
 
 function arcPath(from, to, curvature = 0.35) {
@@ -94,28 +101,45 @@ function arcPath(from, to, curvature = 0.35) {
   return `M${x1},${y1} Q${cpx},${cpy} ${x2},${y2}`;
 }
 
-function TradeRoute({ from, to, delay, index }) {
+function TradeRoute({ from, to, delay, isActive }) {
   const reduced = useReducedMotion();
   const d = arcPath(from, to);
+
   return (
-    <motion.path
-      d={d}
-      fill="none"
-      stroke={GOLD}
-      strokeWidth={0.8}
-      strokeDasharray="4 4"
-      strokeLinecap="round"
-      initial={{ pathLength: 0, opacity: 0 }}
-      animate={{ pathLength: 1, opacity: 0.35 }}
-      transition={{ duration: reduced ? 0.01 : 1.4, delay: 0.5 + delay, ease: soft }}
-      style={{ filter: `drop-shadow(0 0 1.5px ${GOLD})` }}
-    />
+    <>
+      <motion.path
+        d={d}
+        fill="none"
+        stroke={GOLD}
+        strokeWidth={0.8}
+        strokeDasharray="4 4"
+        strokeLinecap="round"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 0.35 }}
+        transition={{ duration: reduced ? 0.01 : 1.4, delay: 0.5 + delay, ease: soft }}
+        style={{ filter: `drop-shadow(0 0 1.5px ${GOLD})` }}
+      />
+      {isActive && (
+        <motion.path
+          d={d}
+          fill="none"
+          stroke={GOLD_LIGHT}
+          strokeWidth={1.5}
+          strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 0.9 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          style={{ filter: `drop-shadow(0 0 4px ${GOLD})` }}
+        />
+      )}
+    </>
   );
 }
 
-function DestinationDot({ px, label, delay, isChina }) {
+function DestinationDot({ px, label, delay, isActive }) {
   const [hovered, setHovered] = useState(false);
   const [x, y] = px;
+
   return (
     <g
       transform={`translate(${x}, ${y})`}
@@ -125,31 +149,68 @@ function DestinationDot({ px, label, delay, isChina }) {
     >
       <motion.g
         initial={{ opacity: 0, scale: 0 }}
-        animate={{ opacity: 1, scale: 1 }}
+        animate={{
+          opacity: 1,
+          scale: isActive ? 1.3 : 1,
+        }}
         transition={{ duration: 0.35, delay: 0.6 + delay, ease: soft }}
       >
-        <circle
-          r={hovered ? 7 : 5}
+        <motion.circle
+          r={isActive ? 8 : hovered ? 7 : 5}
           fill="none"
           stroke={GOLD}
-          strokeWidth={0.7}
-          opacity={0.22}
+          strokeWidth={isActive ? 1.2 : 0.7}
+          opacity={isActive ? 0.5 : 0.22}
           className="gp-ring"
-          style={{ transition: "r 0.2s" }}
+          animate={isActive ? {
+            r: [7, 12, 7],
+            opacity: [0.5, 0.1, 0.5],
+          } : {}}
+          transition={isActive ? {
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          } : { duration: 0.2 }}
         />
-        <circle
-          r={hovered ? 3 : 2}
+        <motion.circle
+          r={isActive ? 4 : hovered ? 3 : 2}
           fill={GOLD_LIGHT}
-          opacity={0.75}
+          opacity={isActive ? 1 : 0.75}
+          animate={isActive ? {
+            scale: [1, 1.2, 1],
+          } : {}}
+          transition={isActive ? {
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          } : {}}
           style={{
-            filter: `drop-shadow(0 0 ${hovered ? 6 : 3}px ${GOLD})`,
+            filter: `drop-shadow(0 0 ${isActive ? 8 : hovered ? 6 : 3}px ${GOLD})`,
             transition: "r 0.2s ease, filter 0.2s ease",
           }}
         />
-        {hovered && (
+        {(hovered || isActive) && (
           <g transform="translate(0, -14)">
-            <rect x={-24} y={-7} width={48} height={12} rx={3} fill="rgba(8,7,5,0.88)" stroke="rgba(37,99,235,0.55)" strokeWidth={0.6} />
-            <text textAnchor="middle" y={3.5} fontSize={5.5} fill={GOLD_LIGHT} fontWeight={600} letterSpacing={0.3} fontFamily="inherit" style={{ pointerEvents: "none" }}>
+            <rect
+              x={-24}
+              y={-7}
+              width={48}
+              height={12}
+              rx={3}
+              fill="rgba(8,7,5,0.88)"
+              stroke={isActive ? "rgba(37,99,235,0.8)" : "rgba(37,99,235,0.55)"}
+              strokeWidth={isActive ? 1 : 0.6}
+            />
+            <text
+              textAnchor="middle"
+              y={3.5}
+              fontSize={5.5}
+              fill={GOLD_LIGHT}
+              fontWeight={600}
+              letterSpacing={0.3}
+              fontFamily="inherit"
+              style={{ pointerEvents: "none" }}
+            >
               {label}
             </text>
           </g>
@@ -160,12 +221,27 @@ function DestinationDot({ px, label, delay, isChina }) {
 }
 
 export default function GlobalPresence() {
-  const [view,      setView]      = useState("world");
-  const [hovered,   setHovered]   = useState(null);
-  const [revealed,  setRevealed]  = useState(false);
+  const [view, setView] = useState("world");
+  const [hovered, setHovered] = useState(null);
+  const [revealed, setRevealed] = useState(false);
   const [countries, setCountries] = useState([]);
+  const [activeRouteIndex, setActiveRouteIndex] = useState(0);
+  const [zoom, setZoom] = useState(1);
+  const [panOffset, setPanOffset] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStart = useRef({ x: 0, y: 0, panX: 0, panY: 0 });
   const sectionRef = useRef(null);
-  const reduced    = useReducedMotion();
+  const reduced = useReducedMotion();
+  const isActuallyDragging = useRef(false);
+
+  // Cycle through all routes
+  useEffect(() => {
+    if (reduced) return;
+    const interval = setInterval(() => {
+      setActiveRouteIndex(prev => (prev + 1) % ALL_ROUTES.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [reduced]);
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -196,11 +272,16 @@ export default function GlobalPresence() {
     return out;
   }, []);
 
-  const tradeDestPx = useMemo(() =>
-    TRADE_DESTINATIONS.map(d => ({ ...d, px: project(d.lonLat) })),
-  []);
+  const destPxMap = useMemo(() => {
+    const map = new Map();
+    for (const dest of ALL_DESTINATIONS) {
+      map.set(dest.id, { ...dest, px: project(dest.lonLat) });
+    }
+    return map;
+  }, []);
 
   const chinaPxWorld = useMemo(() => project(LOCATIONS.china.markerLonLat), []);
+  const indiaPxWorld = useMemo(() => project(LOCATIONS.india.markerLonLat), []);
 
   const pinScale = useMemo(() => {
     if (view === "world") return 1;
@@ -208,19 +289,109 @@ export default function GlobalPresence() {
     return (vbW / W) * 1.75;
   }, [view]);
 
-  const viewBox = view !== "world" ? LOCATIONS[view].viewBox : WORLD_VIEWBOX;
-  const goTo    = (next) => { setHovered(null); setView(next); };
+  const worldViewBox = useMemo(() => {
+    const viewW = W / zoom;
+    const viewH = H / zoom;
+    const maxPanX = (W - viewW) / 2;
+    const maxPanY = (H - viewH) / 2;
+    const clampX = Math.min(maxPanX, Math.max(-maxPanX, panOffset.x));
+    const clampY = Math.min(maxPanY, Math.max(-maxPanY, panOffset.y));
+    const x = (W - viewW) / 2 + clampX;
+    const y = (H - viewH) / 2 + clampY;
+    return `${x} ${y} ${viewW} ${viewH}`;
+  }, [zoom, panOffset]);
 
-  const indiaPx = project(LOCATIONS.india.markerLonLat);
-  const chinaPx = project(LOCATIONS.china.markerLonLat);
+  const viewBox = view !== "world" ? LOCATIONS[view].viewBox : worldViewBox;
+
+  const goTo = (next) => {
+    setHovered(null);
+    setView(next);
+    setZoom(1);
+    setPanOffset({ x: 0, y: 0 });
+  };
+
+  const handleZoomIn = () => setZoom(z => Math.min(3, z + 0.1));
+  const handleZoomOut = () => setZoom(z => Math.max(1, z - 0.1));
+
+  const handlePanStart = useCallback((e) => {
+    if (view !== "world") return;
+
+    // Ignore if the user clicked on a clickable element (country, marker, dot, button)
+    const target = e.target;
+    const isClickable =
+      target.closest?.('[data-clickable="true"]') ||
+      target.closest?.('button') ||
+      target.closest?.('.gp-dot') ||
+      target.closest?.('.gp-ring');
+
+    if (isClickable) return;
+
+    e.preventDefault();
+    const clientX = e.clientX ?? e.touches?.[0]?.clientX;
+    const clientY = e.clientY ?? e.touches?.[0]?.clientY;
+    if (clientX === undefined) return;
+
+    dragStart.current = {
+      x: clientX,
+      y: clientY,
+      panX: panOffset.x,
+      panY: panOffset.y,
+    };
+    setIsDragging(true);
+    isActuallyDragging.current = false;
+  }, [view, panOffset]);
+
+  const handlePanMove = useCallback((e) => {
+    if (!isDragging || view !== "world") return;
+    e.preventDefault();
+
+    const clientX = e.clientX ?? e.touches?.[0]?.clientX;
+    const clientY = e.clientY ?? e.touches?.[0]?.clientY;
+    if (clientX === undefined) return;
+
+    const dx = clientX - dragStart.current.x;
+    const dy = clientY - dragStart.current.y;
+
+    if (!isActuallyDragging.current && (Math.abs(dx) > 5 || Math.abs(dy) > 5)) {
+      isActuallyDragging.current = true;
+    }
+
+    if (isActuallyDragging.current) {
+      const sensitivity = 1.2;
+      setPanOffset({
+        x: dragStart.current.panX + dx * sensitivity,
+        y: dragStart.current.panY + dy * sensitivity,
+      });
+    }
+  }, [isDragging, view, panOffset]);
+
+  const handlePanEnd = useCallback(() => {
+    setIsDragging(false);
+    isActuallyDragging.current = false;
+  }, []);
+
+  useEffect(() => {
+    if (isDragging) {
+      window.addEventListener("mousemove", handlePanMove);
+      window.addEventListener("mouseup", handlePanEnd);
+      window.addEventListener("touchmove", handlePanMove, { passive: false });
+      window.addEventListener("touchend", handlePanEnd);
+      return () => {
+        window.removeEventListener("mousemove", handlePanMove);
+        window.removeEventListener("mouseup", handlePanEnd);
+        window.removeEventListener("touchmove", handlePanMove);
+        window.removeEventListener("touchend", handlePanEnd);
+      };
+    }
+  }, [isDragging, handlePanMove, handlePanEnd]);
+
+  const activeRoute = ALL_ROUTES[activeRouteIndex];
+  const activeDestId = activeRoute?.dest.id;
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black overflow-hidden
-                 flex flex-col items-center justify-center
-                 px-0
-                 pt-10 md:pt-20"
+      className="relative bg-black overflow-hidden flex flex-col items-center justify-center px-4 md:px-10 pt-10 md:pt-20 pb-16"
     >
       {/* Ambient glow */}
       <div
@@ -237,76 +408,78 @@ export default function GlobalPresence() {
         />
       ))}
 
-      {/* ── HEADER ── */}
-      <div className="px-4 md:px-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={revealed ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: soft }}
-          className="text-center mb-8 sm:mb-10 z-10 relative px-2"
-        >
-          <div className="inline-flex items-center gap-3 mb-3 sm:mb-4">
-            <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[0.65rem] md:text-[0.68rem] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px]">
-              Across Countries
-            </span>
-          </div>
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={revealed ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, ease: soft }}
+        className="text-center mb-8 sm:mb-10 z-10 relative px-2"
+      >
+        <div className="inline-flex items-center gap-3 mb-3 sm:mb-4">
+          <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[0.65rem] md:text-[0.68rem] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px]">
+            Across Countries
+          </span>
+        </div>
+        <h2 className="font-heading text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
+          Our Global <span className="italic text-blue-light">Presence</span>
+        </h2>
+        <p className="text-[0.88rem] sm:text-[0.96rem] text-muted max-w-[320px] sm:max-w-[440px] mx-auto leading-[1.75]">
+          End-to-end DDP logistics, seamlessly bridging Nations for businesses that demand precision.
+        </p>
+      </motion.div>
 
-          <h2 className="font-heading text-[clamp(36px,4vw,56px)] font-light leading-[1.1] mb-3.5">
-           Our Global{" "}
-            <span className="italic text-blue-light">Presence</span>
-          </h2>
-
-          <p className="text-[0.88rem] sm:text-[0.96rem] text-muted max-w-[320px] sm:max-w-[440px] mx-auto leading-[1.75]">
-            End-to-end DDP logistics, seamlessly bridging Nations
-            for businesses that demand precision.
-          </p>
-        </motion.div>
-      </div>
-
-      {/* ── FULL-WIDTH MAP STAGE ── */}
+      {/* Map container */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={revealed ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 1, delay: 0.2, ease: soft }}
-        className="relative z-[5] w-full"
+        className="relative z-[5] w-full max-w-6xl mx-auto"
       >
-        {/* Full-width map container */}
-        <div className="w-full overflow-hidden relative" style={{ background: "var(--gp-ocean)" }}>
-          
-          {/* SVG with preserved aspect ratio */}
+        <div
+          className="w-full overflow-hidden relative rounded-2xl border border-[rgba(37,99,235,0.15)]"
+          style={{
+            background: "var(--gp-ocean)",
+            cursor: view === "world" ? (isDragging ? "grabbing" : "grab") : "default",
+            userSelect: "none",
+          }}
+          onMouseDown={handlePanStart}
+          onTouchStart={handlePanStart}
+        >
           <motion.svg
             viewBox={WORLD_VIEWBOX}
             animate={{ viewBox }}
-            transition={{ duration: reduced ? 0.01 : 1.25, ease: cinematic }}
+            transition={view !== "world" ? { duration: 1.25, ease: cinematic } : { duration: 0 }}
             preserveAspectRatio="xMidYMid meet"
-            className="w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px] xl:h-[700px]"
+            className="w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[550px]"
+            style={{ pointerEvents: view === "world" ? "auto" : "none" }}
           >
             <rect x={0} y={0} width={W} height={H} fill="var(--gp-ocean)" />
             <path d={graticulePath} fill="none" stroke="var(--gp-graticule)" strokeWidth={0.4} />
 
             {/* Countries */}
             {countries.map((geo, geoIdx) => {
-              const region   = COUNTRY_IDS[geo.id?.toString()];
-              const isIndia  = region === "india";
-              const isChina  = region === "china";
-              const isFocus  = (view === "india" && isIndia) || (view === "china" && isChina);
+              const region = COUNTRY_IDS[geo.id?.toString()];
+              const isIndia = region === "india";
+              const isChina = region === "china";
+              const isFocus = (view === "india" && isIndia) || (view === "china" && isChina);
               const isMainTarget = isIndia || isChina;
               const isTradePartner = view === "world" && !isMainTarget && TRADE_PARTNER_IDS.has(geo.id?.toString());
 
               return (
                 <path
                   key={`country-${geo.id ?? geoIdx}`}
+                  data-clickable={isMainTarget && view === "world" ? "true" : "false"}
                   d={pathGen(geo)}
                   fill={
                     isFocus ? "rgba(37,99,235,0.22)"
-                    : isTradePartner ? "rgba(37,99,235,0.10)"
-                    : isMainTarget ? "var(--gp-land-focus)"
-                    : "var(--gp-land)"
+                      : isTradePartner ? "rgba(37,99,235,0.10)"
+                      : isMainTarget ? "var(--gp-land-focus)"
+                      : "var(--gp-land)"
                   }
                   stroke={
                     isMainTarget ? "rgba(37,99,235,0.4)"
-                    : isTradePartner ? "rgba(37,99,235,0.22)"
-                    : "var(--gp-border)"
+                      : isTradePartner ? "rgba(37,99,235,0.22)"
+                      : "var(--gp-border)"
                   }
                   strokeWidth={isMainTarget ? 0.55 : isTradePartner ? 0.4 : 0.3}
                   style={{ cursor: isMainTarget && view === "world" ? "pointer" : "default", transition: "fill 0.45s ease" }}
@@ -317,35 +490,66 @@ export default function GlobalPresence() {
               );
             })}
 
-            {/* Trade routes from China to all destinations */}
-            {view === "world" && tradeDestPx.map((dest, idx) => (
-              <TradeRoute
-                key={`route-${dest.id}`}
-                from={chinaPxWorld}
-                to={dest.px}
-                delay={idx * 0.07}
-                index={idx}
-              />
-            ))}
+            {/* Trade routes */}
+            {view === "world" && (
+              <>
+                {CHINA_DESTINATIONS.map(dest => {
+                  const destPx = destPxMap.get(dest.id).px;
+                  const isActive = (activeRoute.origin === "china" && activeRoute.dest.id === dest.id);
+                  return (
+                    <TradeRoute
+                      key={`china-${dest.id}`}
+                      from={chinaPxWorld}
+                      to={destPx}
+                      delay={0}
+                      isActive={isActive}
+                    />
+                  );
+                })}
+                {INDIA_DESTINATIONS.map(dest => {
+                  const destPx = destPxMap.get(dest.id).px;
+                  const isActive = (activeRoute.origin === "india" && activeRoute.dest.id === dest.id);
+                  return (
+                    <TradeRoute
+                      key={`india-${dest.id}`}
+                      from={indiaPxWorld}
+                      to={destPx}
+                      delay={0}
+                      isActive={isActive}
+                    />
+                  );
+                })}
+              </>
+            )}
 
             {/* Destination dots */}
-            {view === "world" && tradeDestPx.map((dest, idx) => (
-              <DestinationDot
-                key={`dest-dot-${dest.id}`}
-                px={dest.px}
-                label={dest.label}
-                delay={idx * 0.07}
-              />
-            ))}
+            {view === "world" && ALL_DESTINATIONS.map((dest, idx) => {
+              const destData = destPxMap.get(dest.id);
+              return (
+                <DestinationDot
+                  key={`dest-dot-${dest.id}`}
+                  px={destData.px}
+                  label={dest.label}
+                  delay={idx * 0.07}
+                  isActive={activeDestId === dest.id}
+                />
+              );
+            })}
 
-            {/* World markers (China & India clickable) */}
+            {/* World markers (China & India) */}
             {view === "world" && Object.entries(LOCATIONS).map(([region, loc]) => {
               const [mx, my] = project(loc.markerLonLat);
               return (
-                <g key={`marker-${region}`} transform={`translate(${mx}, ${my})`} onClick={() => goTo(region)} style={{ cursor: "pointer" }}>
+                <g
+                  key={`marker-${region}`}
+                  data-clickable="true"
+                  transform={`translate(${mx}, ${my})`}
+                  onClick={() => goTo(region)}
+                  style={{ cursor: "pointer" }}
+                >
                   <motion.g initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: soft }}>
                     <circle r={15} fill="none" stroke={GOLD} strokeWidth={0.9} opacity={0.2} className="gp-ring" />
-                    <circle r={9}  fill="none" stroke={GOLD} strokeWidth={1.1} opacity={0.38} className="gp-ring2" />
+                    <circle r={9} fill="none" stroke={GOLD} strokeWidth={1.1} opacity={0.38} className="gp-ring2" />
                     <circle r={4.5} fill={GOLD} className="gp-dot" style={{ filter: `drop-shadow(0 0 4px ${GOLD})` }} />
                     <text textAnchor="middle" y={22} fontSize={9} fill={GOLD_LIGHT} fontWeight={700} letterSpacing={0.9} fontFamily="inherit">
                       {loc.label}
@@ -355,13 +559,13 @@ export default function GlobalPresence() {
               );
             })}
 
-            {/* City pins - zoomed region view */}
+            {/* City pins for zoomed view */}
             {view !== "world" && cityPx[view]?.map((city, idx) => {
               const [px, py] = city.px;
-              const isHov    = hovered === city.id;
-              const stemY1   = city.labelBelow ?  3 : -3;
-              const stemY2   = city.labelBelow ? 13 : -13;
-              const labelY   = city.labelBelow ? 18 : -18;
+              const isHov = hovered === city.id;
+              const stemY1 = city.labelBelow ? 3 : -3;
+              const stemY2 = city.labelBelow ? 13 : -13;
+              const labelY = city.labelBelow ? 18 : -18;
               return (
                 <g key={`city-${city.id}`} transform={`translate(${px}, ${py}) scale(${pinScale})`}>
                   <motion.g
@@ -404,7 +608,9 @@ export default function GlobalPresence() {
             {view !== "world" && (
               <motion.div
                 key={`badge-${view}`}
-                initial={{ opacity: 0, x: -18 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -18 }}
+                initial={{ opacity: 0, x: -18 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -18 }}
                 transition={{ duration: 0.45, delay: 0.2, ease: soft }}
                 className="absolute top-4 left-4 md:top-6 md:left-6 z-20 flex items-center gap-2 rounded-[0.6rem] px-3 py-1.5"
                 style={{ background: "rgba(0,0,0,0.65)", border: "1px solid rgba(37,99,235,0.28)", backdropFilter: "blur(12px)" }}
@@ -417,15 +623,17 @@ export default function GlobalPresence() {
             )}
           </AnimatePresence>
 
-          {/* World hint */}
+          {/* World hint (now includes drag instruction) */}
           {view === "world" && (
             <motion.div
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
               className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 pointer-events-none"
             >
               <span className="w-[18px] h-px bg-gold opacity-35 block shrink-0" />
               <span className="text-[0.65rem] text-muted tracking-[0.14em] uppercase whitespace-nowrap">
-                Click a region to explore
+                Drag to pan • Click a region to explore
               </span>
               <span className="w-[18px] h-px bg-gold opacity-35 block shrink-0" />
             </motion.div>
@@ -441,23 +649,43 @@ export default function GlobalPresence() {
               style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(37,99,235,0.2)", backdropFilter: "blur(10px)" }}
             >
               <svg width="18" height="6" viewBox="0 0 18 6">
-                <line  x1="0" y1="3" x2="18" y2="3" stroke={BLUE} strokeWidth="1.2" strokeDasharray="4 3" strokeLinecap="round" opacity="0.7" />
+                <line x1="0" y1="3" x2="18" y2="3" stroke={BLUE} strokeWidth="1.2" strokeDasharray="4 3" strokeLinecap="round" opacity="0.7" />
               </svg>
-              <span className="text-[0.62rem] text-[#fff] tracking-[0.1em] uppercase">
-                Trade Routes
-              </span>
+              <span className="text-[0.62rem] text-[#fff] tracking-[0.1em] uppercase">Trade Routes</span>
             </motion.div>
+          )}
+
+          {/* Zoom buttons (only in world view) */}
+          {view === "world" && (
+            <div className="absolute bottom-4 right-4 z-20 flex gap-2">
+              <button
+                onClick={handleZoomIn}
+                className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-[rgba(37,99,235,0.4)] text-white text-lg font-bold flex items-center justify-center transition hover:bg-black/80"
+                aria-label="Zoom in"
+              >
+                +
+              </button>
+              <button
+                onClick={handleZoomOut}
+                className="w-8 h-8 rounded-full bg-black/60 backdrop-blur-md border border-[rgba(37,99,235,0.4)] text-white text-lg font-bold flex items-center justify-center transition hover:bg-black/80"
+                aria-label="Zoom out"
+              >
+                −
+              </button>
+            </div>
           )}
         </div>
 
-        {/* Nav buttons */}
+        {/* Navigation buttons for region view */}
         <AnimatePresence mode="wait">
           {(view === "india" || view === "china") && (
             <motion.div
               key={`nav-${view}`}
-              initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4, delay: 0.3 }}
-              className="absolute left-1/2 -translate-x-1/2 bottom-[-3.6rem] flex gap-2 flex-wrap justify-center w-full px-2"
+              className="mt-6 flex gap-2 flex-wrap justify-center w-full px-2"
             >
               <NavBtn onClick={() => goTo("world")} variant="ghost">← Global View</NavBtn>
               <NavBtn onClick={() => goTo(view === "india" ? "china" : "india")} variant="gold">
@@ -468,7 +696,6 @@ export default function GlobalPresence() {
         </AnimatePresence>
       </motion.div>
 
-      {/* ── Styles ── */}
       <style>{`
         :root {
           --gp-ocean:      #D8E8F0;
