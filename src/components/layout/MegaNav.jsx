@@ -222,11 +222,11 @@ export default function MegaNav() {
             <FaWhatsapp size={22} className="text-green-500" />
           </a>
           <Link href="/quote" className="px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">Get Free Quote</Link>
-          <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
+          {/* <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
             <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
             <div className="w-px h-7 bg-[rgba(37,99,235,0.2)]" />
             <button className="bg-transparent border-none text-muted  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200 hover:bg-[rgba(37,99,235,0.15)] hover:text-primary-light">中文</button>
-          </div>
+          </div> */}
           <ThemeToggle />
         </div>
 
@@ -354,11 +354,11 @@ export default function MegaNav() {
           </a>
           <div className="flex justify-center items-center gap-3 mt-1">
             <ThemeToggle />
-            <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
+            {/* <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
               <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
               <div className="w-px h-7 bg-[rgba(37,99,235,0.2)]" />
               <button className="bg-transparent border-none text-muted  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">中文</button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

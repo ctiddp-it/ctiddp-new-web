@@ -668,7 +668,12 @@ export default function ContactClient() {
                   </p>
                   <div className="text-xs text-muted"><div className="flex items-center gap-2">
                     <FaPhoneAlt />
-                    <span>Emergency: +91 87900 13772</span>
+                    <a
+                      href="tel:+918790013772"
+                      className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
+                    >
+                      +91 87900 13772
+                    </a>
 
                   </div></div>
                   <div className="text-[11px] text-muted/50 mt-1">🕐 24/7 for active shipments only</div>

@@ -37,7 +37,7 @@ const QUICK_LINKS = [
 
 const SOCIAL = [
   { label: 'Facebook', href: 'https://www.facebook.com/chinatoindiaddp', icon: <FaFacebookF /> },
-  { label: 'Youtube', href: 'https://www.youtube.com/@chinatoindiaddp', icon: <FaYoutube  /> },
+  { label: 'Youtube', href: 'https://www.youtube.com/@chinatoindiaddp', icon: <FaYoutube /> },
   { label: 'Instagram', href: 'https://www.instagram.com/chinatoindiaddp', icon: <FaInstagram /> },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/chinatoindiaddp', icon: <FaLinkedinIn /> },
 ];
@@ -216,8 +216,18 @@ export default function Footer() {
                 </IconBorderWrapper>
                 <div>
                   <p className="text-sm font-semibold text-[#FFFF] leading-tight">Call Us</p>
-                  <p className="text-xs text-gray-400 mt-0.5">+86 188 1874 9844</p>
-                  <p className="text-xs text-gray-400">+91 87900 13772</p>
+                  <a
+                    href="tel:+8618818749844"
+                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
+                  >
+                    +86 188 1874 9844
+                  </a>
+                  <a
+                    href="tel:+918790013772"
+                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
+                  >
+                    +91 87900 13772
+                  </a>
                 </div>
               </div>
 
@@ -353,8 +363,18 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">Call Us</p>
-                  <p className="text-xs text-gray-400">+86 188 1874 9844</p>
-                  <p className="text-xs text-gray-400">+91 87900 13772</p>
+                  <a
+                    href="tel:+8618818749844"
+                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
+                  >
+                    +86 188 1874 9844
+                  </a>
+                  <a
+                    href="tel:+918790013772"
+                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
+                  >
+                    +91 87900 13772
+                  </a>
                 </div>
               </div>
 
