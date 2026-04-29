@@ -6,10 +6,16 @@ import {
   FiFileText,
   FiTruck,
 } from "react-icons/fi";
+import {
+  PackageCheck,
+  SearchCheck,
+  ShieldCheck,
+} from "lucide-react";
 import { HiOutlineCalendarDays } from "react-icons/hi2";
 import { FaShip, FaPlane } from "react-icons/fa6";
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
+import TwoColumnSection from "@/components/sections/TwoColumnSection"
 
 export const metadata = {
   title: 'How DDP Shipping Works | Global Import Process',
@@ -68,6 +74,80 @@ const PROCESS_MAP = [
   { icon: <FiFileText />, label: 'India Customs', sub: '9–15 days' },
   { icon: <FiTruck />, label: 'Last Mile', sub: 'Delivery' },
 ]
+
+export const CTIDDP_CONTENT1 = {
+  badge: "Delivered Duty Paid",
+  title: "Complete Door-to-Door Import Solution",
+  subtitle: "Cross Border Trade International",
+
+  description:
+    "Cross Border Trade International Delivered Duty Paid (CTIDDP) simplifies global sourcing by offering a complete Door-to-Door Service that transforms complex international shipping into a smooth, predictable experience. From the moment your supplier in China confirms production, our process begins with vendor coordination, pricing validation, and a detailed breakdown of your Landed Cost, so you know exactly what you'll pay before your shipment even leaves the factory.",
+
+  features: [
+    {
+      title: "Hassle-Free Logistics",
+      description:
+        "Unlike traditional freight models that leave you dealing with multiple agents, hidden charges, and confusing customs procedures, our approach is built around simplicity.",
+      icon: "package-check",
+    },
+    {
+      title: "Complete Transparency",
+      description:
+        "Every shipment is carefully documented, verified, and prepared for international transit, ensuring there are no surprises during export.",
+      icon: "search-check",
+    },
+    {
+      title: "Fully Managed Import Solution",
+      description:
+        "By integrating logistics, compliance, and cost control into one streamlined workflow, we eliminate the need for you to coordinate with multiple vendors.",
+      icon: "shield-check",
+    },
+  ],
+
+  closing:
+    "This is not just shipping - it's a fully managed import solution where your time is protected, your risks are minimized, and your business can scale without logistical barriers.",
+
+  imageSrc: "/stock-logistics.jpg",
+  imageAlt: "Global logistics and supply chain management",
+  overlayLabel: "Global Network",
+};
+
+export const CTIDDP_CONTENT2 = {
+  badge: "Delivered Duty Paid",
+  title: "End-to-End Import Clearance & Final Delivery",
+  subtitle: "Cross Border Trade International",
+
+  description:
+    "Once your cargo is in transit, Cross Border Trade International Delivered Duty Paid (CTIDDP) continues managing every stage until final delivery in India. Our team handles import customs clearance, duty payments, GST processing, and regulatory documentation to ensure complete compliance with Indian import laws. Through our structured Door-to-Door Service model, importers avoid delays, unexpected costs, and operational complexity while maintaining full visibility throughout the shipping journey.",
+
+  features: [
+    {
+      title: "Customs & Compliance Management",
+      description:
+        "We manage import customs clearance, duty payments, GST processing, and all required documentation to ensure your shipment complies with Indian import regulations without delays.",
+      icon: "clipboard-check",
+    },
+    {
+      title: "Predictable Landed Costs",
+      description:
+        "All logistics expenses are pre-calculated and managed upfront, helping you eliminate hidden charges, reduce uncertainty, and protect your profit margins.",
+      icon: "globe",
+    },
+    {
+      title: "Warehouse & Last-Mile Delivery",
+      description:
+        "After customs clearance, shipments move through inspection, sorting, and coordinated last-mile delivery before reaching your warehouse or doorstep anywhere in India.",
+      icon: "truck",
+    },
+  ],
+
+  closing:
+    "CTIDDP is designed to remove friction from global trade by offering a single point of responsibility from factory pickup to final delivery. Whether you import for manufacturing, retail, or eCommerce, our streamlined logistics system helps you scale confidently with speed, reliability, and complete peace of mind.",
+
+  imageSrc: "/stock-logistics.jpg",
+  imageAlt: "Global logistics and supply chain management",
+  overlayLabel: "Seamless Delivery",
+};
 
 function StepItem({ s }) {
   return (
@@ -258,6 +338,14 @@ export default function HowItWorksPage() {
           </div>
         </section>
 
+        <TwoColumnSection
+          {...CTIDDP_CONTENT1}
+          initialLayout="content-right"
+          showToggle={false}
+          imageSrc="/images/howitworks/landed-cost-logistics-india-delivery-ctiddp.jpg"
+          imageAlt="Global cargo shipping"
+        />
+
         {/* Phases Section */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[80px] bg-black">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
@@ -291,6 +379,14 @@ export default function HowItWorksPage() {
             </div>
           </div>
         </section>
+
+        <TwoColumnSection
+          {...CTIDDP_CONTENT2}
+          initialLayout="content-left"
+          showToggle={false}
+          imageSrc="/images/howitworks/door-to-door-service-china-india-ctiddp.jpg"
+          imageAlt="Global Delivery"
+        />
 
         {/* Transit Timelines */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[80px] bg-deep">
