@@ -1,6 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import {
   FaShip,
   FaPlane,
@@ -15,96 +17,92 @@ import { FaCheckCircle } from "react-icons/fa";
 import { GiCargoShip } from "react-icons/gi";
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
+import { quoteSchema } from '@/lib/forms/schemas'
+import { submitForm } from '@/lib/forms/submitForm'
 
 export default function GetQuoteClient() {
   const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
-  const [formData, setFormData] = useState({
-    name: '',
-    companyName: '',
-    contactNumber: '',
-    email: '',
-    productCategory: '',
-    hsCode: '',
-    serviceType: 'sourcing_shipping',
-    productBudget: '',
-    supplierDetails: {
-      supplierName: '',
-      supplierContactDetails: '',
-    },
-    deliveryLocation: '',
-    estimatedWeightKg: '',
-    estimatedVolumeCBM: '',
-    invoiceValue: '',
-    additionalNotes: '',
-  })
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
-  const handleChange = (event) => {
-    const { name, value } = event.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSupplierChange = (event) => {
-    const { name, value } = event.target
-    setFormData((prev) => ({
-      ...prev,
+  const defaultValues = useMemo(
+    () => ({
+      name: '',
+      companyName: '',
+      contactNumber: '',
+      email: '',
+      productCategory: '',
+      hsCode: '',
+      serviceType: undefined,
+      productBudget: '',
       supplierDetails: {
-        ...prev.supplierDetails,
-        [name]: value,
+        supplierName: '',
+        supplierContactDetails: '',
       },
-    }))
-  }
+      deliveryLocation: '',
+      estimatedWeightKg: '',
+      estimatedVolumeCBM: '',
+      invoiceValue: '',
+      additionalNotes: '',
+    }),
+    []
+  )
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    setSubmitting(true)
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(quoteSchema),
+    defaultValues,
+    mode: 'onBlur',
+  })
+
+  const serviceType = watch('serviceType')
+
+  const onSubmit = async (values) => {
     setError('')
-    try {
-      const payload = {
-        name: formData.name,
-        companyName: formData.companyName || undefined,
-        contactNumber: formData.contactNumber,
-        email: formData.email || undefined,
-        productCategory: formData.productCategory,
-        hsCode: formData.hsCode || undefined,
-        serviceType: formData.serviceType,
-        productBudget:
-          formData.serviceType === 'sourcing_shipping' && formData.productBudget
-            ? Number(formData.productBudget)
-            : undefined,
-        supplierDetails:
-          formData.serviceType === 'only_shipping'
-            ? {
-                supplierName: formData.supplierDetails.supplierName,
-                supplierContactDetails: formData.supplierDetails.supplierContactDetails,
-              }
-            : undefined,
-        deliveryLocation: formData.deliveryLocation,
-        estimatedWeightKg: Number(formData.estimatedWeightKg),
-        estimatedVolumeCBM: Number(formData.estimatedVolumeCBM),
-        invoiceValue: formData.invoiceValue ? Number(formData.invoiceValue) : undefined,
-        additionalNotes: formData.additionalNotes || undefined,
-      }
 
-      const response = await fetch(`${API_BASE}/crm/leads`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
+    const supplierName = values?.supplierDetails?.supplierName
+    const supplierContactDetails = values?.supplierDetails?.supplierContactDetails
+    const supplierDetails =
+      supplierName || supplierContactDetails
+        ? { supplierName, supplierContactDetails }
+        : undefined
 
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}))
-        throw new Error(body.message || 'Unable to submit quote request')
-      }
-      setSubmitted(true)
-    } catch (submitError) {
-      setError(submitError.message || 'Unable to submit quote request')
-    } finally {
-      setSubmitting(false)
+    const payload = {
+      name: values.name,
+      companyName: values.companyName,
+      contactNumber: values.contactNumber,
+      email: values.email,
+      productCategory: values.productCategory,
+      hsCode: values.hsCode,
+      serviceType: values.serviceType,
+      productBudget: values.productBudget,
+      supplierDetails,
+      deliveryLocation: values.deliveryLocation,
+      estimatedWeightKg: values.estimatedWeightKg,
+      estimatedVolumeCBM: values.estimatedVolumeCBM,
+      invoiceValue: values.invoiceValue,
+      additionalNotes: values.additionalNotes,
     }
+
+    const result = await submitForm({
+      baseUrl: API_BASE,
+      path: '/crm/leads',
+      payload,
+    })
+
+    if (!result.ok) {
+      setError(result.message || 'Something went wrong. Please try again.')
+      return
+    }
+
+    setSubmitted(true)
+    reset(defaultValues)
   }
 
   return (
@@ -201,167 +199,184 @@ export default function GetQuoteClient() {
                   </div>
                 </div>
 
-                <form className="grid grid-cols-1 sm:grid-cols-2 gap-3.5" onSubmit={handleSubmit}>
+                <form className="grid grid-cols-1 sm:grid-cols-2 gap-3.5" onSubmit={handleSubmit(onSubmit)} noValidate>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Your Name *</label>
                     <input
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
+                      {...register('name')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="Full name"
                     />
+                    {errors?.name ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.name.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Company Name</label>
                     <input
                       name="companyName"
-                      value={formData.companyName}
-                      onChange={handleChange}
+                      {...register('companyName')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="Your company"
                     />
+                    {errors?.companyName ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.companyName.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Contact Number *</label>
                     <input
                       name="contactNumber"
-                      value={formData.contactNumber}
-                      onChange={handleChange}
-                      required
+                      {...register('contactNumber')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="+91 XXXXX XXXXX"
                     />
+                    {errors?.contactNumber ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.contactNumber.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Email</label>
                     <input
                       type="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
+                      {...register('email')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="you@company.com"
                     />
+                    {errors?.email ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.email.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-2">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Product Name / Cargo Category *</label>
                     <input
                       name="productCategory"
-                      value={formData.productCategory}
-                      onChange={handleChange}
-                      required
+                      {...register('productCategory')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="e.g. LED lighting, textiles, machine parts…"
                     />
+                    {errors?.productCategory ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.productCategory.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Service Type *</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Service Type</label>
                     <select
                       name="serviceType"
-                      value={formData.serviceType}
-                      onChange={handleChange}
-                      required
+                      {...register('serviceType')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none focus:border-blue transition-colors"
                     >
-                      <option value="sourcing_shipping">Sourcing + Shipping</option>
-                      <option value="only_shipping">Only Shipping</option>
+                      <option value="" className="bg-[#0a0a0a]">Select (optional)</option>
+                      <option value="sourcing_shipping" className="bg-[#0a0a0a]">Sourcing + Shipping</option>
+                      <option value="only_shipping" className="bg-[#0a0a0a]">Only Shipping</option>
                     </select>
+                    {errors?.serviceType ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.serviceType.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Delivery Location *</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Delivery Location</label>
                     <input
                       name="deliveryLocation"
-                      value={formData.deliveryLocation}
-                      onChange={handleChange}
-                      required
+                      {...register('deliveryLocation')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="City / State / Pincode"
                     />
+                    {errors?.deliveryLocation ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.deliveryLocation.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Estimated Weight (KG) *</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Estimated Weight (KG)</label>
                     <input
                       type="number"
                       name="estimatedWeightKg"
-                      value={formData.estimatedWeightKg}
-                      onChange={handleChange}
-                      required
+                      {...register('estimatedWeightKg')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="e.g. 500"
                     />
+                    {errors?.estimatedWeightKg ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.estimatedWeightKg.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
-                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Estimated Volume (CBM) *</label>
+                    <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Estimated Volume (CBM)</label>
                     <input
                       type="number"
                       name="estimatedVolumeCBM"
-                      value={formData.estimatedVolumeCBM}
-                      onChange={handleChange}
-                      required
+                      {...register('estimatedVolumeCBM')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="e.g. 5"
                     />
+                    {errors?.estimatedVolumeCBM ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.estimatedVolumeCBM.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Product HS Code</label>
                     <input
                       name="hsCode"
-                      value={formData.hsCode}
-                      onChange={handleChange}
+                      {...register('hsCode')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="Optional HS code"
                     />
+                    {errors?.hsCode ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.hsCode.message}</p>
+                    ) : null}
                   </div>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Invoice Value</label>
                     <input
                       type="number"
                       name="invoiceValue"
-                      value={formData.invoiceValue}
-                      onChange={handleChange}
+                      {...register('invoiceValue')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                       placeholder="Optional invoice value"
                     />
+                    {errors?.invoiceValue ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.invoiceValue.message}</p>
+                    ) : null}
                   </div>
-                  {formData.serviceType === 'sourcing_shipping' && (
+                  {serviceType === 'sourcing_shipping' && (
                     <div className="sm:col-span-2">
-                      <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Product Expected Budget *</label>
+                      <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Product Expected Budget</label>
                       <input
                         type="number"
                         name="productBudget"
-                        value={formData.productBudget}
-                        onChange={handleChange}
-                        required
+                        {...register('productBudget')}
                         className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                         placeholder="Expected budget"
                       />
+                      {errors?.productBudget ? (
+                        <p className="mt-1 text-[11px] text-red-400">{errors.productBudget.message}</p>
+                      ) : null}
                     </div>
                   )}
-                  {formData.serviceType === 'only_shipping' && (
+                  {serviceType === 'only_shipping' && (
                     <>
                       <div className="sm:col-span-1">
-                        <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Supplier Name *</label>
+                        <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Supplier Name</label>
                         <input
-                          name="supplierName"
-                          value={formData.supplierDetails.supplierName}
-                          onChange={handleSupplierChange}
-                          required
+                          {...register('supplierDetails.supplierName')}
                           className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                           placeholder="Supplier name"
                         />
+                        {errors?.supplierDetails?.supplierName ? (
+                          <p className="mt-1 text-[11px] text-red-400">{errors.supplierDetails.supplierName.message}</p>
+                        ) : null}
                       </div>
                       <div className="sm:col-span-1">
-                        <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Supplier Contact Details *</label>
+                        <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Supplier Contact Details</label>
                         <input
-                          name="supplierContactDetails"
-                          value={formData.supplierDetails.supplierContactDetails}
-                          onChange={handleSupplierChange}
-                          required
+                          {...register('supplierDetails.supplierContactDetails')}
                           className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
                           placeholder="Supplier phone/email"
                         />
+                        {errors?.supplierDetails?.supplierContactDetails ? (
+                          <p className="mt-1 text-[11px] text-red-400">{errors.supplierDetails.supplierContactDetails.message}</p>
+                        ) : null}
                       </div>
                     </>
                   )}
@@ -369,21 +384,23 @@ export default function GetQuoteClient() {
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Additional Notes</label>
                     <textarea
                       name="additionalNotes"
-                      value={formData.additionalNotes}
-                      onChange={handleChange}
+                      {...register('additionalNotes')}
                       className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors resize-y"
                       placeholder="HS code (if known), special handling, urgent timeline…"
                       rows={3}
                     />
+                    {errors?.additionalNotes ? (
+                      <p className="mt-1 text-[11px] text-red-400">{errors.additionalNotes.message}</p>
+                    ) : null}
                   </div>
                   {error ? <p className="sm:col-span-2 text-xs text-red-400">{error}</p> : null}
                   <div className="sm:col-span-2">
                     <button
                       type="submit"
-                      disabled={submitting}
+                      disabled={isSubmitting}
                       className="mt-1 w-full bg-linear-to-br from-blue-600 to-cyan-500 text-[#FFFFFF] py-3 rounded-[3px] text-xs font-bold tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none disabled:opacity-70"
                     >
-                      {submitting ? 'Submitting...' : 'Submit Quote Request →'}
+                      {isSubmitting ? 'Submitting...' : 'Submit Quote Request →'}
                     </button>
                   </div>
                 </form>

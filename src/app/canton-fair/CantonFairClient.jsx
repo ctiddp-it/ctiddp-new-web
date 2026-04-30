@@ -1,19 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { FaWhatsapp } from 'react-icons/fa6'
+import { cantonFairSchema } from '@/lib/forms/schemas'
+import { submitForm } from '@/lib/forms/submitForm'
 
 export default function CantonFairClient() {
-  const [formData, setFormData] = useState({
-    name: '',
-    contactNumber: '',
-    email: '',
-    visitDate: '',
-    categories: '',
-    attendSolo: '',
-    message: '',
-  })
-  const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
 
@@ -23,31 +17,46 @@ export default function CantonFairClient() {
   const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
 
 
-  const handleChange = (event) => {
-    const { name, value } = event.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const defaultValues = useMemo(
+    () => ({
+      name: '',
+      contactNumber: '',
+      email: '',
+      visitDate: '',
+      categories: '',
+      attendSolo: undefined,
+      message: '',
+    }),
+    []
+  )
 
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    setSubmitting(true)
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(cantonFairSchema),
+    defaultValues,
+    mode: 'onBlur',
+  })
+
+  const onSubmit = async (values) => {
     setError('')
-    try {
-      const response = await fetch(`${API_BASE}/canton-fair`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}))
-        throw new Error(body.message || 'Unable to submit Canton Fair request')
-      }
-      setSubmitted(true)
-    } catch (submitError) {
-      setError(submitError.message || 'Unable to submit Canton Fair request')
-    } finally {
-      setSubmitting(false)
+
+    const result = await submitForm({
+      baseUrl: API_BASE,
+      path: '/canton-fair',
+      payload: values,
+    })
+
+    if (!result.ok) {
+      setError(result.message || 'Something went wrong. Please try again.')
+      return
     }
+
+    setSubmitted(true)
+    reset(defaultValues)
   }
 
   return (
@@ -73,7 +82,7 @@ export default function CantonFairClient() {
         <div className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-6 sm:p-10">
           {!submitted ? (
             <>
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 sm:grid-cols-2 gap-5" noValidate>
 
                 {/* Name */}
                 <div className="sm:col-span-1">
@@ -81,13 +90,14 @@ export default function CantonFairClient() {
                     Full Name *
                   </label>
                   <input
-                    required
                     name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    {...register('name')}
                     placeholder="Your name"
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] placeholder:text-muted/40 transition-colors duration-150"
                   />
+                  {errors?.name ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.name.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Contact Number */}
@@ -96,13 +106,14 @@ export default function CantonFairClient() {
                     WhatsApp / Phone *
                   </label>
                   <input
-                    required
                     name="contactNumber"
-                    value={formData.contactNumber}
-                    onChange={handleChange}
+                    {...register('contactNumber')}
                     placeholder="+91 XXXXX XXXXX"
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] placeholder:text-muted/40 transition-colors duration-150"
                   />
+                  {errors?.contactNumber ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.contactNumber.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Email */}
@@ -111,14 +122,15 @@ export default function CantonFairClient() {
                     Email Address *
                   </label>
                   <input
-                    required
                     type="email"
                     name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    {...register('email')}
                     placeholder="you@company.com"
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] placeholder:text-muted/40 transition-colors duration-150"
                   />
+                  {errors?.email ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.email.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Date of Visit */}
@@ -127,14 +139,15 @@ export default function CantonFairClient() {
                     Planned Visit Date *
                   </label>
                   <input
-                    required
                     type="date"
                     name="visitDate"
-                    value={formData.visitDate}
-                    onChange={handleChange}
+                    {...register('visitDate')}
                     min="2026-04-15"
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] placeholder:text-muted/40 transition-colors duration-150 [color-scheme:dark]"
                   />
+                  {errors?.visitDate ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.visitDate.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Product Categories */}
@@ -144,11 +157,13 @@ export default function CantonFairClient() {
                   </label>
                   <input
                     name="categories"
-                    value={formData.categories}
-                    onChange={handleChange}
+                    {...register('categories')}
                     placeholder="e.g. Electronics, Textiles"
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] placeholder:text-muted/40 transition-colors duration-150"
                   />
+                  {errors?.categories ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.categories.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Attending Solo */}
@@ -158,14 +173,16 @@ export default function CantonFairClient() {
                   </label>
                   <select
                     name="attendSolo"
-                    value={formData.attendSolo}
-                    onChange={handleChange}
+                    {...register('attendSolo')}
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] transition-colors duration-150 [color-scheme:dark]"
                   >
                     <option value="" className="bg-[#0a0a0a]">Select an option</option>
                     <option value="attend-with-team" className="bg-[#0a0a0a]">Yes - I'll attend with your team</option>
                     <option value="team-solo" className="bg-[#0a0a0a]">No - Your team represents me solo</option>
                   </select>
+                  {errors?.attendSolo ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.attendSolo.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Message */}
@@ -175,12 +192,14 @@ export default function CantonFairClient() {
                   </label>
                   <textarea
                     name="message"
-                    value={formData.message}
-                    onChange={handleChange}
+                    {...register('message')}
                     rows={3}
                     placeholder="Specific products, supplier requirements, QC criteria…"
                     className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] focus:border-[rgba(37,99,235,0.55)] focus:outline-none rounded-[3px] px-4 py-2.5 text-white text-[13px] placeholder:text-muted/40 transition-colors duration-150 resize-none"
                   />
+                  {errors?.message ? (
+                    <p className="mt-1 text-[11px] text-red-400">{errors.message.message}</p>
+                  ) : null}
                 </div>
 
                 {/* Error */}
@@ -194,10 +213,10 @@ export default function CantonFairClient() {
                 <div className="sm:col-span-2 flex gap-3 flex-wrap items-center">
                   <button
                     type="submit"
-                    disabled={submitting}
+                    disabled={isSubmitting}
                     className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02]"
                   >
-                    {submitting ? 'Submitting…' : 'Reserve My Support Slot →'}
+                    {isSubmitting ? 'Submitting…' : 'Reserve My Support Slot →'}
                   </button>
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}

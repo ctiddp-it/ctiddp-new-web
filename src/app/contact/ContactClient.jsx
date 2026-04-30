@@ -4,9 +4,13 @@ import { FaWhatsapp, FaCircleQuestion, FaBoxOpen, FaScaleBalanced, FaStore, FaCl
 import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import { MdEmergency } from "react-icons/md";
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
+import { CONTACT_SUBJECTS, CONTACT_TIME_SLOTS, contactSchema } from '@/lib/forms/schemas'
+import { submitForm } from '@/lib/forms/submitForm'
 
 const CONTACT_CHANNELS = [
   {
@@ -33,16 +37,7 @@ const SLAS = [
   { label: 'Shipment Escalation', val: '2-hour SLA', color: '#F87171' },
 ]
 
-const SUBJECTS = [
-  'New Shipment Enquiry',
-  'Existing Shipment Update',
-  'Quote Request',
-  'Canton Fair Support',
-  'Partnership / Agency',
-  'General Question',
-  'Complaint / Feedback',
-  'Others',
-]
+const SUBJECTS = CONTACT_SUBJECTS
 
 // Time slots configuration
 const TIME_SLOTS = [
@@ -258,23 +253,42 @@ const CategoryAccordion = ({ category, isCategoryOpen, onCategoryToggle, openIte
 
 export default function ContactClient() {
   const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
-  const [scheduleCall, setScheduleCall] = useState(false)
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedSlot, setSelectedSlot] = useState('')
   const [availableSlots, setAvailableSlots] = useState([])
 
-  // Form data state
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    subject: SUBJECTS[0],
-    message: ''
-  })
   const API_BASE = process.env.NEXT_PUBLIC_API_URL;
+
+  const defaultValues = useMemo(
+    () => ({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      subject: SUBJECTS[0],
+      message: '',
+      wantsCall: false,
+      callDate: '',
+      callTimeSlot: '',
+    }),
+    []
+  )
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues,
+    mode: 'onBlur',
+  })
+
+  const scheduleCall = watch('wantsCall')
 
   // Accordion state
   const [openCategories, setOpenCategories] = useState({
@@ -301,18 +315,15 @@ export default function ContactClient() {
     }))
   }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
   const handleDateChange = (e) => {
     const date = e.target.value
     setSelectedDate(date)
+    setValue('callDate', date, { shouldValidate: true })
     if (date) {
       const slots = getAvailableSlotsForDate(new Date(date))
       setAvailableSlots(slots)
       setSelectedSlot('')
+      setValue('callTimeSlot', '', { shouldValidate: true })
     } else {
       setAvailableSlots([])
     }
@@ -320,41 +331,43 @@ export default function ContactClient() {
 
   const handleSlotSelect = (slot) => {
     setSelectedSlot(slot)
+    setValue('callTimeSlot', slot, { shouldValidate: true })
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setSubmitting(true)
+  const onSubmit = async (values) => {
     setSubmitError('')
     try {
       const payload = {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-        companyName: formData.company || undefined,
-        phone: formData.phone || undefined,
-        subject: formData.subject,
-        wantsCall: scheduleCall,
-        callDate: scheduleCall ? selectedDate : undefined,
-        callTimeSlot: scheduleCall ? selectedSlot : undefined,
+        name: values.name,
+        email: values.email,
+        message: values.message,
+        companyName: values.company || undefined,
+        phone: values.phone || undefined,
+        subject: values.subject,
+        wantsCall: Boolean(values.wantsCall),
+        callDate: values.wantsCall ? values.callDate : undefined,
+        callTimeSlot: values.wantsCall ? values.callTimeSlot : undefined,
       }
 
-      const response = await fetch(`${API_BASE}/contact-us`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+      const result = await submitForm({
+        baseUrl: API_BASE,
+        path: '/contact-us',
+        payload,
       })
 
-      if (!response.ok) {
-        const body = await response.json().catch(() => ({}))
-        throw new Error(body.message || 'Unable to submit contact request')
+      if (!result.ok) {
+        throw new Error(result.message || 'Something went wrong. Please try again.')
       }
 
+      // keep these for the success message render
+      if (values.wantsCall) {
+        setSelectedDate(values.callDate || '')
+        setSelectedSlot(values.callTimeSlot || '')
+      }
       setSubmitted(true)
+      reset(defaultValues)
     } catch (error) {
       setSubmitError(error.message || 'Unable to submit contact request')
-    } finally {
-      setSubmitting(false)
     }
   }
 
@@ -462,7 +475,7 @@ export default function ContactClient() {
 
               {/* Form Section */}
               {!submitted ? (
-                <form onSubmit={handleSubmit} className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-6 sm:p-7">
+                <form onSubmit={handleSubmit(onSubmit)} className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-6 sm:p-7" noValidate>
                   <div className="font-heading text-xl font-semibold text-blue-light mb-5">Send Us a Message</div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="sm:col-span-1">
@@ -470,69 +483,66 @@ export default function ContactClient() {
                       <input
                         type="text"
                         name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
+                        {...register('name')}
                         placeholder="Your name"
-                        required
                         className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
                       />
+                      {errors?.name ? <p className="text-[11px] text-red-400 mt-1">{errors.name.message}</p> : null}
                     </div>
                     <div className="sm:col-span-1">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Company</label>
                       <input
                         type="text"
                         name="company"
-                        value={formData.company}
-                        onChange={handleInputChange}
+                        {...register('company')}
                         placeholder="Company name"
                         className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
                       />
+                      {errors?.company ? <p className="text-[11px] text-red-400 mt-1">{errors.company.message}</p> : null}
                     </div>
                     <div className="sm:col-span-2">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Email *</label>
                       <input
                         type="email"
                         name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
+                        {...register('email')}
                         placeholder="your@email.com"
-                        required
                         className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
                       />
+                      {errors?.email ? <p className="text-[11px] text-red-400 mt-1">{errors.email.message}</p> : null}
                     </div>
                     <div className="sm:col-span-1">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Phone / WhatsApp</label>
                       <input
                         type="tel"
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
+                        {...register('phone')}
                         placeholder="+91 or +86"
                         className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
                       />
+                      {errors?.phone ? <p className="text-[11px] text-red-400 mt-1">{errors.phone.message}</p> : null}
                     </div>
                     <div className="sm:col-span-1">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Subject</label>
                       <select
                         name="subject"
-                        value={formData.subject}
-                        onChange={handleInputChange}
+                        {...register('subject')}
                         className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
                       >
                         {SUBJECTS.map(s => <option key={s}>{s}</option>)}
                       </select>
+                      {errors?.subject ? <p className="text-[11px] text-red-400 mt-1">{errors.subject.message}</p> : null}
                     </div>
                     <div className="sm:col-span-2">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Message *</label>
                       <textarea
                         name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
+                        {...register('message')}
                         placeholder="How can we help you?"
                         rows={4}
-                        required
                         className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors resize-none"
                       />
+                      {errors?.message ? <p className="text-[11px] text-red-400 mt-1">{errors.message.message}</p> : null}
                     </div>
 
                     {/* Schedule a Call Checkbox */}
@@ -540,13 +550,15 @@ export default function ContactClient() {
                       <label className="flex items-center gap-3 cursor-pointer group">
                         <input
                           type="checkbox"
-                          checked={scheduleCall}
+                          checked={Boolean(scheduleCall)}
                           onChange={(e) => {
-                            setScheduleCall(e.target.checked)
+                            setValue('wantsCall', e.target.checked, { shouldValidate: true })
                             if (!e.target.checked) {
                               setSelectedDate('')
                               setSelectedSlot('')
                               setAvailableSlots([])
+                              setValue('callDate', '', { shouldValidate: true })
+                              setValue('callTimeSlot', '', { shouldValidate: true })
                             }
                           }}
                           className="w-4 h-4 rounded border-[rgba(37,99,235,0.3)] bg-transparent checked:bg-gold checked:border-gold focus:ring-gold focus:ring-offset-0 focus:ring-1 cursor-pointer"
@@ -574,6 +586,7 @@ export default function ContactClient() {
                             max={maxDate}
                             className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
                           />
+                          {errors?.callDate ? <p className="text-[11px] text-red-400 mt-1">{errors.callDate.message}</p> : null}
                           {selectedDate && (
                             <p className="text-[10px] text-muted mt-1">
                               Working days: Mon-Fri (9AM-6PM) | Sat (9AM-1:30PM)
@@ -600,6 +613,7 @@ export default function ContactClient() {
                                 </button>
                               ))}
                             </div>
+                            {errors?.callTimeSlot ? <p className="text-[11px] text-red-400 mt-2">{errors.callTimeSlot.message}</p> : null}
                           </div>
                         )}
 
@@ -621,10 +635,10 @@ export default function ContactClient() {
 
                   <button
                     type="submit"
-                    disabled={submitting}
+                    disabled={isSubmitting}
                     className="w-full mt-6 bg-linear-to-br from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none"
                   >
-                    {submitting ? 'Sending...' : 'Send Message →'}
+                    {isSubmitting ? 'Sending...' : 'Send Message →'}
                   </button>
                   {submitError ? <p className="text-xs text-red-400 mt-3">{submitError}</p> : null}
                 </form>

@@ -66,3 +66,164 @@ Resolves Search Console issues:
 “Alternate page with proper canonical tag”
 Improves indexing, canonical clarity, and SEO structure
 Enables full crawlability of newly added service pages
+
+
+
+
+# Frontend Forms Upgrade — Dev Notes
+
+## Overview
+Refactored and standardized all public website forms using a shared architecture based on:
+
+- React Hook Form
+- Zod validation
+- Shared submit utilities
+- Consistent UX/error handling
+
+Forms covered:
+- Contact Form
+- Quote Form
+- Canton Fair Form
+
+---
+
+# Shared Form Architecture
+
+## Added Shared Utilities
+
+### Files
+- `src/lib/forms/common.js`
+- `src/lib/forms/schemas.js`
+- `src/lib/forms/submitForm.js`
+
+### Purpose
+Centralize:
+- validation rules
+- sanitization helpers
+- regex patterns
+- API submission handling
+- reusable form schemas
+
+This reduces duplicated validation logic across forms.
+
+---
+
+# Validation Improvements
+
+## Implemented via Zod
+
+### Common Rules
+- required validation
+- trim handling
+- min/max length validation
+- regex validation
+- email validation
+- phone validation
+- enum validation
+- no-HTML/script injection prevention
+
+### Benefits
+- consistent validation behavior
+- safer inputs
+- cleaner form components
+- scalable architecture
+
+---
+
+# React Hook Form Integration
+
+All forms migrated to:
+- `react-hook-form`
+- `@hookform/resolvers/zod`
+
+### Benefits
+- reduced rerenders
+- cleaner state management
+- better performance
+- easier error handling
+
+---
+
+# UX Improvements
+
+## Loading States
+Used:
+```js
+formState.isSubmitting
+```
+
+### Behavior
+- disables submit button
+- prevents accidental double submissions
+- improves UX clarity
+
+---
+
+## Error Handling
+
+### Before
+Raw backend/server errors could surface.
+
+### Now
+Only safe user-friendly messages are shown.
+
+Example:
+```txt
+Something went wrong. Please try again later.
+```
+
+---
+
+## Success States
+
+Improved success feedback shown after valid submission.
+
+---
+
+# Quote Form Changes
+
+Updated Quote form fields to optional:
+
+- service type
+- delivery location
+- estimated weight
+- estimated volume
+- product expected budget
+- supplier name
+- supplier contact details
+
+Updated:
+- frontend schema
+- form UI behavior
+- backend model compatibility
+
+---
+
+# ESLint Fix
+
+## Problem
+Lint setup became incompatible due to config/version mismatch.
+
+## Fix
+- migrated to working flat-config setup
+- configured `@next/eslint-plugin-next`
+- ignored `.next/`
+- aligned ESLint/plugin versions
+
+Result:
+```bash
+npm run lint
+```
+works successfully again.
+
+---
+
+# Future Improvements
+
+## Recommended Next Steps
+- add Cloudflare Turnstile
+- add analytics tracking
+- add form abandonment tracking
+- add reusable field components
+- add admin lead dashboard
+- add toast notification abstraction
