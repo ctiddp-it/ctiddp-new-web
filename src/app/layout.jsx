@@ -50,7 +50,7 @@ export const metadata = {
       'End-to-end China to India DDP shipping. Sea & air freight, customs clearance, last-mile PAN-India. All duties pre-paid. Zero surprises.',
     images: [
       {
-        url: 'https://www.ctiddp.com/og-image.jpg',
+        url: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
         width: 1200,
         height: 630,
         alt: 'CTIDDP - China to India DDP Shipping',
@@ -61,12 +61,12 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'CTIDDP - China to India DDP Shipping',
     description: 'End-to-end DDP freight. All duties pre-paid. Zero surprises.',
-    images: ['https://www.ctiddp.com/og-image.jpg'],
+    images: ['https://www.ctiddp.com/images/CTIDDP-logo.png'],
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/images/CTIDDP-logo.png',
+    shortcut: '/images/CTIDDP-logo.png',
+    apple: '/images/CTIDDP-logo.png',
   },
 };
 
@@ -127,6 +127,7 @@ export default function RootLayout({ children }) {
                   '@id': 'https://www.ctiddp.com/#organization',
                   name: 'CTIDDP',
                   url: 'https://www.ctiddp.com/',
+                  logo: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
                   description: 'Cross Border Trade International DDP Specialists',
                   contactPoint: [
                     {

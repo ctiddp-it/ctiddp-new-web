@@ -124,7 +124,7 @@ export default function TrackingWidget() {
 
         {/* Bottom */}
         <div className="text-center mt-8">
-          <Link href="/track" className="text-blue-light text-[13px] no-underline border-b border-[rgba(37,99,235,0.4)] cursor-none transition-all duration-200 hover:border-gold">Open Full Tracker →</Link>
+          <Link href="/contact" className="text-blue-light text-[13px] no-underline border-b border-[rgba(37,99,235,0.4)] cursor-none transition-all duration-200 hover:border-gold">Contact Team for Tracking Support →</Link>
         </div>
       </div>
     </section>

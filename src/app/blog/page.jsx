@@ -159,10 +159,10 @@ export default function InsightsPage() {
                   {POSTS[0].excerpt}
                 </p>
                 <Link
-                  href={`/blog/${POSTS[0].slug}`}
+                  href="/contact"
                   className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-5 sm:px-6 py-2.5 rounded-[3px] font-bold text-xs tracking-[0.8px] uppercase transition-all hover:scale-[1.02] cursor-none"
                 >
-                  Read Guide →
+                  Request This Guide →
                 </Link>
               </div>
             </div>
@@ -176,7 +176,7 @@ export default function InsightsPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {POSTS.slice(1).map(post => (
-                <Link key={post.slug} href={`/blog/${post.slug}`} className="no-underline group">
+                <Link key={post.slug} href="/contact" className="no-underline group">
                   <div className="reveal bg-[var(--overlay-card)] border border-border rounded-[4px] overflow-hidden transition-all duration-300 hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-1">
                     <div className="h-40 bg-[rgba(37,99,235,0.05)] flex items-center justify-center relative">
                       <span className="text-[9px] tracking-[1.5px] uppercase text-blue bg-[rgba(37,99,235,0.12)] py-1 px-2.5 rounded-sm absolute top-3 left-3">
@@ -190,7 +190,7 @@ export default function InsightsPage() {
                         {post.title}
                       </h3>
                       <p className="text-xs text-muted leading-relaxed mb-3 line-clamp-2">{post.excerpt}</p>
-                      <div className="text-xs text-blue-light group-hover:underline">Read article →</div>
+                      <div className="text-xs text-blue-light group-hover:underline">Request article details →</div>
                     </div>
                   </div>
                 </Link>

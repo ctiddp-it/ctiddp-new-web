@@ -242,7 +242,7 @@ export default function HomePage() {
                 '@id': 'https://www.ctiddp.com/#organization',
                 name: 'CTIDDP',
                 url: 'https://www.ctiddp.com/',
-                // logo: 'https://www.ctiddp.com/logo.png',
+                logo: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
                 description:
                   'China to India DDP shipping specialists. All duties pre-paid.',
                 contactPoint: [
@@ -269,11 +269,6 @@ export default function HomePage() {
                 name: 'CTIDDP',
                 publisher: {
                   '@id': 'https://www.ctiddp.com/#organization',
-                },
-                potentialAction: {
-                  '@type': 'SearchAction',
-                  target: 'https://www.ctiddp.com/track?q={search_term_string}',
-                  'query-input': 'required name=search_term_string',
                 },
               },
             ],

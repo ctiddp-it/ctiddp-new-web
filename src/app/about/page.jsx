@@ -202,7 +202,7 @@ export default function AboutPage() {
                   description:
                     'China to India DDP Shipping Specialists - end-to-end freight forwarding, customs clearance, and door delivery across India.',
                   url: 'https://www.ctiddp.com/',
-                  // logo: 'https://www.ctiddp.com/logo.png',
+                  logo: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
                   founder: [
                     {
                       '@type': 'Person',

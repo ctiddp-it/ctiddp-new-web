@@ -15,15 +15,16 @@ import {
   HiOutlineClock,
 } from "react-icons/hi2";
 import Link from 'next/link'
+import Image from "next/image";
 import { useState } from 'react'
 
 const SERVICES = [
   { title: 'DDP Shipping (Air & Sea)', desc: 'Door-to-door with duties paid', href: '/services' },
   { title: 'Customs Clearance', desc: 'Expert documentation & compliance', href: '/services/customs-clearance' },
-  { title: 'QC & Sourcing', desc: 'Supplier verification & quality check', href: '/services/qc-sourcing' },
-  { title: 'Consolidation', desc: 'Multi-vendor LCL groupage from Guangzhou', href: '/services/consolidation' },
-  { title: 'Last-Mile PAN-India', desc: 'Doorstep delivery with POD, all states', href: '/services/last-mile' },
-  { title: 'Trade Consulting', desc: 'Import strategy & optimisation', href: '/about/sop' },
+  { title: 'QC & Sourcing', desc: 'Supplier verification & quality check', href: '/services/qc-inspection' },
+  { title: 'Consolidation', desc: 'Multi-vendor LCL groupage from Guangzhou', href: '/services/multi-vendor-consolidation' },
+  { title: 'Last-Mile PAN-India', desc: 'Doorstep delivery with POD, all states', href: '/services/last-mile-delivery' },
+  { title: 'Trade Consulting', desc: 'Import strategy & optimisation', href: '/about' },
 ]
 
 const QUICK_LINKS = [
@@ -93,20 +94,20 @@ export default function Footer() {
           {/* ── COL 1: Brand ── */}
           <div>
             {/* Logo mark - ship icon placeholder with brand text */}
-            <div className="mb-5">
-              <div className="w-[72px] h-[72px] rounded-full bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.25)] flex items-center justify-center mb-4">
-                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" aria-label="CTIDDP Logo">
-                  <rect x="8" y="20" width="22" height="10" rx="2" fill="rgba(37,99,235,0.9)" />
-                  <polygon points="12,20 26,20 22,12 16,12" fill="rgba(37,99,235,0.7)" />
-                  <rect x="17" y="8" width="2" height="6" fill="rgba(255,255,255,0.6)" />
-                  <path d="M4 33 Q10 30 16 33 Q22 36 28 33 Q34 30 38 33" stroke="rgba(59,130,246,0.8)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                </svg>
-              </div>
-              <div className="font-heading text-2xl font-bold tracking-[2px]">
-                <span className="text-blue-light">
-                  CTI<span className="text-[#FFFF]">DDP</span>
-                </span>
-              </div>
+            <div className="font-heading text-2xl font-bold tracking-[2px]">
+              <Link
+                href="/"
+                className="flex items-center shrink-0 px-2 py-2 rounded-lg"
+              >
+                <Image
+                  src="/images/CTIDDPLOGO.png"
+                  alt="CTIDDP Logo"
+                  width={160}
+                  height={50}
+                  priority
+                  className="h-auto w-15 sm:w-50 border rounded-md "
+                />
+              </Link>
             </div>
 
             <p className="text-sm text-gray-300 leading-relaxed max-w-[240px] mb-6">
@@ -426,6 +427,8 @@ export default function Footer() {
             <Link href="/privacy" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Privacy Policy</Link>
             <span className="text-[rgba(37,99,235,0.3)] text-xs">|</span>
             <Link href="/terms" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Terms of Service</Link>
+            <span className="text-[rgba(37,99,235,0.3)] text-xs">|</span>
+            <Link href="/cookie-policy" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Cookie Policy</Link>
             <span className="text-[rgba(37,99,235,0.2)] text-xs hidden md:inline">·</span>
             <p className="text-xs text-gray-500 hidden md:block">
               Offices: Guangzhou 🇨🇳 · Foshan 🇨🇳 · Visakhapatnam 🇮🇳 · Bangalore 🇮🇳 · Chennai 🇮🇳

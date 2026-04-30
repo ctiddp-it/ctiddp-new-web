@@ -13,6 +13,7 @@ import {
 } from 'react-icons/fa'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import Image from "next/image";
 import { usePathname } from 'next/navigation'
 import Ticker from './Ticker'
 import ThemeToggle from '@/components/ui/ThemeToggle'
@@ -25,55 +26,55 @@ const NAV_ITEMS = [
     label: 'Services',
     href: '/services',
     children: [
-  {
-    href: '/services/global-ddp-shipping',
-    title: 'Global DDP Shipping',
-    desc: 'End-to-end shipping with pre-paid customs duties.',
-    icon: <FaGlobe />,
-  },
-  {
-    href: '/services/supplier-payments',
-    title: 'Supplier Payments',
-    desc: 'Secure and efficient payment processing for suppliers.',
-    icon: <FaMoneyBillWave />,
-  },
-  {
-    href: '/services/qc-inspection',
-    title: 'QC Inspection',
-    desc: 'Thorough quality checks to ensure product standards.',
-    icon: <FaSearch />,
-  },
-  {
-    href: '/services/warehousing',
-    title: 'Warehousing & Consolidation',
-    desc: 'Collect and combine cargo for lower freight costs.',
-    icon: <FaWarehouse />,
-  },
-  {
-    href: '/services/customs-clearance',
-    title: 'Customs Clearance',
-    desc: 'Smooth import clearance with compliant paperwork.',
-    icon: <FaFileInvoice />,
-  },
-  {
-    href: '/services/last-mile-delivery',
-    title: 'DDP Delivery',
-    desc: 'Door delivery in India with duties pre-paid.',
-    icon: <FaTruck />,
-  },
-  {
-    href: '/services/multi-vendor-consolidation',
-    title: 'Multi-Vendor Consolidation',
-    desc: 'Combine shipments from multiple vendors for cost savings.',
-    icon: <FaLayerGroup />,
-  },
-  {
-    href: '/services/canton-fair-support',
-    title: 'Canton Fair Support',
-    desc: 'On-ground trade fair sourcing and shipping support.',
-    icon: <FaBuilding />,
-  },
-],
+      {
+        href: '/services/global-ddp-shipping',
+        title: 'Global DDP Shipping',
+        desc: 'End-to-end shipping with pre-paid customs duties.',
+        icon: <FaGlobe />,
+      },
+      {
+        href: '/services/supplier-payments',
+        title: 'Supplier Payments',
+        desc: 'Secure and efficient payment processing for suppliers.',
+        icon: <FaMoneyBillWave />,
+      },
+      {
+        href: '/services/qc-inspection',
+        title: 'QC Inspection',
+        desc: 'Thorough quality checks to ensure product standards.',
+        icon: <FaSearch />,
+      },
+      {
+        href: '/services/warehousing',
+        title: 'Warehousing & Consolidation',
+        desc: 'Collect and combine cargo for lower freight costs.',
+        icon: <FaWarehouse />,
+      },
+      {
+        href: '/services/customs-clearance',
+        title: 'Customs Clearance',
+        desc: 'Smooth import clearance with compliant paperwork.',
+        icon: <FaFileInvoice />,
+      },
+      {
+        href: '/services/last-mile-delivery',
+        title: 'DDP Delivery',
+        desc: 'Door delivery in India with duties pre-paid.',
+        icon: <FaTruck />,
+      },
+      {
+        href: '/services/multi-vendor-consolidation',
+        title: 'Multi-Vendor Consolidation',
+        desc: 'Combine shipments from multiple vendors for cost savings.',
+        icon: <FaLayerGroup />,
+      },
+      {
+        href: '/services/canton-fair-support',
+        title: 'Canton Fair Support',
+        desc: 'On-ground trade fair sourcing and shipping support.',
+        icon: <FaBuilding />,
+      },
+    ],
   },
   { label: "Ecosystem", href: "/eco-system" },
   { label: 'Canton Fair', href: '/canton-fair' },
@@ -147,9 +148,18 @@ export default function MegaNav() {
       <nav className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-13 h-[78px] bg-[var(--overlay-nav)] backdrop-blur-xl border-b border-[rgba(37,99,235,0.1)] transition-shadow duration-300${scrolled ? ' shadow-[0_4px_40px_var(--shadow-scroll)]' : ''}`}>
 
         {/* Logo */}
-        <Link href="/" className="font-heading text-[21px]  tracking-[2px] px-2 py-2 text-[#ffff] font-semibold rounded-lg shrink-0">
-          <span className="text-white"> CTIDDP</span>
-          <span className="block  text-[9px] tracking-[2px] uppercase text-muted font-normal mt-px"> DDP Specialists</span>
+        <Link
+          href="/"
+          className="flex items-center shrink-0 px-2 py-2 rounded-lg"
+        >
+          <Image
+            src="/images/CTIDDPLOGO.png"
+            alt="CTIDDP Logo"
+            width={160}
+            height={50}
+            priority
+            className="h-auto w-28 sm:w-30 border rounded-md "
+          />
         </Link>
 
         {/* ── DESKTOP MENU ── */}
