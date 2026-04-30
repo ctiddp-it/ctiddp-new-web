@@ -16,17 +16,67 @@ const CONTACT_CHANNELS = [
   {
     icon: <FaEnvelope />,
     title: 'Email',
-    lines: ['info@ctiddp.com'],
+    lines: [
+      {
+        type: 'email',
+        label: 'info@ctiddp.com',
+        href: 'mailto:info@ctiddp.com',
+      },
+    ],
   },
   {
     icon: <FaPhoneAlt />,
     title: 'India Office',
-    lines: ['+91 87900 13772 (Main)', 'Vizag HQ · Chennai Ops', 'Bangalore BD', 'Mon–Fri · 9am–6pm IST', 'Saturday · 9am–1:30pm IST'],
+    lines: [
+      {
+        type: 'phone',
+        label: '+91 87900 13772 (Main)',
+        href: 'tel:+918790013772',
+      },
+      {
+        type: 'text',
+        label: 'Vizag HQ · Chennai Ops',
+      },
+      {
+        type: 'text',
+        label: 'Bangalore BD',
+      },
+      {
+        type: 'text',
+        label: 'Mon–Fri · 9am–6pm IST',
+      },
+      {
+        type: 'text',
+        label: 'Saturday · 9am–1:30pm IST',
+      },
+    ],
   },
   {
     icon: <FaPhoneAlt />,
     title: 'China Office',
-    lines: ['+86 188 1874 9844', 'Guangzhou Warehouse', 'Foshan QC · WeChat available', 'Mon–Sat · 9am–6pm CST', 'Saturday · 9am–1:30pm IST'],
+    lines: [
+      {
+        type: 'phone',
+        label: '+86 188 1874 9844',
+        href: 'tel:+8618818749844',
+      },
+      {
+        type: 'text',
+        label: 'Guangzhou Warehouse',
+      },
+      {
+        type: 'text',
+        label: 'Foshan QC · WeChat available',
+      },
+      {
+        type: 'text',
+        label: 'Mon–Sat · 9am–6pm CST',
+      },
+      {
+        type: 'text',
+        label: 'Saturday · 9am–1:30pm IST',
+      },
+    ],
   },
 ]
 
@@ -771,7 +821,20 @@ export default function ContactClient() {
                     </div>
                   </div>
                   <div className="text-xs text-muted leading-relaxed space-y-0.5">
-                    {ch.lines.map((line, i) => <div key={i}>{line}</div>)}
+                    {ch.lines.map((line, i) => (
+                      <div key={i}>
+                        {line.href ? (
+                          <a
+                            href={line.href}
+                            className="hover:text-blue-light transition-colors duration-200"
+                          >
+                            {line.label}
+                          </a>
+                        ) : (
+                          <span>{line.label}</span>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
