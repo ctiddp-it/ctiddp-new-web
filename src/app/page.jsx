@@ -52,6 +52,21 @@ export const metadata = {
     url: 'https://www.ctiddp.com/',
     siteName: 'CTIDDP',
     type: 'website',
+    images: [
+      {
+        url: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'CTIDDP - China to India DDP Shipping',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CTIDDP | Global Shipping & China to India DDP Experts',
+    description:
+      'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
+    images: ['https://www.ctiddp.com/images/CTIDDP-logo.png'],
   },
   alternates: {
     canonical: 'https://www.ctiddp.com/',
