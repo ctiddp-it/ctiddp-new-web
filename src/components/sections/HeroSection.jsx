@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ArrowRight, CheckCircle, Clock, Shield,
   IndianRupee, Headphones, Globe,
@@ -101,12 +102,6 @@ export function HeroSection() {
     }
   };
 
-  const resolveImageUrl = (image) => {
-    if (typeof image === 'string') return `url(${image})`;
-    if (image?.src) return `url(${image.src})`;
-    return undefined;
-  };
-
   return (
     <section className="relative bg-gray-900 text-white overflow-hidden -mt-[78px]">
 
@@ -133,18 +128,30 @@ export function HeroSection() {
           {slides.map((slide, index) => {
             const theme = getThemeColors(slide.theme);
             const Icon = slide.icon;
+            const isFirst = index === 0;
             return (
               <SwiperSlide key={slide.id}>
                 <div className="relative w-full h-full">
-                  {/* Background Image */}
+                  {/* Background Image — Next.js <Image> for optimization */}
                   <div className="absolute inset-0 overflow-hidden">
                     <div
                       key={activeIndex === index ? `zoom-${activeIndex}` : `idle-${index}`}
-                      className="w-full h-full bg-cover bg-center animate-continuous-zoom"
-                      style={{ backgroundImage: resolveImageUrl(slide.image), filter: 'brightness(0.85)', willChange: 'transform' }}
-                    />
-                    {/* <div className="absolute inset-0 bg-linear-to-r from-gray-900/90 via-gray-900/30 to-transparent z-10" /> */}
-                    {/* <div className="absolute inset-0 bg-linear-to-t from-gray-900/80 via-transparent to-transparent z-10" /> */}
+                      className="w-full h-full animate-continuous-zoom relative"
+                      style={{ willChange: 'transform' }}
+                    >
+                      <Image
+                        src={slide.image}
+                        alt={slide.title}
+                        fill
+                        sizes="100vw"
+                        className="object-cover"
+                        style={{ filter: 'brightness(0.85)' }}
+                        priority={isFirst}
+                        fetchPriority={isFirst ? 'high' : 'auto'}
+                        loading={isFirst ? 'eager' : 'lazy'}
+                        quality={75}
+                      />
+                    </div>
                     <div
                       className="absolute inset-0 z-10"
                       style={{
@@ -197,9 +204,6 @@ export function HeroSection() {
                       <div className={`flex flex-wrap items-center gap-6 text-sm text-gray-400 ${isFirstLoad && activeIndex === index ? 'animate-slide-in-bottom opacity-0'
                           : activeIndex === index ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                         } transition-all duration-1000 delay-1100`}>
-                        {/* <div className="flex items-center gap-2"><CheckCircle className="w-5 h-5 text-green-400" /><span>All-inclusive pricing</span></div>
-                        <div className="flex items-center gap-2"><Shield className="w-5 h-5 text-blue-400" /><span>Customs guarantee</span></div>
-                        <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-yellow-400" /><span>24/7 Tracking</span></div> */}
                       </div>
 
                     </div>
@@ -209,22 +213,6 @@ export function HeroSection() {
             );
           })}
         </Swiper>
-
-        {/* Navigation Arrows */}
-        {/* <button className="swiper-button-prev hidden! md:flex! absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
-          <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-        </button>
-        <button className="swiper-button-next hidden! md:flex! absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-black/30 backdrop-blur-sm rounded-full items-center justify-center hover:bg-black/50 transition-all duration-300 group">
-          <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
-        </button> */}
-
-        {/* Play/Pause */}
-        {/* <button onClick={toggleAutoplay}
-          className="absolute bottom-6 md:bottom-8 right-6 md:right-8 z-30 w-10 h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-black/50 transition-all duration-300 group">
-          {isPlaying
-            ? <Pause className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
-            : <Play className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />}
-        </button> */}
 
         {/* Progress Dots */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2

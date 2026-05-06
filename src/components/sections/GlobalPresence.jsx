@@ -255,7 +255,7 @@ export default function GlobalPresence() {
   }, []);
 
   useEffect(() => {
-    fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json")
+    fetch("/data/countries-110m.json")
       .then((r) => r.json())
       .then((topo) => setCountries(feature(topo, topo.objects.countries).features))
       .catch(console.error);
@@ -326,7 +326,7 @@ export default function GlobalPresence() {
 
     if (isClickable) return;
 
-    e.preventDefault();
+    if (e.cancelable) e.preventDefault();
     const clientX = e.clientX ?? e.touches?.[0]?.clientX;
     const clientY = e.clientY ?? e.touches?.[0]?.clientY;
     if (clientX === undefined) return;
@@ -343,7 +343,7 @@ export default function GlobalPresence() {
 
   const handlePanMove = useCallback((e) => {
     if (!isDragging || view !== "world") return;
-    e.preventDefault();
+    if (e.cancelable) e.preventDefault();
 
     const clientX = e.clientX ?? e.touches?.[0]?.clientX;
     const clientY = e.clientY ?? e.touches?.[0]?.clientY;
@@ -441,6 +441,7 @@ export default function GlobalPresence() {
             background: "var(--gp-ocean)",
             cursor: view === "world" ? (isDragging ? "grabbing" : "grab") : "default",
             userSelect: "none",
+            touchAction: "none",
           }}
           onMouseDown={handlePanStart}
           onTouchStart={handlePanStart}

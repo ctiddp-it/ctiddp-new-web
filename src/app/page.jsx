@@ -16,13 +16,19 @@ import {
 } from "react-icons/hi2";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { HeroSection } from '@/components/sections/HeroSection'
-import GlobalPresence from '@/components/sections/GlobalPresence'
+import dynamic from 'next/dynamic'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Partners from "@/components/sections/Partners";
-import SampleComponent from "@/components/sections/ServicesSection";
 import StatsSection from "@/components/sections/StatsSection";
-import ReviewsCarousel from "@/components/sections/ReviewsCarousel";
 import Link from 'next/link'
+
+// Lazy-load below-fold heavy components to reduce initial bundle size
+const GlobalPresence = dynamic(() => import('@/components/sections/GlobalPresence'), {
+  loading: () => <div className="min-h-[500px]" />,
+})
+const ReviewsCarousel = dynamic(() => import('@/components/sections/ReviewsCarousel'), {
+  loading: () => <div className="min-h-[400px]" />,
+})
 
 export const metadata = {
   title: 'CTIDDP | Global Shipping & China to India DDP Experts',
