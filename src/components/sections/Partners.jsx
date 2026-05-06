@@ -195,7 +195,7 @@ export default function PartnersSection() {
                       className="block whitespace-nowrap font-medium"
                       style={{
                         fontSize: 14,
-                        color: "#6b7280",
+                        color: "#374151",
                         letterSpacing: "0.03em",
                         lineHeight: 1,
                       }}
@@ -211,22 +211,31 @@ export default function PartnersSection() {
       </div>
 
       {/* Dot indicators */}
-      <div className="flex gap-1.5 justify-center mt-6">
+      <div className="flex gap-1 justify-center mt-6">
         {partners.map((_, i) => (
           <button
             key={i}
             onClick={() => goTo(i)}
-            className="h-1.5 rounded-full transition-all duration-300 cursor-pointer"
+            className="flex items-center justify-center cursor-pointer bg-transparent border-none p-0"
             style={{
-              width: i === current ? 20 : 6,
-              background: i === current ? "#6366f1" : "rgba(0,0,0,0.15)",
+              width: 24,
+              height: 24,
             }}
-            aria-label={`Go to ${partners[i].name}`}
-          />
+            aria-label={`Go to partner ${i + 1}: ${partners[i].name}`}
+          >
+            <span
+              className="block rounded-full transition-all duration-300"
+              style={{
+                width: i === current ? 20 : 6,
+                height: 6,
+                background: i === current ? "#6366f1" : "rgba(0,0,0,0.25)",
+              }}
+            />
+          </button>
         ))}
       </div>
 
-      <p className="mt-8 text-xs text-gray-400 tracking-wide">
+      <p className="mt-8 text-xs text-gray-600 dark:text-gray-300 tracking-wide">
         12 trusted partners across logistics &amp; trade
       </p>
     </section>

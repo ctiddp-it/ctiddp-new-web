@@ -233,9 +233,12 @@ export function HeroSection() {
             <button
               key={slide.id}
               onClick={() => { swiperRef.current?.swiper?.slideTo(index); setActiveIndex(index); }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/50'}`}
+              className="flex items-center justify-center bg-transparent border-none p-0 cursor-pointer"
+              style={{ width: 28, height: 28 }}
               aria-label={`Go to slide ${index + 1}`}
-            />
+            >
+              <span className={`block w-3 h-3 rounded-full transition-all duration-300 ${activeIndex === index ? 'bg-white scale-125' : 'bg-white/30 hover:bg-white/50'}`} />
+            </button>
           ))}
         </div>
       </div>

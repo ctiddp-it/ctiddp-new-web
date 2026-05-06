@@ -86,7 +86,7 @@ const ReviewCard = ({ t, colorClass, className = "" }) => {
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between gap-2">
-              <h4 className="text-[14px] font-semibold text-white truncate">{t.name}</h4>
+              <p className="text-[14px] font-semibold text-white truncate">{t.name}</p>
               <GoogleIcon className="w-4 h-4 flex-shrink-0" />
             </div>
             <div className="flex items-center gap-2 mt-0.5">
@@ -104,7 +104,7 @@ const ReviewCard = ({ t, colorClass, className = "" }) => {
           {isLong && (
             <button
               onClick={() => setExpanded((v) => !v)}
-              className="ml-1 text-[#1A73E8] text-[13px] font-medium hover:underline"
+              className="ml-1 text-[#60A5FA] text-[13px] font-medium hover:underline"
             >
               {expanded ? "Show less" : "More"}
             </button>
@@ -268,17 +268,20 @@ const ReviewsCarousel = ({
         </div>
 
         {/* ── Dot Indicators ── */}
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="flex items-center justify-center gap-1 mt-8">
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => goTo(i)}
-              className={`rounded-full transition-all duration-300 ${i === current
+              className="flex items-center justify-center bg-transparent border-none p-0 cursor-pointer"
+              style={{ width: 28, height: 28 }}
+              aria-label={`Go to review ${i + 1}`}
+            >
+              <span className={`block rounded-full transition-all duration-300 ${i === current
                   ? "w-6 h-2.5 bg-[#1A73E8]"
                   : "w-2.5 h-2.5 bg-[#DADCE0] hover:bg-[#BDC1C6]"
-                }`}
-              aria-label={`Go to review ${i + 1}`}
-            />
+                }`} />
+            </button>
           ))}
         </div>
 

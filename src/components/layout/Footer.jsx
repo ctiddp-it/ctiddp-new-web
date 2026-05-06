@@ -420,17 +420,17 @@ export default function Footer() {
       {/* ── BOTTOM BAR (Improved spacing & responsiveness) ── */}
       <div className="border-t border-[rgba(37,99,235,0.12)] bg-[rgba(0,0,0,0.2)]">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-gray-500 text-center sm:text-left">
+          <p className="text-xs text-gray-400 text-center sm:text-left">
             © {new Date().getFullYear()} CTIDDP. All rights reserved. China to India DDP Specialists.
           </p>
           <div className="flex items-center gap-4 flex-wrap justify-center">
-            <Link href="/privacy" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Privacy Policy</Link>
+            <Link href="/privacy" className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200">Privacy Policy</Link>
             <span className="text-[rgba(37,99,235,0.3)] text-xs">|</span>
-            <Link href="/terms" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Terms of Service</Link>
+            <Link href="/terms" className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200">Terms of Service</Link>
             <span className="text-[rgba(37,99,235,0.3)] text-xs">|</span>
-            <Link href="/cookie-policy" className="text-xs text-gray-500 hover:text-blue-light transition-colors duration-200">Cookie Policy</Link>
+            <Link href="/cookie-policy" className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200">Cookie Policy</Link>
             <span className="text-[rgba(37,99,235,0.2)] text-xs hidden md:inline">·</span>
-            <p className="text-xs text-gray-500 hidden md:block">
+            <p className="text-xs text-gray-400 hidden md:block">
               Offices: Guangzhou 🇨🇳 · Foshan 🇨🇳 · Visakhapatnam 🇮🇳 · Bangalore 🇮🇳 · Chennai 🇮🇳
             </p>
           </div>

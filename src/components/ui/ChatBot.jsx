@@ -40,7 +40,7 @@ export default function ChatBot() {
                 </div>
               </div>
             </div>
-            <button onClick={() => setOpen(false)} className="bg-transparent border-none text-muted cursor-pointer text-sm hover:text-white">✕</button>
+            <button onClick={() => setOpen(false)} aria-label="Close chat" className="bg-transparent border-none text-muted cursor-pointer text-sm hover:text-white">✕</button>
           </div>
         </div>
 
@@ -73,7 +73,7 @@ export default function ChatBot() {
                 className="flex-1 bg-[var(--overlay-input)] border border-[var(--overlay-input-border)] rounded-sm py-[9px] px-3 text-white text-xs outline-none"
                 placeholder="Type a message…"
               />
-              <button className="bg-primary text-white border-none rounded-sm px-3.5 font-bold cursor-pointer text-sm">→</button>
+              <button aria-label="Send message" className="bg-primary text-white border-none rounded-sm px-3.5 font-bold cursor-pointer text-sm">→</button>
             </div>
           </>
         )}
@@ -118,6 +118,7 @@ export default function ChatBot() {
       <button
         className="w-13 h-13 rounded-full bg-[#25D366] text-[#FFFFFF] border-none text-[28px] cursor-pointer flex items-center justify-center shadow-[0_6px_28px_rgba(37,99,235,0.4)] transition-transform duration-200 hover:scale-[1.08]"
         onClick={() => setOpen(o => !o)}
+        aria-label="Open WhatsApp chat"
       >
         <FaWhatsapp />
       </button>
