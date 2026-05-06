@@ -139,6 +139,8 @@ function TradeRoute({ from, to, delay, isActive }) {
 function DestinationDot({ px, label, delay, isActive }) {
   const [hovered, setHovered] = useState(false);
   const [x, y] = px;
+  const outerRadius = isActive ? 8 : hovered ? 7 : 5;
+  const innerRadius = isActive ? 4 : hovered ? 3 : 2;
 
   return (
     <g
@@ -156,34 +158,32 @@ function DestinationDot({ px, label, delay, isActive }) {
         transition={{ duration: 0.35, delay: 0.6 + delay, ease: soft }}
       >
         <motion.circle
-          r={isActive ? 8 : hovered ? 7 : 5}
+          r={outerRadius}
           fill="none"
           stroke={GOLD}
           strokeWidth={isActive ? 1.2 : 0.7}
           opacity={isActive ? 0.5 : 0.22}
           className="gp-ring"
-          animate={isActive ? {
-            r: [7, 12, 7],
-            opacity: [0.5, 0.1, 0.5],
-          } : {}}
-          transition={isActive ? {
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          } : { duration: 0.2 }}
+          animate={{
+            scale: isActive ? [1, 1.7, 1] : 1,
+            opacity: isActive ? [0.5, 0.1, 0.5] : 0.22,
+          }}
+          transition={
+            isActive
+              ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              : { duration: 0.2 }
+          }
         />
         <motion.circle
-          r={isActive ? 4 : hovered ? 3 : 2}
+          r={innerRadius}
           fill={GOLD_LIGHT}
           opacity={isActive ? 1 : 0.75}
-          animate={isActive ? {
-            scale: [1, 1.2, 1],
-          } : {}}
-          transition={isActive ? {
-            duration: 1.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          } : {}}
+          animate={{ scale: isActive ? [1, 1.2, 1] : 1 }}
+          transition={
+            isActive
+              ? { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
+              : { duration: 0.2 }
+          }
           style={{
             filter: `drop-shadow(0 0 ${isActive ? 8 : hovered ? 6 : 3}px ${GOLD})`,
             transition: "r 0.2s ease, filter 0.2s ease",
