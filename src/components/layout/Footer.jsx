@@ -37,9 +37,9 @@ const QUICK_LINKS = [
 ]
 
 const SOCIAL = [
-  { label: 'Facebook', href: 'https://www.facebook.com/chinatoindiaddp', icon: <FaFacebookF /> },
-  { label: 'Youtube', href: 'https://www.youtube.com/@chinatoindiaddp', icon: <FaYoutube /> },
-  { label: 'Instagram', href: 'https://www.instagram.com/chinatoindiaddp', icon: <FaInstagram /> },
+  { label: 'Facebook', href: 'https://www.facebook.com/ctiddp', icon: <FaFacebookF /> },
+  { label: 'Youtube', href: 'https://www.youtube.com/@ctiddp', icon: <FaYoutube /> },
+  { label: 'Instagram', href: 'https://www.instagram.com/ctiddp', icon: <FaInstagram /> },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/chinatoindiaddp', icon: <FaLinkedinIn /> },
 ];
 
@@ -138,9 +138,9 @@ export default function Footer() {
 
           {/* ── COL 2: Quick Links ── */}
           <div>
-            <h4 className="text-xs font-bold tracking-[2px] uppercase text-[#FFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.2)]">
+            <h3 className="text-xs font-bold tracking-[2px] uppercase text-[#FFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.2)]">
               Quick Links
-            </h4>
+            </h3>
             <ul className="space-y-1">
               {QUICK_LINKS.map(link => (
                 <li key={link.href}>
@@ -158,9 +158,9 @@ export default function Footer() {
 
           {/* ── COL 3: Our Services ── */}
           <div>
-            <h4 className="text-xs font-bold tracking-[2px] uppercase text-[#FFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.2)]">
+            <h3 className="text-xs font-bold tracking-[2px] uppercase text-[#FFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.2)]">
               Our Services
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {SERVICES.map(svc => (
                 <li key={svc.href}>
@@ -182,9 +182,9 @@ export default function Footer() {
 
           {/* ── COL 4: Contact Us ── */}
           <div>
-            <h4 className="text-xs font-bold tracking-[2px] uppercase text-[#FFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.2)]">
+            <h3 className="text-xs font-bold tracking-[2px] uppercase text-[#FFFF] mb-5 pb-3 border-b border-[rgba(37,99,235,0.2)]">
               Contact Us
-            </h4>
+            </h3>
 
             {/* Contact grid with better spacing */}
             <div className="grid grid-cols-2 gap-x-5 gap-y-5">
@@ -217,18 +217,21 @@ export default function Footer() {
                 </IconBorderWrapper>
                 <div>
                   <p className="text-sm font-semibold text-[#FFFF] leading-tight">Call Us</p>
-                  <a
-                    href="tel:+8618818749844"
-                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
-                  >
-                    +86 188 1874 9844
-                  </a>
-                  <a
-                    href="tel:+918790013772"
-                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
-                  >
-                    +91 87900 13772
-                  </a>
+                  <div className="flex flex-col">
+                    <a
+                      href="tel:+8618818749844"
+                      className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 py-2 px-1 rounded-md"
+                    >
+                      +86 188 1874 9844
+                    </a>
+
+                    <a
+                      href="tel:+918790013772"
+                      className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 py-2 px-1 rounded-md"
+                    >
+                      +91 87900 13772
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -364,18 +367,21 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-white">Call Us</p>
-                  <a
-                    href="tel:+8618818749844"
-                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
-                  >
-                    +86 188 1874 9844
-                  </a>
-                  <a
-                    href="tel:+918790013772"
-                    className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 block"
-                  >
-                    +91 87900 13772
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="tel:+8618818749844"
+                      className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 py-2 px-1 rounded-md"
+                    >
+                      +86 188 1874 9844
+                    </a>
+
+                    <a
+                      href="tel:+918790013772"
+                      className="text-xs text-gray-400 hover:text-blue-light transition-colors duration-200 py-2 px-1 rounded-md"
+                    >
+                      +91 87900 13772
+                    </a>
+                  </div>
                 </div>
               </div>
 
