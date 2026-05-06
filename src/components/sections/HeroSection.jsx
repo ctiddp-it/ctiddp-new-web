@@ -148,7 +148,7 @@ export function HeroSection() {
                         style={{ filter: 'brightness(0.85)' }}
                         priority={isFirst}
                         fetchPriority={isFirst ? 'high' : 'auto'}
-                        loading={isFirst ? 'eager' : 'lazy'}
+                        loading="eager"
                         quality={75}
                       />
                     </div>
