@@ -60,7 +60,8 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'CTIDDP - China to India DDP Shipping',
-    description: 'End-to-end DDP freight. All duties pre-paid. Zero surprises.',
+    description:
+      'End-to-end DDP freight. All duties pre-paid. Zero surprises.',
     images: ['https://www.ctiddp.com/images/CTIDDP-logo.png'],
   },
   icons: {
@@ -68,44 +69,42 @@ export const metadata = {
     shortcut: '/images/CTIDDP-logo.png',
     apple: '/images/CTIDDP-logo.png',
   },
-};
+}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
 
-        {/* GTM injects both the <head> script and <body> noscript automatically */}
+        {/* GTM */}
         <GoogleTagManager gtmId="GTM-MB6KMT4N" />
 
-        {/* Meta Pixel Code - Facebook */}
-        {/* Meta Pixel */}
+        {/* Meta Pixel Code */}
         <Script
           id="facebook-pixel"
           strategy="afterInteractive"
         >
           {`
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod ?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;
-    n.push=n;
-    n.loaded=!0;
-    n.version='2.0';
-    n.queue=[];
-    t=b.createElement(e);
-    t.async=!0;
-    t.src=v;
-    s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}
-    (window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;
+            n.push=n;
+            n.loaded=!0;
+            n.version='2.0';
+            n.queue=[];
+            t=b.createElement(e);
+            t.async=!0;
+            t.src=v;
+            s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}
+            (window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '1846912092671169');
-    fbq('track', 'PageView');
-  `}
+            fbq('init', '1373330248175866');
+            fbq('track', 'PageView');
+          `}
         </Script>
-
 
         {/* JSON-LD Structured Data */}
         <script
@@ -120,12 +119,18 @@ export default function RootLayout({ children }) {
                   name: 'CTIDDP',
                   url: 'https://www.ctiddp.com/',
                   logo: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
-                  description: 'Cross Border Trade International DDP Specialists',
+                  description:
+                    'Cross Border Trade International DDP Specialists',
                   contactPoint: [
                     {
                       '@type': 'ContactPoint',
                       contactType: 'customer service',
-                      availableLanguage: ['English', 'Hindi', 'Telugu', 'Chinese'],
+                      availableLanguage: [
+                        'English',
+                        'Hindi',
+                        'Telugu',
+                        'Chinese',
+                      ],
                     },
                   ],
                   address: [
@@ -140,7 +145,10 @@ export default function RootLayout({ children }) {
                       addressCountry: 'IN',
                     },
                   ],
-                  sameAs: ['https://wa.me/918790013772', 'https://wa.me/8618818749844'],
+                  sameAs: [
+                    'https://wa.me/918790013772',
+                    'https://wa.me/8618818749844',
+                  ],
                 },
                 {
                   '@type': 'WebSite',
@@ -156,6 +164,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
+
       <body>
         {/* Meta Pixel NoScript */}
         <noscript>
@@ -163,7 +172,7 @@ export default function RootLayout({ children }) {
             height="1"
             width="1"
             style={{ display: 'none' }}
-            src="https://www.facebook.com/tr?id=1846912092671169&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1373330248175866&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>
@@ -177,6 +186,7 @@ export default function RootLayout({ children }) {
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+
         <ThemeProvider>
           <CustomCursor />
           <MegaNav />
