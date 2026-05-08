@@ -139,6 +139,38 @@ export default function GetQuoteClient() {
           </div>
         </section>
 
+        {/* Video Section */}
+        {/* Video Section */}
+        <section className="px-4 sm:px-6 lg:px-[60px] py-10 sm:py-14 bg-black">
+          <div className="max-w-[1000px] mx-auto text-center">
+            <h2 className="font-heading text-[clamp(24px,3vw,40px)] font-light leading-[1.1] mb-3">
+              How to Send Your<br />
+              <em className="italic text-blue-light">Quote Request</em>
+            </h2>
+
+            <p className="text-sm text-muted max-w-[650px] mx-auto mb-8">
+              Watch this quick 60-second walkthrough to understand how to submit your
+              shipment details and receive a complete China-to-India DDP quote from our team.
+            </p>
+
+            <div className="relative w-full overflow-hidden rounded-[6px] border border-[rgba(37,99,235,0.15)] aspect-video bg-[#050505] shadow-[0_0_40px_rgba(37,99,235,0.08)]">
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src="https://www.youtube.com/embed/tF9U_erUUb4"
+                title="Send DDP Quote Request in Under 60 Seconds"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+            <p className="text-[11px] text-muted/60 mt-4">
+              Takes less than 60 seconds · Response within 2 hours
+            </p>
+
+          </div>
+        </section>
+
         {/* Main Content */}
         <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[80px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
