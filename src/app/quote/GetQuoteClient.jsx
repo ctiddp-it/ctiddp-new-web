@@ -153,9 +153,9 @@ export default function GetQuoteClient() {
               shipment details and receive a complete China-to-India DDP quote from our team.
             </p>
 
-            <div className="relative w-full overflow-hidden rounded-[6px] border border-[rgba(37,99,235,0.15)] aspect-video bg-[#050505] shadow-[0_0_40px_rgba(37,99,235,0.08)]">
+            <div className="relative w-full overflow-hidden aspect-video">
               <iframe
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full rounded-2xl"
                 src="https://www.youtube.com/embed/tF9U_erUUb4"
                 title="Send DDP Quote Request in Under 60 Seconds"
                 loading="lazy"

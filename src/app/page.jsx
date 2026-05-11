@@ -495,29 +495,78 @@ export default function HomePage() {
 
 
         {/* ── 9. CTA BANNER ────────────────────────────────────────────────── */}
-        <div className="relative text-center px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[72px] overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)]">
-          <h2 className="font-heading text-[clamp(32px,4.5vw,58px)] font-light leading-[1.1] mb-3.5">
-            Ready to Ship<br />
-            <em className="italic text-blue-light">the Right Way?</em>
-          </h2>
-          <p className="text-[15px] text-muted mb-8 max-w-[460px] mx-auto">
-            Get a full DDP quote with duty pre-calculation. 24-hour response, no commitment.
-          </p>
-          <div className="flex gap-3 justify-center flex-wrap">
-            <Link
-              href="/quote"
-              className="inline-flex items-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
-            >
-              Request a Quote →
-            </Link>
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
-            >
-              <FaWhatsapp size={22} />WhatsApp Us Directly
-            </a>
+        {/* CTA Banner */}
+        <div className="relative overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)] px-4 sm:px-6 lg:px-[60px] py-[50px] sm:py-[70px]">
+
+          <div className="max-w-[1250px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+
+            {/* Left - Video Thumbnail */}
+            <div className="relative group">
+
+              <div className="relative overflow-hidden">
+
+                <iframe
+                  className="w-full aspect-video rounded-4xl"
+                  src="https://www.youtube.com/embed/tF9U_erUUb4"
+                  title="Send DDP Quote Request in Under 60 Seconds"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+
+              </div>
+
+              {/* Floating Badge */}
+              <div className="absolute top-3 left-3 bg-[rgba(0,0,0,0.75)] backdrop-blur-md border border-[rgba(255,255,255,0.08)] px-3 py-1.5 rounded-full text-[10px] tracking-[1px] uppercase text-white">
+                60 Second Walkthrough
+              </div>
+
+            </div>
+
+            {/* Right - CTA Content */}
+            <div className="text-center lg:text-left">
+              <h2 className="font-heading text-[clamp(32px,4vw,56px)] font-light leading-[1.05] mb-4">
+                Ready to Ship<br />
+                <em className="italic text-blue-light">
+                  the Right Way?
+                </em>
+              </h2>
+
+              <p className="text-[15px] text-muted leading-relaxed max-w-[520px] mx-auto lg:mx-0 mb-8">
+                Submit your shipment details and receive a complete DDP quote with
+                customs duty pre-calculation, freight estimation, and door-to-door
+                delivery pricing from China to India.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+
+                <Link
+                  href="/quote"
+                  className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
+                >
+                  Request a Quote →
+                </Link>
+
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
+                >
+                  <FaWhatsapp size={22} />
+                  WhatsApp Us Directly
+                </a>
+
+              </div>
+
+              {/* Bottom Trust Line */}
+              <div className="mt-5 text-[11px] text-muted/60">
+                No hidden charges · Duty-inclusive pricing · Response within 24 hours
+              </div>
+
+            </div>
+
           </div>
         </div>
 

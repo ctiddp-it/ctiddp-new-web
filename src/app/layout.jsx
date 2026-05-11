@@ -76,6 +76,12 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
 
+        {/* Google AdSense */}
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-9117327206280413"
+        />
+
         {/* GTM */}
         <GoogleTagManager gtmId="GTM-MB6KMT4N" />
 
