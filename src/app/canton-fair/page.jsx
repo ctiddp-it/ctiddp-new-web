@@ -48,7 +48,7 @@ export const metadata = {
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
-// 140th Canton Fair — Autumn Session (October–November 2026)
+// 140th Canton Fair - Autumn Session (October–November 2026)
 const PHASES_AUTUMN = [
   {
     phase: 'Phase 1 · Electronics & Machinery',
@@ -78,13 +78,13 @@ const FEATURES = [
   { icon: <FaComments />, title: 'Mandarin Negotiation', desc: 'Direct negotiation in Mandarin for better prices and terms' },
   { icon: <FaSearch />, title: 'On-the-Spot QC', desc: 'Quality verification of samples before you commit to any supplier' },
   { icon: <FaBoxes />, title: 'Multi-Booth Consolidation', desc: 'Collect from multiple exhibitors, consolidate at Guangzhou warehouse' },
-  { icon: <FaShip />, title: 'Direct DDP to India', desc: 'All goods shipped DDP to your India address — one price, no surprises' },
+  { icon: <FaShip />, title: 'Direct DDP to India', desc: 'All goods shipped DDP to your India address - one price, no surprises' },
 ]
 
 const STEPS = [
-  { n: '01', t: 'Contact us 4+ weeks before the fair', d: 'Via WhatsApp or the form below — share your product categories and target booths.' },
+  { n: '01', t: 'Contact us 4+ weeks before the fair', d: 'Via WhatsApp or the form below - share your product categories and target booths.' },
   { n: '02', t: 'We assign your Guangzhou support team', d: 'Dedicated Mandarin-speaking team member confirmed for your dates.' },
-  { n: '03', t: 'Attend the fair together (or we go solo)', d: 'Your choice — attend with us or let us represent you fully across all phases.' },
+  { n: '03', t: 'Attend the fair together (or we go solo)', d: 'Your choice - attend with us or let us represent you fully across all phases.' },
   { n: '04', t: 'Goods consolidated and shipped DDP', d: 'Everything collected, consolidated at Guangzhou, shipped DDP to your India door.' },
 ]
 
@@ -186,7 +186,7 @@ export default function CantonFairPage() {
                 },
                 {
                   '@type': 'Event',
-                  name: '140th Canton Fair — Autumn 2026',
+                  name: '140th Canton Fair - Autumn 2026',
                   startDate: '2026-10-15',
                   endDate: '2026-11-04',
                   location: {
@@ -235,7 +235,7 @@ export default function CantonFairPage() {
             </h1>
 
             <p className="text-[15px] text-muted max-w-[520px] mx-auto px-2 mb-6">
-              We attend the 140th Canton Fair with you, handle everything in Mandarin, inspect goods, and ship DDP to India — under one service.
+              We attend the 140th Canton Fair with you, handle everything in Mandarin, inspect goods, and ship DDP to India - under one service.
             </p>
 
             {/* Quick date strip */}
@@ -249,7 +249,7 @@ export default function CantonFairPage() {
           </div>
         </section>
 
-        {/* ── Main content — two column ── */}
+        {/* ── Main content - two column ── */}
         <section className="px-4 sm:px-[60px] py-[60px] sm:py-[90px] bg-deep">
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-[40px] sm:gap-[52px] items-start">
 
@@ -302,7 +302,7 @@ export default function CantonFairPage() {
               </div>
             </div>
 
-            {/* ── Right column — 140th schedule card ── */}
+            {/* ── Right column - 140th schedule card ── */}
             <div className="bg-[var(--overlay-input)] border border-border rounded-[4px] p-5 sm:p-7">
               {/* Edition marker */}
               <div className="flex items-center justify-between mb-5">
@@ -341,7 +341,7 @@ export default function CantonFairPage() {
               {/* Alert */}
               <div className="bg-[rgba(37,99,235,0.07)] border border-[rgba(37,99,235,0.15)] p-[14px] rounded-[3px] mb-5">
                 <div className="text-[10px] text-blue font-semibold tracking-[1px] uppercase mb-[5px]">
-                  ⚡ Limited Slots — Book Early
+                  ⚡ Limited Slots - Book Early
                 </div>
                 <div className="text-[12px] text-muted leading-[1.6]">
                   Phase 1 (Oct 15) fills fastest. Book at least 4 weeks before to confirm your dedicated support team.
@@ -370,7 +370,7 @@ export default function CantonFairPage() {
                 <em className="italic text-blue-light">Right for You?</em>
               </h2>
               <p className="text-[14px] text-muted max-w-[480px] mx-auto">
-                The 140th Canton Fair's three phases cover different categories. We support across all phases — or just the ones you need.
+                The 140th Canton Fair's three phases cover different categories. We support across all phases - or just the ones you need.
               </p>
             </div>
 
@@ -570,7 +570,7 @@ export default function CantonFairPage() {
               </h2>
 
               <p className="text-[15px] font-light text-muted leading-[1.8] max-w-[520px] mb-6">
-                Can't make it to the 140th fair? Our Guangzhou and Foshan teams source products, vet suppliers, and negotiate year-round — not just during Canton Fair season.
+                Can't make it to the 140th fair? Our Guangzhou and Foshan teams source products, vet suppliers, and negotiate year-round - not just during Canton Fair season.
               </p>
 
               <div className="flex flex-col gap-3">
@@ -583,7 +583,7 @@ export default function CantonFairPage() {
               </div>
             </div>
 
-            {/* Right — How to book */}
+            {/* Right - How to book */}
             <div className="bg-surface border border-[rgba(37,99,235,0.15)] p-6 sm:p-8 rounded-[3px]">
               <h3 className="font-heading text-[22px] font-semibold mb-4 text-blue-light">
                 How to Book Canton Fair Support
@@ -607,7 +607,7 @@ export default function CantonFairPage() {
           </div>
         </section>
 
-        {/* ── FORM — Client Component ── */}
+        {/* ── FORM - Client Component ── */}
         <CantonFairClient />
 
         {/* ── CTA Banner ── */}
@@ -622,7 +622,7 @@ export default function CantonFairPage() {
           </h2>
 
           <p className="text-[15px] text-muted mb-8 max-w-[480px] mx-auto px-2">
-            All three phases confirmed. Book your 140th edition DDP support slot now — slots fill weeks before the fair opens.
+            All three phases confirmed. Book your 140th edition DDP support slot now - slots fill weeks before the fair opens.
           </p>
 
           <div className="flex gap-3 justify-center flex-wrap">
