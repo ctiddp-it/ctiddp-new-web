@@ -278,3 +278,46 @@
       transform: translateY(-180px) scale(0.3);
     }
   }
+
+  .PhoneInputCountrySelect option {
+  background: #0a0a0a;
+  color: white;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(37,99,235,0.2);
+  border-radius: 3px;
+  padding: 10px 14px;
+  transition: border-color 0.2s ease;
+}
+
+.phone-input:focus-within {
+  border-color: #2563eb;
+}
+
+.phone-input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 100%;
+  font-size: 12px;
+}
+
+.phone-input input::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+.PhoneInputCountry {
+  margin-right: 10px;
+}
+
+.PhoneInputCountrySelect {
+  background: transparent;
+  color: white;
+  border: none;
+  outline: none;
+}

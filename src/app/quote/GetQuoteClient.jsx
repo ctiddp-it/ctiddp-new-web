@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
   FaShip,
@@ -19,6 +19,9 @@ import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 import { quoteSchema } from '@/lib/forms/schemas'
 import { submitForm } from '@/lib/forms/submitForm'
+
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 export default function GetQuoteClient() {
   const [submitted, setSubmitted] = useState(false)
@@ -51,6 +54,7 @@ export default function GetQuoteClient() {
 
   const {
     register,
+    control,
     handleSubmit,
     watch,
     reset,
@@ -136,38 +140,6 @@ export default function GetQuoteClient() {
             <p className="text-[15px] text-muted max-w-[520px] mx-auto">
               Fill in the form. Receive a full DDP quote with BCD + IGST + SWS pre-calculation within 2 hours.
             </p>
-          </div>
-        </section>
-
-        {/* Video Section */}
-        {/* Video Section */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-10 sm:py-14 bg-black">
-          <div className="max-w-[1000px] mx-auto text-center">
-            <h2 className="font-heading text-[clamp(24px,3vw,40px)] font-light leading-[1.1] mb-3">
-              How to Send Your<br />
-              <em className="italic text-blue-light">Quote Request</em>
-            </h2>
-
-            <p className="text-sm text-muted max-w-[650px] mx-auto mb-8">
-              Watch this quick 60-second walkthrough to understand how to submit your
-              shipment details and receive a complete China-to-India DDP quote from our team.
-            </p>
-
-            <div className="relative w-full overflow-hidden aspect-video">
-              <iframe
-                className="absolute inset-0 w-full h-full rounded-2xl"
-                src="https://www.youtube.com/embed/tF9U_erUUb4"
-                title="Send DDP Quote Request in Under 60 Seconds"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-
-            <p className="text-[11px] text-muted/60 mt-4">
-              Takes less than 60 seconds · Response within 2 hours
-            </p>
-
           </div>
         </section>
 
@@ -258,11 +230,20 @@ export default function GetQuoteClient() {
                   </div>
                   <div className="sm:col-span-1">
                     <label className="text-[10px] tracking-[1px] uppercase text-blue-light mb-1.5 block">Contact Number *</label>
-                    <input
+                    <Controller
                       name="contactNumber"
-                      {...register('contactNumber')}
-                      className="w-full bg-[rgba(255,255,255,0.03)] border border-[rgba(37,99,235,0.2)] rounded-[3px] py-2.5 px-3.5 text-white text-xs outline-none placeholder:text-muted focus:border-blue transition-colors"
-                      placeholder="+91 XXXXX XXXXX"
+                      control={control}
+                      render={({ field }) => (
+                        <PhoneInput
+                          international
+                          defaultCountry="IN"
+                          countryCallingCodeEditable={false}
+                          value={field.value}
+                          onChange={field.onChange}
+                          className="phone-input"
+                          placeholder="Enter phone number"
+                        />
+                      )}
                     />
                     {errors?.contactNumber ? (
                       <p className="mt-1 text-[11px] text-red-400">{errors.contactNumber.message}</p>
@@ -459,6 +440,37 @@ export default function GetQuoteClient() {
                 </a>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Video Section */}
+        <section className="px-4 sm:px-6 lg:px-[60px] py-10 sm:py-14 bg-black">
+          <div className="max-w-[1000px] mx-auto text-center">
+            <h2 className="font-heading text-[clamp(24px,3vw,40px)] font-light leading-[1.1] mb-3">
+              How to Send Your<br />
+              <em className="italic text-blue-light">Quote Request</em>
+            </h2>
+
+            <p className="text-sm text-muted max-w-[650px] mx-auto mb-8">
+              Watch this quick 60-second walkthrough to understand how to submit your
+              shipment details and receive a complete China-to-India DDP quote from our team.
+            </p>
+
+            <div className="relative w-full overflow-hidden aspect-video">
+              <iframe
+                className="absolute inset-0 w-full h-full rounded-2xl"
+                src="https://www.youtube.com/embed/tF9U_erUUb4"
+                title="Send DDP Quote Request in Under 60 Seconds"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+            <p className="text-[11px] text-muted/60 mt-4">
+              Takes less than 60 seconds · Response within 2 hours
+            </p>
+
           </div>
         </section>
 

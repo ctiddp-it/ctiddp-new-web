@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import { noHtmlMessage, normalizeEmail, normalizePhone, safeOptionalString, stripAndTrim } from './common'
+import { isValidPhoneNumber } from 'react-phone-number-input'
 
 export const CONTACT_SUBJECTS = [
   'New Shipment Enquiry',
@@ -40,12 +41,30 @@ const optionalEmailField = z
 
 const phoneField = z.preprocess(
   (v) => normalizePhone(v),
-  z.string().min(1, 'Phone is required').regex(/^\+\d{10,15}$/, 'Phone must include country code and be 10–15 digits')
+  z
+    .string()
+    .min(1, 'Phone number is required')
+    .refine((v) => {
+      // Strict India validation
+      if (v.startsWith('+91')) {
+        const indianNumber = v.slice(3)
+
+        return /^[6-9]\d{9}$/.test(indianNumber)
+      }
+
+      // Other countries fallback
+      return isValidPhoneNumber(v)
+    }, {
+      message: 'Enter a valid Indian mobile number',
+    })
 )
 
 const optionalPhoneField = z
   .preprocess((v) => normalizePhone(v), z.string())
-  .refine((v) => v.length === 0 || /^\+\d{10,15}$/.test(v), 'Phone must include country code and be 10–15 digits')
+  .refine(
+    (v) => v.length === 0 || isValidPhoneNumber(v),
+    'Enter a valid phone number'
+  )
   .transform((v) => (v.length ? v : undefined))
 
 export const contactSchema = z
