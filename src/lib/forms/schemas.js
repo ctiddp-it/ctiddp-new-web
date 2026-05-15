@@ -59,20 +59,12 @@ const phoneField = z.preprocess(
     })
 )
 
-const optionalPhoneField = z
-  .preprocess((v) => normalizePhone(v), z.string())
-  .refine(
-    (v) => v.length === 0 || isValidPhoneNumber(v),
-    'Enter a valid phone number'
-  )
-  .transform((v) => (v.length ? v : undefined))
-
 export const contactSchema = z
   .object({
     name: nameField,
     company: safeOptionalString(100),
     email: emailField,
-    phone: optionalPhoneField,
+    phone: phoneField,
     subject: z.enum(CONTACT_SUBJECTS),
     message: z.preprocess(
       (v) => stripAndTrim(v),

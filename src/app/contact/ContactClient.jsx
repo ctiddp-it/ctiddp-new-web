@@ -5,12 +5,14 @@ import { FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import { BsCalendarEvent } from "react-icons/bs";
 import { MdEmergency } from "react-icons/md";
 import { useMemo, useState } from 'react'
-import { useForm } from 'react-hook-form'
+import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
 import Link from 'next/link'
 import { CONTACT_SUBJECTS, CONTACT_TIME_SLOTS, contactSchema } from '@/lib/forms/schemas'
 import { submitForm } from '@/lib/forms/submitForm'
+import PhoneInput from 'react-phone-number-input'
+import 'react-phone-number-input/style.css'
 
 const CONTACT_CHANNELS = [
   {
@@ -307,6 +309,7 @@ export default function ContactClient() {
   const [selectedDate, setSelectedDate] = useState('')
   const [selectedSlot, setSelectedSlot] = useState('')
   const [availableSlots, setAvailableSlots] = useState([])
+  const [selectedCountry, setSelectedCountry] = useState('IN')
 
   const API_BASE = process.env.NEXT_PUBLIC_API_URL;
 
@@ -327,6 +330,7 @@ export default function ContactClient() {
 
   const {
     register,
+    control,
     handleSubmit,
     watch,
     setValue,
@@ -562,15 +566,37 @@ export default function ContactClient() {
                       {errors?.email ? <p className="text-[11px] text-red-400 mt-1">{errors.email.message}</p> : null}
                     </div>
                     <div className="sm:col-span-1">
-                      <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Phone / WhatsApp</label>
-                      <input
-                        type="tel"
+                      <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">
+                        Phone / WhatsApp
+                      </label>
+
+                      <Controller
                         name="phone"
-                        {...register('phone')}
-                        placeholder="+91 or +86"
-                        className="w-full bg-[var(--overlay-input)] border border-[rgba(37,99,235,0.2)] rounded-[3px] px-4 py-2.5 text-white text-sm focus:outline-none focus:border-gold/50 transition-colors"
+                        control={control}
+                        render={({ field }) => (
+                          <PhoneInput
+                            international
+                            country={selectedCountry}
+                            defaultCountry="IN"
+                            countryCallingCodeEditable={false}
+                            value={field.value}
+                            onChange={field.onChange}
+                            onCountryChange={(country) => {
+                              if (country) {
+                                setSelectedCountry(country)
+                              }
+                            }}
+                            className="phone-input"
+                            placeholder="Enter phone number"
+                          />
+                        )}
                       />
-                      {errors?.phone ? <p className="text-[11px] text-red-400 mt-1">{errors.phone.message}</p> : null}
+
+                      {errors?.phone ? (
+                        <p className="text-[11px] text-red-400 mt-1">
+                          {errors.phone.message}
+                        </p>
+                      ) : null}
                     </div>
                     <div className="sm:col-span-1">
                       <label className="block text-[10px] text-muted uppercase tracking-[1px] mb-1.5">Subject</label>
