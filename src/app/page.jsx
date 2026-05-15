@@ -515,12 +515,6 @@ export default function HomePage() {
                 />
 
               </div>
-
-              {/* Floating Badge */}
-              <div className="absolute top-3 left-3 bg-[rgba(0,0,0,0.75)] backdrop-blur-md border border-[rgba(255,255,255,0.08)] px-3 py-1.5 rounded-full text-[10px] tracking-[1px] uppercase text-white">
-                60 Second Walkthrough
-              </div>
-
             </div>
 
             {/* Right - CTA Content */}
