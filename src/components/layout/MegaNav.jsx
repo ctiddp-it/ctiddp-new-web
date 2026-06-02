@@ -155,10 +155,10 @@ export default function MegaNav() {
           <Image
             src="/images/CTIDDP-LOGO-NEW.png"
             alt="CTIDDP Logo"
-            width={160}
+            width={125}
             height={50}
             priority
-            className="h-auto rounded-lg p-1.5"
+            className="h-auto w-auto bg-[#ffff] rounded-lg"
           />
         </Link>
 
