@@ -97,7 +97,7 @@ export default function Footer() {
             <div className="font-heading text-2xl font-bold tracking-[2px]">
               <Link
                 href="/"
-                className="flex items-center shrink-0 px-2 py-2 rounded-lg"
+                className="flex items-center shrink-0"
               >
                 <Image
                   src="/images/CTIDDP-LOGO-NEW.png"
@@ -105,7 +105,7 @@ export default function Footer() {
                   width={160}
                   height={50}
                   priority
-                  className="h-auto w-15 sm:w-50 border rounded-md bg-[#ffffff]"
+                  className="h-auto w-36 sm:w-40 bg-[#fff] rounded-md mb-1"
                 />
               </Link>
             </div>
@@ -287,7 +287,7 @@ export default function Footer() {
               width={160}
               height={50}
               priority
-              className="block mx-auto h-auto w-38 sm:w-50 border rounded-md bg-[#ffffff]"
+              className="block mx-auto h-auto w-36 sm:w-40 bg-[#fff] rounded-md"
             />
             <p className="text-sm text-gray-300 leading-relaxed mt-3 max-w-[300px] mx-auto">
               Professional China to India Door-to-Door (DDP) shipping solutions. Complete customs clearance and transparency.
