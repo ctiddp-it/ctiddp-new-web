@@ -158,7 +158,7 @@ export default function MegaNav() {
             width={160}
             height={50}
             priority
-            className="h-auto w-32 sm:w-36 rounded-lg p-1.5 dark:bg-white"
+            className="h-auto rounded-lg p-1.5"
           />
         </Link>
 
