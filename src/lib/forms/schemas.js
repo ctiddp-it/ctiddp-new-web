@@ -55,7 +55,7 @@ const phoneField = z.preprocess(
       // Other countries fallback
       return isValidPhoneNumber(v)
     }, {
-      message: 'Enter a valid Indian mobile number',
+      message: 'Enter a valid mobile number',
     })
 )
 

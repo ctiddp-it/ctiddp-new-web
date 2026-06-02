@@ -60,7 +60,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
+        url: 'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
         width: 1200,
         height: 630,
         alt: 'CTIDDP - China to India DDP Shipping',
@@ -72,7 +72,7 @@ export const metadata = {
     title: 'CTIDDP | Global Shipping & China to India DDP Experts',
     description:
       'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
-    images: ['https://www.ctiddp.com/images/CTIDDP-logo.png'],
+    images: ['https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png'],
   },
   alternates: {
     canonical: 'https://www.ctiddp.com/',
@@ -263,7 +263,7 @@ export default function HomePage() {
                 '@id': 'https://www.ctiddp.com/#organization',
                 name: 'CTIDDP',
                 url: 'https://www.ctiddp.com/',
-                logo: 'https://www.ctiddp.com/images/CTIDDP-logo.png',
+                logo: 'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
                 description:
                   'China to India DDP shipping specialists. All duties pre-paid.',
                 contactPoint: [

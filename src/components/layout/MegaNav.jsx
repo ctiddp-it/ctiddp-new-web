@@ -153,12 +153,12 @@ export default function MegaNav() {
           className="flex items-center shrink-0 px-2 py-2 rounded-lg"
         >
           <Image
-            src="/images/CTIDDPLOGO.png"
+            src="/images/CTIDDP-LOGO-NEW.png"
             alt="CTIDDP Logo"
             width={160}
             height={50}
             priority
-            className="h-auto w-28 sm:w-30 border rounded-md "
+            className="h-auto w-38 sm:w-38 logo-theme-bg border rounded-md "
           />
         </Link>
 

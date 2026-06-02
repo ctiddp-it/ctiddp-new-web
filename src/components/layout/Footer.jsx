@@ -100,12 +100,12 @@ export default function Footer() {
                 className="flex items-center shrink-0 px-2 py-2 rounded-lg"
               >
                 <Image
-                  src="/images/CTIDDPLOGO.png"
+                  src="/images/CTIDDP-LOGO-NEW.png"
                   alt="CTIDDP Logo"
                   width={160}
                   height={50}
                   priority
-                  className="h-auto w-15 sm:w-50 border rounded-md "
+                  className="h-auto w-15 sm:w-50 border rounded-md bg-[#ffffff]"
                 />
               </Link>
             </div>
@@ -280,19 +280,15 @@ export default function Footer() {
         <div className="lg:hidden">
           {/* Brand block - centered with better spacing */}
           <div className="pb-6 text-center border-b border-[rgba(37,99,235,0.15)] mb-4">
-            <div className="w-16 h-16 rounded-full bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.25)] flex items-center justify-center mx-auto mb-3">
-              <svg width="32" height="32" viewBox="0 0 38 38" fill="none" aria-label="CTIDDP Logo">
-                <rect x="8" y="20" width="22" height="10" rx="2" fill="rgba(37,99,235,0.9)" />
-                <polygon points="12,20 26,20 22,12 16,12" fill="rgba(37,99,235,0.7)" />
-                <rect x="17" y="8" width="2" height="6" fill="rgba(255,255,255,0.6)" />
-                <path d="M4 33 Q10 30 16 33 Q22 36 28 33 Q34 30 38 33" stroke="rgba(59,130,246,0.8)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-              </svg>
-            </div>
-            <div className="font-heading text-xl font-bold tracking-[2px]">
-              <span className="text-blue-light">
-                CTI<span className="text-white">DDP</span>
-              </span>
-            </div>
+
+            <Image
+              src="/images/CTIDDP-LOGO-NEW.png"
+              alt="CTIDDP Logo"
+              width={160}
+              height={50}
+              priority
+              className="block mx-auto h-auto w-38 sm:w-50 border rounded-md bg-[#ffffff]"
+            />
             <p className="text-sm text-gray-300 leading-relaxed mt-3 max-w-[300px] mx-auto">
               Professional China to India Door-to-Door (DDP) shipping solutions. Complete customs clearance and transparency.
             </p>
