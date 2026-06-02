@@ -105,7 +105,7 @@ export default function Footer() {
                   width={160}
                   height={50}
                   priority
-                  className="h-auto w-36 sm:w-40 bg-[#fff] rounded-md mb-1"
+                  className="h-auto w-36 sm:w-40 bg-white rounded-lg p-1.5 mb-1"
                 />
               </Link>
             </div>
@@ -287,7 +287,7 @@ export default function Footer() {
               width={160}
               height={50}
               priority
-              className="block mx-auto h-auto w-36 sm:w-40 bg-[#fff] rounded-md"
+              className="block mx-auto h-auto w-36 sm:w-40 bg-white rounded-lg p-1.5"
             />
             <p className="text-sm text-gray-300 leading-relaxed mt-3 max-w-[300px] mx-auto">
               Professional China to India Door-to-Door (DDP) shipping solutions. Complete customs clearance and transparency.
