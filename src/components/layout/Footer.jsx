@@ -100,12 +100,12 @@ export default function Footer() {
                 className="flex items-center justify-start shrink-0"
               >
                 <Image
-                  src="/images/CTIDDP-LOGO-NEW.png"
+                  src="/images/ctiddp-logo.png"
                   alt="CTIDDP Logo"
                   width={140}
                   height={35}
                   priority
-                  className="bg-[#ffff] rounded-lg"
+                  className="bg-[#ffff] p-2.5 rounded-lg"
                 />
               </Link>
             </div>
@@ -282,7 +282,7 @@ export default function Footer() {
           <div className="pb-6 text-center border-b border-[rgba(37,99,235,0.15)] mb-4">
 
             <Image
-              src="/images/CTIDDP-LOGO-NEW.png"
+              src="/images/ctiddp-logo.png"
               alt="CTIDDP Logo"
               width={160}
               height={50}
