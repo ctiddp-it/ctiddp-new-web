@@ -1,10 +1,8 @@
 import './globals.css'
 import { GoogleTagManager } from '@next/third-parties/google'
-import CustomCursor from '@/components/ui/CustomCursor'
 import ChatBot from '@/components/ui/ChatBot'
 import MegaNav from '@/components/layout/MegaNav'
 import Footer from '@/components/layout/Footer'
-import ThemeProvider from '@/components/providers/ThemeProvider'
 import ScrollToTop from '@/components/ui/ScrollToTop'
 import Script from 'next/script'
 
@@ -73,7 +71,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
 
         {/* Google AdSense */}
@@ -210,14 +208,11 @@ export default function RootLayout({ children }) {
           />
         </noscript>
 
-        <ThemeProvider>
-          <CustomCursor />
-          <MegaNav />
-          {children}
-          <ChatBot />
-          <Footer />
-          <ScrollToTop />
-        </ThemeProvider>
+        <MegaNav />
+        {children}
+        <ChatBot />
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   )

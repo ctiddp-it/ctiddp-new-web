@@ -1,26 +1,25 @@
 'use client'
 
-import { FaWhatsapp } from "react-icons/fa6";
+import { FaWhatsapp } from 'react-icons/fa6'
 import {
-  FaGlobe,
-  FaMoneyBillWave,
-  FaSearch,
-  FaWarehouse,
-  FaFileInvoice,
-  FaTruck,
-  FaLayerGroup,
-  FaBuilding,
-} from 'react-icons/fa'
+  HiOutlineGlobeAlt,
+  HiOutlineCreditCard,
+  HiOutlineMagnifyingGlass,
+  HiOutlineBuildingStorefront,
+  HiOutlineShieldCheck,
+  HiOutlineTruck,
+  HiOutlineCube,
+  HiOutlineCalendarDays,
+} from 'react-icons/hi2'
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import Image from "next/image";
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Ticker from './Ticker'
-import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
+  { label: 'About Us', href: '/about' },
   { label: 'How It Works', href: '/how-it-works' },
   {
     label: 'Services',
@@ -28,70 +27,76 @@ const NAV_ITEMS = [
     children: [
       {
         href: '/services/global-ddp-shipping',
-        title: 'Global DDP Shipping',
+        title: 'DDP Shipping (Air & Sea)',
         desc: 'End-to-end shipping with pre-paid customs duties.',
-        icon: <FaGlobe />,
+        icon: <HiOutlineGlobeAlt size={18} />,
       },
       {
         href: '/services/supplier-payments',
         title: 'Supplier Payments',
         desc: 'Secure and efficient payment processing for suppliers.',
-        icon: <FaMoneyBillWave />,
+        icon: <HiOutlineCreditCard size={18} />,
       },
       {
         href: '/services/qc-inspection',
-        title: 'QC Inspection',
+        title: 'QC & Inspection',
         desc: 'Thorough quality checks to ensure product standards.',
-        icon: <FaSearch />,
+        icon: <HiOutlineMagnifyingGlass size={18} />,
       },
       {
         href: '/services/warehousing',
         title: 'Warehousing & Consolidation',
         desc: 'Collect and combine cargo for lower freight costs.',
-        icon: <FaWarehouse />,
+        icon: <HiOutlineBuildingStorefront size={18} />,
       },
       {
         href: '/services/customs-clearance',
         title: 'Customs Clearance',
         desc: 'Smooth import clearance with compliant paperwork.',
-        icon: <FaFileInvoice />,
+        icon: <HiOutlineShieldCheck size={18} />,
       },
       {
         href: '/services/last-mile-delivery',
-        title: 'DDP Delivery',
+        title: 'Last-Mile Delivery',
         desc: 'Door delivery in India with duties pre-paid.',
-        icon: <FaTruck />,
+        icon: <HiOutlineTruck size={18} />,
       },
       {
         href: '/services/multi-vendor-consolidation',
         title: 'Multi-Vendor Consolidation',
         desc: 'Combine shipments from multiple vendors for cost savings.',
-        icon: <FaLayerGroup />,
+        icon: <HiOutlineCube size={18} />,
       },
       {
         href: '/services/canton-fair-support',
         title: 'Canton Fair Support',
         desc: 'On-ground trade fair sourcing and shipping support.',
-        icon: <FaBuilding />,
+        icon: <HiOutlineCalendarDays size={18} />,
       },
     ],
   },
-  { label: "Ecosystem", href: "/eco-system" },
-  { label: 'Canton Fair', href: '/canton-fair' },
+  { label: 'Ecosystem', href: '/eco-system' },
+  { label: 'Canton Fair 2026', href: '/canton-fair', badge: '2026' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact Us', href: '/contact' },
 ]
 
-const dropPos = (item) => item.dropAlign === 'right' ? 'right-0' : 'left-0'
-
-/* Reusable mega-dropdown item */
-function MegaItem({ child }) {
+/* ── Mega dropdown item ── */
+function MegaItem({ child, onClick }) {
   return (
-    <Link href={child.href} className="flex items-start gap-2.5 py-2.5 px-3 rounded-sm no-underline transition-colors duration-150 cursor-none hover:bg-[rgba(37,99,235,0.07)]">
-      <div className="w-[34px] h-[34px] rounded-lg text-blue-light bg-[rgba(37,99,235,0.08)] border border-[rgba(37,99,235,0.15)] flex items-center justify-center text-sm shrink-0 transition-colors duration-150 group-hover/item:bg-[rgba(37,99,235,0.15)]">{child.icon}</div>
+    <Link
+      href={child.href}
+      onClick={onClick}
+      className="group/item flex items-start gap-3 py-2.5 px-3 rounded-lg no-underline transition-colors duration-150 hover:bg-primary-50"
+    >
+      <div className="w-9 h-9 rounded-lg bg-primary-50 border border-primary-100 flex items-center justify-center text-primary shrink-0 transition-colors group-hover/item:bg-primary-100">
+        {child.icon}
+      </div>
       <div>
-        <span className="text-[12.5px] font-medium text-white block mb-0.5">{child.title}</span>
-        <span className="text-[11px] text-muted leading-[1.4]">{child.desc}</span>
+        <span className="text-[13px] font-600 text-gray-800 block mb-0.5 group-hover/item:text-primary transition-colors">
+          {child.title}
+        </span>
+        <span className="text-[11.5px] text-gray-500 leading-[1.4]">{child.desc}</span>
       </div>
     </Link>
   )
@@ -104,13 +109,9 @@ export default function MegaNav() {
   const [openSection, setOpenSection] = useState(null)
   const drawerRef = useRef(null)
 
-  const whatsappNumber = "918790013772" // Removed space from phone number
-  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
-
-  const handleWhatsAppClick = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
-    window.open(url, '_blank')
-  }
+  const whatsappNumber = '918790013772'
+  const whatsappMessage =
+    "Hello, I'm reaching out from your website. Could you share details about your services and how you can help?"
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -118,11 +119,16 @@ export default function MegaNav() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  useEffect(() => { setDrawerOpen(false); setOpenSection(null) }, [pathname])
+  useEffect(() => {
+    setDrawerOpen(false)
+    setOpenSection(null)
+  }, [pathname])
 
   useEffect(() => {
     document.body.style.overflow = drawerOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
+    return () => {
+      document.body.style.overflow = ''
+    }
   }, [drawerOpen])
 
   useEffect(() => {
@@ -134,48 +140,54 @@ export default function MegaNav() {
     return () => document.removeEventListener('mousedown', handler)
   }, [drawerOpen])
 
-  const toggleSection = (label) => setOpenSection(prev => prev === label ? null : label)
+  const toggleSection = (label) => setOpenSection((prev) => (prev === label ? null : label))
+
   const isActiveParent = (item) =>
     pathname === item.href ||
     pathname.startsWith((item.href || '') + '/') ||
-    item.children?.some(c => pathname === c.href || pathname.startsWith(c.href + '/'))
+    item.children?.some((c) => pathname === c.href || pathname.startsWith(c.href + '/'))
+
+  const isActive = (href) => pathname === href
 
   return (
     <>
       <Ticker />
 
       {/* ── NAVBAR ── */}
-      <nav className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-13 h-[78px] bg-[var(--overlay-nav)] backdrop-blur-xl border-b border-[rgba(37,99,235,0.1)] transition-shadow duration-300${scrolled ? ' shadow-[0_4px_40px_var(--shadow-scroll)]' : ''}`}>
-
+      <nav
+        className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-10 h-[72px] bg-white border-b transition-shadow duration-300 ${
+          scrolled ? 'shadow-[var(--shadow-nav)] border-gray-200' : 'border-gray-100'
+        }`}
+      >
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center shrink-0"
-        >
+        <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/images/ctiddp-logo.png"
+            src="/images/ctiddp-logo.svg"
             alt="CTIDDP Logo"
-            width={125}
-            height={50}
+            width={120}
+            height={45}
             priority
-            className="bg-[#ffff] p-2.5 rounded-lg"
+            className="h-20 md:h-22 w-auto object-contain"
           />
         </Link>
 
         {/* ── DESKTOP MENU ── */}
-        <ul className="hidden lg:flex items-center gap-0.5 list-none h-[68px] absolute left-1/2 -translate-x-1/2">
+        <ul className="hidden lg:flex items-center gap-0.5 list-none h-[72px] absolute left-1/2 -translate-x-1/2">
           {NAV_ITEMS.map((item) => (
             <li key={item.label} className="relative h-full flex items-center group">
-
               {!item.children ? (
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-[5px] h-full px-3.5 text-gray-900 dark:text-white no-underline text-xs font-semibold tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${pathname === item.href ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
+                  className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-colors duration-200 border-b-2 whitespace-nowrap ${
+                    isActive(item.href)
+                      ? 'text-primary border-primary'
+                      : 'text-gray-700 border-transparent hover:text-primary hover:border-primary/40'
+                  }`}
                 >
                   {item.label}
-                  {item.label === 'Canton Fair' && (
-                    <sup className="text-[8px] font-bold text-[#ffff] bg-[rgba(122,153,219,0.2)] bg-linear-to-r from-blue-600 to-cyan-500 border py-[3px] px-2.5 rounded-full ml-[3px] tracking-[1px] leading-none align-super">
-                      2026
+                  {item.badge && (
+                    <sup className="text-[9px] font-700 text-white bg-primary py-[2px] px-1.5 rounded-full ml-0.5 leading-none align-super">
+                      {item.badge}
                     </sup>
                   )}
                 </Link>
@@ -183,42 +195,34 @@ export default function MegaNav() {
                 <>
                   <Link
                     href={item.href || '#'}
-                    className={`flex items-center gap-[5px] h-full px-3.5 text-white no-underline text-xs font-semibold tracking-[0.7px] uppercase transition-colors duration-200 border-b-2 whitespace-nowrap cursor-none cursor-pointer${isActiveParent(item) ? ' text-primary-light border-b-[rgba(37,99,235,0.5)]' : ' border-transparent hover:text-primary-light hover:border-b-[rgba(37,99,235,0.5)]'}`}
+                    className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-colors duration-200 border-b-2 whitespace-nowrap ${
+                      isActiveParent(item)
+                        ? 'text-primary border-primary'
+                        : 'text-gray-700 border-transparent hover:text-primary hover:border-primary/40'
+                    }`}
                   >
                     {item.label}
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="transition-transform duration-200 shrink-0 group-hover:rotate-180">
+                    <svg
+                      width="10"
+                      height="10"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      className="transition-transform duration-200 shrink-0 group-hover:rotate-180"
+                    >
                       <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </Link>
 
                   {/* ── DROPDOWN ── */}
-                  <div className={`absolute top-[66px] ${dropPos(item)} bg-[var(--overlay-dropdown)] backdrop-blur-xl border border-[rgba(37,99,235,0.15)] border-t-2 border-t-primary rounded-b-md p-7 hidden group-hover:block z-[999] shadow-[0_20px_60px_var(--shadow-scroll)]`}>
-
-                    {item.twoCol ? (
-                      /* ── TWO-COLUMN LAYOUT (Resources) ── */
-                      <div className="grid grid-cols-2 min-w-[480px]">
-                        {/* Col 1 */}
-                        <div className="pr-5 border-r border-[rgba(37,99,235,0.1)]">
-                          <div className="text-[9px] font-bold tracking-[2px] uppercase text-primary mb-3.5 pb-2.5 border-b border-[rgba(37,99,235,0.1)]">
-                            {item.col1.heading}
-                          </div>
-                          {item.col1.items.map(child => <MegaItem key={child.href} child={child} />)}
-                        </div>
-                        {/* Col 2 */}
-                        <div className="pl-5">
-                          <div className="text-[9px] font-bold tracking-[2px] uppercase text-primary mb-3.5 pb-2.5 border-b border-[rgba(37,99,235,0.1)]">
-                            {item.col2.heading}
-                          </div>
-                          {item.col2.items.map(child => <MegaItem key={child.href} child={child} />)}
-                        </div>
-                      </div>
-                    ) : (
-                      /* ── STANDARD GRID (Services) ── */
-                      <div className="grid gap-1.5 grid-cols-2 min-w-[560px]">
-                        <div className="col-span-full text-[9px] tracking-[2px] uppercase text-primary font-semibold mb-3.5 pb-2.5 border-b border-[rgba(37,99,235,0.1)]">{item.label}</div>
-                        {item.children?.map(child => <MegaItem key={child.href} child={child} />)}
-                      </div>
-                    )}
+                  <div className="absolute top-[70px] left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-xl p-5 hidden group-hover:block z-[999] shadow-[var(--shadow-elevated)] min-w-[580px]">
+                    <div className="text-[10px] font-700 tracking-[2px] uppercase text-primary mb-3 pb-2.5 border-b border-gray-100">
+                      {item.label}
+                    </div>
+                    <div className="grid gap-1 grid-cols-2">
+                      {item.children?.map((child) => (
+                        <MegaItem key={child.href} child={child} />
+                      ))}
+                    </div>
                   </div>
                 </>
               )}
@@ -227,131 +231,156 @@ export default function MegaNav() {
         </ul>
 
         {/* ── DESKTOP ACTIONS ── */}
-        <div className="hidden lg:flex items-center gap-2 shrink-0">
-          <button
-            onClick={handleWhatsAppClick}
-            type="button"
+        <div className="hidden lg:flex items-center gap-2.5 shrink-0">
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label="WhatsApp Us"
-            className="flex items-center gap-1.5 border border-[rgba(74,222,128,0.35)] text-green py-2 px-4 rounded-sm text-[11px] font-medium tracking-[0.3px] transition-all duration-200 whitespace-nowrap hover:bg-[rgba(74,222,128,0.07)] hover:border-[rgba(74,222,128,0.6)]"
+            className="w-10 h-10 rounded-full border border-green-500/30 bg-green-50 flex items-center justify-center text-green-500 transition-all hover:bg-green-500/10 hover:border-green-500/50"
           >
-            <FaWhatsapp size={22} className="text-green-500" />
-          </button>
-          <Link href="/quote" className="px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">Get Free Quote</Link>
-          {/* <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
-            <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
-            <div className="w-px h-7 bg-[rgba(37,99,235,0.2)]" />
-            <button className="bg-transparent border-none text-muted  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200 hover:bg-[rgba(37,99,235,0.15)] hover:text-primary-light">中文</button>
-          </div> */}
-          <ThemeToggle />
+            <FaWhatsapp size={20} />
+          </a>
+          <Link
+            href="/quote"
+            className="btn btn-primary btn-sm gap-1.5"
+          >
+            GET FREE QUOTE
+            <span className="text-[16px]">→</span>
+          </Link>
         </div>
 
         {/* ── MOBILE RIGHT ── */}
-        <div className="flex lg:hidden items-center gap-3">
-          <Link href="/quote" className="text-[10px] uppercase tracking-wider px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+        <div className="flex lg:hidden items-center gap-2.5">
+          <Link href="/quote" className="btn btn-primary btn-sm text-[11px] px-3 py-2">
             Quote
           </Link>
           <button
-            onClick={() => setDrawerOpen(o => !o)}
+            onClick={() => setDrawerOpen((o) => !o)}
             aria-label="Toggle menu"
-            className="flex flex-col justify-center items-center w-9 h-9 gap-[5px] rounded-sm border border-[rgba(37,99,235,0.25)] bg-transparent cursor-pointer"
+            className="flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg border border-gray-200 bg-white"
           >
-            <span className={`block w-5 h-[1.5px] bg-linear-to-r from-blue-600 to-cyan-500 transition-all duration-300 origin-center${drawerOpen ? ' rotate-45 translate-y-[6.5px]' : ''}`} />
-            <span className={`block w-5 h-[1.5px] bg-linear-to-r from-blue-600 to-cyan-500 transition-all duration-300${drawerOpen ? ' opacity-0 scale-x-0' : ''}`} />
-            <span className={`block w-5 h-[1.5px] bg-linear-to-r from-blue-600 to-cyan-500 transition-all duration-300 origin-center${drawerOpen ? ' -rotate-45 -translate-y-[6.5px]' : ''}`} />
+            <span
+              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 origin-center ${
+                drawerOpen ? 'rotate-45 translate-y-[7px]' : ''
+              }`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 ${
+                drawerOpen ? 'opacity-0 scale-x-0' : ''
+              }`}
+            />
+            <span
+              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 origin-center ${
+                drawerOpen ? '-rotate-45 -translate-y-[7px]' : ''
+              }`}
+            />
           </button>
         </div>
       </nav>
 
       {/* ── MOBILE OVERLAY ── */}
       <div
-        className={`fixed inset-0 bg-[var(--overlay-dim)] z-[998] lg:hidden transition-opacity duration-300${drawerOpen ? ' opacity-100 pointer-events-auto' : ' opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-black/30 z-[998] lg:hidden transition-opacity duration-300 ${
+          drawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
         onClick={() => setDrawerOpen(false)}
       />
 
       {/* ── MOBILE DRAWER ── */}
       <div
         ref={drawerRef}
-        className={`fixed top-0 right-0 h-full w-75 max-w-[85vw] z-[1000] lg:hidden flex flex-col bg-[var(--overlay-drawer)] border-l border-[rgba(37,99,235,0.15)] transition-transform duration-300 ease-in-out${drawerOpen ? ' translate-x-0' : ' translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[1000] lg:hidden flex flex-col bg-white border-l border-gray-200 transition-transform duration-300 ease-in-out ${
+          drawerOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
       >
-        <div className="flex items-center justify-between px-5 h-[68px] border-b border-[rgba(37,99,235,0.1)] shrink-0">
-          <Link href="/" className="font-heading text-[18px] tracking-[2px] px-2 py-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] font-semibold rounded-lg hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl" onClick={() => setDrawerOpen(false)}>
-            CTI<span className="text-[#ffff]">DDP</span>
+        {/* Drawer header */}
+        <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100 shrink-0">
+          <Link href="/" onClick={() => setDrawerOpen(false)}>
+            <Image
+              src="/images/ctiddp-logo.png"
+              alt="CTIDDP Logo"
+              width={100}
+              height={38}
+              className="h-9 w-auto object-contain"
+            />
           </Link>
-          <button onClick={() => setDrawerOpen(false)} className="w-8 h-8 flex items-center justify-center text-muted hover:text-white text-lg border border-[rgba(37,99,235,0.2)] rounded-sm bg-transparent cursor-pointer">
+          <button
+            onClick={() => setDrawerOpen(false)}
+            className="w-9 h-9 flex items-center justify-center text-gray-500 hover:text-gray-800 text-lg border border-gray-200 rounded-lg bg-white"
+          >
             ✕
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto py-4">
+        {/* Drawer menu items */}
+        <div className="flex-1 overflow-y-auto py-3">
           {NAV_ITEMS.map((item) => (
             <div key={item.label}>
               {!item.children ? (
                 <Link
                   href={item.href}
                   onClick={() => setDrawerOpen(false)}
-                  className={`flex items-center justify-between px-5 py-3 text-[13px] font-medium tracking-wide uppercase no-underline transition-colors duration-150${pathname === item.href ? ' text-primary-light' : ' text-muted hover:text-white'}`}
+                  className={`flex items-center justify-between px-5 py-3.5 text-[14px] font-500 no-underline transition-colors duration-150 ${
+                    isActive(item.href) ? 'text-primary bg-primary-50' : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                  }`}
                 >
-                  {item.label}
-                  {item.label === 'Canton Fair' && (
-                    <sup className="text-[8px] font-bold text-[#ffff] bg-[rgba(122,153,219,0.2)] bg-linear-to-r from-blue-600 to-cyan-500 border  py-[3px] px-2.5 rounded-full ml-[3px] tracking-[1px] leading-none align-super">
-                      2026
-                    </sup>
-                  )}
+                  <span className="flex items-center gap-2">
+                    {item.label}
+                    {item.badge && (
+                      <sup className="text-[9px] font-700 text-white bg-primary py-[2px] px-1.5 rounded-full leading-none">
+                        {item.badge}
+                      </sup>
+                    )}
+                  </span>
                 </Link>
               ) : (
                 <div>
                   <button
                     onClick={() => toggleSection(item.label)}
-                    className={`w-full flex items-center justify-between px-5 py-3 text-[13px] font-medium tracking-wide uppercase bg-transparent border-none cursor-pointer transition-colors duration-150${isActiveParent(item) ? ' text-primary-light' : ' text-muted hover:text-white'}`}
+                    className={`w-full flex items-center justify-between px-5 py-3.5 text-[14px] font-500 bg-transparent border-none cursor-pointer transition-colors duration-150 ${
+                      isActiveParent(item) ? 'text-primary' : 'text-gray-700 hover:text-primary'
+                    }`}
                   >
                     {item.label}
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className={`transition-transform duration-200${openSection === item.label ? ' rotate-180' : ''}`}>
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 10 10"
+                      fill="none"
+                      className={`transition-transform duration-200 ${openSection === item.label ? 'rotate-180' : ''}`}
+                    >
                       <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
                   </button>
-                  <div className={`overflow-hidden transition-all duration-300${openSection === item.label ? ' max-h-[600px]' : ' max-h-0'}`}>
-                    <div className="bg-[var(--overlay-card)] border-t border-[rgba(37,99,235,0.07)] py-2">
-                      {item.twoCol ? (
-                        <>
-                          <div className="text-[9px] font-bold tracking-[2px] uppercase text-primary px-5 pt-1.5 pb-1">
-                            {item.col1.heading}
-                          </div>
-                          {item.col1.items.map(child => (
-                            <Link key={child.href} href={child.href} onClick={() => setDrawerOpen(false)}
-                              className={`flex items-center gap-3 px-5 py-2.5 no-underline transition-colors duration-150${pathname === child.href ? ' bg-[rgba(37,99,235,0.08)]' : ' hover:bg-[var(--overlay-card)]'}`}>
-                              <span className="text-[15px] text-blue-light shrink-0">{child.icon}</span>
-                              <div className="min-w-0">
-                                <div className={`text-xs font-medium leading-tight${pathname === child.href ? ' text-primary-light' : ' text-white'}`}>{child.title}</div>
-                                <div className="text-[11px] text-muted mt-0.5 leading-snug truncate">{child.desc}</div>
-                              </div>
-                            </Link>
-                          ))}
-                          <div className="text-[9px] font-bold tracking-[2px] uppercase text-primary px-5 pt-2.5 pb-1 border-t border-[rgba(37,99,235,0.07)] mt-1">
-                            {item.col2.heading}
-                          </div>
-                          {item.col2.items.map(child => (
-                            <Link key={child.href} href={child.href} onClick={() => setDrawerOpen(false)}
-                              className={`flex items-center gap-3 px-5 py-2.5 no-underline transition-colors duration-150${pathname === child.href ? ' bg-[rgba(37,99,235,0.08)]' : ' hover:bg-[var(--overlay-card)]'}`}>
-                              <span className="text-[15px] shrink-0 text-blue-light">{child.icon}</span>
-                              <div className="min-w-0">
-                                <div className={`text-xs font-medium leading-tight${pathname === child.href ? ' text-primary-light' : ' text-white'}`}>{child.title}</div>
-                                <div className="text-[11px] text-muted mt-0.5 leading-snug truncate">{child.desc}</div>
-                              </div>
-                            </Link>
-                          ))}
-                        </>
-                      ) : (
-                        item.children?.map(child => (
-                          <Link key={child.href} href={child.href} onClick={() => setDrawerOpen(false)}
-                            className={`flex items-center gap-3 px-5 py-2.5 no-underline transition-colors duration-150${pathname === child.href ? ' bg-[rgba(37,99,235,0.08)]' : ' hover:bg-[var(--overlay-card)]'}`}>
-                            <span className="text-[15px] shrink-0 text-blue-light">{child.icon}</span>
-                            <div className="min-w-0">
-                              <div className={`text-xs font-medium leading-tight${pathname === child.href ? ' text-primary-light' : ' text-white'}`}>{child.title}</div>
-                              <div className="text-[11px] text-muted mt-0.5 leading-snug truncate">{child.desc}</div>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                      openSection === item.label ? 'max-h-[800px]' : 'max-h-0'
+                    }`}
+                  >
+                    <div className="bg-gray-50 border-t border-gray-100 py-2">
+                      {item.children?.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={() => setDrawerOpen(false)}
+                          className={`flex items-center gap-3 px-6 py-3 no-underline transition-colors duration-150 ${
+                            pathname === child.href ? 'bg-primary-50' : 'hover:bg-primary-50/50'
+                          }`}
+                        >
+                          <span className="text-primary shrink-0">{child.icon}</span>
+                          <div className="min-w-0">
+                            <div
+                              className={`text-[13px] font-500 leading-tight ${
+                                pathname === child.href ? 'text-primary' : 'text-gray-800'
+                              }`}
+                            >
+                              {child.title}
                             </div>
-                          </Link>
-                        ))
-                      )}
+                            <div className="text-[11px] text-gray-500 mt-0.5 leading-snug truncate">{child.desc}</div>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -360,27 +389,24 @@ export default function MegaNav() {
           ))}
         </div>
 
-        <div className="shrink-0 p-5 border-t border-[rgba(37,99,235,0.1)] flex flex-col gap-3">
-          <Link href="/quote" onClick={() => setDrawerOpen(false)} className="bg-linear-to-br bg-linear-to-r from-blue-600 to-cyan-500 text-[#ffff] py-3 px-8 rounded-sm font-bold text-xs tracking-[1px] uppercase no-underline inline-flex items-center justify-center gap-2 shadow-[0_8px_28px_rgba(37,99,235,0.3)] transition-all duration-200 cursor-none text-center">
+        {/* Drawer footer */}
+        <div className="shrink-0 p-5 border-t border-gray-100 flex flex-col gap-3">
+          <Link
+            href="/quote"
+            onClick={() => setDrawerOpen(false)}
+            className="btn btn-primary w-full justify-center"
+          >
             Get Free Quote →
           </Link>
-          <button
-            onClick={handleWhatsAppClick}
-            type="button"
-            aria-label="WhatsApp Us"
-            className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green py-3 px-8 rounded-sm text-xs font-medium transition-all duration-200 cursor-none text-center"
+          <a
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-whatsapp w-full justify-center"
           >
-            <FaWhatsapp size={22} />
+            <FaWhatsapp size={20} />
             WhatsApp Us
-          </button>
-          <div className="flex justify-center items-center gap-3 mt-1">
-            <ThemeToggle />
-            {/* <div className="flex items-center border border-[rgba(37,99,235,0.2)] rounded-sm overflow-hidden">
-              <button className="bg-[rgba(37,99,235,0.15)] border-none text-primary-light  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">EN</button>
-              <div className="w-px h-7 bg-[rgba(37,99,235,0.2)]" />
-              <button className="bg-transparent border-none text-muted  text-[10px] font-medium tracking-[1px] uppercase py-[7px] px-2.5 cursor-none transition-all duration-200">中文</button>
-            </div> */}
-          </div>
+          </a>
         </div>
       </div>
     </>

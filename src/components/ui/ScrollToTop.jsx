@@ -1,50 +1,28 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaArrowUp } from 'react-icons/fa'
+import { HiOutlineArrowUp } from 'react-icons/hi2'
 
 export default function ScrollToTop() {
-  const [visible, setVisible] = useState(false)
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      setVisible(window.scrollY > 300)
-    }
-
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
+    const onScroll = () => setShow(window.scrollY > 400)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    })
-  }
+  const scrollUp = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          transition={{ duration: 0.25 }}
-          onClick={scrollToTop}
-          className="
-            fixed bottom-26 right-6 z-50
-            p-3 rounded-full
-            bg-gradient-to-r from-cyan-500 to-blue-500
-            text-[#ffffff] shadow-lg shadow-cyan-500/30
-            hover:scale-110 active:scale-95
-            transition-all
-          "
-          aria-label="Scroll to top"
-        >
-          <FaArrowUp className="text-lg" />
-        </motion.button>
-      )}
-    </AnimatePresence>
+    <button
+      onClick={scrollUp}
+      aria-label="Scroll to top"
+      className={`fixed bottom-24 right-5 z-[990] w-11 h-11 rounded-full bg-primary text-white flex items-center justify-center shadow-button transition-all duration-300 hover:bg-primary-dark hover:scale-110 ${
+        show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+      }`}
+    >
+      <HiOutlineArrowUp size={18} />
+    </button>
   )
 }

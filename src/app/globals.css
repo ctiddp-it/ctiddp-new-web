@@ -1,314 +1,530 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-  @import "tailwindcss";
-  /* ═══════════════════════════════════════════════
-    DESIGN TOKENS — @theme compiles into TW utilities
-    e.g. bg-black, text-primary, border-border, etc.
-  ═══════════════════════════════════════════════ */
-  @theme {
-    --color-black: #0000;
-    --color-deep: #EAF0F6;
-    --color-surface: #FFFFFF;
-    --color-card: #FFFFFF;
-    --color-primary: #1E3A5F;
-    --color-primary-light: #0EA5E9;
-    --color-primary-pale: #BAE6FD;
-    --color-green: #10B981;
-    --color-white: #ffff;
-    --color-muted: #6B7280;
-    --color-border: rgba(30, 58, 95, 0.15);
-    --spacing-nav: 68px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+@import "tailwindcss";
 
-    /* Legacy aliases — keep TW utility names working */
-    --color-gold: #1E3A5F;
-    --color-blue-light: #0EA5E9;
-    --color-blue-pale: #BAE6FD;
+/* ═══════════════════════════════════════════════
+   DESIGN TOKENS — New CTIDDP Design System
+   Light theme only — navy/blue/white palette
+═══════════════════════════════════════════════ */
+@theme {
+  /* ── Primary Palette ── */
+  --color-navy-950: #060D18;
+  --color-navy-900: #0A1628;
+  --color-navy-800: #0F2140;
+  --color-navy-700: #1A3050;
+  --color-primary: #1A56DB;
+  --color-primary-dark: #1544B0;
+  --color-primary-light: #3B82F6;
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
 
-    /* Fonts — single source of truth for the entire site */
-    --font-body: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    --font-heading: 'Cormorant Garamond', Georgia, serif;
-     --font-outfit: 'Outfit', system-ui, -apple-system, sans-serif;
-     --font-poppins: 'Poppins', system-ui, -apple-system, sans-serif;
+  /* ── Accent Colors ── */
+  --color-orange: #F97316;
+  --color-orange-dark: #EA680C;
+  --color-green-500: #22C55E;
+  --color-green-50: #F0FDF4;
+  --color-red-500: #EF4444;
+  --color-red-50: #FEF2F2;
+
+  /* ── Neutrals ── */
+  --color-white: #FFFFFF;
+  --color-gray-50: #F8FAFC;
+  --color-gray-100: #F1F5F9;
+  --color-gray-200: #E2E8F0;
+  --color-gray-300: #CBD5E1;
+  --color-gray-400: #94A3B8;
+  --color-gray-500: #64748B;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1E293B;
+  --color-gray-900: #0F172A;
+
+  /* ── Typography ── */
+  --font-poppins: 'Poppins', system-ui, -apple-system, sans-serif;
+
+  /* ── Spacing ── */
+  --spacing-nav: 72px;
+
+  /* ── Shadows ── */
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-elevated: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --shadow-button: 0 4px 14px rgba(26, 86, 219, 0.3);
+  --shadow-nav: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ═══════════════════════════════════════════════
+   BASE STYLES
+═══════════════════════════════════════════════ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
 
-  /* ═══════════════════════════════════════════════
-    THEME OVERRIDES — flip token values per light/dark
-    so ALL existing Tailwind utilities adapt automatically
-  ═══════════════════════════════════════════════ */
-  @layer base {
+  body {
+    font-family: var(--font-poppins);
+    background: var(--color-white);
+    color: var(--color-gray-700);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    /* ── LIGHT MODE (default :root) ── */
-    :root {
-      /* backgrounds */
-      --color-black: #F4F5F7;
-      --color-deep: #EAF0F6;
-      --color-surface: #FFFFFF;
-      --color-card: #FFFFFF;
-      /* text */
-      --color-white: #0F1C2E;
-      --color-muted: #6B7280;
-      /* overlays */
-      --overlay-nav: rgba(244, 245, 247, 0.97);
-      --overlay-dropdown: rgba(255, 255, 255, 0.99);
-      --overlay-footer: rgba(15, 28, 46, 1);
-      --shadow-scroll: rgba(30, 58, 95, 0.08);
-      --overlay-card: rgba(30, 58, 95, 0.03);
-      --overlay-card-border: rgba(30, 58, 95, 0.10);
-      --overlay-input: rgba(30, 58, 95, 0.04);
-      --overlay-input-border: rgba(30, 58, 95, 0.18);
-      --overlay-drawer: #EAF0F6;
-      --overlay-dim: rgba(15, 28, 46, 0.25);
-    }
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
 
-    /* ── DARK MODE ── */
-    .dark {
-      /* backgrounds */
-      --color-black: #080E18;
-      --color-deep: #0D1626;
-      --color-surface: #111D30;
-      --color-card: #162338;
-      /* text */
-      --color-white: #E8EEF6;
-      --color-muted: #8A9AB5;
-      /* overlays */
-      --overlay-nav: rgba(8, 14, 24, 0.97);
-      --overlay-dropdown: rgba(8, 14, 24, 0.99);
-      --overlay-footer: rgba(8, 14, 24, 1);
-      --shadow-scroll: rgba(0, 0, 0, 0.5);
-      --overlay-card: rgba(255, 255, 255, 0.02);
-      --overlay-card-border: rgba(255, 255, 255, 0.06);
-      --overlay-input: rgba(255, 255, 255, 0.04);
-      --overlay-input-border: rgba(255, 255, 255, 0.12);
-      --overlay-drawer: #0D1626;
-      --overlay-dim: rgba(0, 0, 0, 0.6);
-    }
+  ::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+  }
 
-    body {
-      font-family: var(--font-body);
-      background: var(--color-black);
-      color: var(--color-white);
-      overflow-x: hidden;
-      cursor: none;
-    }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-dark);
+  }
 
-    ::-webkit-scrollbar {
-      width: 3px;
-    }
+  /* ── Selection ── */
+  ::selection {
+    background: var(--color-primary-100);
+    color: var(--color-primary-dark);
+  }
 
-    ::-webkit-scrollbar-track {
-      background: var(--color-black);
-    }
+  /* ── Headings ── */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-gray-900);
+    font-weight: 700;
+    line-height: 1.2;
+  }
 
-    ::-webkit-scrollbar-thumb {
-      background: var(--color-primary);
-      border-radius: 2px;
+  /* ── Links ── */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   COMPONENT UTILITIES
+═══════════════════════════════════════════════ */
+@layer components {
+  /* ── Container ── */
+  .container-main {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 640px) {
+    .container-main {
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 
-  /* ═══════════════════════════════════════════════
-    CURSOR — JS-driven positioning, must stay as CSS
-  ═══════════════════════════════════════════════ */
-  #cursor-dot {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99999;
+  @media (min-width: 1024px) {
+    .container-main {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-main {
+      padding-left: 64px;
+      padding-right: 64px;
+    }
+  }
+
+  /* ── Section Spacing ── */
+  .section-padding {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 64px;
+      padding-bottom: 64px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+  }
+
+  /* ── Card Base ── */
+  .card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-primary-100);
+    transform: translateY(-2px);
+  }
+
+  /* ── Icon Container ── */
+  .icon-container {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: var(--color-primary-50);
+    border: 1px solid var(--color-primary-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: all 0.3s ease;
+  }
+
+  .icon-container-sm {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .icon-container-lg {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+  }
+
+  /* ── Section Badge ── */
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+  }
+
+  .section-badge::before {
+    content: '';
     width: 8px;
     height: 8px;
-    background: linear-gradient(to right, #1E3A5F, #0EA5E9);
     border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 10px #1E3A5F, 0 0 20px rgba(14, 165, 233, 0.4);
-    transition: width 0.15s, height 0.15s;
+    background: var(--color-orange);
+    flex-shrink: 0;
   }
 
-  #cursor-ring {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99998;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid rgba(30, 58, 95, 0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s cubic-bezier(.34, 1.56, .64, 1),
-      height 0.3s cubic-bezier(.34, 1.56, .64, 1),
-      border-color 0.3s, opacity 0.3s;
+  /* ── Section Title ── */
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-gray-900);
+    margin-bottom: 16px;
   }
 
-  #cursor-ring.expanded {
-    width: 68px;
-    height: 68px;
-    border-color: rgba(14, 165, 233, 0.8);
-    background: rgba(14, 165, 233, 0.06);
+  .section-title em,
+  .section-title .highlight {
+    color: var(--color-primary);
+    font-style: italic;
   }
 
-  /* ═══════════════════════════════════════════════
-    SCROLL REVEAL — toggled by IntersectionObserver
-  ═══════════════════════════════════════════════ */
-  .reveal {
+  /* ── Section Subtitle ── */
+  .section-subtitle {
+    font-size: 15px;
+    color: var(--color-gray-500);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  .section-subtitle.centered {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ── Button Variants ── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 12px 24px;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    box-shadow: var(--shadow-button);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(26, 86, 219, 0.35);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-gray-800);
+    border: 1.5px solid var(--color-gray-300);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-primary-50);
+  }
+
+  .btn-whatsapp {
+    background: var(--color-green-50);
+    color: var(--color-green-500);
+    border: 1.5px solid rgba(34, 197, 94, 0.3);
+  }
+
+  .btn-whatsapp:hover {
+    background: rgba(34, 197, 94, 0.12);
+    border-color: rgba(34, 197, 94, 0.5);
+  }
+
+  .btn-orange {
+    background: var(--color-orange);
+    color: #FFFFFF;
+  }
+
+  .btn-orange:hover {
+    background: var(--color-orange-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-sm {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+
+  .btn-lg {
+    font-size: 15px;
+    padding: 14px 32px;
+  }
+
+  /* ── Form Inputs ── */
+  .input-field {
+    width: 100%;
+    font-family: var(--font-poppins);
+    font-size: 14px;
+    padding: 12px 16px;
+    border: 1.5px solid var(--color-gray-200);
+    border-radius: 8px;
+    background: var(--color-white);
+    color: var(--color-gray-800);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    outline: none;
+  }
+
+  .input-field::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  .input-field:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.08);
+  }
+
+  .input-field.error {
+    border-color: var(--color-red-500);
+  }
+
+  .input-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-gray-700);
+    margin-bottom: 6px;
+  }
+
+  .input-error {
+    font-size: 12px;
+    color: var(--color-red-500);
+    margin-top: 4px;
+  }
+
+  /* ── Tag/Badge ── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--color-gray-100);
+    color: var(--color-gray-600);
+    border: 1px solid var(--color-gray-200);
+  }
+
+  .tag-blue {
+    background: var(--color-primary-50);
+    color: var(--color-primary);
+    border-color: var(--color-primary-100);
+  }
+
+  .tag-orange {
+    background: rgba(249, 115, 22, 0.1);
+    color: var(--color-orange);
+    border-color: rgba(249, 115, 22, 0.2);
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: var(--color-gray-200);
+    border: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL — Intersection Observer driven
+═══════════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════
+   TICKER
+═══════════════════════════════════════════════ */
+.ticker-span::before {
+  content: "•  ";
+  color: var(--color-primary-light);
+  font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════ */
+@keyframes tickScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes fadeUp {
+  from {
     opacity: 0;
-    transform: translateY(36px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateY(20px);
   }
-
-  .reveal.visible {
+  to {
     opacity: 1;
     transform: translateY(0);
   }
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  /* ═══════════════════════════════════════════════
-    ROUTE PATH — SVG stroke animation
-  ═══════════════════════════════════════════════ */
-  .route-path {
-    stroke: var(--color-primary-light);
-    stroke-width: 1.5;
-    fill: none;
-    stroke-dasharray: 2200;
-    stroke-dashoffset: 2200;
-    animation: drawRoute 4.2s ease-out 0.6s forwards;
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
   }
-
-  /* ═══════════════════════════════════════════════
-    TICKER
-  ═══════════════════════════════════════════════ */
-  .ticker-span::before {
-    content: "📦  ";
-    font-size: 10px;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
 
-  /* ═══════════════════════════════════════════════
-    KEYFRAMES
-  ═══════════════════════════════════════════════ */
-  @keyframes tickScroll {
-    from {
-      transform: translateX(0);
-    }
-
-    to {
-      transform: translateX(-50%);
-    }
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
   }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(28px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
 
-  @keyframes drawRoute {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
 
-  @keyframes particleFloat {
-    0% {
-      opacity: 0;
-      transform: translateY(0) translateX(0);
-    }
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    20% {
-      opacity: 0.75;
-    }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
 
-    80% {
-      opacity: 0.3;
-    }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
 
-    100% {
-      opacity: 0;
-      transform: translateY(-130px) translateX(var(--drift, 20px));
-    }
-  }
-
-  @keyframes pulse {
-
-    0%,
-    100% {
-      opacity: 1;
-    }
-
-    50% {
-      opacity: 0.4;
-    }
-  }
-
-  @keyframes dotAppear {
-    from {
-      opacity: 0;
-      transform: scale(0);
-    }
-
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes flareRise {
-    0% {
-      opacity: 0;
-      transform: translateY(0) scale(1);
-    }
-
-    10% {
-      opacity: 0.6;
-    }
-
-    50% {
-      opacity: 0.3;
-    }
-
-    100% {
-      opacity: 0;
-      transform: translateY(-180px) scale(0.3);
-    }
-  }
-
-  .PhoneInputCountrySelect option {
-  background: #0a0a0a;
-  color: white;
+/* ═══════════════════════════════════════════════
+   PHONE INPUT (react-phone-number-input)
+═══════════════════════════════════════════════ */
+.PhoneInputCountrySelect option {
+  background: var(--color-white);
+  color: var(--color-gray-800);
 }
 
 .phone-input {
   display: flex;
   align-items: center;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(37,99,235,0.2);
-  border-radius: 3px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-gray-200);
+  border-radius: 8px;
   padding: 10px 14px;
   transition: border-color 0.2s ease;
 }
 
 .phone-input:focus-within {
-  border-color: #2563eb;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.08);
 }
 
 .phone-input input {
   background: transparent;
   border: none;
   outline: none;
-  color: white;
+  color: var(--color-gray-800);
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
+  font-family: var(--font-poppins);
 }
 
 .phone-input input::placeholder {
-  color: rgba(255,255,255,0.4);
+  color: var(--color-gray-400);
 }
 
 .PhoneInputCountry {
@@ -317,7 +533,19 @@
 
 .PhoneInputCountrySelect {
   background: transparent;
-  color: white;
+  color: var(--color-gray-800);
   border: none;
   outline: none;
+}
+
+/* ═══════════════════════════════════════════════
+   SWIPER OVERRIDES
+═══════════════════════════════════════════════ */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--color-primary) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-primary) !important;
 }

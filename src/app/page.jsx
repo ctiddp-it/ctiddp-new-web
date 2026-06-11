@@ -1,590 +1,263 @@
-import { FaWhatsapp } from "react-icons/fa6";
+import dynamic from 'next/dynamic'
 import {
   HiOutlineGlobeAlt,
-  HiOutlineMagnifyingGlass,
-  HiOutlineCreditCard,
+  HiOutlineTruck,
   HiOutlineShieldCheck,
-  HiOutlineCalendarDays,
-  HiOutlineCursorArrowRays,
-  HiOutlineClipboardDocumentList,
-  HiOutlineLockClosed,
-  HiOutlineBolt,
-  HiOutlineBellAlert,
-  HiOutlineCube,
+  HiOutlineCreditCard,
+  HiOutlineMagnifyingGlass,
   HiOutlineBuildingStorefront,
-  HiOutlineExclamationTriangle
-} from "react-icons/hi2";
-import { CiDeliveryTruck } from "react-icons/ci";
-import { HeroSection } from '@/components/sections/HeroSection'
-import dynamic from 'next/dynamic'
-import ScrollRevealInit from '@/components/ui/ScrollRevealInit'
-import Partners from "@/components/sections/Partners";
-import StatsSection from "@/components/sections/StatsSection";
-import Link from 'next/link'
+  HiOutlineCube,
+  HiOutlineCalendarDays,
+  HiOutlineChatBubbleLeftRight,
+  HiOutlineDocumentCheck,
+  HiOutlineCurrencyDollar,
+  HiOutlineBuildingOffice2,
+  HiOutlineClipboardDocumentCheck,
+} from 'react-icons/hi2'
+import { FaWhatsapp } from 'react-icons/fa6'
+import StatBar from '@/components/ui/StatBar'
+import SectionBadge from '@/components/ui/SectionBadge'
+import IconCard from '@/components/ui/IconCard'
+import StepTimeline from '@/components/ui/StepTimeline'
+import CTABanner from '@/components/ui/CTABanner'
+import Button from '@/components/ui/Button'
+import TrustPill from '@/components/ui/TrustPill'
 
-// Lazy-load below-fold heavy components to reduce initial bundle size
-const GlobalPresence = dynamic(() => import('@/components/sections/GlobalPresence'), {
-  loading: () => <div className="min-h-[500px]" />,
-})
-const ReviewsCarousel = dynamic(() => import('@/components/sections/ReviewsCarousel'), {
-  loading: () => <div className="min-h-[400px]" />,
-})
+import HeroSection from '@/components/sections/HeroSection'
+
+const Partners = dynamic(() => import('@/components/sections/Partners'))
+const ReviewsCarousel = dynamic(() => import('@/components/sections/ReviewsCarousel'))
 
 export const metadata = {
-  title: 'CTIDDP | Global Shipping & China to India DDP Experts',
+  title: 'CTIDDP — China to India DDP Shipping Specialists | End-to-End Logistics',
   description:
-    'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
-  keywords: [
-    'shipping from China to India cost',
-    'import from China to India',
-    'DDP shipping China to India',
-    'door to door shipping China India',
-    'China to India shipping company',
-    'best freight forwarder India China',
-    'China import logistics company India',
-    'shipping agent China to India',
-    'international shipping company India',
-    'global logistics company India',
-    'cross border shipping solutions',
-    'import without customs hassle India',
-    'China sourcing and shipping service',
-    'full service logistics provider India',
-    'end to end import services India',
-  ],
+    'End-to-end China to India DDP shipping. Sea & air freight, customs clearance, QC inspection, warehousing, supplier payments, and last-mile PAN-India delivery. All duties pre-paid. Zero hidden charges.',
   openGraph: {
-    title: 'CTIDDP | Global Shipping & China to India DDP Experts',
-    description:
-      'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
+    title: 'CTIDDP — China to India DDP Shipping Specialists',
+    description: 'End-to-end DDP freight from China to India. All duties pre-paid. Zero surprises.',
     url: 'https://www.ctiddp.com/',
-    siteName: 'CTIDDP',
-    type: 'website',
-    images: [
-      {
-        url: 'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
-        width: 1200,
-        height: 630,
-        alt: 'CTIDDP - China to India DDP Shipping',
-      },
-    ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'CTIDDP | Global Shipping & China to India DDP Experts',
-    description:
-      'Global shipping made simple with China to India DDP delivery, customs clearance, and end-to-end logistics solutions.',
-    images: ['https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png'],
-  },
-  alternates: {
-    canonical: 'https://www.ctiddp.com/',
-  },
-};
+}
 
-const STATS = [
-  { digits: '30', suffix: '+', label: 'Expert Team Members' },
-  { digits: '300', suffix: '+', label: 'Containers Imported' },
-  { digits: '1200', suffix: '+', label: 'Shipments Cleared' },
-  { digits: '16250', suffix: '+', label: 'CBM Shipped' },
-];
+/* ── DATA ── */
+const HERO_STATS = [
+  { value: '500', suffix: '+', label: 'Importers Served' },
+  { value: '1200', suffix: '+', label: 'Shipments Delivered' },
+  { value: '100', suffix: '%', label: 'Customs Compliant' },
+  { value: '24', suffix: '/7', label: 'Support Available' },
+]
 
-const DDP_COMPARE = [
+const PROCESS_STEPS = [
   {
-    badge: 'FOB',
-    title: 'Free On Board',
-    desc: 'Seller loads goods onto the vessel. After that - sea freight, insurance, customs, duties, last-mile - all your responsibility.',
-    marker: 'Risk transfers at port',
-    markerIcon: <HiOutlineExclamationTriangle size={16} />,
-    markerBg: 'rgba(251,191,36,0.15)',
-    markerBorder: 'rgba(251,191,36,0.3)',
-    markerText: '#FCD34D',
-    cardBg: 'bg-surface',
-    cardBorder: 'border-[var(--overlay-card-border)]',
-    highlight: false,
+    icon: <HiOutlineClipboardDocumentCheck size={22} />,
+    title: 'Share Your Details',
+    description: 'Tell us about your shipment requirements.',
   },
   {
-    badge: 'CIF',
-    title: 'Cost, Insurance & Freight',
-    desc: 'Seller handles sea freight and insurance. But you still handle Import customs, BCD+IGST payment, port formalities, and delivery.',
-    marker: 'Duties & last-mile still yours',
-    markerIcon: <HiOutlineExclamationTriangle size={16} />,
-    markerBg: 'rgba(251,191,36,0.15)',
-    markerBorder: 'rgba(251,191,36,0.3)',
-    markerText: '#FCD34D',
-    cardBg: 'bg-surface',
-    cardBorder: 'border-[var(--overlay-card-border)]',
-    highlight: false,
+    icon: <HiOutlineCube size={22} />,
+    title: 'We Pick Up',
+    description: "We collect cargo from your supplier's location in China.",
   },
   {
-    badge: 'DDP - What We Do',
-    title: 'Delivered Duty Paid',
-    desc: 'We handle everything: China export, sea freight, insurance, customs filing, BCD+IGST payment, and last-mile delivery. One invoice.',
-    marker: 'We handle it all',
-    markerIcon: <HiOutlineShieldCheck size={16} />,
-    markerBg: 'rgba(74,222,128,0.1)',
-    markerBorder: 'rgba(74,222,128,0.3)',
-    markerText: '#4ADE80',
-    cardBg: 'bg-[rgba(37,99,235,0.06)]',
-    cardBorder: 'border-[rgba(37,99,235,0.3)]',
-    highlight: true,
+    icon: <HiOutlineGlobeAlt size={22} />,
+    title: 'We Ship',
+    description: 'Sea or air freight with full tracking and insurance.',
+  },
+  {
+    icon: <HiOutlineShieldCheck size={22} />,
+    title: 'Customs Clearance',
+    description: 'Complete import clearance with all duties pre-paid.',
+  },
+  {
+    icon: <HiOutlineTruck size={22} />,
+    title: 'Doorstep Delivery',
+    description: 'Last-mile delivery anywhere in India.',
   },
 ]
 
 const SERVICES = [
   {
-    icon: <HiOutlineGlobeAlt />,
+    icon: <HiOutlineGlobeAlt size={22} />,
     title: 'Global DDP Shipping',
-    desc: ' Our DDP (Delivered Duty Paid) shipping service covers sea and air freight with all duties, taxes, and compliance included. No hidden costs.',
+    description: 'End-to-end sea and air freight with all duties, taxes, and customs charges pre-paid.',
+    tags: ['SEA', 'AIR', 'DDP'],
     href: '/services/global-ddp-shipping',
-    highlight: false,
   },
   {
-    icon: <HiOutlineCreditCard />,
+    icon: <HiOutlineCreditCard size={22} />,
     title: 'Supplier Payments',
-    desc: 'We manage secure international supplier payments with full documentation, compliance, and traceability. Avoid fraud risks, currency fluctuations, and payment delays.',
+    description: 'Secure payment processing to your Chinese suppliers with full protection.',
+    tags: ['SECURE', 'FAST'],
     href: '/services/supplier-payments',
-    highlight: false,
   },
   {
-    icon: <HiOutlineMagnifyingGlass />,
-    title: 'QC & Pre-Shipment Inspection',
-    desc: ' We conduct AQL-based inspections, product testing, and packaging checks with photo/video reports. Ensure your shipment meets quality standards before dispatch.',
+    icon: <HiOutlineMagnifyingGlass size={22} />,
+    title: 'QC & Inspection',
+    description: 'On-site quality checks and pre-shipment inspections at supplier facilities.',
+    tags: ['QUALITY', 'ON-SITE'],
     href: '/services/qc-inspection',
-    highlight: false,
   },
   {
-    icon: <HiOutlineBuildingStorefront />,
+    icon: <HiOutlineBuildingStorefront size={22} />,
     title: 'Warehousing & Consolidation',
-    desc: ' Our warehouses in Guangzhou & Foshan support inventory storage, repacking, labeling, and dispatch planning for optimized logistics flow.',
+    description: 'Collect and consolidate cargo from multiple suppliers at our Guangzhou warehouse.',
+    tags: ['STORAGE', 'CONSOLIDATION'],
     href: '/services/warehousing',
-    highlight: false,
   },
   {
-    icon: <HiOutlineShieldCheck />,
+    icon: <HiOutlineShieldCheck size={22} />,
     title: 'Customs Clearance',
-    desc: 'We handle BCD, IGST, HS code classification, and FTA benefits with accurate pre-calculation. Full compliance with Indian import regulations.',
+    description: 'Expert import customs clearance at all Indian ports with compliant documentation.',
+    tags: ['COMPLIANT', 'ALL PORTS'],
     href: '/services/customs-clearance',
-    highlight: false,
   },
   {
-    icon: <CiDeliveryTruck />,
+    icon: <HiOutlineTruck size={22} />,
     title: 'Last-Mile Delivery',
-    desc: ' From ports to final destination, we ensure secure last-mile delivery with POD confirmation, warehousing options, and express delivery timelines.',
+    description: 'Door-to-door delivery across India with real-time tracking and proof of delivery.',
+    tags: ['PAN-INDIA', 'TRACKED'],
     href: '/services/last-mile-delivery',
-    highlight: false,
   },
   {
-    icon: <HiOutlineCube />,
+    icon: <HiOutlineCube size={22} />,
     title: 'Multi-Vendor Consolidation',
-    desc: '  We collect goods from different factories and consolidate them into a single shipment. This reduces freight costs, simplifies documentation, and speeds up delivery.',
+    description: 'Combine shipments from multiple vendors into a single DDP shipment for cost savings.',
+    tags: ['COST-SAVING'],
     href: '/services/multi-vendor-consolidation',
-    highlight: true,
   },
   {
-    icon: <HiOutlineCalendarDays />,
+    icon: <HiOutlineCalendarDays size={22} />,
     title: 'Canton Fair Support',
-    desc: ' Our on-ground team assists with supplier negotiation, product verification, translation, and order management during Canton Fair events.',
+    description: 'On-ground trade fair sourcing, inspection, and shipping support in Guangzhou.',
+    tags: ['SOURCING', 'GUANGZHOU'],
     href: '/services/canton-fair-support',
-    highlight: true,
   },
-];
-
-const HOW_IT_WORKS = [
-  { n: '01', t: 'Supplier Coordination & Factory QC', d: 'Vendor sourcing, negotiation, quality inspection at Foshan before goods move.', tag: 'Foshan · China' },
-  { n: '02', t: 'Cargo Consolidation & Export Preparation', d: 'Multi-vendor consolidation at Guangzhou. HS code check, packing list, commercial invoice.', tag: 'Guangzhou' },
-  { n: '03', t: 'China Export Customs · 48 hrs', d: 'Export declaration, LEO clearance, EGM verification - all within 48 hours.', tag: '48 Hours' },
-  { n: '04', t: 'International Sea / Air Transit', d: 'Full DDP Incoterms 2020. Freight, insurance, all risk on us throughout transit.', tag: '18–25 Days Sea/ 7-9 Days Air' },
-  { n: '05', t: 'Customs + Last-Mile Delivery', d: 'BE filing, BCD+IGST paid, OOC, Our warehouse, Last mile + POD.', tag: '9–15 Days Clearance' },
 ]
 
-const TESTIMONIALS = [
-  { stars: 5, text: 'As a small business owner, importing from China always felt overwhelming until I found CTIDDP. Their DDP service is a lifesaver. I didn’t have to worry about hidden customs fees or complex paperwork. Everything was delivered right to my warehouse in Delhi exactly as promised. Special thanks to the Guangzhou team for the quick QC photos.', name: 'Rajasekhar B', time: "2 weeks ago", },
-  { stars: 5, text: 'I contacted the company after getting their contact while visiting Canton Fare in 2025. I was offered a better rate for DDP Shipping to India compared to other companies. Moreover I could make direct payment from my company account to their local account in India. The transport service by sea and the DDP Service was very fast and efficient. Overall I am very happy with their service and the shipping rates offered by them. Highly recommended transport company.', name: 'Sathyanarayanan G', time: "1 month ago", },
-  { stars: 5, text: 'I reached this company to ship goods from China to rural areas of India. Their team in China and India are very skilled and efficient. They never lost any goods, which is very important, although delivery times were occasionally delayed by a few days.', name: 'G. Wohbig', time: "3 weeks ago", },
-  { stars: 5, text: 'Highly recommend for bulk sea freight. We had goods coming from four different factories in Foshan, and CTIDDP consolidated everything at their hub perfectly. Their rates are the most competitive we’ve found for China-to-India shipping. No damages, no delays, and total transparency on the duties paid. Five stars.', name: 'Anjali M', time: "2 months ago", },
-  { stars: 5, text: 'We had a tight deadline for our shipment to Chennai, and CTIDDP delivered on time with their DDP service. The best part was that they handled all the customs clearance and duties without any hiccups. The last-mile delivery was smooth, and we received our goods in perfect condition. Highly recommend for hassle-free China to India shipping.', name: 'Vikram S', time: "1 week ago", },
+const WHY_CHOOSE = [
+  {
+    icon: <HiOutlineDocumentCheck size={22} />,
+    title: 'One Contract',
+    description: 'Single agreement covers pickup, shipping, customs, duties, and delivery.',
+  },
+  {
+    icon: <HiOutlineCurrencyDollar size={22} />,
+    title: 'Transparent Pricing',
+    description: 'Complete cost breakdown upfront. No hidden fees, no surprise charges.',
+  },
+  {
+    icon: <HiOutlineTruck size={22} />,
+    title: 'On-Time Delivery',
+    description: '99% on-time delivery rate with real-time tracking at every stage.',
+  },
+  {
+    icon: <HiOutlineChatBubbleLeftRight size={22} />,
+    title: 'Dedicated Support',
+    description: 'Personal account manager assigned to every shipment, available 24/7.',
+  },
+  {
+    icon: <HiOutlineBuildingOffice2 size={22} />,
+    title: 'China & India Offices',
+    description: 'Local teams in Guangzhou, Vizag, Chennai, and Bangalore for on-ground support.',
+  },
 ]
-
-const WHY_US = [
-  {
-    icon: <HiOutlineCursorArrowRays />,
-    title: 'Pure DDP Specialists',
-    desc: 'Not a general freight forwarder. Every SOP, every team member, every process built exclusively for China→India DDP.',
-  },
-  {
-    icon: <HiOutlineGlobeAlt />,
-    title: 'Dual-Country Leadership',
-    desc: 'Founders physically based in Guangzhou and Vizag. No vendor chains. Direct control both sides.',
-  },
-  {
-    icon: <HiOutlineClipboardDocumentList />,
-    title: '17+ SOPs - Fully Documented',
-    desc: 'RACI matrices, control gates, KPI dashboards, escalation protocols. Your cargo never slips through the cracks.',
-  },
-  {
-    icon: <HiOutlineLockClosed />,
-    title: 'Zero Hidden Charges',
-    desc: 'Full duty calculation before goods move. Freight, BCD, IGST, SWS, last-mile - all in one quote. Always.',
-  },
-];
-
-const ASSURANCES = [
-  {
-    icon: <HiOutlineBolt />,
-    title: 'Duty Pre-Approved',
-    desc: 'Full BCD+IGST+SWS pre-calc signed off by Operations Manager before any import filing.',
-  },
-  {
-    icon: <HiOutlineShieldCheck />,
-    title: 'Full Insurance + Claims',
-    desc: 'Every DDP shipment fully insured. Damage reported within 2 hours, claim filed same day.',
-  },
-  {
-    icon: <HiOutlineBellAlert />,
-    title: '2-Hour Escalation SLA',
-    desc: 'All Level 2+ issues escalated to management within 2 hours. Five-tier escalation per shipment.',
-  },
-];
-
-// ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
-  const whatsappNumber = "918790013772" // Removed space from phone number
-  const whatsappMessage = "Hello, I’m reaching out from your website. Could you share details about your services and how you can help?"
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'Organization',
-                '@id': 'https://www.ctiddp.com/#organization',
-                name: 'CTIDDP',
-                url: 'https://www.ctiddp.com/',
-                logo: 'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
-                description:
-                  'China to India DDP shipping specialists. All duties pre-paid.',
-                contactPoint: [
-                  {
-                    '@type': 'ContactPoint',
-                    telephone: '+91-87900-13772',
-                    contactType: 'customer service',
-                    areaServed: 'IN',
-                    availableLanguage: ['English', 'Hindi', 'Telugu'],
-                  },
-                  {
-                    '@type': 'ContactPoint',
-                    telephone: '+86-188-1874-9844',
-                    contactType: 'customer service',
-                    areaServed: 'CN',
-                    availableLanguage: ['Chinese', 'English'],
-                  },
-                ],
-              },
-              {
-                '@type': 'WebSite',
-                '@id': 'https://www.ctiddp.com/#website',
-                url: 'https://www.ctiddp.com/',
-                name: 'CTIDDP',
-                publisher: {
-                  '@id': 'https://www.ctiddp.com/#organization',
-                },
-              },
-            ],
-          }),
-        }}
-      />
-      <ScrollRevealInit />
-      <main className="bg-black text-white">
+    <main>
+      {/* ══════════ HERO ══════════ */}
+      <HeroSection />
 
-        {/* ── 1. HERO ──────────────────────────────────────────────────────── */}
-        <HeroSection />
-
-        {/* stats  */}
-        <StatsSection />
-
-        {/* ── 3. WHAT DOES DDP MEAN ──────────────────────────────────────────────────── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="text-center max-w-[580px] mx-auto mb-11">
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                Know Before You Ship
-              </span>
-              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
-                What Does DDP Mean<br />
-                <em className="italic text-blue-light">For Your Shipment?</em>
-              </h2>
-              <p className="text-[15px] text-muted leading-relaxed max-w-[520px] mx-auto">
-                Most importers are surprised by what&apos;s NOT included in their shipping terms.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {DDP_COMPARE.map(card => (
-                <div
-                  key={card.badge}
-                  className={`reveal relative overflow-hidden p-6 sm:p-8 border rounded-[4px] transition-all duration-300 hover:-translate-y-1 ${card.cardBg} ${card.cardBorder}`}
-                >
-                  {card.highlight && (
-                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
-                  )}
-                  <div
-                    className="inline-block text-[9px] font-bold tracking-[1.5px] uppercase mb-3.5 py-1 px-2.5 rounded-full"
-                    style={{
-                      color: card.highlight ? '#2563EB' : '#8A8A9A',
-                      background: card.highlight ? 'rgba(37,99,235,0.12)' : 'rgba(255,255,255,0.06)',
-                      border: `1px solid ${card.highlight ? 'rgba(37,99,235,0.3)' : 'rgba(255,255,255,0.1)'}`,
-                    }}
-                  >
-                    {card.badge}
-                  </div>
-                  <h3 className="font-heading text-xl font-semibold text-white mb-3">
-                    {card.title}
-                  </h3>
-                  <p className="text-[13px] text-muted leading-relaxed mb-[18px]">{card.desc}</p>
-                  <div
-                    className="flex items-center gap-2 text-[12px] font-medium py-2 px-3.5 rounded-[3px]"
-                    style={{
-                      background: card.markerBg,
-                      border: `1px solid ${card.markerBorder}`,
-                      color: card.markerText
-                    }}
-                  >
-                    <span className="shrink-0">
-                      {card.markerIcon}
-                    </span>
-
-                    <span>
-                      {card.marker}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* ══════════ HOW IT WORKS ══════════ */}
+      <section className="section-padding bg-white">
+        <div className="container-main">
+          <div className="text-center mb-12">
+            <SectionBadge>HOW IT WORKS</SectionBadge>
+            <h2 className="section-title">
+              Simple Process. <span className="highlight">Seamless Delivery.</span>
+            </h2>
+            <p className="section-subtitle centered">
+              From your order in China to delivery at your doorstep in India — in 5 simple steps.
+            </p>
           </div>
-        </section>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
+          <StepTimeline steps={PROCESS_STEPS} />
+        </div>
+      </section>
 
-        {/* ── 4. SERVICES──────────────────────────────────────────────────── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px]">
-          <div className="max-w-[1200px] mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-11 md:items-end">
-              <div>
-                <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                  Our Services
-                </span>
-                <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1]">
-                  8 Ways We Power Your<br />
-                  <em className="italic text-blue-light">Global Supply Chain</em>
-                </h2>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {SERVICES.map(s => (
-                <Link key={s.title} href={s.href} className="no-underline group">
-                  <div
-                    className={`reveal relative overflow-hidden py-6 sm:py-8 px-5 sm:px-7 border rounded-[4px] transition-all duration-300 
-                      hover:border-[rgba(37,99,235,0.4)] hover:-translate-y-1 cursor-none
-                      before:content-[''] before:absolute before:top-0 before:left-0 before:right-0 before:h-[2px]
-                      before:bg-gradient-to-r before:from-transparent before:via-gold before:to-transparent
-                      before:opacity-0 before:transition-opacity before:duration-300 group-hover:before:opacity-100
-                      ${s.highlight
-                        ? 'bg-[rgba(37,99,235,0.05)] border-[rgba(37,99,235,0.2)]'
-                        : 'bg-[var(--overlay-card)] border-[var(--overlay-card-border)]'
-                      }`}
-                  >
-                    <div className="w-11 h-11 border border-[rgba(37,99,235,0.3)] rounded-[10px] flex items-center justify-center mb-[18px] bg-[rgba(37,99,235,0.05)] group-hover:border-gold transition-colors">
-                      <span className="text-[20px] text-blue-light">
-                        {s.icon}
-                      </span>
-                    </div>
-                    <div className="font-heading text-[19px] font-semibold mb-2 text-white group-hover:text-blue-light transition-colors">
-                      {s.title}
-                    </div>
-                    <div className="text-[13px] text-muted leading-relaxed">{s.desc}</div>
-                    <div className="mt-6 flex items-center justify-end">
-
-                      <div className="flex items-end gap-2 text-[13px] font-medium text-blue-light group-hover:text-gold transition-all duration-300">
-                        <span className="relative">
-                          Explore Service
-                          <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full"></span>
-                        </span>
-
-                        <span className="transform transition-transform duration-300 group-hover:translate-x-1">
-                          →
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+      {/* ══════════ SERVICES ══════════ */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-main">
+          <div className="text-center mb-12">
+            <SectionBadge>OUR SERVICES</SectionBadge>
+            <h2 className="section-title">
+              End-to-End <span className="highlight">Logistics Solutions</span>
+            </h2>
+            <p className="section-subtitle centered">
+              We handle every step of your import journey — from supplier coordination in China to last-mile delivery in India.
+            </p>
           </div>
-        </section>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
-
-        {/* ── 5. HOW IT WORKS ──────────────────────────────────────────────── */}
-        <section className="px-4 sm:px-6 lg:px-[60px] py-[60px] sm:py-[90px] bg-deep">
-          <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
-            <div>
-              <span className="inline-flex items-center gap-1.5 bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)] text-blue-light text-[10px] font-semibold tracking-[1.5px] uppercase px-3 py-1 rounded-[3px] mb-4">
-                The DDP Journey
-              </span>
-              <h2 className="font-heading text-[clamp(32px,4vw,52px)] font-light leading-[1.1] mb-3.5">
-                One Contract<br />
-                <em className="italic text-blue-light">Zero Worry</em>
-              </h2>
-              <p className="text-[15px] text-muted leading-relaxed mb-6">
-                Every step & every cost - from supplier to your door.
-              </p>
-              <div className="py-4 px-[18px] bg-[rgba(37,99,235,0.06)] border-l-2 border-gold text-[13px] text-muted mb-6 flex items-start gap-2">
-                <HiOutlineCalendarDays className="text-blue-light mt-[2px] shrink-0" size={18} />
-                <span>
-                  Typical total: <strong className="text-blue-light">38–50 days</strong> factory pickup → Warehouse (including customs)
-                </span>
-              </div>
-              <Link
-                href="/how-it-works"
-                className="inline-flex items-center gap-2 border border-[rgba(37,99,235,0.4)] text-blue-light px-6 sm:px-8 py-3 rounded-[3px] text-[13px] tracking-[1px] uppercase transition-all hover:bg-[rgba(37,99,235,0.08)] hover:border-gold cursor-none"
-              >
-                See Full Process →
-              </Link>
-            </div>
-            <div>
-              {HOW_IT_WORKS.map(s => (
-                <div key={s.n} className="reveal flex gap-5 items-start py-6 border-b border-[rgba(37,99,235,0.07)] last:border-0">
-                  <div className="w-[34px] h-[34px] rounded-full border border-[rgba(37,99,235,0.4)] flex items-center justify-center shrink-0 font-heading text-[13px] font-semibold text-blue">
-                    {s.n}
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm font-medium text-white mb-1">{s.t}</div>
-                    <div className="text-xs text-muted leading-relaxed">{s.d}</div>
-                    <span className="inline-block mt-2 text-[9px] tracking-[1px] uppercase py-1 px-2.5 rounded-full text-blue bg-[rgba(37,99,235,0.1)] border border-[rgba(37,99,235,0.2)]">
-                      {s.tag}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {SERVICES.map((svc) => (
+              <IconCard key={svc.href} {...svc} />
+            ))}
           </div>
-        </section>
 
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
-
-        {/* ── 6. PARTNERS ──────────────────────────────────────────────────── */}
-        <Partners />
-
-        {/* ── 7. GLOBAL PRESENCE ──────────────────────────────────────────────── */}
-        <GlobalPresence />
-
-        {/* ── 8. TESTIMONIALS ──────────────────────────────────────────────── */}
-        <ReviewsCarousel
-          testimonials={TESTIMONIALS}
-          rating="4.9"
-          reviewCount="150+"
-          reviewsUrl="https://g.page/r/your-google-review-link"
-          autoPlayMs={5000}
-          headingLine1="What our clients are"
-          headingLine2="saying on Google"
-        />
-
-        <div className="h-px bg-gradient-to-r from-transparent via-[rgba(37,99,235,0.2)] to-transparent mx-4 sm:mx-[60px]" />
-
-
-        {/* ── 9. CTA BANNER ────────────────────────────────────────────────── */}
-        {/* CTA Banner */}
-        <div className="relative overflow-hidden bg-linear-to-br from-[rgba(37,99,235,0.12)] to-[rgba(37,99,235,0.05)] border-y border-[rgba(37,99,235,0.15)] px-4 sm:px-6 lg:px-[60px] py-[50px] sm:py-[70px]">
-
-          <div className="max-w-[1250px] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
-
-            {/* Left - Video Thumbnail */}
-            <div className="relative group">
-
-              <div className="relative overflow-hidden">
-
-                <iframe
-                  className="w-full aspect-video rounded-4xl"
-                  src="https://www.youtube.com/embed/tF9U_erUUb4"
-                  title="Send DDP Quote Request in Under 60 Seconds"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-
-              </div>
-            </div>
-
-            {/* Right - CTA Content */}
-            <div className="text-center lg:text-left">
-              <h2 className="font-heading text-[clamp(32px,4vw,56px)] font-light leading-[1.05] mb-4">
-                Ready to Ship<br />
-                <em className="italic text-blue-light">
-                  the Right Way?
-                </em>
-              </h2>
-
-              <p className="text-[15px] text-muted leading-relaxed max-w-[520px] mx-auto lg:mx-0 mb-8">
-                Submit your shipment details and receive a complete DDP quote with
-                customs duty pre-calculation, freight estimation, and door-to-door
-                delivery pricing from China to India.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
-
-                <Link
-                  href="/quote"
-                  className="inline-flex items-center justify-center gap-2 bg-linear-to-r from-blue-600 to-cyan-500 text-[#FFFFFF] px-6 sm:px-8 py-3 rounded-[3px] font-bold text-[13px] tracking-[1px] uppercase transition-all hover:scale-[1.02] cursor-none shadow-[0_8px_28px_rgba(37,99,235,0.3)]"
-                >
-                  Request a Quote →
-                </Link>
-
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-[rgba(37,211,102,0.07)] border border-[rgba(37,211,102,0.3)] text-green px-6 sm:px-8 py-3 rounded-[3px] text-[13px] font-medium transition-all hover:bg-[rgba(37,211,102,0.12)] cursor-none"
-                >
-                  <FaWhatsapp size={22} />
-                  WhatsApp Us Directly
-                </a>
-
-              </div>
-
-              {/* Bottom Trust Line */}
-              <div className="mt-5 text-[11px] text-muted/60">
-                No hidden charges · Duty-inclusive pricing · Response within 24 hours
-              </div>
-
-            </div>
-
+          <div className="text-center mt-10">
+            <Button href="/services" variant="secondary" arrow>
+              VIEW ALL SERVICES
+            </Button>
           </div>
         </div>
+      </section>
 
-        {/* <SampleComponent /> */}
+      {/* ══════════ WHY CHOOSE CTIDDP ══════════ */}
+      <section className="section-padding bg-white">
+        <div className="container-main">
+          <div className="text-center mb-12">
+            <SectionBadge>WHY CHOOSE CTIDDP</SectionBadge>
+            <h2 className="section-title">
+              Your Success. <span className="highlight">Our Commitment.</span>
+            </h2>
+          </div>
 
-      </main>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {WHY_CHOOSE.map((item) => (
+              <div key={item.title} className="card p-5 text-center group">
+                <div className="icon-container mx-auto mb-4 group-hover:bg-primary-100">
+                  {item.icon}
+                </div>
+                <h3 className="text-[15px] font-600 text-gray-900 mb-2">{item.title}</h3>
+                <p className="text-[12px] text-gray-500 leading-relaxed">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-      {/* Keyframes for pulse animation */}
-      <style>{`
-        @keyframes pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.4; }
-        }
-        .reveal {
-          opacity: 0;
-          transform: translateY(36px);
-          transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-        .reveal.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
+      {/* ══════════ TESTIMONIALS ══════════ */}
+      <ReviewsCarousel />
 
-    </>
+      {/* ══════════ PARTNERS ══════════ */}
+      <Partners />
+
+      {/* ══════════ CTA ══════════ */}
+      <CTABanner
+        title="Ready to Ship from <span class='text-primary-light'>China to India?</span>"
+        subtitle="Get a complete DDP quote in under 2 hours. No hidden costs, no surprises."
+        bgImage="/images/services/aerial-view-commercial-dock.jpeg"
+        buttons={[
+          { label: 'GET FREE QUOTE', href: '/quote', variant: 'primary' },
+          {
+            label: 'CHAT ON WHATSAPP',
+            href: 'https://wa.me/918790013772',
+            variant: 'whatsapp',
+            icon: <FaWhatsapp size={18} />,
+            external: true,
+          },
+        ]}
+      />
+    </main>
   )
 }
