@@ -63,7 +63,7 @@ export default function HeroSection() {
             <div className="w-full max-w-155">
 
               {/* ── Heading ── two lines, whitespace-nowrap on desktop */}
-              <h1 className="font-extrabold leading-[1.2] tracking-[-0.5px] lg:tracking-[-1px]">
+              <h1 className="seg font-extrabold leading-[1.2] tracking-[-0.5px] lg:tracking-[-1px]">
                 <span className="block text-[#0B2A6B]
                                  text-[32px] sm:text-[44px]
                                  lg:text-[52px] xl:text-[54px]
@@ -72,9 +72,9 @@ export default function HeroSection() {
                 </span>
                 <span className="block text-[#FE5101]
                                  text-[32px] sm:text-[44px]
-                                 lg:text-[52px] xl:text-[50px]
+                                 lg:text-[52px] xl:text-[46px]
                                  lg:whitespace-nowrap">
-                  China-to-India Expertise
+                  Built For International Trade
                 </span>
               </h1>
 
@@ -84,13 +84,13 @@ export default function HeroSection() {
 
               {/* ── Description ── */}
               <p className="text-[15px] sm:text-[16px] lg:text-[17px]
-                            leading-[1.85] text-slate-600 max-w-[500px]">
+                            leading-[1.85] text-slate-800 max-w-[500px]">
                 From factory pickup to doorstep delivery, we handle everything –
                 shipping, customs clearance, duties, and last-mile delivery.
-                One contract. One partner.{" "}
-                <span className="font-semibold text-[#0B2A6B]">
+                One contract. One partner.
+                {/* <span className="font-semibold text-[#0B2A6B]">
                   Complete peace of mind.
-                </span>
+                </span> */}
               </p>
 
               {/* ── CTA Buttons ── */}

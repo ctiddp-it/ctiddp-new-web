@@ -1,11 +1,16 @@
 import dynamic from 'next/dynamic'
 import { FaWhatsapp } from 'react-icons/fa6'
-import PageHero from '@/components/ui/PageHero'
 import SectionBadge from '@/components/ui/SectionBadge'
 import StatCounter from '@/components/ui/StatCounter'
 import TeamCard from '@/components/ui/TeamCard'
 import OfficeCard from '@/components/ui/OfficeCard'
 import CTABanner from '@/components/ui/CTABanner'
+import {
+  ShieldCheck,
+  Eye,
+  Truck,
+  FileCheck,
+} from "lucide-react";
 import Button from '@/components/ui/Button'
 import Image from 'next/image'
 
@@ -99,6 +104,39 @@ const STATS = [
   { value: '100', suffix: '%', label: 'Focused Trade Route Expertise' },
 ]
 
+const features = [
+  {
+    icon: ShieldCheck,
+    title: "End-to-End Control",
+  },
+  {
+    icon: Eye,
+    title: "100% Transparency",
+  },
+  {
+    icon: Truck,
+    title: "On-time Delivery",
+  },
+  {
+    icon: FileCheck,
+    title: "Customs Compliant",
+  },
+];
+
+function Feature({ icon: Icon, title }) {
+  return (
+    <div className="flex items-start gap-2">
+
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+        <Icon className="h-5 w-5 text-white" />
+      </div>
+      <p className="text-sm font-semibold text-white">
+        {title}
+      </p>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <main>
@@ -138,25 +176,71 @@ export default function AboutPage() {
       />
 
       {/* ══════════ HERO ══════════ */}
-      <PageHero
-        badge="ABOUT CTIDDP"
-        subtitle="CTIDDP is a specialized end-to-end DDP logistics partner, helping businesses move goods seamlessly from China to India with complete transparency."
-        bgImage="/images/about/ctiddp-team-04.jpeg"
-        titleNode={
-          <>
-            Built for One Route.
-            <br />
-            <span className="text-primary-light">Trusted Across Borders.</span>
-          </>
-        }
-      >
-        <div className="flex flex-wrap gap-3">
-          <Button href="/quote" variant="primary" arrow>GET DDP QUOTE</Button>
-          <Button href="#founders" variant="secondary" className="border-white/20 text-white hover:bg-white/10 hover:text-white hover:border-white/40">
-            MEET THE FOUNDERS
-          </Button>
+      <section className="relative h-[50vh] min-h-[500px] overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/howitworks/CTIDDP-how-it-works22.png"
+            alt="Global Logistics"
+            className="h-full w-full object-cover object-center"
+          />
         </div>
-      </PageHero>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#041c4a] via-[#041c4a]/85 to-[#041c4a]/20" />
+
+        {/* World Map Pattern (Optional) */}
+        <div className="absolute inset-0 opacity-10">
+          {/* Add SVG Pattern Here */}
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 h-full">
+
+          <div className="flex h-full items-center px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+
+            <div className="max-w-4xl">
+
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
+                <div className="h-2 w-2 rounded-full bg-[#0181EA]" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
+                  About CTIDDP
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h1 className=" text-4xl font-bold leading-tight text-white md:text-5xl lg:text-5xl">
+                Built for One Route
+                <br />
+                <span className=" text-[#36a0f7]">
+                  Trusted Across Borders
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+                CTIDDP is a specialized end-to-end DDP logistics partner helping
+                businesses move goods seamlessly from China to India with complete transparency.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <button className="rounded-xl bg-primary-light px-6 py-3 font-semibold text-white">
+                  GET DDP QUOTE →
+                </button>
+
+                <button className="rounded-xl border border-white/20 bg-white/5 px-6 py-3 font-semibold text-white backdrop-blur-sm">
+                  MEET THE FOUNDERS
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
       {/* ══════════ OUR STORY ══════════ */}
       <section className="section-padding bg-white">

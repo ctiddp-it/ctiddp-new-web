@@ -64,7 +64,7 @@ function SlotStatItem({ digits, suffix, label, baseDelay = 0 }) {
           justify-content: center;
           font-size: clamp(28px, 10vw, 100px);
           font-weight: 800;
-          font-family: var(--font-poppins);
+          font-family: var(--font-heading);
           line-height: 1;
           flex-shrink: 0;
           user-select: none;

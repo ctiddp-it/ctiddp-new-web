@@ -227,3 +227,170 @@ works successfully again.
 - add reusable field components
 - add admin lead dashboard
 - add toast notification abstraction
+
+
+## Commit: feat(revamp): Initial commit; complete CTIDDP website UI/UX redesign implementation\
+# CTIDDP Website Revamp — Implementation Summary
+
+## Overview
+Successfully completed the CTIDDP website redesign and modernization initiative.
+
+The project transformed the website from a dark-themed, serif-based interface into a modern, light-themed logistics platform while preserving all business logic, APIs, form workflows, validations, SEO configurations, and application functionality.
+
+---
+
+## Major Changes Implemented
+
+### Design System
+
+* Introduced a unified design system based on the approved logistics brand aesthetic.
+* Established consistent color tokens, typography scales, spacing rules, shadows, and component patterns.
+* Migrated all pages to the new design language.
+* Standardized responsive behavior across desktop, tablet, and mobile devices.
+
+### Theme Simplification
+
+* Removed dark mode support.
+* Removed ThemeProvider integration.
+* Removed ThemeToggle functionality.
+* Eliminated all dark theme CSS references.
+* Converted the application to a dedicated light-theme experience.
+
+### UI Modernization
+
+* Replaced legacy layouts with modern card-based interfaces.
+* Improved visual hierarchy and content readability.
+* Standardized CTA placement and interaction patterns.
+* Added reusable UI primitives for consistent implementation.
+
+### Component Architecture
+
+Created a reusable component library including:
+
+* PageHero
+* CTABanner
+* StepTimeline
+* IconCard
+* StatBar
+* TeamCard
+* OfficeCard
+* TestimonialCard
+* TrustPill
+* BlogCard
+* NewsletterCTA
+* FAQSection
+* ConnectChannel
+* ComparisonTable
+* PhaseCard
+* Additional shared UI utilities
+
+### Homepage Redesign
+
+Implemented:
+
+* New static hero section
+* Services overview
+* Process timeline
+* Trust indicators
+* Client testimonials
+* Partner showcase
+
+Removed:
+
+* Globe visualization
+* Legacy comparison sections
+* Inline quote form
+* Video CTA section
+* Obsolete homepage components
+
+### Page Revamps
+
+Redesigned:
+
+* Homepage
+* About
+* How It Works
+* Services
+* Ecosystem
+* Quote
+* Contact
+* Canton Fair
+* Blog Listing
+* Blog Detail
+* Legal Pages
+
+Implemented a unified visual structure across all pages.
+
+### Service Pages
+
+Created a standardized service-detail page template featuring:
+
+* Hero section
+* Service overview
+* Feature highlights
+* Process flow
+* Related services
+* Conversion-focused CTA blocks
+
+### Performance & Cleanup
+
+Removed unused functionality and dependencies:
+
+* Custom cursor
+* Legacy scroll reveal implementation
+* Dark mode infrastructure
+* Globe-related visualization dependencies
+* Obsolete page components
+
+Performed code cleanup and component consolidation to improve maintainability.
+
+---
+
+## Business Logic Preservation
+
+The redesign preserved:
+
+* Form validation schemas
+* Form submission workflows
+* API integrations
+* SEO metadata
+* Routing structure
+* WhatsApp integrations
+* Existing content management logic
+
+No business workflows were altered during the redesign.
+
+---
+
+## Testing & Validation
+
+Validated:
+
+* Responsive layouts
+* Navigation flows
+* Form submissions
+* Browser compatibility
+* SEO integrity
+* Accessibility improvements
+* Cross-page visual consistency
+
+---
+
+## Outcome
+
+The CTIDDP platform now follows a modern logistics-focused design system with improved usability, scalability, maintainability, and conversion-focused user experience while retaining all existing operational functionality.
+
+
+## Commit: refactor(typography): centralize font system and update homepage sections
+
+- replace Poppins-only setup with Montserrat (headings) and Inter (body)
+- add self-hosted fonts via next/font/google
+- introduce --font-heading and --font-body theme tokens
+- apply global typography defaults through globals.css
+- migrate StatsSection digit cells to heading font token
+- remove legacy font references and external Google Fonts import
+- clean up stray font utility classes in services page
+- refactor Hero, Know Before You Ship, Services, DDP Journey, and Partners sections to align with centralized typography system
+- preserve existing font-heading/font-body utility compatibility
+
+Build verified: all 22 routes compile successfully

@@ -1,10 +1,24 @@
 import './globals.css'
+import { Montserrat, Inter } from 'next/font/google'
 import { GoogleTagManager } from '@next/third-parties/google'
 import ChatBot from '@/components/ui/ChatBot'
 import MegaNav from '@/components/layout/MegaNav'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/ui/ScrollToTop'
 import Script from 'next/script'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-heading',
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800'],
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 export const metadata = {
   metadataBase: new URL('https://www.ctiddp.com/'),
@@ -71,7 +85,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
+    <html lang="en" className={`${montserrat.variable} ${inter.variable}`} data-scroll-behavior="smooth">
       <head>
 
         {/* Google AdSense */}

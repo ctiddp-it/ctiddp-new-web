@@ -14,6 +14,12 @@ import {
   HiOutlineBuildingOffice2,
   HiOutlineClock,
 } from 'react-icons/hi2'
+import {
+  ShieldCheck,
+  Eye,
+  Truck,
+  FileCheck,
+} from "lucide-react";
 import PageHero from '@/components/ui/PageHero'
 import SectionBadge from '@/components/ui/SectionBadge'
 import IconCard from '@/components/ui/IconCard'
@@ -111,35 +117,109 @@ const WHY_STRIP = [
   { icon: <HiOutlineChatBubbleLeftRight size={20} />, text: '24/7 Support' },
 ]
 
+const features = [
+  {
+    icon: ShieldCheck,
+    title: "One Contract",
+  },
+  {
+    icon: Eye,
+    title: "100% Secure",
+  },
+  {
+    icon: Truck,
+    title: "On-time Delivery",
+  },
+  {
+    icon: FileCheck,
+    title: "Customs Compliant",
+  },
+];
+
+function Feature({ icon: Icon, title }) {
+  return (
+    <div className="flex items-start gap-2">
+
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
+        <Icon className="h-5 w-5 text-white" />
+      </div>
+      <p className="text-sm font-semibold text-white">
+        {title}
+      </p>
+    </div>
+  );
+}
+
 export default function ServicesPage() {
   return (
     <main>
       {/* ══════════ HERO ══════════ */}
-      <PageHero
-        badge="OUR CORE SERVICES"
-        subtitle="We handle every step of your import journey from China to India — shipping, customs, duties, and delivery. All under one contract."
-        bgImage="/images/services/ian-taylor-jOqJbvo1P9g-unsplash.jpeg"
-        titleNode={
-          <>
-            Everything You Need,
-            <br />
-            <span className="text-primary-light">Under One Contract.</span>
-          </>
-        }
-      >
-        <div className="flex flex-wrap gap-3 mb-6">
-          <TrustPill text="One Contract" light />
-          <TrustPill text="Cost Efficient" light />
-          <TrustPill text="100% Secure" light />
-          <TrustPill text="On-time Delivery" light />
+      <section className="relative h-[50vh] min-h-[500px] overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/services/ctiddp-services-hero.png"
+            alt="Global Logistics"
+            className="h-full w-full object-cover object-center"
+          />
         </div>
-        <div className="flex flex-wrap gap-3">
-          <Button href="/quote" variant="primary" arrow>GET FREE QUOTE</Button>
-          <Button href="https://wa.me/918790013772" variant="whatsapp" external icon={<FaWhatsapp size={18} />}>
-            WHATSAPP US
-          </Button>
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#041c4a] via-[#041c4a]/85 to-[#041c4a]/20" />
+
+        {/* World Map Pattern (Optional) */}
+        <div className="absolute inset-0 opacity-10">
+          {/* Add SVG Pattern Here */}
         </div>
-      </PageHero>
+
+        {/* Content */}
+        <div className="relative z-10 h-full">
+
+          <div className="flex h-full items-center px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+
+            <div className="max-w-4xl">
+
+              {/* Badge */}
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
+                <div className="h-2 w-2 rounded-full bg-[#0181EA]" />
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
+                  Our Process
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-5xl">
+                Everything You Need,
+                <br />
+                <span className="text-[#36a0f7]">
+                  Under One Contract.
+                </span>
+              </h1>
+
+              {/* Description */}
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+                From Factory gate in China to your doorstep in India -
+                end-to-end logistics solutions, one accountable partner.
+              </p>
+
+              {/* Features */}
+              <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-5 lg:grid-cols-4">
+                {features.map((feature) => (
+                  <Feature
+                    key={feature.title}
+                    icon={feature.icon}
+                    title={feature.title}
+                  />
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
 
       {/* ══════════ SERVICES GRID ══════════ */}
       <section className="section-padding bg-white">
