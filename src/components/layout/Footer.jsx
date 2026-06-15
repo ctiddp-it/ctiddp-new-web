@@ -164,10 +164,10 @@ export default function Footer() {
               href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(WA_MESSAGE)}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-bold text-[13px] px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity no-underline"
-              style={{ background: '#1a1a1a', color: '#fff' }}
+              className="inline-flex items-center gap-2 font-bold text-[13px] px-5 py-2.5 rounded-lg hover:opacity-90 transition-opacity no-underline bg-white text-[#000000]"
+              // style={{ background: '#1a1a1a', color: '#fff' }}
             >
-              <FaWhatsapp size={15} color="#25D366" /> WHATSAPP
+              <FaWhatsapp size={25} color="#25D366" /> WHATSAPP
             </a>
           </div>
         </div>
