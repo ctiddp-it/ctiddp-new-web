@@ -221,7 +221,7 @@ export default function HeroSection() {
           pt-28 lg:pt-32 = card height offset
           Replace inner content with your real section.
       ══════════════════════════════════════════ */}
-      <section className="relative bg-white pt-28 lg:pt-32">
+      <section className="relative bg-gray-50 pt-28 lg:pt-32">
         {/* ↑ Keep bg-white and pt values. Replace everything below. */}
       </section>
     </>

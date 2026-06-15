@@ -202,27 +202,54 @@ function PartnerRow({ icon, title, description, accentColor, partners }) {
 
 export default function PartnersSection() {
   return (
-    <section className="bg-white py-14 px-4 md:px-8">
+    <section className="bg-gray-50 py-14 px-4 md:px-8">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
-        <div className="text-center mb-14">
-          <div className="inline-flex items-center justify-center mb-4">
-            <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#FE5101' }}></div>
-            <div className="h-1 w-6 rounded-full mx-1" style={{ backgroundColor: '#003DA5' }}></div>
-            <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#FE5101' }}></div>
+        <div className="relative text-center overflow-hidden">
+
+          {/* Background Map */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <Image
+              src="/images/bg-map.png"
+              alt=""
+              fill
+              className="object-contain opacity-10"
+              priority={false}
+            />
           </div>
-          <h2
-            className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight"
-            style={{ color: "#0B2A6B" }}
-          >
-            Trusted Global Partner <span style={{ color: "#FE5101" }}>Ecosystem</span>
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            We collaborate with leading sourcing platforms, logistics carriers, and
-            international trade networks to simplify global procurement and
-            door-to-door imports for businesses across India.
-          </p>
+
+          {/* Content */}
+          <div className="relative z-10 py-8">
+            <div className="inline-flex items-center justify-center mb-4">
+              <div
+                className="h-1 w-12 rounded-full"
+                style={{ backgroundColor: "#FE5101" }}
+              />
+              <div
+                className="h-1 w-6 rounded-full mx-1"
+                style={{ backgroundColor: "#003DA5" }}
+              />
+              <div
+                className="h-1 w-12 rounded-full"
+                style={{ backgroundColor: "#FE5101" }}
+              />
+            </div>
+
+            <h2
+              className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight"
+              style={{ color: "#0B2A6B" }}
+            >
+              Trusted Global Partner{" "}
+              <span style={{ color: "#FE5101" }}>Ecosystem</span>
+            </h2>
+
+            <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              We collaborate with leading sourcing platforms, logistics carriers, and
+              international trade networks to simplify global procurement and
+              door-to-door imports for businesses across India.
+            </p>
+          </div>
         </div>
 
         {/* Dot-grid bg + rows */}
@@ -239,7 +266,6 @@ export default function PartnersSection() {
             <PartnerRow
               icon={<Building2 className="h-8 w-8 text-[#003DA5]" />}
               title="Business & Trade Partners"
-              description="Global sourcing, marketplaces and trade networks."
               accentColor="#003DA5"
               partners={BUSINESS_PARTNERS}
             />
@@ -247,7 +273,6 @@ export default function PartnersSection() {
             <PartnerRow
               icon={<Truck className="h-8 w-8 text-[#FE5101]" />}
               title="Logistics & Delivery Partners"
-              description="Reliable global shipping and last-mile delivery support."
               accentColor="#FE5101"
               partners={LOGISTICS_PARTNERS}
             />

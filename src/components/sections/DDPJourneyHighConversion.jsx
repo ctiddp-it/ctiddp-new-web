@@ -1,218 +1,192 @@
-import React from "react";
+"use client";
+
 import {
-  FaMapMarkerAlt,
+  MdFactory,
+  MdInventory2,
+  MdAssignmentTurnedIn,
+  MdFlight,
+  MdLocalShipping,
+} from "react-icons/md";
+import {
+  FaLocationDot,
   FaClock,
-  FaShip,
-  FaTruck,
-  FaClipboardCheck,
-  FaBoxes,
-  FaFileImport,
-  FaArrowRight,
-} from "react-icons/fa";
+  FaShieldHalved,
+  FaBoxOpen,
+  FaAward,
+} from "react-icons/fa6";
+import { HiArrowRight } from "react-icons/hi2";
+import { LuCalendarClock } from "react-icons/lu";
+import { TbFileCheck } from "react-icons/tb";
 
-const DDPJourneyHighConversion = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Supplier Coordination & Factory QC",
-      description:
-        "Vendor sourcing, negotiation, quality inspection at Foshan before goods move.",
-      tag: "FOSHAN · CHINA",
-      tagType: "location",
-      icon: <FaClipboardCheck />,
-    },
-    {
-      number: "02",
-      title: "Cargo Consolidation & Export Preparation",
-      description:
-        "Multi-vendor consolidation at Guangzhou. HS code check, packing list, commercial invoice.",
-      tag: "GUANGZHOU",
-      tagType: "location",
-      icon: <FaBoxes />,
-    },
-    {
-      number: "03",
-      title: "China Export Customs · 48 hrs",
-      description:
-        "Export declaration, LEO clearance, EGM verification - all within 48 hours.",
-      tag: "48 HOURS",
-      tagType: "time",
-      icon: <FaFileImport />,
-    },
-    {
-      number: "04",
-      title: "International Sea / Air Transit",
-      description:
-        "Full DDP Incoterms 2020. Freight, insurance, all risk on us throughout transit.",
-      tag: "18–25 DAYS SEA / 7–9 DAYS AIR",
-      tagType: "time",
-      icon: <FaShip />,
-    },
-    {
-      number: "05",
-      title: "Customs + Last-Mile Delivery",
-      description:
-        "BE filing, BCD+IGST paid, OOC, Our warehouse, Last mile + POD.",
-      tag: "9–15 DAYS CLEARANCE",
-      tagType: "time",
-      icon: <FaTruck />,
-    },
-  ];
+// ─── Data ─────────────────────────────────────────────────────────────────────
 
+const STEPS = [
+  {
+    Icon: MdFactory,
+    title: "Supplier Coordination & Factory QC",
+    description:
+      "Vendor sourcing, negotiation, quality inspection at Foshan before goods move.",
+    badge: { type: "location", text: "FOSHAN, CHINA" },
+  },
+  {
+    Icon: MdInventory2,
+    title: "Cargo Consolidation & Export Preparation",
+    description:
+      "Multi-vendor consolidation at Guangzhou. HS code check, packing list, commercial invoice.",
+    badge: { type: "location", text: "GUANGZHOU, CHINA" },
+  },
+  {
+    Icon: TbFileCheck,
+    title: "China Export Customs · 48 hrs",
+    description:
+      "Export declaration, LEO clearance, EGM verification – all within 48 hours.",
+    badge: { type: "time", text: "48 HOURS" },
+  },
+  {
+    Icon: MdFlight,
+    title: "International Sea / Air Transit",
+    description:
+      "Full DDP Incoterms 2020. Freight, insurance, all risk on us throughout transit.",
+    badge: { type: "time", text: "18–25 DAYS SEA / 7–9 DAYS AIR" },
+  },
+  {
+    Icon: MdLocalShipping,
+    title: "Customs + Last-Mile Delivery",
+    description:
+      "BE filing, BCD+IGST paid, OOC, Our warehouse, Last mile + POD.",
+    badge: { type: "time", text: "9–15 DAYS CLEARANCE" },
+  },
+];
+
+const USP_PILLS = [
+  { Icon: FaShieldHalved, label: "Single Point\nof Contact" },
+  { Icon: TbFileCheck,    label: "All-Inclusive\nPricing" },
+  { Icon: FaBoxOpen,      label: "100% Safe\n& Secure" },
+  { Icon: FaAward,        label: "On-Time\nDelivery" },
+];
+
+// ─── Step Row ─────────────────────────────────────────────────────────────────
+
+function StepRow({ step, isLast }) {
+  const { Icon, title, description, badge } = step;
   return (
-    <section
-      className="w-full py-20 px-6 md:px-12"
-      style={{ backgroundColor: "#FFFFFF" }}
-    >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* LEFT COLUMN */}
-          <div className="lg:col-span-5">
-            <div className="sticky top-24">
+    <div className={`flex items-start gap-5 py-6 ${!isLast ? "border-b border-slate-100" : ""}`}>
+      {/* Icon bubble */}
+      <div
+        className="flex-shrink-0 w-[64px] h-[64px] rounded-full flex items-center justify-center"
+        style={{ background: "#EEF3FB" }}
+      >
+        <Icon size={28} color="#003DA5" />
+      </div>
+
+      {/* Content */}
+      <div className="flex-1 min-w-0">
+        <h3 className="font-bold text-[17px] mb-1 leading-snug" style={{ color: "#0B2A6B" }}>
+          {title}
+        </h3>
+        <p className="text-slate-600 text-[14px] leading-relaxed mb-2">{description}</p>
+
+        {/* Badge */}
+        {badge.type === "location" ? (
+          <span className="inline-flex items-center gap-1.5 text-[12px] font-bold tracking-wide" style={{ color: "#003DA5" }}>
+            <FaLocationDot size={12} color="#003DA5" />
+            {badge.text}
+          </span>
+        ) : (
+          <span className="inline-flex items-center gap-1.5 text-[12px] font-bold tracking-wide" style={{ color: "#003DA5" }}>
+            <FaClock size={12} color="#003DA5" />
+            {badge.text}
+          </span>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ─── Main Section ─────────────────────────────────────────────────────────────
+
+export default function OneContractSection() {
+  return (
+    <section className="bg-gray-50 py-20 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          {/* ── LEFT COLUMN ── */}
+          <div className="lg:col-span-6 flex flex-col justify-center">
+
+            {/* Headline */}
+            <div className="mb-6">
+              <h2 className="text-5xl md:text-6xl font-extrabold leading-[1.05] mb-0" style={{ color: "#0B2A6B" }}>
+                One Contract.
+              </h2>
+              <h2 className="text-5xl md:text-6xl font-extrabold leading-[1.05]" style={{ color: "#FE5101" }}>
+                Zero Worry.
+              </h2>
+              <div className="mt-4 h-[4px] w-12 rounded-full" style={{ background: "#FE5101" }} />
+            </div>
+
+            {/* Sub-copy */}
+            <p className="text-slate-700 text-[17px] leading-relaxed mb-8">
+              Every step &amp; every cost — from supplier to your door. We handle it all.
+            </p>
+
+            {/* Timeline chip */}
+            <div className="flex items-center gap-4 bg-slate-50 border border-slate-100 rounded-xl px-5 py-4 mb-8">
               <div
-                className="inline-block px-3 py-1 rounded-sm text-xs font-semibold uppercase tracking-widest mb-8"
-                style={{
-                  border: "1px solid rgba(11,42,107,0.15)",
-                  color: "#1F2937",
-                }}
+                className="flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center"
+                style={{ background: "#EEF3FB" }}
               >
-                The DDP Journey
+                <LuCalendarClock size={22} color="#003DA5" />
               </div>
-
-              <h2
-                className="text-5xl md:text-6xl font-bold leading-none mb-4"
-                style={{ color: "#0B2A6B" }}
-              >
-                <span style={{ color: "#FE5101" }}>One</span> Contract
-              </h2>
-
-              <h2
-                className="text-5xl md:text-6xl font-bold italic leading-none mb-6"
-                style={{ color: "#0B2A6B" }}
-              >
-                <span style={{ color: "#FE5101" }}>Zero</span> Worry.
-              </h2>
-
-              <p
-                className="text-base mb-10"
-                style={{ color: "#1F2937" }}
-              >
-                Every step &amp; every cost — from supplier to your door.
+              <p className="text-slate-700 text-[14px] leading-snug">
+                Typical total:{" "}
+                <span className="font-bold" style={{ color: "#003DA5" }}>
+                  38–50 days
+                </span>
+                <br />
+                factory pickup → Warehouse
+                <br />
+                <span className="text-slate-500">(including customs)</span>
               </p>
+            </div>
 
-              <div
-                className="flex items-center gap-3 px-5 py-4 rounded-md mb-10"
-                style={{
-                  border: "1px solid rgba(11,42,107,0.1)",
-                  backgroundColor: "#F8FAFC",
-                }}
-              >
-                <FaClock
-                  style={{
-                    color: "#003DA5",
-                    flexShrink: 0,
-                  }}
-                />
+            {/* CTA */}
+            <a
+              href="/process"
+              className="inline-flex items-center gap-3 self-start px-7 py-4 rounded-xl text-white font-bold text-[15px] tracking-wide transition-opacity hover:opacity-90"
+              style={{ background: "#FE5101" }}
+            >
+              SEE FULL PROCESS
+              <HiArrowRight size={18} />
+            </a>
 
-                <p
-                  className="text-sm"
-                  style={{ color: "#1F2937" }}
-                >
-                  Typical total:{" "}
-                  <span
-                    className="font-bold"
-                    style={{ color: "#003DA5" }}
+            {/* USP pills */}
+            <div className="mt-10 flex flex-wrap gap-5">
+              {USP_PILLS.map(({ Icon, label }, i) => (
+                <div key={i} className="flex flex-col items-center gap-2 w-[88px]">
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center"
+                    style={{ background: "#EEF3FB" }}
                   >
-                    38–50 days
-                  </span>{" "}
-                  factory pickup → Warehouse (including customs)
-                </p>
-              </div>
-
-              <button
-                className="inline-flex items-center gap-3 px-7 py-4 rounded-md text-sm font-semibold uppercase tracking-wider"
-                style={{
-                  border: "1px solid #FE5101",
-                  color: "#FFFFFF",
-                  backgroundColor: "#FE5101",
-                  letterSpacing: "0.08em",
-                }}
-              >
-                SEE FULL PROCESS <FaArrowRight />
-              </button>
+                    <Icon size={22} color="#003DA5" />
+                  </div>
+                  <span className="text-center text-slate-600 text-[12px] leading-tight whitespace-pre-line">
+                    {label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* RIGHT COLUMN */}
-          <div className="lg:col-span-7 space-y-0">
-            {steps.map((step, idx) => (
-              <div
-                key={idx}
-                className="relative flex items-start gap-5 py-7"
-                style={{
-                  borderBottom: "1px solid rgba(11,42,107,0.08)",
-                }}
-              >
-                <div
-                  className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold"
-                  style={{
-                    border: "1px solid rgba(0,61,165,0.2)",
-                    color: "#003DA5",
-                    backgroundColor: "rgba(0,61,165,0.05)",
-                  }}
-                >
-                  {step.number}
-                </div>
-
-                <div className="flex-1 pt-1">
-                  <h3
-                    className="font-semibold text-base md:text-lg mb-1.5"
-                    style={{ color: "#0B2A6B" }}
-                  >
-                    {step.title}
-                  </h3>
-
-                  <p
-                    className="text-sm leading-relaxed mb-3"
-                    style={{ color: "#1F2937" }}
-                  >
-                    {step.description}
-                  </p>
-
-                  <div
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium"
-                    style={{
-                      border: "1px solid rgba(0,61,165,0.15)",
-                      color: "#003DA5",
-                      backgroundColor: "rgba(0,61,165,0.04)",
-                    }}
-                  >
-                    {step.tagType === "location" ? (
-                      <FaMapMarkerAlt
-                        style={{
-                          fontSize: "10px",
-                          color: "#003DA5",
-                        }}
-                      />
-                    ) : (
-                      <FaClock
-                        style={{
-                          fontSize: "10px",
-                          color: "#003DA5",
-                        }}
-                      />
-                    )}
-
-                    {step.tag}
-                  </div>
-                </div>
-              </div>
+          {/* ── RIGHT COLUMN ── */}
+          <div className="lg:col-span-6">
+            {STEPS.map((step, i) => (
+              <StepRow key={i} step={step} isLast={i === STEPS.length - 1} />
             ))}
           </div>
+
         </div>
       </div>
     </section>
   );
-};
-
-export default DDPJourneyHighConversion;
+}

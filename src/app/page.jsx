@@ -1,35 +1,27 @@
 import dynamic from 'next/dynamic'
 import {
-  HiOutlineTruck,
-  HiOutlineChatBubbleLeftRight,
-  HiOutlineDocumentCheck,
-  HiOutlineCurrencyDollar,
-  HiOutlineBuildingOffice2,
-} from 'react-icons/hi2'
-import {
   FaShip,
-  FaFileImport,
   FaMoneyBillWave,
-  FaClipboardCheck,
   FaWarehouse,
   FaFileInvoiceDollar,
   FaTruck,
   FaBoxes,
-  FaMapMarkerAlt,
   FaShieldAlt,
   FaChartLine,
   FaCamera,
   FaTags,
   FaCalendarAlt,
-  FaClock,
   FaCheckCircle,
-  FaArrowRight
+  FaArrowRight,
+  FaExclamationTriangle,
 } from 'react-icons/fa';
+import Link from 'next/link';
 import { FaGlobe, FaWhatsapp } from 'react-icons/fa6'
 import CTABanner from '@/components/ui/CTABanner'
 import HeroSection from '@/components/sections/HeroSection'
 import DDPJourneyHighConversion from "@/components/sections/DDPJourneyHighConversion";
 import Partners from '@/components/sections/Partners'
+import CTABannerSection from '@/components/sections/ctabannersection';
 
 const ReviewsCarousel = dynamic(() => import('@/components/sections/ReviewsCarousel'))
 
@@ -43,14 +35,6 @@ export const metadata = {
     url: 'https://www.ctiddp.com/',
   },
 }
-
-/* ── DATA ── */
-const HERO_STATS = [
-  { value: '500', suffix: '+', label: 'Importers Served' },
-  { value: '1200', suffix: '+', label: 'Shipments Delivered' },
-  { value: '100', suffix: '%', label: 'Customs Compliant' },
-  { value: '24', suffix: '/7', label: 'Support Available' },
-]
 
 const SERVICES = [
   {
@@ -112,34 +96,6 @@ const SERVICES = [
   },
 ]
 
-const WHY_CHOOSE = [
-  {
-    icon: <HiOutlineDocumentCheck size={22} />,
-    title: 'One Contract',
-    description: 'Single agreement covers pickup, shipping, customs, duties, and delivery.',
-  },
-  {
-    icon: <HiOutlineCurrencyDollar size={22} />,
-    title: 'Transparent Pricing',
-    description: 'Complete cost breakdown upfront. No hidden fees, no surprise charges.',
-  },
-  {
-    icon: <HiOutlineTruck size={22} />,
-    title: 'On-Time Delivery',
-    description: '99% on-time delivery rate with real-time tracking at every stage.',
-  },
-  {
-    icon: <HiOutlineChatBubbleLeftRight size={22} />,
-    title: 'Dedicated Support',
-    description: 'Personal account manager assigned to every shipment, available 24/7.',
-  },
-  {
-    icon: <HiOutlineBuildingOffice2 size={22} />,
-    title: 'China & India Offices',
-    description: 'Local teams in Guangzhou, Vizag, Chennai, and Bangalore for on-ground support.',
-  },
-]
-
 export default function HomePage() {
   return (
     <main>
@@ -147,8 +103,8 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ══════════ KNOW BEFORE YOU SHIP ══════════ */}
-      <section className="w-full py-16 px-4 md:py-20 md:px-8 bg-gray-50">
-        
+      <section className="w-full px-4 pb-12 md:pb-20 md:px-8 bg-gray-50">
+
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12 md:mb-16">
@@ -183,7 +139,13 @@ export default function HomePage() {
                 </p>
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#003DA5' }}>Status:</p>
-                  <p className="text-gray-800 font-medium">⚠️ Risk transfers at port</p>
+                  <div className="flex items-center gap-2 text-gray-800 font-medium">
+                    <FaExclamationTriangle
+                      className="flex-shrink-0"
+                      style={{ color: "#F59E0B" }}
+                    />
+                    <span>Risk transfers at port</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -203,7 +165,13 @@ export default function HomePage() {
                 </p>
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#003DA5' }}>Status:</p>
-                  <p className="text-gray-800 font-medium">⚠️ Duties & last-mile still yours</p>
+                  <div className="flex items-center gap-2 text-gray-800 font-medium">
+                    <FaExclamationTriangle
+                      className="flex-shrink-0"
+                      style={{ color: "#F59E0B" }}
+                    />
+                    <span>Duties &amp; last-mile still yours</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -228,7 +196,13 @@ export default function HomePage() {
                 </p>
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#003DA5' }}>Status:</p>
-                  <p className="font-bold" style={{ color: '#FE5101' }}>✅ We handle it all</p>
+                  <div
+                    className="flex items-center gap-2 font-bold"
+                    style={{ color: "#FE5101" }}
+                  >
+                    <FaCheckCircle className="flex-shrink-0" />
+                    <span>We handle it all</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -355,20 +329,31 @@ export default function HomePage() {
             {SERVICES.map((service, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                className="relative group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
               >
-                {/* Icon Section */}
-                <div className="p-6 pb-0">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rounded-full"
-                    style={{ backgroundColor: '#003DA5' }}>
+                {/* Desktop & Tablet: Entire card clickable */}
+                <Link
+                  href={service.href}
+                  className="hidden md:block absolute inset-0 z-10"
+                  aria-label={`View ${service.title} service details`}
+                />
+
+                <div className="p-6 flex flex-col h-full">
+                  {/* Icon Section */}
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rounded-full"
+                    style={{ backgroundColor: "#003DA5" }}
+                  >
                     <div className="text-white text-2xl">
                       {service.icon}
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold mb-3 transition-colors"
-                    style={{ color: '#0B2A6B' }}>
+                  <h3
+                    className="text-xl font-bold mb-3 transition-colors"
+                    style={{ color: "#0B2A6B" }}
+                  >
                     {service.title}
                   </h3>
 
@@ -378,25 +363,49 @@ export default function HomePage() {
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 pt-2 pb-6">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {service.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
                         className="text-xs px-2 py-1 rounded-full font-medium"
                         style={{
-                          backgroundColor: '#F0F4FA',
-                          color: '#003DA5'
+                          backgroundColor: "#F0F4FA",
+                          color: "#003DA5",
                         }}
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
+
+                  {/* CTA Section */}
+                  <div className="mt-auto pt-4 border-t border-gray-100">
+                    {/* Mobile: Real clickable link */}
+                    <Link
+                      href={service.href}
+                      className="md:hidden inline-flex items-center gap-2 font-semibold transition-all"
+                      style={{ color: "#FE5101" }}
+                    >
+                      View Service Details
+                      <FaArrowRight className="text-xs" />
+                    </Link>
+
+                    {/* Desktop: Visual CTA only (card itself is clickable) */}
+                    <div
+                      className="hidden md:flex items-center gap-2 font-semibold"
+                      style={{ color: "#FE5101" }}
+                    >
+                      <span>View Service Details</span>
+                      <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
+                  </div>
                 </div>
 
-                {/* Subtle bottom border on hover */}
-                <div className="h-1 w-0 group-hover:w-full transition-all duration-300"
-                  style={{ backgroundColor: '#FE5101' }}></div>
+                {/* Bottom accent line */}
+                <div
+                  className="h-1 w-0 group-hover:w-full transition-all duration-300"
+                  style={{ backgroundColor: "#FE5101" }}
+                />
               </div>
             ))}
           </div>
@@ -453,7 +462,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════ THE DDP JOURNEY ══════════ */}
+      {/* ══════════ ONE CONTRACT- ZERO WORRY ══════════ */}
       <DDPJourneyHighConversion />
 
       {/* ══════════ TESTIMONIALS ══════════ */}
@@ -463,21 +472,7 @@ export default function HomePage() {
       <Partners />
 
       {/* ══════════ CTA ══════════ */}
-      <CTABanner
-        title="Ready to Ship from <span class='text-primary-light'>China to India?</span>"
-        subtitle="Get a complete DDP quote in under 2 hours. No hidden costs, no surprises."
-        bgImage="/images/services/aerial-view-commercial-dock.jpeg"
-        buttons={[
-          { label: 'GET FREE QUOTE', href: '/quote', variant: 'primary' },
-          {
-            label: 'CHAT ON WHATSAPP',
-            href: 'https://wa.me/918790013772',
-            variant: 'whatsapp',
-            icon: <FaWhatsapp size={18} />,
-            external: true,
-          },
-        ]}
-      />
+      <CTABannerSection />
     </main>
   )
 }
