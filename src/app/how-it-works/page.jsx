@@ -353,16 +353,16 @@ export default function HowItWorksPage() {
 
               {/* Heading */}
               <h1 className=" text-4xl font-bold leading-tight text-white md:text-5xl lg:text-5xl">
-                One Contract.
+                From Factory to Door Step
                 <br />
                 <span className=" text-[#36a0f7]">
-                  Zero Worry.
+                  How It Works.
                 </span>
               </h1>
 
               {/* Description */}
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-                CTIDDP is a specialized end-to-end DDP logistics partner helping businesses move goods seamlessly from China to India with complete transparency.
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">                
+                CTIDDP handles the sourcing, quality checks, customs, and freight. Here is exactly how we get your goods to India seamlessly.
               </p>
 
               {/* Features */}

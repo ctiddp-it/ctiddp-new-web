@@ -15,18 +15,35 @@ import {
   HiOutlineClock,
 } from 'react-icons/hi2'
 import {
+  FaShieldAlt,
+  FaChartLine,
+  FaCamera,
+  FaTags,
+  FaArrowRight,
+} from 'react-icons/fa';
+import {
   ShieldCheck,
   Eye,
   Truck,
   FileCheck,
+  FileCheck2,
+  CircleDollarSign,
+  Building2,
+  Clock3,
+  HeadphonesIcon,
+  ArrowRight,
+  Phone,
+  Globe,
+  Ship,
 } from "lucide-react";
+import Link from 'next/link'
 import PageHero from '@/components/ui/PageHero'
 import SectionBadge from '@/components/ui/SectionBadge'
 import IconCard from '@/components/ui/IconCard'
 import StepTimeline from '@/components/ui/StepTimeline'
 import CTABanner from '@/components/ui/CTABanner'
 import Button from '@/components/ui/Button'
-import TrustPill from '@/components/ui/TrustPill'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'Our Services | DDP Shipping, Customs, QC & More | CTIDDP',
@@ -120,19 +137,19 @@ const WHY_STRIP = [
 const features = [
   {
     icon: ShieldCheck,
-    title: "One Contract",
+    title: "Cross-Border DDP",
   },
   {
     icon: Eye,
-    title: "100% Secure",
-  },
-  {
-    icon: Truck,
-    title: "On-time Delivery",
+    title: "Multi-Vendor Consolidation",
   },
   {
     icon: FileCheck,
     title: "Customs Compliant",
+  },
+  {
+    icon: Truck,
+    title: "Global Delivery Network",
   },
 ];
 
@@ -183,7 +200,7 @@ export default function ServicesPage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-md">
                 <div className="h-2 w-2 rounded-full bg-[#0181EA]" />
                 <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90">
-                  Our Process
+                  Our Services
                 </span>
               </div>
 
@@ -198,8 +215,8 @@ export default function ServicesPage() {
 
               {/* Description */}
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
-                From Factory gate in China to your doorstep in India -
-                end-to-end logistics solutions, one accountable partner.
+                From Factory gate in China to your doorstep.
+                End-to-end logistics solutions, one accountable partner.
               </p>
 
               {/* Features */}
@@ -222,70 +239,202 @@ export default function ServicesPage() {
       </section>
 
       {/* ══════════ SERVICES GRID ══════════ */}
-      <section className="section-padding bg-white">
-        <div className="container-main">
-          <div className="text-center mb-12">
-            <SectionBadge>OUR SERVICES</SectionBadge>
-            <h2 className="section-title">
-              Comprehensive <span className="highlight">Logistics Solutions</span>
+      <section className="w-full py-16 px-4 md:py-24 md:px-8">
+        <div className="max-w-screen-2xl mx-auto">
+
+          {/* Section Header */}
+          <div className="flex flex-col items-center text-center mb-12 md:mb-16">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2 mb-4">
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+              <span
+                className="font-semibold text-[12px] tracking-[0.18em] uppercase"
+                style={{ color: '#FE5101' }}
+              >
+                  Our Services
+              </span>
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+            </div>
+           
+
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
+              Comprehensive Logistics <span style={{ color: '#FE5101' }}>Services</span>
             </h2>
-            <p className="section-subtitle centered">
-              We handle every step of your import journey — from supplier coordination in China to last-mile delivery in India.
+             {/* Two-tone underline */}
+            <div
+              className="flex h-[3.5px] rounded-full overflow-hidden mb-5"
+              style={{ width: '72px' }}
+            >
+              <div className="flex-1" style={{ background: '#0B2A6B' }} />
+              <div className="flex-1" style={{ background: '#FE5101' }} />
+            </div>
+
+            <p className="text-lg md:text-md text-gray-700 max-w-3xl mx-auto">
+              We handle every step of your import journey with precision, transparency, and reliability.
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {SERVICES.map((svc) => (
-              <IconCard key={svc.href} {...svc} />
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ══════════ WHY CHOOSE STRIP ══════════ */}
-      <section className="bg-primary py-6">
-        <div className="container-main">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
-            {WHY_STRIP.map((item) => (
-              <div key={item.text} className="flex items-center gap-2 text-white">
-                <span className="opacity-80">{item.icon}</span>
-                <span className="text-[13px] font-600">{item.text}</span>
+          </div>
+          {/* Services Grid - 4 columns on large, 2 on tablet, 1 on mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {SERVICES.map((service, index) => (
+              <div
+                key={index}
+                className="relative group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+              >
+                {/* Desktop & Tablet: Entire card clickable */}
+                <Link
+                  href={service.href}
+                  className="hidden md:block absolute inset-0 z-10"
+                  aria-label={`View ${service.title} service details`}
+                />
+
+                <div className="p-6 flex flex-col h-full">
+                  {/* Icon Section */}
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:rounded-full"
+                    style={{ backgroundColor: "#003DA5" }}
+                  >
+                    <div className="text-white text-2xl">
+                      {service.icon}
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className="text-xl font-bold mb-3 transition-colors"
+                    style={{ color: "#0B2A6B" }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {service.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-xs px-2 py-1 rounded-full font-medium"
+                        style={{
+                          backgroundColor: "#F0F4FA",
+                          color: "#003DA5",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA Section */}
+                  <div className="mt-auto pt-4 border-t border-gray-100">
+                    {/* Mobile: Real clickable link */}
+                    <Link
+                      href={service.href}
+                      className="md:hidden inline-flex items-center gap-2 font-semibold transition-all"
+                      style={{ color: "#FE5101" }}
+                    >
+                      View Service Details
+                      <FaArrowRight className="text-xs" />
+                    </Link>
+
+                    {/* Desktop: Visual CTA only (card itself is clickable) */}
+                    <div
+                      className="hidden md:flex items-center gap-2 font-semibold"
+                      style={{ color: "#FE5101" }}
+                    >
+                      <span>View Service Details</span>
+                      <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom accent line */}
+                <div
+                  className="h-1 w-0 group-hover:w-full transition-all duration-300"
+                  style={{ backgroundColor: "#FE5101" }}
+                />
               </div>
             ))}
           </div>
+
+          {/* Bottom CTA Section */}
+          <div
+            className="mt-16 md:mt-20 rounded-[24px] overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(135deg, #0B2A6B 0%, #003DA5 100%)",
+            }}
+          >
+            <div className="px-6 py-8 lg:px-10 lg:py-10">
+
+              {/* Small Label */}
+              <div className="mb-8">
+                <span className="text-white text-xs font-bold uppercase tracking-[0.18em]">
+                  WHY CHOOSE CTIDDP?
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-0">
+
+                {[
+                  {
+                    title: "Expert Team",
+                    desc: "Logistics experts with 10+ years of experience",
+                    icon: <Building2 className="h-8 w-8" />,
+                  },
+                  {
+                    title: "Transparent Pricing",
+                    desc: "No hidden charges, 100% clear process",
+                    icon: <CircleDollarSign className="h-8 w-8" />,
+                  },
+                  {
+                    title: "Real-time Tracking",
+                    desc: "Live updates at every step of shipment",
+                    icon: <Clock3 className="h-8 w-8" />,
+                  },
+                  {
+                    title: "Secure & Reliable",
+                    desc: "Your cargo is our responsibility",
+                    icon: <FileCheck2 className="h-8 w-8" />,
+                  },
+                  {
+                    title: "24/7 Support",
+                    desc: "We're always here when you need us",
+                    icon: <HeadphonesIcon className="h-8 w-8" />,
+                  },
+                ].map((item, index) => (
+                  <div
+                    key={item.title}
+                    className={`flex items-start gap-4 lg:px-6 ${index !== 4
+                      ? "lg:border-r lg:border-white/15"
+                      : ""
+                      }`}
+                  >
+                    <div className="text-white shrink-0">
+                      {item.icon}
+                    </div>
+
+                    <div>
+                      <h4 className="text-white font-semibold text-[15px] mb-1">
+                        {item.title}
+                      </h4>
+
+                      <p className="text-white/75 text-[13px] leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
-      {/* ══════════ PROCESS ══════════ */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-main">
-          <div className="text-center mb-12">
-            <SectionBadge>OUR PROCESS</SectionBadge>
-            <h2 className="section-title">
-              Simple Process. <span className="highlight">Complete Peace of Mind.</span>
-            </h2>
-          </div>
-
-          <StepTimeline steps={PROCESS_STEPS} />
-
-          <div className="flex flex-wrap gap-3 justify-center mt-10">
-            <Button href="/quote" variant="primary" arrow>GET FREE QUOTE</Button>
-            <Button href="https://wa.me/918790013772" variant="whatsapp" external icon={<FaWhatsapp size={18} />}>
-              WHATSAPP US
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ CTA ══════════ */}
-      <CTABanner
-        title="Need All Services in <span class='text-primary-light'>One Go?</span>"
-        subtitle="Get a complete DDP quote covering all services — shipping, customs, QC, warehousing, and delivery."
-        buttons={[
-          { label: 'GET FREE QUOTE NOW', href: '/quote', variant: 'primary' },
-          { label: 'SPEAK TO OUR EXPERT', href: 'https://wa.me/918790013772', variant: 'secondary', external: true },
-        ]}
-      />
     </main>
   )
 }
