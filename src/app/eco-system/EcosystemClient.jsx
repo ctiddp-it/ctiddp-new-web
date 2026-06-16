@@ -24,8 +24,6 @@ import StatBar from '@/components/ui/StatBar'
 import Button from '@/components/ui/Button'
 import TrustPill from '@/components/ui/TrustPill'
 
-const Partners = dynamic(() => import('@/components/sections/Partners'))
-
 const HERO_STATS = [
   { value: '5000', suffix: '+', label: 'Businesses Served' },
   { value: '60', suffix: '+', label: 'Global Markets' },
@@ -144,9 +142,6 @@ export default function EcosystemClient() {
           </div>
         </div>
       </section>
-
-      {/* ══════════ PARTNERS ══════════ */}
-      <Partners />
 
       {/* ══════════ CTA ══════════ */}
       <CTABanner

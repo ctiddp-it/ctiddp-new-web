@@ -182,7 +182,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/howitworks/CTIDDP-how-it-works22.png"
+            src="/images/about/banner2.png"
             alt="Global Logistics"
             className="h-full w-full object-cover object-center"
           />
