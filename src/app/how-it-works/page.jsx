@@ -1,12 +1,8 @@
 import { FaWhatsapp } from 'react-icons/fa6'
 import {
   HiOutlineGlobeAlt,
-  HiOutlineTruck,
-  HiOutlineShieldCheck,
   HiOutlineMagnifyingGlass,
   HiOutlineBuildingStorefront,
-  HiOutlineDocumentCheck,
-  HiOutlineClipboardDocumentCheck,
   HiOutlineChatBubbleLeftRight,
   HiOutlineCurrencyDollar,
   HiOutlineBuildingOffice2,
@@ -18,11 +14,38 @@ import {
   Truck,
   FileCheck,
 } from "lucide-react";
+import {
+  HiOutlineUsers,
+  HiOutlineShieldCheck,
+  HiOutlineCube,
+  HiOutlineClipboardDocument,
+  HiOutlinePaperAirplane,
+  HiOutlineDocumentCheck,
+  HiOutlineTruck,
+  HiOutlineCheckCircle,
+} from "react-icons/hi2";
+import WhychooseusSection from '@/components/sections/howitworks/whychooseussection';
+
+const CHINA_ICONS = [
+  HiOutlineUsers,
+  HiOutlineShieldCheck,
+  HiOutlineCube,
+  HiOutlineClipboardDocument,
+];
+
+const INDIA_ICONS = [
+  HiOutlinePaperAirplane,
+  HiOutlineDocumentCheck,
+  HiOutlineTruck,
+  HiOutlineCheckCircle,
+];
+
 import StepTimeline from '@/components/ui/StepTimeline'
 import CTABanner from '@/components/ui/CTABanner'
 import Button from '@/components/ui/Button'
 import Image from 'next/image'
 import TwoColumnSection from "@/components/sections/TwoColumnSection"
+import HowItWorksSection from '@/components/sections/howitworks/journeysection';
 
 export const metadata = {
   title: 'How DDP Shipping Works | China to India | CTIDDP',
@@ -68,6 +91,114 @@ const TRUST_ITEMS = [
   { icon: <HiOutlineChatBubbleLeftRight size={18} />, title: '24/7 Support', desc: 'Dedicated account manager.' },
 ]
 
+const ProcessCard = ({
+  step,
+  index,
+  icon: Icon,
+  accent,
+  last = false,
+}) => {
+  const isBlue = accent === "blue";
+
+  return (
+    <div className="relative pl-10 sm:pl-12">
+
+      {/* Number */}
+      <div
+        className={`
+          absolute left-0 top-7 z-20
+          w-7 h-7 sm:w-8 sm:h-8
+          rounded-full
+          flex items-center justify-center
+          text-[10px] sm:text-[11px]
+          font-semibold
+          text-white
+          ${isBlue ? "bg-[#003DA5]" : "bg-[#FE5101]"}
+        `}
+      >
+        {String(index).padStart(2, "0")}
+      </div>
+
+      {!last && (
+        <div
+          className={`
+            absolute left-[13px]
+            top-[56px]
+            bottom-[-26px]
+            border-l border-dashed
+            ${isBlue
+              ? "border-[#003DA5]/20"
+              : "border-[#FE5101]/20"}
+          `}
+        />
+      )}
+
+      <div
+        className="
+          bg-white
+          rounded-[18px]
+          border border-[#E8EDF6]
+          p-4 sm:p-5
+          shadow-[0_6px_20px_rgba(15,23,42,0.05)]
+          hover:shadow-[0_12px_28px_rgba(15,23,42,0.08)]
+          transition
+        "
+      >
+        <div className="flex items-start gap-3 sm:gap-4">
+
+          {/* Icon */}
+          <div
+            className={`
+              shrink-0
+              w-[56px]
+              h-[56px]
+              sm:w-[68px]
+              sm:h-[68px]
+              rounded-[16px]
+              flex items-center justify-center
+              ${isBlue
+                ? "bg-[#F4F7FF] text-[#1B4DFF]"
+                : "bg-[#FFF5EF] text-[#FE5101]"
+              }
+            `}
+          >
+            <Icon size={26} />
+          </div>
+
+          <div className="min-w-0">
+
+            <div
+              className={`
+                text-[10px]
+                tracking-[0.14em]
+                uppercase
+                font-bold
+                mb-1
+                ${isBlue
+                  ? "text-[#003DA5]"
+                  : "text-[#FE5101]"
+                }
+              `}
+            >
+              STEP {String(index).padStart(2, "0")}
+            </div>
+
+            <h4 className="text-[15px] sm:text-[17px] font-semibold text-[#0B2A6B] mb-1">
+              {step.title}
+            </h4>
+
+            <p className="text-[13px] sm:text-[14px] leading-[1.7] text-slate-600">
+              {step.desc}
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const features = [
   {
     icon: ShieldCheck,
@@ -103,7 +234,11 @@ function Feature({ icon: Icon, title }) {
 
 export const CTIDDP_CONTENT1 = {
   badge: "Delivered Duty Paid",
-  title: "Complete Door-to-Door Import Solution",
+  title: (
+    <>
+      Complete <span className="text-[#FE5101]">Door-to-Door</span> Import Solution
+    </>
+  ),
   subtitle: "Cross Border Trade International",
 
   description:
@@ -140,7 +275,11 @@ export const CTIDDP_CONTENT1 = {
 
 export const CTIDDP_CONTENT2 = {
   badge: "Delivered Duty Paid",
-  title: "End-to-End Import Clearance & Final Delivery",
+ title: (
+    <>
+    <span className="text-[#FE5101]">End-to-End</span>  Import Clearance & Final Delivery
+    </>
+  ),
   subtitle: "Cross Border Trade International",
 
   description:
@@ -246,254 +385,148 @@ export default function HowItWorksPage() {
       </section>
 
       {/* ══════════ THE DDP JOURNEY ══════════ */}
-      <section className="relative bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-12">
-          {/* Header - Centered */}
-          <div className="mb-16 text-center">
-            {/* Badge */}
-            <div className="mb-5 flex items-center justify-center gap-3">
-              <div className="h-[2px] w-10 bg-[#0181EA]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#0181EA]">
-                THE DDP JOURNEY
+      <HowItWorksSection />
+
+      <TwoColumnSection
+        {...CTIDDP_CONTENT1}
+        initialLayout="content-left"
+        showToggle={false}
+        imageSrc="/images/howitworks/landed-cost-logistics-india-delivery-ctiddp.jpeg"
+        imageAlt="Global cargo shipping"
+      />
+
+      {/* ══════════ FACTORY TO DOOR ══════════ */}
+      <section className="bg-[#FAFBFE] py-16 sm:py-20 lg:py-24">
+
+        <div className="container-main">
+
+          {/* HEADER */}
+          <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
+
+            <div className="inline-flex items-center gap-2 mb-4">
+
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+
+              <span className="text-[11px] sm:text-[12px] tracking-[0.22em] uppercase font-semibold text-[#FE5101]">
+                Our Process
               </span>
-              <div className="h-[2px] w-10 bg-[#0181EA]" />
+
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+
             </div>
 
-            {/* Title */}
-            <h2 className="font-serif text-4xl font-bold leading-tight text-[#0B1B3A] md:text-5xl">
-              How It <span className="text-[#0181EA]">Works</span>
+            <h2 className="section-title text-[#0B2A6B] leading-tight text-4xl md:text-5xl">
+              From Factory to{" "}
+              <span className="text-[#FE5101]">
+                Your Door
+              </span>
             </h2>
 
-            {/* Subtitle */}
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-600 md:text-lg">
-              Your shipment goes through 7 managed stages — each handled by our team
-              with full visibility and control.
-            </p>
-          </div>
-
-          {/* Timeline Container - Full width, open design */}
-          <div className="relative w-full rounded-2xl border border-gray-100 bg-white px-4 py-12 shadow-sm md:px-8 lg:px-12">
-            {/* Accent glow line */}
-            <div className="absolute left-0 top-0 h-full w-[4px] rounded-l-2xl bg-[#0181EA]" />
-
-            <StepTimeline steps={DDP_STEPS} />
-          </div>
-
-          {/* Transit Time Card */}
-          <div className="mt-12 flex justify-center">
-            <div className="flex items-center gap-3 rounded-xl border border-[#0181EA]/20 bg-[#0181EA]/5 px-6 py-4 shadow-sm">
-              <HiOutlineClock className="text-[#0181EA]" size={20} />
-
-              <p className="text-sm font-medium text-gray-800 md:text-base">
-                Total Transit Time:
-                <span className="ml-2 font-semibold text-[#0181EA]">
-                  38–60 days
-                </span>
-                <span className="mx-2 text-gray-300">|</span>
-                <span className="font-semibold text-[#0181EA]">
-                  10–15 days (air)
-                </span>
-              </p>
+            {/* Two-tone underline */}
+            <div
+              className="flex h-[3.5px] rounded-full overflow-hidden mb-5"
+              style={{ width: '72px' }}
+            >
+              <div className="flex-1" style={{ background: '#0B2A6B' }} />
+              <div className="flex-1" style={{ background: '#FE5101' }} />
             </div>
+
+            <p className="mt-3 max-w-[640px] mx-auto text-[14px] sm:text-[15px] text-slate-600">
+              End-to-end logistics visibility from China manufacturing units to final delivery in India.
+            </p>
+
           </div>
+
+          {/* GRID */}
+          <div className="grid lg:grid-cols-2 gap-[72px]">
+
+            {/* CHINA */}
+            <div>
+
+              <div className="mb-10">
+
+                <div className="inline-flex items-center gap-4 rounded-full bg-[#F4F7FF] px-6 py-4">
+
+                  <div className="w-14 h-14 rounded-full bg-[#003DA5] text-white flex items-center justify-center">
+                    <HiOutlineBuildingOffice2 size={26} />
+                  </div>
+
+                  <h3 className="font-semibold text-[#003DA5] text-[24px]">
+                    From Factory / Warehouse (China)
+                  </h3>
+
+                </div>
+
+              </div>
+
+              <div className="space-y-8">
+
+                {CHINA_STEPS.map((step, i) => (
+                  <ProcessCard
+                    key={i}
+                    step={step}
+                    index={i + 1}
+                    icon={CHINA_ICONS[i]}
+                    accent="blue"
+                  />
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* INDIA */}
+            <div>
+
+              <div className="mb-10">
+
+                <div className="inline-flex items-center gap-4 rounded-full bg-[#FFF5EF] px-6 py-4">
+
+                  <div className="w-14 h-14 rounded-full bg-[#FE5101] text-white flex items-center justify-center">
+                    <HiOutlineTruck size={26} />
+                  </div>
+
+                  <h3 className="font-semibold text-[#FE5101] text-[24px]">
+                    From Port to Door (India)
+                  </h3>
+
+                </div>
+
+              </div>
+
+              <div className="space-y-8">
+
+                {INDIA_STEPS.map((step, i) => (
+                  <ProcessCard
+                    key={i}
+                    step={step}
+                    index={i + 5}
+                    icon={INDIA_ICONS[i]}
+                    accent="orange"
+                  />
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
+
       </section>
 
       <TwoColumnSection
-          {...CTIDDP_CONTENT1}
-          initialLayout="content-right"
-          showToggle={false}
-          imageSrc="/images/howitworks/landed-cost-logistics-india-delivery-ctiddp.jpeg"
-          imageAlt="Global cargo shipping"
-        />
-
-      {/* ══════════ FACTORY TO DOOR ══════════ */}
-      <section className="section-padding bg-white">
-        <div className="container-main">
-
-          {/* Header */}
-          <div className="text-center mb-14">
-            {/* Badge  */}
-            <div className="mb-5 flex items-center justify-center gap-3">
-              <div className="h-[2px] w-10 bg-[#0181EA]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#0181EA]">
-                FROM START TO FINISH
-              </span>
-              <div className="h-[2px] w-10 bg-[#0181EA]" />
-            </div>
-            <h2 className="section-title">
-              From Factory to <span className="text-[#0181EA]">Your Door</span>
-            </h2>
-            <p className="text-gray-500 mt-3 text-[14px] max-w-2xl mx-auto">
-              End-to-end logistics visibility from China manufacturing units to final delivery in India.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20">
-
-            {/* ================= CHINA SIDE ================= */}
-            <div className="relative">
-
-              {/* Side Header */}
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-3 h-3 rounded-full bg-[#0181EA]" />
-                <h3 className="text-[16px] font-semibold text-gray-900">
-                  From Factory / Warehouse (China)
-                </h3>
-              </div>
-
-              {/* Vertical line */}
-              <div className="absolute left-[6px] top-12 bottom-0 w-[2px] bg-[#0181EA]/20" />
-
-              <div className="space-y-6">
-                {CHINA_STEPS.map((step, i) => (
-                  <div
-                    key={i}
-                    className="relative pl-6 bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition"
-                  >
-                    {/* Dot */}
-                    <span className="absolute left-[-2px] top-6 w-3 h-3 rounded-full bg-[#0181EA]" />
-
-                    <div className="text-[10px] font-bold text-[#0181EA] tracking-widest mb-1">
-                      STEP {String(i + 1).padStart(2, '0')}
-                    </div>
-
-                    <h4 className="text-[15px] font-semibold text-gray-900 mb-1">
-                      {step.title}
-                    </h4>
-
-                    <p className="text-[13px] text-gray-500 leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* ================= INDIA SIDE ================= */}
-            <div className="relative">
-
-              {/* Side Header */}
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-3 h-3 rounded-full bg-[#0181EA]" />
-                <h3 className="text-[16px] font-semibold text-gray-900">
-                  From Port to Door (India)
-                </h3>
-              </div>
-
-              {/* Vertical line */}
-              <div className="absolute left-[6px] top-12 bottom-0 w-[2px] bg-[#0181EA]/20" />
-
-              <div className="space-y-6">
-                {INDIA_STEPS.map((step, i) => (
-                  <div
-                    key={i}
-                    className="relative pl-6 bg-white border border-gray-100 rounded-xl p-5 shadow-sm hover:shadow-md transition"
-                  >
-                    {/* Dot */}
-                    <span className="absolute left-[-2px] top-6 w-3 h-3 rounded-full bg-[#0181EA]" />
-
-                    <div className="text-[10px] font-bold text-[#0181EA] tracking-widest mb-1">
-                      STEP {String(i + 5).padStart(2, '0')}
-                    </div>
-
-                    <h4 className="text-[15px] font-semibold text-gray-900 mb-1">
-                      {step.title}
-                    </h4>
-
-                    <p className="text-[13px] text-gray-500 leading-relaxed">
-                      {step.desc}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-       <TwoColumnSection
-          {...CTIDDP_CONTENT2}
-          initialLayout="content-left"
-          showToggle={false}
-          imageSrc="/images/howitworks/door-to-door-service-china-india-ctiddp.jpeg"
-          imageAlt="Global Delivery"
-        />
+        {...CTIDDP_CONTENT2}
+        initialLayout="content-right"
+        showToggle={false}
+        imageSrc="/images/howitworks/door-to-door-service-china-india-ctiddp.jpeg"
+        imageAlt="Global Delivery"
+      />
 
       {/* ══════════ TRUST BADGES ══════════ */}
-      <section className="section-padding bg-gray-50">
-        <div className="container-main">
+      <WhychooseusSection />
 
-          {/* Header */}
-          <div className="text-center mb-12">
-             {/* Badge  */}
-            <div className="mb-5 flex items-center justify-center gap-3">
-              <div className="h-[2px] w-10 bg-[#0181EA]" />
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#0181EA]">
-                WHY IMPORTERS CHOOSE US
-              </span>
-              <div className="h-[2px] w-10 bg-[#0181EA]" />
-            </div>
-
-            <h2 className="section-title">
-              Simple. <span className="text-[#0181EA]">Predictable.</span> Reliable.
-            </h2>
-
-            <p className="text-gray-500 text-[14px] mt-3 max-w-2xl mx-auto">
-              Built for importers who need clarity, control, and consistency in every shipment.
-            </p>
-          </div>
-
-          {/* Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-
-            {TRUST_ITEMS.map((item) => (
-              <div
-                key={item.title}
-                className="relative bg-white border border-gray-100 rounded-xl p-5 text-center
-                     shadow-sm hover:shadow-md transition group overflow-hidden"
-              >
-
-                {/* subtle top accent */}
-                <div className="absolute top-0 left-0 w-full h-[3px] bg-[#0181EA] scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
-
-                {/* Icon */}
-                <div
-                  className="w-12 h-12 mx-auto mb-4 flex items-center justify-center
-                       rounded-full bg-[#0181EA]/10 text-[#0181EA]
-                       group-hover:bg-[#0181EA] group-hover:text-white transition"
-                >
-                  {item.icon}
-                </div>
-
-                {/* Title */}
-                <h4 className="text-[14px] font-semibold text-gray-900 mb-1">
-                  {item.title}
-                </h4>
-
-                {/* Description */}
-                <p className="text-[12px] text-gray-500 leading-relaxed">
-                  {item.desc}
-                </p>
-
-              </div>
-            ))}
-
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════ CTA ══════════ */}
-      <CTABanner
-        title="Ready to Experience <span class='text-primary-light'>Hassle-Free Imports?</span>"
-        subtitle="Get a complete DDP quote with transparent pricing in under 2 hours."
-        bgImage="/images/services/aerial-view-commercial-dock.jpeg"
-        buttons={[
-          { label: 'GET FREE QUOTE', href: '/quote', variant: 'primary' },
-          { label: 'CHAT ON WHATSAPP', href: 'https://wa.me/918790013772', variant: 'whatsapp', icon: <FaWhatsapp size={18} />, external: true },
-        ]}
-      />
     </main>
   )
 }

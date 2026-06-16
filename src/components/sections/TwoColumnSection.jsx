@@ -11,8 +11,6 @@ import {
   Globe,
   Warehouse,
   CircleDollarSign,
-  ArrowRight,
-  Info,
 } from "lucide-react";
 
 // ─────────────────────────────────────────────
@@ -35,131 +33,35 @@ const ICON_MAP = {
 function Badge({ text }) {
   if (!text) return null;
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#0181EA]/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[2px] text-[#0181EA]">
+    <span
+      className="inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[2px]"
+      style={{ background: "rgba(254,81,1,0.10)", color: "#FE5101" }}
+    >
+      <ShieldCheck className="h-3 w-3" />
       {text}
     </span>
   );
 }
 
 // ─────────────────────────────────────────────
-// Title
-// ─────────────────────────────────────────────
-function Title({ title }) {
-  if (!title) return null;
-  return (
-    <h2 className="text-[clamp(28px,4vw,42px)] font-serif font-bold leading-tight text-slate-900">
-      {title}
-    </h2>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Image Card – left column, spans full height
-// ─────────────────────────────────────────────
-function ImageCard({ imageSrc, imageAlt, overlayLabel, renderImage }) {
-  if (renderImage) {
-    return (
-      <div className="relative h-full min-h-[320px] overflow-hidden rounded-2xl">
-        {renderImage()}
-      </div>
-    );
-  }
-
-  return (
-    <div className="group relative h-full min-h-[320px] overflow-hidden rounded-2xl bg-slate-100">
-      {imageSrc ? (
-        <Image
-          src={imageSrc}
-          alt={imageAlt || "Section image"}
-          fill
-          priority
-          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-        />
-      ) : (
-        // Placeholder when no image provided
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0056b3] via-[#0181EA] to-[#38a3f1] flex items-center justify-center">
-          <Globe className="h-20 w-20 text-white/20" />
-        </div>
-      )}
-
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-      {overlayLabel && (
-        <div className="absolute bottom-5 left-5 z-10">
-          <span className="inline-flex items-center gap-2 rounded-full bg-[#0181EA] px-4 py-2 text-xs font-medium text-white shadow-md">
-            <PackageCheck className="h-3.5 w-3.5" />
-            {overlayLabel}
-          </span>
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Stat Cards – 2-up mini metric tiles
-// ─────────────────────────────────────────────
-function StatCards({ stats = [] }) {
-  if (!stats.length) return null;
-
-  return (
-    <div className="grid grid-cols-2 gap-3">
-      {stats.map((stat, i) => (
-        <div
-          key={i}
-          className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-4"
-        >
-          <p className="text-2xl font-serif font-bold text-slate-900 leading-none">
-            {stat.value}
-          </p>
-          <p className="mt-1.5 text-xs text-slate-500 leading-snug">
-            {stat.label}
-          </p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Pills Row
-// ─────────────────────────────────────────────
-function Pills({ features = [] }) {
-  if (!features.length) return null;
-
-  return (
-    <div className="flex flex-wrap gap-2">
-      {features.slice(0, 4).map((item, i) => (
-        <span
-          key={i}
-          className="rounded-full border border-slate-200 bg-white px-4 py-1.5 text-xs font-medium text-slate-600 transition-colors duration-200 hover:border-[#0181EA]/40 hover:text-[#0181EA]"
-        >
-          {item.title}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Feature Row – contained in card with dividers
+// Feature Row (inside content card)
 // ─────────────────────────────────────────────
 function FeatureRow({ feature, isLast }) {
   const Icon = ICON_MAP[feature.icon];
   return (
     <div
-      className={`flex gap-4 py-4 group/row ${
-        !isLast ? "border-b border-slate-100" : ""
-      }`}
+      className={`flex gap-4 py-4 ${!isLast ? "border-b border-slate-100" : ""}`}
     >
       {Icon && (
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#0181EA]/10 text-[#0181EA] transition-colors duration-200 group-hover/row:bg-[#0181EA] group-hover/row:text-white">
+        <div
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
+          style={{ background: "rgba(0,61,165,0.08)", color: "#003DA5" }}
+        >
           <Icon className="h-4 w-4" />
         </div>
       )}
       <div className="min-w-0">
-        <p className="text-sm font-bold text-slate-900 mb-0.5">
+        <p className="text-sm font-bold mb-0.5" style={{ color: "#0B2A6B" }}>
           {feature.title}
         </p>
         <p className="text-xs text-slate-500 leading-relaxed">
@@ -171,67 +73,173 @@ function FeatureRow({ feature, isLast }) {
 }
 
 // ─────────────────────────────────────────────
-// Content Card – right column
+// Pill Card (below image — icon + label)
 // ─────────────────────────────────────────────
-function ContentCard({ subtitle, description, features = [], renderContent }) {
-  if (renderContent) {
-    return (
-      <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm">
-        {renderContent()}
-      </div>
-    );
-  }
-
+function PillCard({ feature }) {
+  const Icon = ICON_MAP[feature.icon];
   return (
-    <div className="h-full rounded-2xl border border-slate-200/80 bg-white p-7 shadow-sm">
-      {subtitle && (
-        <p className="mb-2 text-sm font-semibold text-[#0181EA]">{subtitle}</p>
-      )}
-      {description && (
-        <p className="mb-6 text-sm text-slate-500 leading-7">{description}</p>
-      )}
-      <div>
-        {features.map((feature, i) => (
-          <FeatureRow
-            key={i}
-            feature={feature}
-            isLast={i === features.length - 1}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// Closing Strip – full-width callout band
-// ─────────────────────────────────────────────
-function ClosingStrip({ closing }) {
-  if (!closing) return null;
-
-  return (
-    <div className="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-white px-6 py-5 shadow-sm">
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#0181EA]/10 text-[#0181EA] mt-0.5">
-        <Info className="h-4 w-4" />
-      </div>
-      <p className="text-sm text-slate-500 leading-7">{closing}</p>
-    </div>
-  );
-}
-
-// ─────────────────────────────────────────────
-// CTA Link (optional)
-// ─────────────────────────────────────────────
-function CtaLink({ cta }) {
-  if (!cta) return null;
-  return (
-    <a
-      href={cta.href || "#"}
-      className="inline-flex items-center gap-2 text-sm font-medium text-[#0181EA] transition-all duration-200 hover:gap-3 group"
+    <div
+      className="flex items-center gap-2 rounded-xl px-3 py-3 flex-1 min-w-0"
+      style={{ background: "#ffffff", border: "1px solid #E8EEF8" }}
     >
-      {cta.label}
-      <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
-    </a>
+      {Icon && (
+        <Icon className="h-4 w-4 shrink-0" style={{ color: "#003DA5" }} />
+      )}
+      <span className="text-xs font-medium text-slate-700 leading-snug truncate">
+        {feature.title}
+      </span>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Left block: Badge + Title + accent + Content card
+// ─────────────────────────────────────────────
+function ContentColumn({ badge, title, subtitle, description, features, renderContent }) {
+  return (
+    <div className="flex flex-col gap-5">
+      {/* Badge + Title + orange accent */}
+      <div className="space-y-4">
+
+        {/* Eyebrow */}
+        {badge && (
+          <div className="flex items-center gap-2">
+            <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+            <span className="text-[12px] font-semibold uppercase tracking-[0.18em] text-[#FE5101]">
+              {badge}
+            </span>
+            <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+          </div>
+        )}
+
+        {/* Title */}
+        <h2
+          className="text-[clamp(28px,3.5vw,44px)] font-extrabold leading-tight"
+          style={{ color: "#0B2A6B" }}
+        >
+          {title}
+        </h2>
+
+        {/* Two-tone underline */}
+        <div
+          className="flex h-[3.5px] rounded-full overflow-hidden"
+          style={{ width: "72px" }}
+        >
+          <div className="flex-1 bg-[#0B2A6B]" />
+          <div className="flex-1 bg-[#FE5101]" />
+        </div>
+
+      </div>
+
+      {/* Content card */}
+      {renderContent ? (
+        <div
+          className="rounded-2xl p-6 lg:p-7 shadow-sm"
+          style={{ background: "#ffffff", border: "1px solid #E8EEF8" }}
+        >
+          {renderContent()}
+        </div>
+      ) : (
+        <div
+          className="rounded-2xl p-6 lg:p-7 shadow-sm"
+          style={{ background: "#ffffff", border: "1px solid #E8EEF8" }}
+        >
+          {subtitle && (
+            <p
+              className="mb-3 text-sm font-semibold"
+              style={{ color: "#003DA5" }}
+            >
+              {subtitle}
+            </p>
+          )}
+          {description && (
+            <p className="mb-5 text-sm text-slate-500 leading-7">
+              {description}
+            </p>
+          )}
+          <div>
+            {features.map((feature, i) => (
+              <FeatureRow
+                key={i}
+                feature={feature}
+                isLast={i === features.length - 1}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────
+// Image block: tall image + pills row below
+// ─────────────────────────────────────────────
+function ImageColumn({ imageSrc, imageAlt, overlayLabel, features, renderImage }) {
+  return (
+    <div className="flex flex-col gap-4">
+      {/* Image card */}
+      {renderImage ? (
+        <div
+          className="relative w-full overflow-hidden rounded-2xl"
+          style={{ minHeight: 685 }}
+        >
+          {renderImage()}
+        </div>
+      ) : (
+        <div
+          className="group relative w-full overflow-hidden rounded-2xl"
+          style={{ minHeight: 685 }}
+        >
+          {imageSrc ? (
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              priority
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            />
+          ) : (
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{
+                background: "linear-gradient(135deg, #0B2A6B 0%, #003DA5 100%)",
+              }}
+            >
+              <Globe
+                className="h-20 w-20"
+                style={{ color: "rgba(255,255,255,0.15)" }}
+              />
+            </div>
+          )}
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+          {/* Overlay label pill */}
+          {overlayLabel && (
+            <div className="absolute bottom-5 left-5 z-10">
+              <span
+                className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-white shadow-md"
+                style={{ background: "#FE5101" }}
+              >
+                <Globe className="h-3.5 w-3.5" />
+                {overlayLabel}
+              </span>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Pills row */}
+      {features.length > 0 && (
+        <div className="flex gap-2 sm:gap-3">
+          {features.slice(0, 3).map((feature, i) => (
+            <PillCard key={i} feature={feature} />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -245,80 +253,91 @@ export default function TwoColumnSection(props) {
     subtitle,
     description,
     features = [],
-    stats = [],
     closing,
-    cta,
     imageSrc,
     imageAlt = "Section image",
     overlayLabel,
     renderImage,
     renderContent,
-    bgColor = "bg-white",
     className = "",
     containerClassName = "",
+    initialLayout = "content-left",
+    // showToggle kept for API compatibility, not rendered
+    showToggle,
   } = props;
+
+  // "content-left"  → content on left,  image on right
+  // "content-right" → image on left,    content on right
+  const isContentLeft = initialLayout !== "content-right";
+
+  const contentCol = (
+    <ContentColumn
+      badge={badge}
+      title={title}
+      subtitle={subtitle}
+      description={description}
+      features={features}
+      renderContent={renderContent}
+    />
+  );
+
+  const imageCol = (
+    <ImageColumn
+      imageSrc={imageSrc}
+      imageAlt={imageAlt}
+      overlayLabel={overlayLabel}
+      features={features}
+      renderImage={renderImage}
+    />
+  );
 
   return (
     <section
-      className={`relative isolate overflow-hidden py-20 px-6 lg:px-12 ${className}`}
+      className={`relative isolate overflow-hidden py-16 lg:py-20 px-5 sm:px-6 lg:px-12 ${className}`}
+      style={{ background: "#ffffff" }}
     >
-        {/* Background Layer */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-[#f3f9ff] to-[#e6f3ff]" />
+      {/* Ambient glows */}
+      <div
+        className="pointer-events-none absolute -top-32 -left-32 h-[380px] w-[380px] rounded-full blur-3xl -z-10"
+        style={{ background: "rgba(0,61,165,0.05)" }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-32 -right-32 h-[380px] w-[380px] rounded-full blur-3xl -z-10"
+        style={{ background: "rgba(254,81,1,0.04)" }}
+      />
 
-        {/* Soft Blue Glow Blobs */}
-        <div className="absolute -top-40 -left-40 h-[400px] w-[400px] rounded-full bg-[#0181EA]/10 blur-3xl -z-10" />
-        <div className="absolute -bottom-40 -right-40 h-[400px] w-[400px] rounded-full bg-[#0181EA]/10 blur-3xl -z-10" />
-      
       <div className={`mx-auto max-w-7xl ${containerClassName}`}>
 
-        {/* Header row – badge, title, and optional CTA in same row on large screens */}
-        <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div className="space-y-3">
-            <Badge text={badge} />
-            <Title title={title} />
-          </div>
-          {cta && <CtaLink cta={cta} />}
-        </div>
+        {/*
+          Mobile:  always content first, image second (single column)
+          Desktop: respect initialLayout — content-left or content-right
+        */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
 
-        {/* Main asymmetric grid */}
-        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-
-          {/* LEFT COLUMN — image (top) + stats + pills (bottom) */}
-          <div className="flex flex-col gap-4">
-            {/* Image card — flex-1 so it fills remaining height */}
-            <div className="flex-1">
-              <ImageCard
-                imageSrc={imageSrc}
-                imageAlt={imageAlt}
-                overlayLabel={overlayLabel}
-                renderImage={renderImage}
-              />
-            </div>
-
-            {/* Stats row */}
-            {stats.length > 0 && <StatCards stats={stats} />}
-
-            {/* Pills */}
-            {features.length > 0 && <Pills features={features} />}
+          {/* On mobile: content always comes first via order utilities */}
+          <div className={isContentLeft ? "order-1 lg:order-1" : "order-1 lg:order-2"}>
+            {contentCol}
           </div>
 
-          {/* RIGHT COLUMN — content card fills full height */}
-          <div className="flex flex-col gap-4">
-            <div className="flex-1">
-              <ContentCard
-                subtitle={subtitle}
-                description={description}
-                features={features}
-                renderContent={renderContent}
-              />
-            </div>
+          <div className={isContentLeft ? "order-2 lg:order-2" : "order-2 lg:order-1"}>
+            {imageCol}
           </div>
+
         </div>
 
         {/* Full-width closing strip */}
         {closing && (
-          <div className="mt-4">
-            <ClosingStrip closing={closing} />
+          <div
+            className="mt-5 flex items-start gap-4 rounded-2xl px-5 py-5 shadow-sm"
+            style={{ background: "#ffffff", border: "1px solid #E8EEF8" }}
+          >
+            <div
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg mt-0.5"
+              style={{ background: "#003DA5" }}
+            >
+              <ShieldCheck className="h-4 w-4 text-white" />
+            </div>
+            <p className="text-sm text-slate-500 leading-7">{closing}</p>
           </div>
         )}
 
