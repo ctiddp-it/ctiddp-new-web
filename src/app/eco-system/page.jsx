@@ -182,104 +182,86 @@ const Ecosystem = () => {
     <div className="min-h-screen bg-white">
 
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[560px] overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="/images/ecosystem/ecosystem.png"
-            alt="Global Logistics"
-            className="h-full w-full object-cover object-center"
-          />
+      <section className="relative min-h-[620px] overflow-hidden sm:min-h-[700px] lg:h-[50vh] lg:min-h-[560px]">
+  {/* Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="/images/ecosystem/ecosystem.png"
+      alt="Global Logistics"
+      className="h-full w-full object-cover object-center"
+    />
+    {/* Optional overlay for better mobile text readability */}
+    <div className="absolute inset-0 bg-white/70 sm:bg-white/60 lg:bg-transparent" />
+  </div>
+
+  {/* Content */}
+  <div className="relative z-10 h-full">
+    <div className="flex h-full items-center px-5 py-14 sm:px-8 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+      <div className="max-w-4xl">
+        {/* Badge */}
+        <div
+          className="mb-5 inline-flex items-center gap-2 rounded-full px-3 py-2 sm:px-4"
+          style={{
+            background: "rgba(0,61,165,0.08)",
+            border: "1px solid rgba(0,61,165,0.12)",
+          }}
+        >
+          <PiInfinityBold size={14} color="#003DA5" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#003DA5] sm:text-[11px]">
+            Integrated Ecosystem
+          </span>
         </div>
 
+        {/* Heading */}
+        <h1 className="text-[32px] font-extrabold leading-[1.1] text-[#FE5101] sm:text-[42px] md:text-[52px] lg:text-[58px]">
+          One Platform.
+          <br />
+          <span className="text-[#0B2A6B]">Endless Global</span>
+          <br />
+          <span className="text-[#0B2A6B]">Trade Opportunities</span>
+        </h1>
 
-        {/* Content */}
-        <div className="relative z-10 h-full">
+        {/* Description */}
+        <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-700 sm:text-[16px] md:text-[17px]">
+          Connect, trade, and grow with our all-in-one ecosystem designed to
+          simplify international commerce and accelerate your business
+          expansion.
+        </p>
 
-          <div className="flex h-full items-center px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+        {/* Button */}
+        <div className="mt-8">
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#FE5101] px-6 py-3 text-[14px] font-bold text-white no-underline transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          >
+            Join Us
+            <TbArrowRight size={18} />
+          </Link>
+        </div>
 
-            <div className="max-w-4xl">
-
-              {/* Badge */}
-              <div
-                className="mb-6 inline-flex items-center gap-2 rounded-full px-4 py-2"
-                style={{
-                  background: 'rgba(0,61,165,0.08)',
-                  border: '1px solid rgba(0,61,165,0.12)',
-                }}
-              >
-                <PiInfinityBold
-                  size={14}
-                  color="#003DA5"
-                />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#003DA5]">
-                  Integrated Ecosystem
-                </span>
+        {/* Stats */}
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
+          {STATS.map(({ Icon, value, label }) => (
+            <div key={label} className="flex items-center gap-3">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#003DA5]/8 sm:h-12 sm:w-12">
+                <Icon size={20} color="#003DA5" />
               </div>
 
-              {/* Heading */}
-              <h1 className="text-[42px] leading-[1.08] font-extrabold text-[#FE5101] md:text-[58px]">
-                One Platform.
-                <br />
-                <span className="text-[#0B2A6B]">
-                  Endless Global
-                </span>
-                <br />
-                <span className="text-[#0B2A6B]">
-                  Trade  Opportunities
-                </span>
-              </h1>
-
-              {/* Description */}
-              <p className="mt-6 max-w-xl text-[16px] leading-relaxed text-slate-600 md:text-[17px]">
-                Connect, trade, and grow with our all-in-one ecosystem
-                designed to simplify international commerce and accelerate
-                your business expansion.
-              </p>
-
-              {/* Buttons */}
-              <div className="mt-10 flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#FE5101] px-7 py-3.5 text-[14px] font-bold text-white no-underline transition-all hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                  Join Us
-                  <TbArrowRight size={18} />
-                </Link>
+              <div>
+                <div className="text-[24px] font-extrabold leading-none text-[#0B2A6B] sm:text-[28px]">
+                  {value}
+                </div>
+                <div className="mt-1 text-[12px] text-slate-500">
+                  {label}
+                </div>
               </div>
-
-              {/* Stats */}
-              <div className="mt-10 grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-3">
-                {STATS.map(({ Icon, value, label }) => (
-                  <div
-                    key={label}
-                    className="flex items-center gap-3"
-                  >
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#003DA5]/8">
-                      <Icon
-                        size={22}
-                        color="#003DA5"
-                      />
-                    </div>
-                    <div>
-                      <div className="text-[28px] font-extrabold leading-none text-[#0B2A6B]">
-                        {value}
-                      </div>
-                      <div className="mt-1 text-[12px] text-slate-500">
-                        {label}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
             </div>
-
-          </div>
-
+          ))}
         </div>
-
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Three Pillars Section */}
       <section className="relative py-20 bg-[#F8FAFC] overflow-hidden">
