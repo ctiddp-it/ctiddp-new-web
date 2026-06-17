@@ -69,14 +69,29 @@ export default function CantonFairClient() {
   return (
     <section id="canton-fair-support-form" className="section-padding bg-gray-50 scroll-mt-20">
       <div className="max-w-[760px] mx-auto">
-        <div className="text-center mb-10">
-          <SectionBadge>RESERVE YOUR SLOT</SectionBadge>
-          <h2 className="section-title">
-            Book Canton Fair <span className="highlight">Support</span>
+        <div className="flex flex-col items-center mb-10">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 mb-3">
+            <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+            <span className="text-[#FE5101] font-semibold text-[10px] md:text-[12px] tracking-[0.18em] uppercase">
+              Reserve your slot
+            </span>
+            <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+          </div>
+
+          {/* Headline */}
+          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-center mb-4">
+            <span style={{ color: '#0B2A6B' }}>Book Canton Fair&nbsp;</span>
+            <span style={{ color: '#FE5101' }}>Support</span>
           </h2>
-          <p className="section-subtitle centered">
-            Submit your details and our Guangzhou team will confirm your dedicated support slot.
-          </p>
+
+          {/* Underline accent — two-tone bar */}
+          <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
+            <div className="flex-1" style={{ background: '#0B2A6B' }} />
+            <div className="flex-1" style={{ background: '#FE5101' }} />
+          </div>
+
+          <p className='py-2'>Submit your details and our Guangzhou team will confirm your dedicated support slot.</p>
         </div>
 
         <div className="card p-6 sm:p-10">
@@ -161,15 +176,6 @@ export default function CantonFairClient() {
                 <button type="submit" disabled={isSubmitting} className="btn btn-primary disabled:opacity-70">
                   {isSubmitting ? 'Submitting…' : 'Reserve My Support Slot →'}
                 </button>
-                <a
-                  href="https://wa.me/918790013772"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-whatsapp"
-                >
-                  <FaWhatsapp size={18} />
-                  WhatsApp Instead
-                </a>
               </div>
             </form>
           ) : (
