@@ -214,18 +214,15 @@ const Ecosystem = () => {
 
         {/* Heading */}
         <h1 className="text-[32px] font-extrabold leading-[1.1] text-[#FE5101] sm:text-[42px] md:text-[52px] lg:text-[58px]">
-          One Platform.
+          One Platform
           <br />
-          <span className="text-[#0B2A6B]">Endless Global</span>
-          <br />
-          <span className="text-[#0B2A6B]">Trade Opportunities</span>
+          <span className="text-[#0B2A6B]">Endless Opportunities</span>
         </h1>
 
         {/* Description */}
         <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-700 sm:text-[16px] md:text-[17px]">
           Connect, trade, and grow with our all-in-one ecosystem designed to
-          simplify international commerce and accelerate your business
-          expansion.
+          simplify international commerce and accelerate your business.
         </p>
 
         {/* Button */}

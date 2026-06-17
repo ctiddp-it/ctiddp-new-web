@@ -12,6 +12,7 @@ import {
   Package
 } from "lucide-react";
 import { RiCustomerService2Fill } from "react-icons/ri";
+import HomeContactForm from "@/components/sections/home/HomeContactForm"
 
 /* ─────────────────────────────────────────────────────────────────
    ROOT STRUCTURE
@@ -25,14 +26,14 @@ export default function HeroSection() {
       {/* ══════════════════════════════════════════
           HERO SECTION
       ══════════════════════════════════════════ */}
-      <section className="relative bg-[#f5f7fb] overflow-visible">
+      <section className="relative bg-[#f5f7fb] overflow-visible md:py-5">
 
         {/* ── DESKTOP background image ─────────────────────────────────
             Positioned absolute, starts at left-[30%] so the left 30%
             is pure #f5f7fb. A strong left-fade makes the transition
             invisible. Hidden on mobile — mobile gets its own image block.
         ──────────────────────────────────────────────────────────────── */}
-        <div className="hidden lg:block absolute inset-0 left-[24%]">
+        <div className="hidden xl:block absolute inset-0 left-[10%]">
           <Image
             src="/images/home/bg-image.png"
             alt="Logistics"
@@ -41,77 +42,91 @@ export default function HeroSection() {
             className="object-cover object-center"
           />
           {/* Strong left-to-right fade: covers ~40% of the image panel */}
-          <div className="absolute inset-y-0 left-0 w-[38%] xl:w-[46%] 2xl:w-[38%]
+          <div className="absolute inset-y-0 left-0 w-[38%] xl:w-[46%] 2xl:w-[48%]
                           bg-linear-to-r from-[#f5f7fb] via-[#f5f7fb]/75 to-transparent" />
         </div>
 
         {/* ── HERO CONTENT ─────────────────────────────────────────────
-            min-h gives the section enough height to show the image.
-            pb-36 creates breathing room above the floating card.
+            Responsive layout using CSS Grid:
+            • Mobile (<768px): single column, stacked
+            • Tablet (768–1279px): single column, stacked, centered form
+            • Desktop (≥1280px): 2-column grid, content left + form right
         ──────────────────────────────────────────────────────────────── */}
-        <div className="
-        relative z-10
-        min-h-[calc(100vh-96px)]
-        xl:min-h-[70vh]
-        2xl:min-h-[73vh]
-        flex items-center
-        ">
-          <div className="w-full max-w-350
-                          px-5 sm:px-8 lg:px-16 xl:px-24 2xl:px-30
-                          py-14 lg:py-20">
-            {/* Left content column: max ~580px on desktop */}
-            <div className="w-full max-w-155">
+        <div
+          className="
+            relative z-10
+            py-10 sm:py-14 md:py-16 xl:py-0
+            xl:min-h-[70vh]
+            2xl:min-h-[73vh]
+            xl:flex xl:items-center
+          "
+        >
+          <div
+            className="
+              w-full
+               max-w-437.5
+              mx-auto
+              px-5 sm:px-6 md:px-8 lg:px-8 xl:px-12
+              grid
+              grid-cols-1
+              xl:grid-cols-[minmax(0,1.15fr)_460px]
+              gap-10 xl:gap-12
+              items-center
+            "
+          >
+
+            {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                LEFT COLUMN — Content
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+            <div className="w-full max-w-[750px]">
 
               {/* ── Heading ── two lines, whitespace-nowrap on desktop */}
               <h1 className="seg font-extrabold leading-[1.2] tracking-[-0.5px] lg:tracking-[-1px]">
                 <span className="block text-[#0B2A6B]
-                                 text-[32px] sm:text-[44px]
-                                 lg:text-[52px] xl:text-[54px]
-                                 lg:whitespace-nowrap">
+                                 text-[28px] sm:text-[36px]
+                                 md:text-[44px] xl:text-[52px] 2xl:text-[54px]
+                                 xl:whitespace-nowrap">
                   Global Freight Forwarding
                 </span>
                 <span className="block text-[#FE5101]
-                                 text-[32px] sm:text-[44px]
-                                 lg:text-[52px] xl:text-[46px]
-                                 lg:whitespace-nowrap">
+                                 text-[28px] sm:text-[36px]
+                                 md:text-[44px] xl:text-[46px]
+                                 xl:whitespace-nowrap">
                   Built For International Trade
                 </span>
               </h1>
 
               {/* ── Accent bar — below heading, above description ── */}
               <div className="w-14 h-1.25 rounded-full bg-[#2456D3]
-                              mt-5 mb-5 lg:mt-7 lg:mb-7" />
+                              mt-4 mb-4 md:mt-5 md:mb-5 xl:mt-7 xl:mb-7" />
 
               {/* ── Description ── */}
-              <p className="text-[15px] sm:text-[16px] lg:text-[17px]
-                            leading-[1.85] text-slate-800 max-w-[500px]">
+              <p className="text-[14px] sm:text-[15px] md:text-[16px] xl:text-[17px]
+                            leading-[1.85] text-slate-800 max-w-[520px]">
                 From factory pickup to doorstep delivery, we handle everything –
                 shipping, customs clearance, duties, and last-mile delivery.
                 One contract. One partner.
-                {/* <span className="font-semibold text-[#0B2A6B]">
-                  Complete peace of mind.
-                </span> */}
               </p>
 
               {/* ── CTA Buttons ── */}
-              <div className="flex flex-row flex-wrap gap-3 mt-7 lg:mt-8">
+              <div className="flex flex-row gap-3 mt-6 md:mt-7 xl:mt-8">
                 <button
-                  className="h-12 px-6 rounded-xl bg-[#003DA5] hover:bg-[#00338a]
-                             text-white font-semibold text-[14px]
+                  className="h-11 md:h-12 px-2 md:px-5 rounded-xl bg-[#003DA5] hover:bg-[#00338a]
+                             text-white font-semibold text-[13px] md:text-[14px]
                              flex items-center gap-2 transition-colors shadow-sm shrink-0"
                 >
                   <FileText size={15} />
                   Get Free Quote
                   <ArrowRight size={15} />
                 </button>
-
+                
                 <button
-                  className="h-12 px-6 rounded-xl bg-white border border-slate-200
+                  className="h-11 md:h-12 px-5 md:px-6 rounded-xl bg-white border border-slate-200
                              hover:border-[#25D366]
-                             font-semibold text-[14px] text-slate-800
-                             flex items-center gap-2 transition-colors shrink-0"
+                             font-semibold text-[13px] md:text-[14px] text-slate-800
+                             flex items-center gap-2 transition-colors shadow-sm shrink-0"
                 >
-                  <WhatsAppIcon />
+                  <WhatsAppIcon size={15} />
                   WhatsApp Us
                 </button>
               </div>
@@ -122,12 +137,12 @@ export default function HeroSection() {
               ────────────────────────────────────────────────────────── */}
               <div
                 className="
-              mt-10
-              pt-8
-              border-t border-slate-200/70
-              grid grid-cols-2 lg:grid-cols-4
-              gap-y-8 lg:gap-y-0
-            "
+                  mt-8 md:mt-10
+                  pt-6 md:pt-8
+                  border-t border-slate-200/70
+                  grid grid-cols-2 xl:grid-cols-4
+                  gap-y-6 md:gap-y-8 xl:gap-y-0
+                "
               >
                 <StatItem
                   icon={<ShieldCheck size={20} />}
@@ -153,14 +168,23 @@ export default function HeroSection() {
                 />
               </div>
             </div>
+
+            {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                RIGHT COLUMN — Contact Form
+                • Mobile/Tablet: full-width, centered, max-w-md
+                • Desktop (xl+): aligned right, max-w-[480px]
+            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+            <div className="w-full max-w-md mx-auto xl:max-w-[480px] xl:mx-0 xl:ml-auto">
+              <HomeContactForm />
+            </div>
           </div>
         </div>
 
         {/* ── MOBILE hero image ─────────────────────────────────────────
-            Appears below the content block only on mobile.
-            No gap — negative margin pulls it flush to content above.
+            Appears below the content block only on mobile/tablet.
+            Sits between hero content and floating card.
         ──────────────────────────────────────────────────────────────── */}
-        <div className="lg:hidden relative w-full h-[240px] sm:h-[300px] -mt-4 overflow-hidden">
+        <div className="xl:hidden relative w-full h-[200px] sm:h-[260px] md:h-[300px] -mt-4 overflow-hidden">
           <Image
             src="/images/home/bg-image.png"
             alt="Logistics"
@@ -182,7 +206,7 @@ export default function HeroSection() {
             The white next-section absorbs it with matching pt.
         ──────────────────────────────────────────────────────────────── */}
         <div className="relative z-20
-                        max-w-[1280px] mx-auto
+                        max-w-7xl mx-auto
                         px-5 sm:px-8 lg:px-10
                         -mb-14 lg:-mb-16">
           <div className="bg-white rounded-2xl lg:rounded-[22px]
@@ -264,10 +288,10 @@ function StatItem({ icon, value, label }) {
       </div>
 
       <div className="relative">
-        <div className="text-[28px] lg:text-3xl leading-none font-black tracking-tight text-[#0B2A6B] transition-all duration-300 group-hover:text-[#2456D3]">
+        <div className="text-[24px] sm:text-[28px] xl:text-3xl leading-none font-black tracking-tight text-[#0B2A6B] transition-all duration-300 group-hover:text-[#2456D3]">
           {value}
         </div>
-        <div className="text-[12px] lg:text-[13px] font-semibold text-slate-500 mt-1.5 leading-tight group-hover:text-slate-700">
+        <div className="text-[11px] sm:text-[12px] xl:text-[13px] font-semibold text-slate-500 mt-1.5 leading-tight group-hover:text-slate-700">
           {label}
         </div>
       </div>
