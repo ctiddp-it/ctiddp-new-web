@@ -44,6 +44,17 @@ const INDIA_OFFICES = [
         email: null,
         hours: 'Mon – Sat: 9:00 AM – 7:00 PM IST',
     },
+    {
+        id: 'Kolkata',
+        city: 'Kolkata',
+        tag: 'India Warehouse',
+        tagType: 'warehouse',
+        Icon: TbBuilding,
+        address: null,
+        phone: '+91 97019 07318',
+        email: null,
+        hours: 'Mon – Sat: 9:00 AM – 6:00 PM IST',
+    },
 ]
 
 const CHINA_OFFICES = [    
@@ -303,9 +314,9 @@ export default function GlobalPresenceSection() {
                     {/* Stat pills */}
                     <div className="flex flex-wrap justify-center gap-4 mt-8">
                         <StatPill value="2" label="Countries" />
-                        <StatPill value="5" label="Locations" />
-                        <StatPill value="3" label="India Offices" />
-                        <StatPill value="2" label="China Facilities" />
+                        <StatPill value="6" label="Locations" />
+                        <StatPill value="3" label="Branch Offices" />
+                        <StatPill value="3" label="Warehouse Facilities" />
                     </div>
                 </div>
 
