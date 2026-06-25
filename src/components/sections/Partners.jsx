@@ -8,18 +8,18 @@ import { Building2, Truck } from "lucide-react";
 
 const BUSINESS_PARTNERS = [
   { name: "Alibaba Group", logo: "/images/our-partners/alibaba-group-logo.png", bg: "#fff" },
-  { name: "Amazon", logo: "/images/our-partners/amazon-logo.png", bg: "#fff" },
+  { name: "Amazon", logo: "/images/our-partners/Amazon-logo.png", bg: "#fff" },
   { name: "Canton Fair", logo: "/images/our-partners/canton-fair-logo.png", bg: "#fff" },
   { name: "IndiaMart", logo: "/images/our-partners/indiamart-logo.png", bg: "#fff" },
   { name: "Made-in-China", logo: "/images/our-partners/made-in-china-logo.png", bg: "#fff" },
-  { name: "RCL", logo: "/images/our-partners/rcl-logo.png", bg: "#fff" },
+  { name: "RCL", logo: "/images/our-partners/Rcl-logo.png", bg: "#fff" },
   { name: "Trade India", logo: "/images/our-partners/trade-india-logo.jpg", bg: "#fff" },
 ];
 
 const LOGISTICS_PARTNERS = [
-  { name: "DHL", logo: "/images/our-partners/dhl-logo.png", bg: "#fff" },
+  { name: "DHL", logo: "/images/our-partners/dhl-logo2.png", bg: "#fff" },
   { name: "DTDC", logo: "/images/our-partners/dtdc-logoo.png", bg: "#fff" },
-  { name: "FedEx", logo: "/images/our-partners/fedex-logo.png", bg: "#fff" },
+  { name: "FedEx", logo: "/images/our-partners/Fedex-logo.png", bg: "#fff" },
   { name: "Blue Dart", logo: "/images/our-partners/bluedart-logo - 2.png", bg: "#fff" },
 ];
 
