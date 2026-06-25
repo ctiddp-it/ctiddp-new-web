@@ -73,7 +73,7 @@ function FeatureRow({ feature, isLast }) {
 }
 
 // ─────────────────────────────────────────────
-// Pill Card (below image — icon + label)
+// Pill Card (below image - icon + label)
 // ─────────────────────────────────────────────
 function PillCard({ feature }) {
   const Icon = ICON_MAP[feature.icon];
@@ -310,7 +310,7 @@ export default function TwoColumnSection(props) {
 
         {/*
           Mobile:  always content first, image second (single column)
-          Desktop: respect initialLayout — content-left or content-right
+          Desktop: respect initialLayout - content-left or content-right
         */}
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
 

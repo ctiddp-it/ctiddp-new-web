@@ -47,7 +47,7 @@ const CONTACT_CHANNELS = [
         icon: <FaPhoneAlt />,
         title: 'India Office',
         lines: [
-            { type: 'phone', label: '+91 87900 13772 (Main)', href: 'tel:+918790013772' },
+            { type: 'phone', label: '+91 87900 18787 (Main)', href: 'tel:+918790018787' },
             { type: 'text', label: 'Vizag HQ · Chennai Ops' },
             { type: 'text', label: 'Mon–Fri · 9am–6pm IST' },
             { type: 'text', label: 'Saturday · 9am–1:30pm IST' },
@@ -70,22 +70,27 @@ export default function ContactLogisticsExperts() {
             <div className="max-w-7xl mx-auto flex flex-col gap-10">
 
                 {/* ══ SECTION HEADING ══ */}
-                <div className="text-center">
+                <div className="flex flex-col items-center mb-10">
                     {/* Eyebrow */}
-                    <div className="flex items-center justify-center gap-2 mb-3">
-                        <span className="block w-5 h-px bg-[#FE5101]" />
-                        <span className="text-[11px] font-bold tracking-[0.18em] uppercase text-[#FE5101]">
-                            GET IN TOUCH
+                    <div className="flex items-center gap-2 mb-3">
+                        <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+                        <span className="text-[#FE5101] font-semibold text-[12px] tracking-[0.18em] uppercase">
+                            Get In Touch
                         </span>
-                        <span className="block w-5 h-px bg-[#FE5101]" />
+                        <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
                     </div>
-                    <h2 className="text-[clamp(2rem,4.5vw,2.8rem)] font-extrabold text-[#0B2A6B] leading-tight tracking-tight">
-                        Contact Our{" "}
-                        <span className="text-[#FE5101]">Logistics Experts</span>
+
+                    {/* Headline */}
+                    <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-center mb-4">
+                        <span style={{ color: '#0B2A6B' }}>Contact Our </span>
+                        <span style={{ color: '#FE5101' }}>Logistics Experts</span>
                     </h2>
-                    <p className="mt-3 text-[0.95rem] text-slate-500">
-                        Real people. Real support. Real results.
-                    </p>
+
+                    {/* Underline accent - two-tone bar */}
+                    <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
+                        <div className="flex-1" style={{ background: '#0B2A6B' }} />
+                        <div className="flex-1" style={{ background: '#FE5101' }} />
+                    </div>
                 </div>
 
                 {/* ══ WhatsApp hero card + 2 contact cards ══ */}
@@ -118,7 +123,7 @@ export default function ContactLogisticsExperts() {
                                         </h3>
                                     </div>
                                     <p className="text-[0.875rem] text-slate-500 leading-relaxed">
-                                        Get quotes, shipment updates, customs support and supplier assistance — instantly.
+                                        Get quotes, shipment updates, customs support and supplier assistance - instantly.
                                     </p>
                                 </div>
 
@@ -140,7 +145,7 @@ export default function ContactLogisticsExperts() {
                                 {/* CTA row */}
                                 <div className="flex flex-wrap items-center gap-4 mt-1">
                                     <a
-                                        href="https://wa.me/918790013772"
+                                        href="https://wa.me/918790018787"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="group inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#00ac3f] text-white text-[0.85rem] font-bold px-5 py-3 rounded-xl transition-all duration-200"
@@ -183,7 +188,7 @@ export default function ContactLogisticsExperts() {
                                 <h4 className="text-[1rem] font-bold text-[#0B2A6B]">India Support</h4>
                             </div>
                             <a className="text-[0.85rem] font-semibold text-[#003DA5] no-underline hover:underline">
-                                +91 87900 13772
+                                +91 87900 18787
                             </a>
                             <p className="text-[0.78rem] text-[#0B2A6B] leading-relaxed">Mon – Sat: 9AM – 7PM IST</p>
 
@@ -243,7 +248,7 @@ export default function ContactLogisticsExperts() {
                                 For urgent cargo issues, delays or customs matters.
                             </p>
                             <a
-                                href="tel:+918790013772"
+                                href="tel:+918790018787"
                                 className="inline-flex items-center gap-1.5 text-[0.78rem] font-bold text-red-500 no-underline hover:text-red-600 mt-1"
                             >
                                 <FaPhoneAlt className="text-xs" />
@@ -345,10 +350,10 @@ export default function ContactLogisticsExperts() {
                                         </p>
 
                                         <a
-                                            href="tel:+918790013772"
+                                            href="tel:+918790018787"
                                             className="text-[1.05rem] font-bold hover:opacity-90"
                                         >
-                                            +91 87900 13772
+                                            +91 87900 18787
                                         </a>
                                     </div>
                                 </div>

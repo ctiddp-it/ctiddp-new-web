@@ -20,9 +20,9 @@ import { MdVerified } from 'react-icons/md'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const METRICS = [
-    { Icon: TbShip, value: '500+', label: 'DDP Shipments\nDelivered' },
+    { Icon: TbShip, value: '1200+', label: 'DDP Shipments\nDelivered' },
     { Icon: TbAward, value: '10+', label: 'Years Combined\nExperience' },
-    { Icon: TbBuildingWarehouse, value: '5', label: 'Strategic\nLocations' },
+    { Icon: TbBuildingWarehouse, value: '6', label: 'Strategic\nLocations' },
     { Icon: TbRoute, value: '100%', label: 'Focused Trade Route\nExpertise' },
 ]
 
@@ -102,7 +102,7 @@ export default function OurStorySection() {
     return (
         <section
             ref={ref}
-            className="bg-white py-20 overflow-hidden"
+            className="bg-white py-15 overflow-hidden"
         >
             <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -134,7 +134,7 @@ export default function OurStorySection() {
                                 <strong className="text-slate-800 font-semibold">
                                     Cross Border Trade International Delivered Duty Paid (CTIDDP)
                                 </strong>{' '}
-                                is a specialized logistics partner focused on simplifying imports from China to India.
+                                is a specialized logistics partner focused on simplifying imports.
                                 We work closely with businesses, e-commerce brands, and bulk importers to handle the
                                 entire shipping process - from supplier pickup to final delivery.
                             </p>
@@ -144,8 +144,8 @@ export default function OurStorySection() {
                                 built our expertise.
                             </p>
                             <p>
-                                Today we provide end-to-end DDP shipping services from China to India - with
-                                on-ground presence in China and active coordination with Indian clients, bridging
+                                We provide end-to-end DDP shipping services - with
+                                on-ground presence in China and active coordination with clients, bridging
                                 the gap between suppliers and delivery.
                             </p>
                         </div>
@@ -191,22 +191,10 @@ export default function OurStorySection() {
                                 </div>
                             ))}
                         </div>
-
-                        {/* CTAs */}
-                        <div className="flex flex-wrap gap-3">
-                            <Link
-                                href="/about"
-                                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-white font-bold text-[13px] tracking-wide hover:opacity-90 transition-opacity no-underline"
-                                style={{ background: '#FE5101' }}
-                            >
-                                READ FULL STORY <HiArrowRight size={16} />
-                            </Link>
-
-                        </div>
                     </div>
 
                     {/* ══════════════════════════════════════════
-                        RIGHT COLUMN — single image, cards overlaid
+                        RIGHT COLUMN - single image, cards overlaid
                     ══════════════════════════════════════════ */}
                     {/* RIGHT COLUMN */}
                     <div className="flex-1 min-w-0">

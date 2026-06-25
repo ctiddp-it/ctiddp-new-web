@@ -127,7 +127,7 @@ export default function OneContractSection() {
 
             {/* Sub-copy */}
             <p className="text-slate-700 text-[17px] leading-relaxed mb-8">
-              Every step &amp; every cost — from supplier to your door. We handle it all.
+              Every step &amp; every cost - from supplier to your door. We handle it all.
             </p>
 
             {/* Timeline chip */}
@@ -152,7 +152,7 @@ export default function OneContractSection() {
 
             {/* CTA */}
             <a
-              href="/process"
+              href="/how-it-works"
               className="inline-flex items-center gap-3 self-start px-7 py-4 rounded-xl text-white font-bold text-[15px] tracking-wide transition-opacity hover:opacity-90"
               style={{ background: "#FE5101" }}
             >

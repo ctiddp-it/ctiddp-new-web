@@ -17,6 +17,7 @@ import {
   FaClock,
 } from 'react-icons/fa';
 
+
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
@@ -234,7 +235,7 @@ const FeaturedSection = () => (
             alt={FEATURED.title}
             className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
-          {/* Gradient overlay — bottom-heavy so text is readable */}
+          {/* Gradient overlay - bottom-heavy so text is readable */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#041c4a]/95 via-[#041c4a]/60 to-transparent" />
 
           {/* Content */}
@@ -408,33 +409,15 @@ const NewsletterSection = () => (
    FINAL CTA BANNER
 ───────────────────────────────────────────── */
 const CTASection = () => (
-  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-14 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Ready to Import{' '}
         <span className="text-[#36a0f7]">the Right Way?</span>
       </h2>
-      <p className="text-white/80 text-lg mb-10 max-w-xl mx-auto">
-        Put these insights to work. Get a full DDP quote and let us handle everything.
+      <p className="text-white/80 text-lg max-w-xl mx-auto">
+        Get a full DDP quote and let us handle everything.
       </p>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="/quote"
-          className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider text-white rounded-md shadow-lg transition-all duration-300"
-          style={{ background: '#FE5101', boxShadow: '0 4px 24px rgba(254,81,1,0.3)' }}
-        >
-          GET DDP QUOTE
-        </a>
-        <a
-          href="https://wa.me/918790013772"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 justify-center px-8 py-4 text-sm font-bold uppercase tracking-wider rounded-md border border-white/20 text-white bg-white/10 hover:bg-white/20 transition-all duration-300"
-        >
-          <FaWhatsapp size={18} className="text-[#25D366]" />
-          WHATSAPP US
-        </a>
-      </div>
     </div>
   </section>
 );

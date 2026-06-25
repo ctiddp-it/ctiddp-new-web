@@ -1,8 +1,8 @@
 /**
- * TrustPill — Checkmark/icon + text horizontal badge
- * @param {React.ReactNode} icon — Optional icon (defaults to checkmark)
- * @param {string} text — Label text
- * @param {boolean} light — White text for dark backgrounds
+ * TrustPill - Checkmark/icon + text horizontal badge
+ * @param {React.ReactNode} icon - Optional icon (defaults to checkmark)
+ * @param {string} text - Label text
+ * @param {boolean} light - White text for dark backgrounds
  */
 export default function TrustPill({ icon, text, light = false }) {
   return (

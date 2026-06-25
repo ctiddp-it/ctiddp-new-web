@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 // ─────────────────────────────────────────────
-// Data — swap with your TRUST_ITEMS prop/import
+// Data - swap with your TRUST_ITEMS prop/import
 // ─────────────────────────────────────────────
 const TRUST_ITEMS = [
     {
@@ -35,7 +35,7 @@ const TRUST_ITEMS = [
     {
         icon: <HeadphonesIcon strokeWidth={1.5} className="h-8 w-8" />,
         title: "24/7 Support",
-        desc: "Dedicated account manager.",
+        desc: "Dedicated support team.",
     },
 ];
 
@@ -106,9 +106,9 @@ export default function WhyChooseUsSection({ items = TRUST_ITEMS }) {
                     "linear-gradient(160deg, #eef3fb 0%, #f5f8ff 50%, #eef3fb 100%)",
             }}
         >
-            {/* Dot pattern — left */}
+            {/* Dot pattern - left */}
             <DotGrid className="absolute left-0 top-1/2 -translate-y-1/2 opacity-30" />
-            {/* Dot pattern — right */}
+            {/* Dot pattern - right */}
             <DotGrid className="absolute right-0 top-1/2 -translate-y-1/2 opacity-30 scale-x-[-1]" />
 
             <div className="container-main mx-auto max-w-7xl relative z-10">

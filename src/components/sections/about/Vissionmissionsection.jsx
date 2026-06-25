@@ -78,11 +78,11 @@ export default function VisionMissionSection() {
 
                     {/* Headline */}
                     <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-center mb-4">
-                        <span style={{ color: '#0B2A6B' }}>Where We&apos;re Going.&nbsp;</span>
+                        <span style={{ color: '#0B2A6B' }}>Where We&apos;re Going,&nbsp;</span>
                         <span style={{ color: '#FE5101' }}>How We&apos;ll Get There.</span>
                     </h2>
 
-                    {/* Underline accent — two-tone bar */}
+                    {/* Underline accent - two-tone bar */}
                     <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
                         <div className="flex-1" style={{ background: '#0B2A6B' }} />
                         <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -101,7 +101,7 @@ export default function VisionMissionSection() {
                             border: '1px solid rgba(11,42,107,0.08)',
                         }}
                     >
-                        {/* Background image (ship + truck + map) — fills card */}
+                        {/* Background image (ship + truck + map) - fills card */}
                         <Image
                             src="/images/about/visionsection.png"
                             alt="Cargo ship and truck with China-India trade route map"
@@ -155,9 +155,7 @@ export default function VisionMissionSection() {
                                     className="text-[21px] md:text-[18px] font-semibold leading-[1.55]"
                                     style={{ color: '#1a2d5a' }}
                                 >
-                                    To become the most trusted logistics partner for businesses importing from China
-                                    to India - delivering consistent, transparent, and scalable shipping
-                                    solutions.
+                                    To become the most trusted global logistics partner, delivering consistent, transparent, and scalable shipping solutions that empower businesses to trade seamlessly across borders.
                                 </p>                                
                             </div>
                         </div>

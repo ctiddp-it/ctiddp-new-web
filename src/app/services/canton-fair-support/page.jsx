@@ -122,11 +122,11 @@ const HeroSection = () => (
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] text-white">
             Canton Fair Support
             <br />
-            <span className="text-[#36A0F7]">Source Smarter, On the Ground</span>
+            <span className="text-[#36A0F7] md:text-5xl">Source Smarter, On the Ground</span>
           </h1>
 
           <p className="mt-5 max-w-[95%] text-base sm:text-lg text-white/85 sm:max-w-xl">
-            Maximise your sourcing at the Canton Fair with end-to-end on-ground support. CTIDDP helps you identify reliable suppliers, negotiate effectively, verify products, and plan shipping, all from a single coordinated system.
+            From supplier discovery to shipping planning, CTIDDP provides end-to-end support for a seamless sourcing experience.
           </p>
 
           <div className="mt-8">
@@ -472,7 +472,7 @@ const IdealImportersAndAdvantages = () => {
 
 /* ---------- Final CTA ---------- */
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Make Your Canton Fair Visit Result-Driven
@@ -480,12 +480,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Turn your sourcing into a complete logistics solution. From exhibition hall to your warehouse - one partner, complete control.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        Get DDP Quote
-      </a>
     </div>
   </section>
 );

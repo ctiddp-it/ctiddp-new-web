@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
 /**
- * Button — Reusable button with variants
+ * Button - Reusable button with variants
  * @param {'primary'|'secondary'|'whatsapp'|'orange'} variant
  * @param {'sm'|'md'|'lg'} size
- * @param {string} href — If provided, renders as Link
- * @param {boolean} external — If true + href, renders as <a target="_blank">
- * @param {React.ReactNode} icon — Icon element to show before text
- * @param {boolean} arrow — Show → after text
+ * @param {string} href - If provided, renders as Link
+ * @param {boolean} external - If true + href, renders as <a target="_blank">
+ * @param {React.ReactNode} icon - Icon element to show before text
+ * @param {boolean} arrow - Show → after text
  */
 export default function Button({
   children,

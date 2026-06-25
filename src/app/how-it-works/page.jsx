@@ -48,15 +48,50 @@ import TwoColumnSection from "@/components/sections/TwoColumnSection"
 import HowItWorksSection from '@/components/sections/howitworks/journeysection';
 
 export const metadata = {
-  title: 'How DDP Shipping Works | China to India | CTIDDP',
+  title:
+    'How DDP Shipping Works | End-to-End Import Process',
+
   description:
-    'Understand the complete DDP shipping process from China to India. Supplier coordination, QC inspection, consolidation, customs clearance, and last-mile delivery.',
+    'Learn how CTIDDP manages the complete DDP shipping process-from supplier coordination and QC inspection to customs clearance, freight forwarding, and final delivery under one contract.',
+
+  keywords: [
+    'how DDP shipping works',
+    'DDP shipping process',
+    'China to India import process',
+    'freight forwarding process',
+    'customs clearance process',
+    'supplier coordination',
+    'quality inspection China',
+    'cargo consolidation',
+    'international shipping process',
+    'door to door logistics',
+    'global trade process',
+    'DDP logistics company',
+    'import from China guide',
+    'end to end import process',
+    'cross border shipping workflow'
+  ],
+
   openGraph: {
-    title: 'How DDP Shipping Works | China to India | CTIDDP',
-    description: 'Complete DDP shipping process from China to India explained step by step.',
+    title:
+      'How DDP Shipping Works | End-to-End Import Process | CTIDDP',
+    description:
+      'Understand the complete DDP logistics journey-from supplier sourcing and inspection to customs clearance and last-mile delivery.',
     url: 'https://www.ctiddp.com/how-it-works/',
+    siteName: 'CTIDDP',
+    type: 'website',    
   },
-  alternates: { canonical: 'https://www.ctiddp.com/how-it-works' },
+
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'How DDP Shipping Works | CTIDDP',
+    description:
+      'Explore CTIDDP’s step-by-step DDP shipping process from supplier coordination to final delivery.',   
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/how-it-works'
+  }
 }
 
 const DDP_STEPS = [
@@ -66,7 +101,7 @@ const DDP_STEPS = [
   { icon: <HiOutlineDocumentCheck size={22} />, title: 'Export Customs', description: 'Complete China export documentation and clearance.' },
   { icon: <HiOutlineGlobeAlt size={22} />, title: 'Sea/Air Freight', description: 'Ocean or air transport with real-time tracking.' },
   { icon: <HiOutlineShieldCheck size={22} />, title: 'Import Customs', description: 'India import clearance with all duties pre-paid.' },
-  { icon: <HiOutlineTruck size={22} />, title: 'Last Mile Delivery', description: 'Door delivery anywhere in India with POD.' },
+  { icon: <HiOutlineTruck size={22} />, title: 'Last Mile Delivery', description: 'Door-to-Door delivery anywhere with POD.' },
 ]
 
 const CHINA_STEPS = [
@@ -78,8 +113,8 @@ const CHINA_STEPS = [
 
 const INDIA_STEPS = [
   { title: 'Ocean/Air Freight', desc: 'Sea or air shipment with real-time tracking, insurance coverage, and vessel monitoring.' },
-  { title: 'Import Customs', desc: 'Complete Indian customs clearance — BCD, IGST, and all duties handled and pre-paid.' },
-  { title: 'Last-Mile Delivery', desc: 'Door-to-door delivery across India — PAN-India coverage with partner carriers.' },
+  { title: 'Import Customs', desc: 'Complete Indian customs clearance - BCD, IGST, and all duties handled and pre-paid.' },
+  { title: 'Last-Mile Delivery', desc: 'Door-to-door delivery coverage with partner carriers.' },
   { title: 'Proof of Delivery', desc: 'Digital POD, invoice closure, and post-delivery support for next shipment cycle.' },
 ]
 
@@ -275,9 +310,9 @@ export const CTIDDP_CONTENT1 = {
 
 export const CTIDDP_CONTENT2 = {
   badge: "Delivered Duty Paid",
- title: (
+  title: (
     <>
-    <span className="text-[#FE5101]">End-to-End</span>  Import Clearance & Final Delivery
+      <span className="text-[#FE5101]">End-to-End</span>  Import Clearance & Final Delivery
     </>
   ),
   subtitle: "Cross Border Trade International",
@@ -317,6 +352,187 @@ export const CTIDDP_CONTENT2 = {
 export default function HowItWorksPage() {
   return (
     <main>
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+
+            "@graph": [
+
+              {
+                "@type": "HowTo",
+
+                "@id":
+                  "https://www.ctiddp.com/how-it-works/#howto",
+
+                "name":
+                  "How DDP Shipping Works",
+
+                "description":
+                  "Complete step-by-step DDP shipping process managed by CTIDDP from supplier coordination to final delivery.",
+
+                "totalTime": "P40D",
+
+                "supply": [
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Supplier Information"
+                  },
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Commercial Invoice"
+                  },
+                  {
+                    "@type": "HowToSupply",
+                    "name": "Packing List"
+                  }
+                ],
+
+                "step": [
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Supplier Coordination",
+                    "text":
+                      "Coordinate with suppliers, negotiate requirements, verify documentation, and prepare goods for shipment."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Quality Inspection",
+                    "text":
+                      "Conduct pre-shipment quality checks and supplier verification before cargo movement."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Cargo Consolidation",
+                    "text":
+                      "Combine cargo from one or multiple suppliers into a consolidated shipment."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Export Customs Clearance",
+                    "text":
+                      "Complete export declarations, customs documentation, and regulatory compliance."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "International Freight",
+                    "text":
+                      "Move cargo via sea freight, air freight, or hybrid logistics solutions."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 6,
+                    "name": "Import Customs Clearance",
+                    "text":
+                      "Manage customs clearance, duty payments, compliance documentation, and release procedures."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 7,
+                    "name": "Last-Mile Delivery",
+                    "text":
+                      "Deliver cargo safely to the final destination with proof of delivery."
+                  }
+                ]
+              },
+
+              {
+                "@type": "Service",
+
+                "@id":
+                  "https://www.ctiddp.com/how-it-works/#service",
+
+                "name":
+                  "End-to-End DDP Shipping",
+
+                "provider": {
+                  "@id":
+                    "https://www.ctiddp.com/#organization"
+                },
+
+                "description":
+                  "Complete DDP shipping service covering supplier coordination, quality inspection, freight forwarding, customs clearance, and last-mile delivery.",
+
+                "areaServed": {
+                  "@type": "Place",
+                  "name": "Worldwide"
+                }
+              },
+
+              {
+                "@type": "WebPage",
+
+                "@id":
+                  "https://www.ctiddp.com/how-it-works/#webpage",
+
+                "url":
+                  "https://www.ctiddp.com/how-it-works/",
+
+                "name":
+                  "How DDP Shipping Works",
+
+                "description":
+                  "Learn the complete CTIDDP import and logistics workflow from supplier pickup to final delivery.",
+
+                "mainEntity": {
+                  "@id":
+                    "https://www.ctiddp.com/how-it-works/#howto"
+                },
+
+                "isPartOf": {
+                  "@id":
+                    "https://www.ctiddp.com/#website"
+                }
+              },
+
+              {
+                "@type": "BreadcrumbList",
+
+                "@id":
+                  "https://www.ctiddp.com/how-it-works/#breadcrumb",
+
+                "itemListElement": [
+
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+
+                    "name": "Home",
+
+                    "item":
+                      "https://www.ctiddp.com/"
+                  },
+
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+
+                    "name": "How It Works",
+
+                    "item":
+                      "https://www.ctiddp.com/how-it-works/"
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />
+
       {/* ══════════ HERO ══════════ */}
       <section className="relative h-[50vh] min-h-[500px] overflow-hidden">
         {/* Background Image */}
@@ -361,7 +577,7 @@ export default function HowItWorksPage() {
               </h1>
 
               {/* Description */}
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">                
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
                 CTIDDP handles the sourcing, quality checks, customs, and freight. Here is exactly how we get your goods to India seamlessly.
               </p>
 
@@ -432,7 +648,7 @@ export default function HowItWorksPage() {
             </div>
 
             <p className="mt-3 max-w-[640px] mx-auto text-[14px] sm:text-[15px] text-slate-600">
-              End-to-end logistics visibility from China manufacturing units to final delivery in India.
+              End-to-end logistics visibility from manufacturing units to final delivery.
             </p>
 
           </div>
@@ -452,7 +668,7 @@ export default function HowItWorksPage() {
                   </div>
 
                   <h3 className="font-semibold text-[#003DA5] text-[24px]">
-                    From Factory / Warehouse (China)
+                    From Factory / Warehouse
                   </h3>
 
                 </div>
@@ -487,7 +703,7 @@ export default function HowItWorksPage() {
                   </div>
 
                   <h3 className="font-semibold text-[#FE5101] text-[24px]">
-                    From Port to Door (India)
+                    From Port to Door
                   </h3>
 
                 </div>

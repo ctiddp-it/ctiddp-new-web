@@ -16,7 +16,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Ticker from './Ticker'
-
+ import { HiArrowRight} from 'react-icons/hi2' 
+ 
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
@@ -76,7 +77,7 @@ const NAV_ITEMS = [
     ],
   },
   { label: 'Ecosystem', href: '/eco-system' },
-  { label: 'Canton Fair 2026', href: '/canton-fair', badge: '2026' },
+  { label: 'Trade Fair 2026', href: '/trade-fair', badge: '2026' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact' },
 ]
@@ -109,7 +110,7 @@ export default function MegaNav() {
   const [openSection, setOpenSection] = useState(null)
   const drawerRef = useRef(null)
 
-  const whatsappNumber = '918790013772'
+  const whatsappNumber = '918790018787'
   const whatsappMessage =
     "Hello, I'm reaching out from your website. Could you share details about your services and how you can help?"
 
@@ -245,8 +246,7 @@ export default function MegaNav() {
             href="/quote"
             className="btn btn-primary btn-sm gap-1.5"
           >
-            GET FREE QUOTE
-            <span className="text-[16px]">→</span>
+            GET FREE QUOTE <HiArrowRight size={14} />
           </Link>
         </div>
 

@@ -25,7 +25,7 @@ const FOUNDERS = [
         name: 'Mallesh Gujjala',
         role: 'Founder & CEO',
         image: '/images/about/founders/founder-cti.png',
-        // Card tint — the full card bg colour (very light blue)
+        // Card tint - the full card bg colour (very light blue)
         cardBg: '#EEF4FF',
         // The circle behind the bust photo
         circleBg: '#C8DCFF',
@@ -34,7 +34,7 @@ const FOUNDERS = [
         iconBg: '#0B2A6B',
         profileIcon: TbTargetArrow,
         profile:
-            'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports — factory coordination, supplier relations, quality inspection & compliance.',
+            'Visionary behind CTIDDP. Built the end-to-end DDP framework for Global imports - factory coordination, supplier relations, quality inspection & compliance.',
         specialties: [
             { Icon: TbBuilding, label: 'Factory\nCoordination' },
             { Icon: TbUsersGroup, label: 'Supplier\nRelations' },
@@ -49,7 +49,7 @@ const FOUNDERS = [
         name: 'Balu Gujjala',
         role: 'Co-Founder & India Operations',
         image: '/images/about/founders/co-founder-cti.png',
-        // Card tint — full card bg (very light peach)
+        // Card tint - full card bg (very light peach)
         cardBg: '#FFF3EC',
         // The circle behind the bust photo
         circleBg: '#FFD4B3',
@@ -58,7 +58,7 @@ const FOUNDERS = [
         iconBg: '#FE5101',
         profileIcon: TbClipboardList,
         profile:
-            'Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA in Indian import logistics — port handling, customs clearance & last-mile delivery.',
+            'Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA in Indian import logistics - port handling, customs clearance & last-mile delivery.',
         specialties: [
             { Icon: TbBuildingBank, label: 'Customs\nCompliance' },
             { Icon: TbAnchor, label: 'Port Handling &\nClearance' },
@@ -113,7 +113,7 @@ function FounderCard({ founder }) {
             }}
         >
             {/* ══════════════════════════════════════════
-                TOP ZONE — tinted card bg
+                TOP ZONE - tinted card bg
             ══════════════════════════════════════════ */}
             <div
                 className="flex flex-col sm:flex-row gap-0 sm:gap-4"
@@ -138,7 +138,7 @@ function FounderCard({ founder }) {
                         minHeight: '220px',
                     }}
                 >
-                    {/* Tinted circle — anchored to bottom of column */}
+                    {/* Tinted circle - anchored to bottom of column */}
                     <div
                         className="absolute rounded-full
                     w-[220px] h-[220px]
@@ -153,7 +153,7 @@ function FounderCard({ founder }) {
                         }}
                     />
 
-                    {/* Photo — sits in front of circle, taller so bust overflows above */}
+                    {/* Photo - sits in front of circle, taller so bust overflows above */}
                     <div
                         style={{
                             position: 'relative',
@@ -217,7 +217,7 @@ function FounderCard({ founder }) {
             </div>
 
             {/* ══════════════════════════════════════════
-                BOTTOM — specialties strip (white bg)
+                BOTTOM - specialties strip (white bg)
             ══════════════════════════════════════════ */}
             <div
                 className="grid grid-cols-3 mt-auto bg-white"
@@ -251,7 +251,7 @@ export default function LeadershipSection() {
     return (
         <section className="relative bg-white py-16 md:py-20 overflow-hidden">
 
-            {/* ── BG map — left corner ── */}
+            {/* ── BG map - left corner ── */}
             <div
                 className="absolute top-0 left-0 w-[280px] md:w-[580px] h-[320px] md:h-[420px] pointer-events-none select-none"
                 style={{ opacity: 0.1 }}
@@ -266,7 +266,7 @@ export default function LeadershipSection() {
                 />
             </div>
 
-            {/* ── BG map — right corner ── */}
+            {/* ── BG map - right corner ── */}
             <div
                 className="absolute top-0 right-0 w-[280px] md:w-[580px] h-[320px] md:h-[420px] pointer-events-none select-none"
                 style={{ opacity: 0.1 }}
@@ -310,7 +310,7 @@ export default function LeadershipSection() {
                     </div>
 
                     <p className="text-slate-400 text-[14px] sm:text-[15px] text-center max-w-xl px-4">
-                        Experienced leaders. Deep industry knowledge. One mission — your success.
+                        Experienced leaders. Deep industry knowledge. One mission - your success.
                     </p>
                 </div>
 

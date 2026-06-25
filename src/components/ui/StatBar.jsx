@@ -3,9 +3,9 @@
 import StatCounter from './StatCounter'
 
 /**
- * StatBar — Blue gradient strip with stat counters
- * @param {Array} stats — Array of { value, suffix, prefix, label }
- * @param {string} className — Additional classes
+ * StatBar - Blue gradient strip with stat counters
+ * @param {Array} stats - Array of { value, suffix, prefix, label }
+ * @param {string} className - Additional classes
  */
 export default function StatBar({ stats = [], className = '' }) {
   return (

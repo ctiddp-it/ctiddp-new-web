@@ -171,17 +171,12 @@ export default function RootLayout({ children }) {
                   address: [
                     {
                       '@type': 'PostalAddress',
-                      addressLocality: 'Guangzhou',
-                      addressCountry: 'CN',
-                    },
-                    {
-                      '@type': 'PostalAddress',
                       addressLocality: 'Visakhapatnam',
                       addressCountry: 'IN',
                     },
                   ],
                   sameAs: [
-                    'https://wa.me/918790013772',
+                    'https://wa.me/918790018787',
                     'https://wa.me/8618818749844',
                   ],
                 },

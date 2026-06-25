@@ -65,7 +65,7 @@ const STATS = [
 function PartnerCard({ partner }) {
   return (
     <div
-      className="flex-shrink-0 w-[168px] h-[100px] rounded-xl border border-slate-100 shadow-sm flex items-center justify-center overflow-hidden p-4"
+      className="flex-shrink-0 w-[140px] md:w-[168px] h-[88px] md:h-[100px] rounded-xl border border-slate-100 shadow-sm flex items-center justify-center overflow-hidden p-3 md:p-4"
       style={{ background: partner.bg || "#fff" }}
     >
       <div className="relative w-full h-full">
@@ -74,7 +74,7 @@ function PartnerCard({ partner }) {
           alt={partner.name}
           fill
           className="object-contain"
-          sizes="168px"
+          sizes="(max-width: 768px) 140px, 168px"
         />
       </div>
     </div>
@@ -94,7 +94,7 @@ function PartnerRow({ icon, title, description, accentColor, partners }) {
     <div className="mb-8">
       <div className="flex items-start gap-6">
 
-        {/* Category label — desktop */}
+        {/* Category label — desktop only */}
         <div className="flex-shrink-0 w-[240px] hidden md:block">
           <div
             className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
@@ -103,16 +103,11 @@ function PartnerRow({ icon, title, description, accentColor, partners }) {
             {icon}
           </div>
 
-          <h3
-            className="font-bold text-lg mb-2"
-            style={{ color: "#0B2A6B" }}
-          >
+          <h3 className="font-bold text-lg mb-2" style={{ color: "#0B2A6B" }}>
             {title}
           </h3>
 
-          <p className="text-slate-600 text-sm leading-relaxed">
-            {description}
-          </p>
+          <p className="text-slate-600 text-sm leading-relaxed">{description}</p>
 
           <div
             className="mt-4 h-[3px] w-12 rounded-full"
@@ -123,73 +118,68 @@ function PartnerRow({ icon, title, description, accentColor, partners }) {
         {/* Logos + nav */}
         <div className="flex-1 min-w-0">
 
-          {/* Top Navigation */}
+          {/* Desktop nav arrows */}
           <div className="hidden md:flex justify-end gap-2 mb-4">
             <button
               onClick={() => scroll(-1)}
               className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-[#003DA5] hover:border-[#003DA5] transition-all"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15 19l-7-7 7-7"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
             </button>
-
             <button
               onClick={() => scroll(1)}
               className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-[#003DA5] hover:border-[#003DA5] transition-all"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
             </button>
           </div>
 
-          {/* Mobile label */}
-          <div className="md:hidden mb-3">
-            <h3
-              className="font-bold text-[14px]"
-              style={{ color: "#0B2A6B" }}
+          {/* Mobile category header — replaces the desktop sidebar label */}
+          <div className="md:hidden flex items-center gap-3 mb-4 pb-3 border-b border-slate-100">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ background: `${accentColor}18` }}
             >
-              {title}
-            </h3>
-            <p className="text-slate-500 text-[12px]">
-              {description}
-            </p>
+              {/* Resize icon for mobile */}
+              <span style={{ color: accentColor }} className="flex items-center justify-center [&>svg]:w-[18px] [&>svg]:h-[18px]">
+                {icon}
+              </span>
+            </div>
+            <div>
+              <h3 className="font-bold text-[13px] leading-tight" style={{ color: "#0B2A6B" }}>
+                {title}
+              </h3>
+              {description && (
+                <p className="text-slate-500 text-[11px] mt-0.5 leading-snug">{description}</p>
+              )}
+            </div>
+            <div
+              className="ml-auto h-[3px] w-8 rounded-full flex-shrink-0"
+              style={{ background: accentColor }}
+            />
           </div>
 
-          <div
-            ref={scrollRef}
-            className="flex gap-3 overflow-x-auto scroll-smooth"
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-          >
-            {partners.map((p, i) => (
-              <PartnerCard key={i} partner={p} />
-            ))}
+          {/* Scroll fade hint on mobile */}
+          <div className="relative">
+            <div
+              className="md:hidden absolute right-0 top-0 bottom-0 w-10 pointer-events-none z-10"
+              style={{
+                background: "linear-gradient(to right, transparent, rgb(249 250 251))",
+              }}
+            />
+            <div
+              ref={scrollRef}
+              className="flex gap-3 overflow-x-auto scroll-smooth"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
+              {partners.map((p, i) => (
+                <PartnerCard key={i} partner={p} />
+              ))}
+            </div>
           </div>
 
         </div>
@@ -207,8 +197,6 @@ export default function PartnersSection() {
 
         {/* Header */}
         <div className="relative text-center overflow-hidden">
-
-          {/* Background Map */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <Image
               src="/images/bg-map.png"
@@ -218,24 +206,12 @@ export default function PartnersSection() {
               priority={false}
             />
           </div>
-
-          {/* Content */}
           <div className="relative z-10 py-8">
             <div className="inline-flex items-center justify-center mb-4">
-              <div
-                className="h-1 w-12 rounded-full"
-                style={{ backgroundColor: "#FE5101" }}
-              />
-              <div
-                className="h-1 w-6 rounded-full mx-1"
-                style={{ backgroundColor: "#003DA5" }}
-              />
-              <div
-                className="h-1 w-12 rounded-full"
-                style={{ backgroundColor: "#FE5101" }}
-              />
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "#FE5101" }} />
+              <div className="h-1 w-6 rounded-full mx-1" style={{ backgroundColor: "#003DA5" }} />
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "#FE5101" }} />
             </div>
-
             <h2
               className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight"
               style={{ color: "#0B2A6B" }}
@@ -243,11 +219,10 @@ export default function PartnersSection() {
               Trusted Global Partner{" "}
               <span style={{ color: "#FE5101" }}>Ecosystem</span>
             </h2>
-
             <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               We collaborate with leading sourcing platforms, logistics carriers, and
               international trade networks to simplify global procurement and
-              door-to-door imports for businesses across India.
+              door-to-door imports for businesses across global.
             </p>
           </div>
         </div>
@@ -261,7 +236,6 @@ export default function PartnersSection() {
               backgroundSize: "28px 28px",
             }}
           />
-
           <div className="relative">
             <PartnerRow
               icon={<Building2 className="h-8 w-8 text-[#003DA5]" />}
@@ -282,24 +256,46 @@ export default function PartnersSection() {
         {/* Stats + CTA bar */}
         <div className="mt-10 rounded-2xl bg-slate-50 border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-0">
 
-          {/* Stats */}
-          <div className="flex flex-1 flex-wrap justify-center md:justify-start divide-y md:divide-y-0 md:divide-x divide-slate-200 gap-y-4 md:gap-y-0 w-full md:w-auto">
-            {STATS.map((s, i) => (
-              <div key={i} className="flex items-center gap-3 px-6 py-1 first:pl-0">
-                <div
-                  className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ background: "#003DA512" }}
-                >
-                  {s.icon}
-                </div>
-                <div>
-                  <div className="text-2xl font-extrabold leading-none" style={{ color: "#0B2A6B" }}>
+          {/* Stats — 3-col grid on mobile, row with dividers on desktop */}
+          <div className="w-full md:flex-1">
+
+            {/* Mobile: compact 3-col grid */}
+            <div className="grid grid-cols-3 divide-x divide-slate-200 md:hidden">
+              {STATS.map((s, i) => (
+                <div key={i} className="flex flex-col items-center gap-1 px-2 py-1">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 [&>svg]:w-4 [&>svg]:h-4"
+                    style={{ background: "#003DA512" }}
+                  >
+                    {s.icon}
+                  </div>
+                  <div className="text-lg font-extrabold leading-none text-center" style={{ color: "#0B2A6B" }}>
                     {s.value}
                   </div>
-                  <div className="text-slate-500 text-[13px] mt-0.5">{s.label}</div>
+                  <div className="text-slate-500 text-[10px] text-center leading-tight">{s.label}</div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Desktop: horizontal row with dividers */}
+            <div className="hidden md:flex flex-wrap justify-start divide-x divide-slate-200">
+              {STATS.map((s, i) => (
+                <div key={i} className="flex items-center gap-3 px-6 py-1 first:pl-0">
+                  <div
+                    className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ background: "#003DA512" }}
+                  >
+                    {s.icon}
+                  </div>
+                  <div>
+                    <div className="text-2xl font-extrabold leading-none" style={{ color: "#0B2A6B" }}>
+                      {s.value}
+                    </div>
+                    <div className="text-slate-500 text-[13px] mt-0.5">{s.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* CTA */}
@@ -322,8 +318,8 @@ export default function PartnersSection() {
               </a>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );

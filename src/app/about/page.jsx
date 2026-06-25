@@ -19,21 +19,49 @@ import LeadershipSection from '@/components/sections/about/LeadershipSection'
 import GlobalPresenceSection from '@/components/sections/about/GlobalPresenceSection'
 
 export const metadata = {
-  title: 'About CTIDDP | Global Trade & DDP Logistics Experts',
+  title:
+    'About CTIDDP | Global DDP Shipping, Trade & Logistics Experts',
+
   description:
-    'CTIDDP enables global trade with China to India DDP shipping and international logistics solutions.',
+    'Learn about CTIDDP, a global logistics and DDP shipping company helping businesses import from China and trade worldwide. Discover our mission, leadership team, global offices, and end-to-end supply chain solutions.',
+
   keywords: [
-    'global logistics company India',
-    'cross border trade company India',
-    'DDP logistics experts India',
-    'China to India shipping experts',
+    'about CTIDDP',
+    'CTIDDP company profile',
+    'China to India DDP shipping company',
+    'global freight forwarding company',
+    'international logistics experts',
+    'cross border trade solutions',
+    'China sourcing and shipping company',
+    'customs clearance specialists',
+    'global supply chain management',
+    'freight forwarding India',
+    'import export logistics company',
+    'DDP logistics provider',
+    'China import specialists',
+    'global trade ecosystem',
+    'international shipping company India'
   ],
+
   openGraph: {
-    title: 'About CTIDDP | Global Trade & DDP Logistics Experts',
-    description: 'CTIDDP enables global trade with China to India DDP shipping and international logistics solutions.',
+    title:
+      'About CTIDDP | Global DDP Shipping, Trade & Logistics Experts',
+    description:
+      'Meet the team behind CTIDDP and discover how we simplify global trade through DDP shipping, customs clearance, supplier sourcing, warehousing, and supply chain management.',
     url: 'https://www.ctiddp.com/about/',
+    siteName: 'CTIDDP',
+    type: 'website',
   },
-  alternates: { canonical: 'https://www.ctiddp.com/about' },
+
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'About CTIDDP | Global DDP Shipping, Trade & Logistics Experts',
+    description:
+      'Discover CTIDDP’s story, leadership, mission, global offices, and logistics expertise.',  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/about'
+  }
 }
 
 const TEAM = [
@@ -41,14 +69,14 @@ const TEAM = [
     image: '/images/about/founders/mallesh-gujjala-founder-ceo-ctiddp.png',
     name: 'Mallesh Gujjala',
     role: 'Founder & CEO',
-    bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports — factory coordination, supplier relations, quality inspection & compliance.',
+    bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports - factory coordination, supplier relations, quality inspection & compliance.',
     linkedin: '#',
   },
   {
     image: '/images/about/founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png',
     name: 'Balu Gujjala',
     role: 'Co-Founder & India Operations',
-    bio: 'Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA in Indian import logistics — port handling, customs clearance & last-mile delivery.',
+    bio: 'Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA in Indian import logistics - port handling, customs clearance & last-mile delivery.',
     linkedin: '#',
   },
 ]
@@ -58,7 +86,7 @@ const OFFICES = [
     city: 'Visakhapatnam',
     officeName: 'India Head Office',
     address: 'Ward No, Visakhapatnam, Andhra Pradesh, India – 600069',
-    phone: '+91 87900 13772',
+    phone: '+91 87900 18787',
     email: 'info@ctiddp.com',
     hours: 'Mon – Sat: 9:00 AM – 7:00 PM IST',
     country: 'india',
@@ -147,33 +175,145 @@ export default function AboutPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
+            "@context": "https://schema.org",
+            "@graph": [
+
               {
-                '@type': 'LocalBusiness',
-                '@id': 'https://www.ctiddp.com/#business',
-                name: 'CTIDDP',
-                description: 'China to India DDP Shipping Specialists.',
-                url: 'https://www.ctiddp.com/',
-                logo: 'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
-                founder: [
-                  { '@type': 'Person', name: 'Mallesh Gujjala', jobTitle: 'Founder & CEO' },
-                  { '@type': 'Person', name: 'Balu Gujjala', jobTitle: 'Co-Founder & India Operations' },
+                "@type": "Organization",
+                "@id": "https://www.ctiddp.com/#organization",
+
+                "name": "CTIDDP",
+
+                "url": "https://www.ctiddp.com",
+
+                "logo":
+                  "https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png",
+
+                "description":
+                  "CTIDDP is a global logistics and trade solutions company specializing in DDP shipping, customs clearance, supplier sourcing, quality inspection, warehousing, consolidation, supplier payments, and last-mile delivery.",
+
+                "founder": [
+                  {
+                    "@type": "Person",
+                    "name": "Mallesh Gujjala",
+                    "jobTitle": "Founder & CEO"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Balu Gujjala",
+                    "jobTitle": "Co-Founder & India Operations"
+                  }
                 ],
-                address: [
-                  { '@type': 'PostalAddress', addressLocality: 'Visakhapatnam', addressRegion: 'AP', addressCountry: 'IN' },
-                  { '@type': 'PostalAddress', addressLocality: 'Guangzhou', addressRegion: 'Guangdong', addressCountry: 'CN' },
+
+                "telephone": "+91-8790018787",
+
+                "email": "info@ctiddp.com",
+
+                "areaServed": [
+                  "India",
+                  "China",
+                  "United States",
+                  "Europe",
+                  "Middle East",
+                  "Australia"
                 ],
+
+                "knowsAbout": [
+                  "DDP Shipping",
+                  "International Logistics",
+                  "Freight Forwarding",
+                  "Customs Clearance",
+                  "Supplier Sourcing",
+                  "Quality Inspection",
+                  "Warehousing",
+                  "Cargo Consolidation",
+                  "Cross Border Trade"
+                ]
               },
+
               {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ctiddp.com/' },
-                  { '@type': 'ListItem', position: 2, name: 'About', item: 'https://www.ctiddp.com/about/' },
-                ],
+                "@type": "AboutPage",
+
+                "@id":
+                  "https://www.ctiddp.com/about/#aboutpage",
+
+                "url":
+                  "https://www.ctiddp.com/about/",
+
+                "name":
+                  "About CTIDDP",
+
+                "description":
+                  "Learn about CTIDDP, our mission, leadership team, global offices, and how we simplify international trade."
               },
-            ],
-          }),
+
+              {
+                "@type": "Place",
+
+                "name": "CTIDDP India Office",
+
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Visakhapatnam",
+                  "addressRegion": "Andhra Pradesh",
+                  "addressCountry": "India"
+                }
+              },
+
+              {
+                "@type": "Place",
+
+                "name": "CTIDDP China Office",
+
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Guangzhou",
+                  "addressRegion": "Guangdong",
+                  "addressCountry": "China"
+                }
+              },
+
+              {
+                "@type": "WebSite",
+
+                "@id": "https://www.ctiddp.com/#website",
+
+                "url": "https://www.ctiddp.com",
+
+                "name": "CTIDDP",
+
+                "publisher": {
+                  "@id":
+                    "https://www.ctiddp.com/#organization"
+                }
+              },
+
+              {
+                "@type": "BreadcrumbList",
+
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+
+                    "name": "Home",
+
+                    "item":
+                      "https://www.ctiddp.com/"
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+
+                    "name": "About Us",
+
+                    "item":
+                      "https://www.ctiddp.com/about/"
+                  }
+                ]
+              }
+            ]
+          })
         }}
       />
 
@@ -223,7 +363,7 @@ export default function AboutPage() {
               {/* Description */}
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
                 CTIDDP is a specialized end-to-end DDP logistics partner helping
-                businesses move goods seamlessly from China to India with complete transparency.
+                businesses move goods seamlessly with complete transparency.
               </p>
             </div>
 
@@ -240,11 +380,11 @@ export default function AboutPage() {
       <VisionMission />
 
       {/* ══════════ LEADERSHIP ══════════ */}
-      <LeadershipSection/>
+      <LeadershipSection />
 
       {/* ══════════ OFFICE LOCATIONS ══════════ */}
-      <GlobalPresenceSection/>
-      
+      <GlobalPresenceSection />
+
     </main>
   )
 }

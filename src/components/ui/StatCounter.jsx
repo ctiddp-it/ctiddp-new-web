@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from 'react'
 
 /**
- * StatCounter — Animated counting number + label
- * @param {string} value — Target number as string (e.g., "500")
- * @param {string} suffix — Suffix after number (e.g., "+")
- * @param {string} prefix — Prefix before number (e.g., "$")
- * @param {string} label — Description text below
- * @param {boolean} light — Use white text (for dark backgrounds)
+ * StatCounter - Animated counting number + label
+ * @param {string} value - Target number as string (e.g., "500")
+ * @param {string} suffix - Suffix after number (e.g., "+")
+ * @param {string} prefix - Prefix before number (e.g., "$")
+ * @param {string} label - Description text below
+ * @param {boolean} light - Use white text (for dark backgrounds)
  */
 export default function StatCounter({ value, suffix = '', prefix = '', label, light = false }) {
   const [count, setCount] = useState(0)

@@ -70,7 +70,7 @@ Enables full crawlability of newly added service pages
 
 
 
-# Frontend Forms Upgrade — Dev Notes
+# Frontend Forms Upgrade - Dev Notes
 
 ## Overview
 Refactored and standardized all public website forms using a shared architecture based on:
@@ -230,7 +230,7 @@ works successfully again.
 
 
 ## Commit: feat(revamp): Initial commit; complete CTIDDP website UI/UX redesign implementation\
-# CTIDDP Website Revamp — Implementation Summary
+# CTIDDP Website Revamp - Implementation Summary
 
 ## Overview
 Successfully completed the CTIDDP website redesign and modernization initiative.

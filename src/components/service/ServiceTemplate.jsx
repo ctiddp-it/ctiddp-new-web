@@ -9,31 +9,31 @@ import TrustPill from '@/components/ui/TrustPill'
 import Image from 'next/image'
 
 /**
- * ServiceTemplate — Unified service detail page layout
+ * ServiceTemplate - Unified service detail page layout
  *
- * @param {string} badge — Hero badge text
- * @param {React.ReactNode} titleNode — Hero H1
- * @param {string} subtitle — Hero subtitle
- * @param {string} bgImage — Hero background image
- * @param {string[]} trustPills — Hero trust pill texts
+ * @param {string} badge - Hero badge text
+ * @param {React.ReactNode} titleNode - Hero H1
+ * @param {string} subtitle - Hero subtitle
+ * @param {string} bgImage - Hero background image
+ * @param {string[]} trustPills - Hero trust pill texts
  *
- * @param {string} overviewTitle — Overview section title
- * @param {string} overviewText — Overview description
- * @param {string[]} overviewBullets — Overview bullet points
- * @param {string} overviewImage — Overview image
+ * @param {string} overviewTitle - Overview section title
+ * @param {string} overviewText - Overview description
+ * @param {string[]} overviewBullets - Overview bullet points
+ * @param {string} overviewImage - Overview image
  *
- * @param {Array} features — Feature cards: { icon, title, description }
- * @param {string} featuresTitle — Features section title
+ * @param {Array} features - Feature cards: { icon, title, description }
+ * @param {string} featuresTitle - Features section title
  *
- * @param {Array} processSteps — Process steps: { icon, title, description }
- * @param {string} processTitle — Process section title
+ * @param {Array} processSteps - Process steps: { icon, title, description }
+ * @param {string} processTitle - Process section title
  *
- * @param {string[]} included — What's included list items
+ * @param {string[]} included - What's included list items
  *
- * @param {Array} relatedServices — Related service cards: { icon, title, description, href }
+ * @param {Array} relatedServices - Related service cards: { icon, title, description, href }
  *
- * @param {string} ctaTitle — CTA heading
- * @param {string} ctaSubtitle — CTA subtitle
+ * @param {string} ctaTitle - CTA heading
+ * @param {string} ctaSubtitle - CTA subtitle
  */
 export default function ServiceTemplate({
   badge,
@@ -72,7 +72,7 @@ export default function ServiceTemplate({
         )}
         <div className="flex flex-wrap gap-3">
           <Button href="/quote" variant="primary" arrow>GET FREE QUOTE</Button>
-          <Button href="https://wa.me/918790013772" variant="whatsapp" external icon={<FaWhatsapp size={18} />}>
+          <Button href="https://wa.me/918790018787" variant="whatsapp" external icon={<FaWhatsapp size={18} />}>
             WHATSAPP US
           </Button>
         </div>
@@ -190,7 +190,7 @@ export default function ServiceTemplate({
         subtitle={ctaSubtitle || "Get a complete DDP quote in under 2 hours."}
         buttons={[
           { label: 'GET FREE QUOTE', href: '/quote', variant: 'primary' },
-          { label: 'CHAT ON WHATSAPP', href: 'https://wa.me/918790013772', variant: 'whatsapp', icon: <FaWhatsapp size={18} />, external: true },
+          { label: 'CHAT ON WHATSAPP', href: 'https://wa.me/918790018787', variant: 'whatsapp', icon: <FaWhatsapp size={18} />, external: true },
         ]}
       />
     </main>

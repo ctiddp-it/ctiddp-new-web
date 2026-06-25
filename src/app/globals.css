@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════
-   DESIGN TOKENS — New CTIDDP Design System
-   Light theme only — navy/blue/white palette
+   DESIGN TOKENS - New CTIDDP Design System
+   Light theme only - navy/blue/white palette
 ═══════════════════════════════════════════════ */
 @theme {
   /* ── Primary Palette ── */
@@ -404,7 +404,7 @@
 }
 
 /* ═══════════════════════════════════════════════
-   SCROLL REVEAL — Intersection Observer driven
+   SCROLL REVEAL - Intersection Observer driven
 ═══════════════════════════════════════════════ */
 .reveal {
   opacity: 0;

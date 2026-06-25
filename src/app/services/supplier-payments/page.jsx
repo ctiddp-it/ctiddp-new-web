@@ -20,6 +20,15 @@ import { HiCheckBadge } from 'react-icons/hi2';
 import { BsShieldCheck, BsArrowRight } from 'react-icons/bs';
 import { Fragment } from 'react';
 
+export const metadata = {
+  title: "Secure Supplier Payments in China | CTIDDP",
+  description:
+    "Secure cross-border supplier payment management for China imports with verification, compliance, currency handling, and tracking.",
+  alternates: {
+    canonical: "https://www.ctiddp.com/services/supplier-payments",
+  },
+}
+
 const SectionHeader = ({ eyebrow, title, highlight, description }) => (
   <div className="flex flex-col items-center text-center mb-12 md:mb-16">
     <div className="flex items-center gap-2 mb-4">
@@ -486,7 +495,7 @@ const ValueProps = () => {
 };
 
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Simplify Your Supplier Payments Today
@@ -494,12 +503,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Handle payments and shipping under one structured system. One partner. One workflow. Complete peace of mind.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        GET STARTED WITH CTIDDP
-      </a>
     </div>
   </section>
 );

@@ -37,25 +37,56 @@ import {
   Ship,
 } from "lucide-react";
 import Link from 'next/link'
-import PageHero from '@/components/ui/PageHero'
-import SectionBadge from '@/components/ui/SectionBadge'
-import IconCard from '@/components/ui/IconCard'
-import StepTimeline from '@/components/ui/StepTimeline'
-import CTABanner from '@/components/ui/CTABanner'
-import Button from '@/components/ui/Button'
-import Image from 'next/image'
 
 export const metadata = {
-  title: 'Our Services | DDP Shipping, Customs, QC & More | CTIDDP',
+  title:
+    'Our Services | Shipping, Customs Clearance & Global Delivery',
+
   description:
-    'Explore CTIDDP services — DDP shipping, customs clearance, QC inspection, warehousing, supplier payments, last-mile delivery, and Canton Fair support.',
+    'Explore CTIDDP’s end-to-end logistics services including DDP shipping, customs clearance, QC inspection, supplier payments, warehousing, consolidation, last-mile delivery, and Canton Fair sourcing support.',
+
+  keywords: [
+    'logistics services',
+    'DDP shipping services',
+    'global freight forwarding',
+    'customs clearance services',
+    'supplier payments China',
+    'quality inspection services',
+    'warehousing and consolidation',
+    'last mile delivery India',
+    'multi vendor consolidation',
+    'Canton Fair sourcing support',
+    'international logistics company',
+    'freight forwarding India',
+    'global trade solutions',
+    'door to door shipping',
+    'end to end import services',
+    'China sourcing services',
+    'supply chain solutions',
+    'cargo consolidation services'
+  ],
+
   openGraph: {
-    title: 'Our Services | CTIDDP',
-    description: 'End-to-end logistics services for China to India imports.',
+    title:
+      'CTIDDP Logistics Services | End-to-End Import & Shipping Solutions',
+    description:
+      'Discover CTIDDP’s complete logistics ecosystem covering shipping, customs, inspections, supplier payments, warehousing, and delivery.',
     url: 'https://www.ctiddp.com/services/',
+    siteName: 'CTIDDP',
+    type: 'website',    
   },
-  alternates: { canonical: 'https://www.ctiddp.com/services' },
-}
+
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'CTIDDP Logistics Services',
+    description:
+      'Complete import, sourcing, shipping and logistics solutions under one contract.',    
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/services'
+  }
+};
 
 const SERVICES = [
   {
@@ -96,8 +127,8 @@ const SERVICES = [
   {
     icon: <HiOutlineTruck size={22} />,
     title: 'Last-Mile Delivery',
-    description: 'Door-to-door delivery anywhere in India. Real-time tracking, proof of delivery, and dedicated support until cargo arrives.',
-    tags: ['PAN-INDIA', 'TRACKED', 'POD'],
+    description: 'Door-to-door delivery. Real-time updates, proof of delivery, and dedicated support until cargo arrives.',
+    tags: ['REAL-TIME UPDATES','POD'],
     href: '/services/last-mile-delivery',
   },
   {
@@ -109,9 +140,9 @@ const SERVICES = [
   },
   {
     icon: <HiOutlineCalendarDays size={22} />,
-    title: 'Canton Fair Support',
-    description: 'On-ground trade fair sourcing support in Guangzhou. We attend with you, negotiate, inspect, and ship everything DDP to India.',
-    tags: ['GUANGZHOU', 'SOURCING', '2026'],
+    title: 'Trade Fair Support',
+    description: 'On-ground trade fair sourcing support. We attend with you, negotiate, inspect, and ship everything DDP.',
+    tags: ['GUANGZHOU', 'SOURCING'],
     href: '/services/canton-fair-support',
   },
 ]
@@ -170,6 +201,143 @@ function Feature({ icon: Icon, title }) {
 export default function ServicesPage() {
   return (
     <main>
+      {/* JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+
+            "@graph": [
+
+              {
+                "@type": "WebPage",
+
+                "@id":
+                  "https://www.ctiddp.com/services/#webpage",
+
+                "url":
+                  "https://www.ctiddp.com/services/",
+
+                "name":
+                  "CTIDDP Logistics Services",
+
+                "description":
+                  "Explore CTIDDP's comprehensive logistics and global trade services."
+              },
+
+              {
+                "@type": "ItemList",
+
+                "@id":
+                  "https://www.ctiddp.com/services/#services",
+
+                "name":
+                  "CTIDDP Service Portfolio",
+
+                "numberOfItems": 8,
+
+                "itemListElement": [
+
+                  {
+                    "@type": "Service",
+                    "position": 1,
+                    "name": "Global DDP Shipping"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 2,
+                    "name": "Supplier Payments"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 3,
+                    "name": "QC & Pre-Shipment Inspection"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 4,
+                    "name": "Warehousing & Consolidation"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 5,
+                    "name": "Customs Clearance"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 6,
+                    "name": "Last-Mile Delivery"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 7,
+                    "name": "Multi-Vendor Consolidation"
+                  },
+
+                  {
+                    "@type": "Service",
+                    "position": 8,
+                    "name": "Canton Fair Support"
+                  }
+                ]
+              },
+
+              {
+                "@type": "Organization",
+
+                "@id":
+                  "https://www.ctiddp.com/#organization",
+
+                "name":
+                  "CTIDDP",
+
+                "url":
+                  "https://www.ctiddp.com",
+
+                "logo":
+                  "https://www.ctiddp.com/images/CTIDDP-LOGO%20Social%20Media.png",
+
+                "telephone":
+                  "+91-8790018787",
+
+                "email":
+                  "info@ctiddp.com"
+              },
+
+              {
+                "@type": "BreadcrumbList",
+
+                "@id":
+                  "https://www.ctiddp.com/services/#breadcrumb",
+
+                "itemListElement": [
+
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.ctiddp.com/"
+                  },
+
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.ctiddp.com/services/"
+                  }
+                ]
+              }
+            ]
+          })
+        }}
+      />
       {/* ══════════ HERO ══════════ */}
       <section className="relative h-[50vh] min-h-[500px] overflow-hidden">
         {/* Background Image */}
@@ -251,16 +419,16 @@ export default function ServicesPage() {
                 className="font-semibold text-[12px] tracking-[0.18em] uppercase"
                 style={{ color: '#FE5101' }}
               >
-                  Our Services
+                Our Services
               </span>
               <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
             </div>
-           
+
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
               Comprehensive Logistics <span style={{ color: '#FE5101' }}>Services</span>
             </h2>
-             {/* Two-tone underline */}
+            {/* Two-tone underline */}
             <div
               className="flex h-[3.5px] rounded-full overflow-hidden mb-5"
               style={{ width: '72px' }}
@@ -392,7 +560,7 @@ export default function ServicesPage() {
                     icon: <CircleDollarSign className="h-8 w-8" />,
                   },
                   {
-                    title: "Real-time Tracking",
+                    title: "Real-time Updates",
                     desc: "Live updates at every step of shipment",
                     icon: <Clock3 className="h-8 w-8" />,
                   },
@@ -402,7 +570,7 @@ export default function ServicesPage() {
                     icon: <FileCheck2 className="h-8 w-8" />,
                   },
                   {
-                    title: "24/7 Support",
+                    title: "Dedicated Support",
                     desc: "We're always here when you need us",
                     icon: <HeadphonesIcon className="h-8 w-8" />,
                   },

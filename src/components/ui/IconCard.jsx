@@ -1,14 +1,14 @@
 import Link from 'next/link'
 
 /**
- * IconCard — White card with icon, title, description, optional tags and link
- * @param {React.ReactNode} icon — Icon element
+ * IconCard - White card with icon, title, description, optional tags and link
+ * @param {React.ReactNode} icon - Icon element
  * @param {string} title
  * @param {string} description
- * @param {string[]} tags — Optional tag labels
- * @param {string} href — Optional link URL
- * @param {string} linkText — Optional link label (default: "VIEW DETAILS")
- * @param {string} className — Additional classes
+ * @param {string[]} tags - Optional tag labels
+ * @param {string} href - Optional link URL
+ * @param {string} linkText - Optional link label (default: "VIEW DETAILS")
+ * @param {string} className - Additional classes
  */
 export default function IconCard({
   icon,

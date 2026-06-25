@@ -116,7 +116,7 @@ const PostHeader = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-          {/* Left — text */}
+          {/* Left - text */}
           <div>
             {/* Category badge */}
             <span
@@ -189,7 +189,7 @@ const PostHeader = () => {
             </div>
           </div>
 
-          {/* Right — featured image */}
+          {/* Right - featured image */}
           <div className="rounded-2xl overflow-hidden shadow-md">
             <img
               src={POST.image}
@@ -313,7 +313,7 @@ const Sidebar = () => {
             Talk to an Expert
           </a>
           <a
-            href="https://wa.me/918790013772"
+            href="https://wa.me/918790018787"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg text-white text-sm font-semibold uppercase tracking-wider"
@@ -336,7 +336,7 @@ const ArticleBody = () => (
     {/* Table of Contents */}
     <TableOfContents />
 
-    {/* Section 1 — What is DDP */}
+    {/* Section 1 - What is DDP */}
     <section id="what-is-ddp">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
         1. What is DDP?
@@ -368,7 +368,7 @@ const ArticleBody = () => (
     {/* Divider */}
     <hr className="border-slate-100" />
 
-    {/* Section 2 — How Does DDP Work */}
+    {/* Section 2 - How Does DDP Work */}
     <section id="how-ddp-works">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
         2. How Does DDP Shipping Work?
@@ -406,7 +406,7 @@ const ArticleBody = () => (
 
     <hr className="border-slate-100" />
 
-    {/* Section 3 — Who Pays */}
+    {/* Section 3 - Who Pays */}
     <section id="who-pays">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
         3. Who Pays for What in DDP?
@@ -447,7 +447,7 @@ const ArticleBody = () => (
 
     <hr className="border-slate-100" />
 
-    {/* Section 4 — Benefits */}
+    {/* Section 4 - Benefits */}
     <section id="benefits">
       <h2 className="text-2xl font-bold mb-6" style={{ color: '#0B2A6B' }}>
         4. Benefits of DDP Shipping
@@ -474,13 +474,13 @@ const ArticleBody = () => (
 
     <hr className="border-slate-100" />
 
-    {/* Section 5 — DDP vs Others */}
+    {/* Section 5 - DDP vs Others */}
     <section id="ddp-vs-others">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
         5. DDP vs Other Incoterms
       </h2>
       <p className="text-gray-600 leading-relaxed mb-6">
-        Unlike FOB or CIF, where the buyer takes on risk and responsibility midway, DDP ensures the seller manages everything — making it the most importer-friendly Incoterm for India-bound shipments.
+        Unlike FOB or CIF, where the buyer takes on risk and responsibility midway, DDP ensures the seller manages everything - making it the most importer-friendly Incoterm for India-bound shipments.
       </p>
       <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
         <table className="min-w-full divide-y divide-slate-200">
@@ -516,7 +516,7 @@ const ArticleBody = () => (
 
     <hr className="border-slate-100" />
 
-    {/* Section 6 — When to Use */}
+    {/* Section 6 - When to Use */}
     <section id="when-to-use">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
         6. When Should You Use DDP?
@@ -542,19 +542,19 @@ const ArticleBody = () => (
 
     <hr className="border-slate-100" />
 
-    {/* Section 7 — Why CTIDDP */}
+    {/* Section 7 - Why CTIDDP */}
     <section id="why-ctiddp">
       <h2 className="text-2xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
         7. Why Choose CTIDDP for DDP Shipping?
       </h2>
       <p className="text-gray-600 leading-relaxed mb-6">
-        CTIDDP is a China-to-India specialist logistics company built entirely around the DDP model. With offices in Guangzhou, Foshan, and across India, we manage the entire pipeline — from factory pickup to your warehouse door.
+        CTIDDP is a China-to-India specialist logistics company built entirely around the DDP model. With offices in Guangzhou, Foshan, and across India, we manage the entire pipeline - from factory pickup to your warehouse door.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
           'On-ground presence in China manufacturing hubs',
           'Integrated QC, supplier payments & warehousing',
-          'Single fixed DDP quote — no hidden fees',
+          'Single fixed DDP quote - no hidden fees',
           'Real-time coordination across supply chain',
           'Dedicated account manager for every shipment',
           'Experts in India customs compliance & duty planning',

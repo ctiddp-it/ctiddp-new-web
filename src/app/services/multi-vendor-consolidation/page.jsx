@@ -121,11 +121,11 @@ const HeroSection = () => (
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] text-white">
             Multi-Vendor Consolidation
             <br />
-            <span className="text-[#36A0F7]">Reduce Costs with Smart DDP Shipping</span>
+            <span className="text-[#36A0F7] md:text-5xl">Combine Shipments, Cut Expenses</span>
           </h1>
 
           <p className="mt-5 max-w-[95%] text-base sm:text-lg text-white/85 sm:max-w-xl">
-            Optimize your imports by combining shipments from multiple suppliers into a single cost-efficient cargo. CTIDDP manages collection, consolidation, documentation, and dispatch, ensuring smooth movement from multiple factories to one final delivery in India.
+            Combine shipments from multiple suppliers into one cost-efficient cargo. CTIDDP handles collection, consolidation, documentation, and delivery to India.
           </p>
 
           <div className="mt-8">
@@ -467,7 +467,7 @@ const EcosystemSection = () => {
 
 /* ---------- Final CTA ---------- */
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Consolidate Smart. Ship Efficiently.
@@ -475,12 +475,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Reduce cost and streamline your imports with expert consolidation. One warehouse. One shipment. One DDP contract.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        Get DDP Quote
-      </a>
     </div>
   </section>
 );

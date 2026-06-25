@@ -8,35 +8,7 @@ import {
   Building2 as BuildingIcon,
   TrendingDown, UserX, Shield, Rocket, Layers, Globe 
 } from "lucide-react";
-import {
-  FaGlobe,
-  FaShippingFast,
-  FaHandshake,
-  FaBuilding,
-  FaCheckCircle,
-  FaArrowRight,
-  FaLinkedin,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaPhone,
-  FaUsers,
-  FaDollarSign,
-  FaChartLine,
-  FaShieldAlt,
-  FaRocket,
-  FaBoxes,
-  FaCogs,
-  FaWarehouse,
-  FaTruck,
-  FaClipboardCheck,
-  FaSearchDollar,
-  FaUserTie,
-  FaHardHat,
-  FaStore,
-  FaIndustry
-} from 'react-icons/fa';
-
-import Image from 'next/image'
+import { FaDollarSign,} from 'react-icons/fa';
 import Link from 'next/link'
 import { TbArrowRight } from 'react-icons/tb'
 import { HiUsers } from 'react-icons/hi2'
@@ -45,6 +17,56 @@ import { PiInfinityBold } from 'react-icons/pi'
 import { Search, Ship, Warehouse, Wrench } from 'lucide-react';
 import WhoThisIsFor from "@/components/sections/ecosystem/WhoThisIsFor";
 import GetStartedToday from "@/components/sections/ecosystem/GetStartedToday"
+
+export const metadata = {
+  title:
+    'CTIDDP Ecosystem | Logistics, B2B Trade Network & Turnkey Projects',
+ 
+  description:
+    'Discover the CTIDDP Ecosystem-an integrated platform combining DDP logistics, AI-powered supplier and buyer connections, and infrastructure project execution for global businesses.',
+ 
+  keywords: [
+    'CTIDDP ecosystem',
+    'global trade ecosystem',
+    'B2B trade platform',
+    'supplier buyer network',
+    'international sourcing platform',
+    'DDP logistics ecosystem',
+    'global procurement solutions',
+    'verified supplier network',
+    'trade and logistics platform',
+    'cross border commerce platform',
+    'global trade solutions',
+    'infrastructure project sourcing',
+    'turnkey project execution',
+    'international business network',
+    'supplier discovery platform',
+    'business ecosystem India',
+    'global sourcing ecosystem',
+    'trade facilitation platform',
+    'procurement and logistics platform'
+  ],
+ 
+  openGraph: {
+    title:
+      'CTIDDP Ecosystem | One Platform. Endless Opportunities.', 
+    description:
+      'Connect, source, ship, and scale with CTIDDP’s integrated ecosystem combining logistics, trade networking, and project execution.', 
+    url: 'https://www.ctiddp.com/eco-system/', 
+    siteName: 'CTIDDP', 
+    type: 'website',    
+  },
+ 
+  twitter: {
+    card: 'summary_large_image', 
+    title:'CTIDDP Ecosystem', 
+    description:
+      'An integrated ecosystem for sourcing, logistics, supplier discovery, and infrastructure execution.',    
+  },
+   alternates: {
+    canonical: 'https://www.ctiddp.com/eco-system'
+  }
+};
 
   const metrics = [
     {
@@ -180,6 +202,212 @@ function Feature({ icon: Icon, title }) {
 const Ecosystem = () => {
   return (
     <div className="min-h-screen bg-white">
+
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+
+      "@graph": [
+
+        {
+          "@type": "WebPage",
+
+          "@id":
+            "https://www.ctiddp.com/eco-system/#webpage",
+
+          "url":
+            "https://www.ctiddp.com/eco-system/",
+
+          "name":
+            "CTIDDP Ecosystem",
+
+          "description":
+            "Integrated platform connecting logistics, supplier discovery, trade networks, and project execution."
+        },
+
+        {
+          "@type": "Organization",
+
+          "@id":
+            "https://www.ctiddp.com/#organization",
+
+          "name":
+            "CTIDDP",
+
+          "url":
+            "https://www.ctiddp.com",
+
+          "logo":
+            "https://www.ctiddp.com/images/CTIDDP-LOGO%20Social%20Media.png",
+
+          "telephone":
+            "+91-8790018787",
+
+          "email":
+            "info@ctiddp.com"
+        },
+
+        {
+          "@type": "ItemList",
+
+          "@id":
+            "https://www.ctiddp.com/eco-system/#pillars",
+
+          "name":
+            "CTIDDP Three Pillars",
+
+          "numberOfItems": 3,
+
+          "itemListElement": [
+
+            {
+              "@type": "Service",
+
+              "position": 1,
+
+              "name":
+                "CTIDDP Logistics",
+
+              "description":
+                "End-to-end DDP logistics including sourcing, shipping, customs clearance, and last-mile delivery."
+            },
+
+            {
+              "@type": "Service",
+
+              "position": 2,
+
+              "name":
+                "Connect",
+
+              "description":
+                "AI-powered B2B trade network connecting verified suppliers and buyers globally."
+            },
+
+            {
+              "@type": "Service",
+
+              "position": 3,
+
+              "name":
+                "Projects",
+
+              "description":
+                "Infrastructure and turnkey execution covering design, sourcing, procurement, and installation."
+            }
+          ]
+        },
+
+        {
+          "@type": "Service",
+
+          "@id":
+            "https://www.ctiddp.com/eco-system/#ecosystem",
+
+          "name":
+            "CTIDDP Global Trade Ecosystem",
+
+          "provider": {
+            "@id":
+              "https://www.ctiddp.com/#organization"
+          },
+
+          "description":
+            "A unified ecosystem combining global sourcing, logistics, trade networking, and infrastructure project execution.",
+
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          },
+
+          "serviceType": [
+            "Global Logistics",
+            "Supplier Discovery",
+            "Trade Networking",
+            "Procurement",
+            "Project Execution",
+            "Supply Chain Management"
+          ]
+        },
+
+        {
+          "@type": "FAQPage",
+
+          "@id":
+            "https://www.ctiddp.com/eco-system/#faq",
+
+          "mainEntity": [
+
+            {
+              "@type": "Question",
+
+              "name":
+                "What is the CTIDDP Ecosystem?",
+
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text":
+                  "The CTIDDP Ecosystem is an integrated platform combining logistics execution, supplier and buyer networking, and infrastructure project execution."
+              }
+            },
+
+            {
+              "@type": "Question",
+
+              "name":
+                "How does CTIDDP Connect work?",
+
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text":
+                  "CTIDDP Connect helps verified suppliers and buyers discover each other through an AI-powered business matching platform."
+              }
+            },
+
+            {
+              "@type": "Question",
+
+              "name":
+                "What services are included in CTIDDP Projects?",
+
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text":
+                  "CTIDDP Projects supports design, sourcing, procurement, equipment supply, and turnkey execution for commercial and industrial projects."
+              }
+            }
+          ]
+        },
+
+        {
+          "@type": "BreadcrumbList",
+
+          "@id":
+            "https://www.ctiddp.com/eco-system/#breadcrumb",
+
+          "itemListElement": [
+
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.ctiddp.com/"
+            },
+
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Ecosystem",
+              "item": "https://www.ctiddp.com/eco-system/"
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>
 
       {/* Hero Section */}
       <section className="relative min-h-[620px] overflow-hidden sm:min-h-[700px] lg:h-[50vh] lg:min-h-[560px]">

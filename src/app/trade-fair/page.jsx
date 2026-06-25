@@ -1,14 +1,11 @@
 import { FaWhatsapp, FaCalendarCheck } from 'react-icons/fa6'
 import Image from 'next/image';
 import {
-  HiOutlineGlobeAlt,
   HiOutlineMagnifyingGlass,
   HiOutlineChatBubbleLeftRight,
   HiOutlineBuildingStorefront,
-  HiOutlineCalendarDays,
   HiOutlineMapPin,
   HiOutlineTruck,
-  HiOutlineShieldCheck,
 } from 'react-icons/hi2'
 import {
   FaMicrochip, FaGift, FaTshirt,
@@ -29,32 +26,60 @@ import { FiArrowRight } from "react-icons/fi";
 import { FaTimesCircle, FaCheckCircle } from "react-icons/fa";
 import { MdCancel, MdCheckCircle } from "react-icons/md";
 import Link from 'next/link'
-import SectionBadge from '@/components/ui/SectionBadge'
-import StepTimeline from '@/components/ui/StepTimeline'
-import IconCard from '@/components/ui/IconCard'
-import CTABanner from '@/components/ui/CTABanner'
 import Button from '@/components/ui/Button'
-import TrustPill from '@/components/ui/TrustPill'
 import CantonFairClient from './CantonFairClient'
 
 export const metadata = {
-  title: 'Canton Fair 140th Edition Shipping Support | Global DDP Experts',
+  title:
+    'Trade Fair Support Services | Global Sourcing & Exhibition Assistance',
+
   description:
-    'Get end-to-end Canton Fair 140th edition (Autumn 2026) sourcing and shipping support with DDP delivery to India and global markets.',
+    'Attend international trade fairs with confidence. CTIDDP provides sourcing assistance, supplier verification, negotiation support, inspection, consolidation, DDP shipping, and post-fair procurement services.',
+
   keywords: [
-    'Canton Fair 140th edition',
-    'Canton Fair autumn 2026',
-    'Canton Fair shipping to India',
-    'Canton Fair sourcing support',
-    'Guangzhou sourcing agent India',
+    'trade fair support services',
+    'international trade fair assistance',
+    'China trade fair sourcing',
+    'business exhibition support',
+    'supplier sourcing services',
+    'trade show procurement support',
+    'Canton Fair support',
+    'global sourcing partner',
+    'trade fair logistics',
+    'supplier verification services',
+    'China sourcing company',
+    'trade exhibition consultant',
+    'import sourcing assistance',
+    'B2B trade fairs',
+    'buyer delegation services',
+    'factory visit support',
+    'trade fair interpreter services',
+    'trade fair procurement',
+    'business sourcing platform',
+    'international supplier network'
   ],
+
   openGraph: {
-    title: 'Canton Fair 140th Edition Shipping Support | Global DDP Experts',
-    description: 'Get end-to-end Canton Fair 140th edition sourcing and shipping support with DDP delivery to India.',
-    url: 'https://www.ctiddp.com/canton-fair/',
+    title:
+      'Trade Fair Support Services | CTIDDP',
+    description:
+      'From supplier discovery to DDP delivery, CTIDDP helps businesses maximize opportunities at international trade fairs and exhibitions.',
+    url: 'https://www.ctiddp.com/trade-fair/',
+    siteName: 'CTIDDP',
+    type: 'website',    
   },
-  alternates: { canonical: 'https://www.ctiddp.com/canton-fair' },
-}
+
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'Trade Fair Support Services | CTIDDP',
+    description:
+      'End-to-end sourcing, supplier verification, negotiation, and logistics support for global trade fairs.',  
+  },
+  alternates: {
+    canonical: 'https://www.ctiddp.com/trade-fair'
+  }
+};
 
 const PHASES = [
   {
@@ -118,7 +143,7 @@ const FEATURES = [
   { icon: <HiOutlineChatBubbleLeftRight size={22} />, title: 'Mandarin Negotiation', description: 'Direct negotiation in Mandarin for better prices and terms.' },
   { icon: <HiOutlineMagnifyingGlass size={22} />, title: 'On-the-Spot QC', description: 'Quality verification of samples before you commit to any supplier.' },
   { icon: <HiOutlineBuildingStorefront size={22} />, title: 'Multi-Booth Consolidation', description: 'Collect from multiple exhibitors, consolidate at our Guangzhou warehouse.' },
-  { icon: <HiOutlineTruck size={22} />, title: 'Direct DDP to India', description: 'All goods shipped DDP to your India address — one price, no surprises.' },
+  { icon: <HiOutlineTruck size={22} />, title: 'Direct DDP to India', description: 'All goods shipped DDP to your India address - one price, no surprises.' },
 ]
 
 const steps = [
@@ -171,7 +196,7 @@ const audiences = [
     icon: FaUserAstronaut,
     title: "First-Time Visitors",
     description:
-      "Navigate your first Canton Fair with confidence. We guide you through every step.",
+      "Navigate your first Trade Fair with confidence. We guide you through every step.",
   },
   {
     icon: FaShoppingCart,
@@ -237,37 +262,213 @@ export default function CantonFairPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
+            "@context": "https://schema.org",
+
+            "@graph": [
+
               {
-                '@type': 'Service',
-                '@id': 'https://www.ctiddp.com/canton-fair/#service',
-                name: 'Canton Fair 140th Edition DDP Support',
-                provider: { '@type': 'Organization', name: 'CTIDDP', url: 'https://www.ctiddp.com/' },
-                description: 'Attend Canton Fair 140th edition, negotiate in Mandarin, inspect goods, consolidate, and ship DDP to India.',
-                serviceType: 'Trade Fair Support & DDP Shipping',
-                areaServed: { '@type': 'Country', name: 'India' },
-              },
-              {
-                '@type': 'Event',
-                name: '140th Canton Fair - Autumn 2026',
-                startDate: '2026-10-15',
-                endDate: '2026-11-04',
-                location: {
-                  '@type': 'Place',
-                  name: 'China Import and Export Fair Complex',
-                  address: { '@type': 'PostalAddress', addressLocality: 'Guangzhou', addressRegion: 'Guangdong', addressCountry: 'CN' },
+                "@type": "Service",
+
+                "@id":
+                  "https://www.ctiddp.com/trade-fair/#service",
+
+                "name":
+                  "Trade Fair Support Services",
+
+                "provider": {
+                  "@type": "Organization",
+                  "name": "CTIDDP",
+                  "url": "https://www.ctiddp.com"
                 },
-              },
-              {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ctiddp.com/' },
-                  { '@type': 'ListItem', position: 2, name: 'Canton Fair', item: 'https://www.ctiddp.com/canton-fair/' },
+
+                "description":
+                  "Comprehensive trade fair support including supplier sourcing, negotiation, factory visits, quality inspections, consolidation, procurement management, and DDP shipping.",
+
+                "serviceType": [
+                  "Trade Fair Support",
+                  "Supplier Sourcing",
+                  "Factory Visits",
+                  "Supplier Verification",
+                  "Procurement Support",
+                  "Trade Show Assistance",
+                  "DDP Shipping"
                 ],
+
+                "areaServed": {
+                  "@type": "Place",
+                  "name": "Worldwide"
+                }
               },
-            ],
-          }),
+
+              {
+                "@type": "HowTo",
+
+                "@id":
+                  "https://www.ctiddp.com/trade-fair/#howto",
+
+                "name":
+                  "How CTIDDP Trade Fair Support Works",
+
+                "description":
+                  "Step-by-step support for buyers attending international trade fairs.",
+
+                "step": [
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 1,
+                    "name": "Pre-Fair Planning",
+                    "text": "Identify target suppliers, exhibitors, and sourcing opportunities."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 2,
+                    "name": "Trade Fair Assistance",
+                    "text": "Receive on-ground support, interpretation, and supplier coordination."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 3,
+                    "name": "Supplier Verification",
+                    "text": "Verify supplier capabilities and business credentials."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 4,
+                    "name": "Sample Inspection",
+                    "text": "Inspect product samples and evaluate quality standards."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 5,
+                    "name": "Factory Visits",
+                    "text": "Visit shortlisted manufacturers and assess production facilities."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 6,
+                    "name": "Order Placement",
+                    "text": "Negotiate pricing, payment terms, and procurement contracts."
+                  },
+
+                  {
+                    "@type": "HowToStep",
+                    "position": 7,
+                    "name": "DDP Shipping",
+                    "text": "Manage consolidation, customs clearance, and doorstep delivery."
+                  }
+                ]
+              },
+
+              {
+                "@type": "FAQPage",
+
+                "@id":
+                  "https://www.ctiddp.com/trade-fair/#faq",
+
+                "mainEntity": [
+
+                  {
+                    "@type": "Question",
+                    "name":
+                      "What trade fairs does CTIDDP support?",
+
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text":
+                        "CTIDDP supports major international trade fairs including Canton Fair, industry exhibitions, sourcing expos, manufacturing events, and B2B trade shows."
+                    }
+                  },
+
+                  {
+                    "@type": "Question",
+                    "name":
+                      "Can CTIDDP arrange factory visits?",
+
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text":
+                        "Yes. CTIDDP organizes factory visits, supplier audits, and capability assessments before order placement."
+                    }
+                  },
+
+                  {
+                    "@type": "Question",
+                    "name":
+                      "Does CTIDDP help after the trade fair?",
+
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text":
+                        "Yes. We support supplier negotiations, inspections, procurement management, cargo consolidation, customs clearance, and DDP delivery."
+                    }
+                  }
+                ]
+              },
+
+              {
+                "@type": "WebPage",
+
+                "@id":
+                  "https://www.ctiddp.com/trade-fair/#webpage",
+
+                "url":
+                  "https://www.ctiddp.com/trade-fair/",
+
+                "name":
+                  "Trade Fair Support Services",
+
+                "description":
+                  "End-to-end sourcing and trade fair assistance for international buyers.",
+
+                "mainEntity": {
+                  "@id":
+                    "https://www.ctiddp.com/trade-fair/#service"
+                },
+
+                "isPartOf": {
+                  "@id":
+                    "https://www.ctiddp.com/#website"
+                }
+              },
+
+              {
+                "@type": "BreadcrumbList",
+
+                "@id":
+                  "https://www.ctiddp.com/trade-fair/#breadcrumb",
+
+                "itemListElement": [
+
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.ctiddp.com/"
+                  },
+
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://www.ctiddp.com/services/"
+                  },
+
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Trade Fair Support",
+                    "item": "https://www.ctiddp.com/trade-fair/"
+                  }
+                ]
+              }
+            ]
+          })
         }}
       />
 
@@ -278,7 +479,7 @@ export default function CantonFairPage() {
         <div className="absolute inset-0">
           <img
             src="/images/canton-fair/caaa.png"
-            alt="Canton Fair DDP"
+            alt="Trade Fair DDP"
             className="h-full w-full object-cover object-center"
           />
         </div>
@@ -310,7 +511,7 @@ export default function CantonFairPage() {
               {/* Heading */}
               <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl lg:text-5xl">
 
-                Canton Fair DDP.
+                Trade Fair DDP.
                 <br />
 
                 <span className="text-[#36A0F7]">
@@ -322,7 +523,7 @@ export default function CantonFairPage() {
               {/* Description */}
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
 
-                We attend the 140th Canton Fair with you, handle everything in Mandarin,
+                We attend the 140th Trade Fair with you, handle everything in Mandarin,
                 inspect goods, and ship DDP to India - under one service.
 
               </p>
@@ -368,7 +569,7 @@ export default function CantonFairPage() {
                 <div className="flex items-center gap-2 mb-3">
                   <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
                   <span className="text-[#FE5101] font-semibold text-[12px] tracking-[0.18em] uppercase">
-                    Canton Fair Support
+                    Trade Fair Support
                   </span>
                   <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
                 </div>
@@ -379,7 +580,7 @@ export default function CantonFairPage() {
                   <span style={{ color: '#FE5101' }}>You Get the Goods.</span>
                 </h2>
 
-                {/* Underline accent — two-tone bar */}
+                {/* Underline accent - two-tone bar */}
                 <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
                   <div className="flex-1" style={{ background: '#0B2A6B' }} />
                   <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -387,7 +588,7 @@ export default function CantonFairPage() {
               </div>
 
               <p className="text-[15px] text-gray-500 leading-relaxed mb-7">
-                The Canton Fair is the world&apos;s largest trade fair, held twice a year in Guangzhou. The 140th edition runs October–November 2026. With our team already on the ground, we attend on your behalf and handle everything.
+                The Canton Fair, held twice a year in Guangzhou. The 140th edition runs October–November 2026. With our team already on the ground, we attend on your behalf and handle everything.
               </p>
 
               <div className="flex flex-col gap-4">
@@ -403,7 +604,7 @@ export default function CantonFairPage() {
               </div>
             </div>
 
-            {/* Right — 140th Schedule Card */}
+            {/* Right - 140th Schedule Card */}
             <div className="card p-6 sm:p-8">
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-[18px] font-600 text-[#0B2A6B]">
@@ -462,7 +663,7 @@ export default function CantonFairPage() {
 
               <div className="bg-primary-50 border border-primary-100 rounded-xl p-3 mb-5">
                 <div className="text-[10px] text-primary font-700 tracking-[1px] uppercase mb-1">
-                  ⚡ Limited Slots — Book Early
+                  ⚡ Limited Slots - Book Early
                 </div>
 
                 <div className="text-[12px] text-gray-600 leading-relaxed">
@@ -503,7 +704,7 @@ export default function CantonFairPage() {
             <span style={{ color: '#FE5101' }}>Endless Oppurtunities</span>
           </h2>
 
-          {/* Underline accent — two-tone bar */}
+          {/* Underline accent - two-tone bar */}
           <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
             <div className="flex-1" style={{ background: '#0B2A6B' }} />
             <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -601,7 +802,7 @@ export default function CantonFairPage() {
             <span style={{ color: '#FE5101' }}>For.</span>
           </h2>
 
-          {/* Underline accent — two-tone bar */}
+          {/* Underline accent - two-tone bar */}
           <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
             <div className="flex-1" style={{ background: '#0B2A6B' }} />
             <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -637,23 +838,12 @@ export default function CantonFairPage() {
             );
           })}
         </div>
-
-        {/* CTA Button */}
-        <div className="flex justify-center mt-12 relative z-10">
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-3 bg-[#003DA5] hover:bg-[#0B2A6B] text-white text-[0.95rem] font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
-          >
-            Let's Make Your Next Import Seamless
-            <FiArrowRight className="text-lg transition-transform duration-200 group-hover:translate-x-1" />
-          </a>
-        </div>
       </section>
 
       {/* ══════════ WITH VS WITHOUT ══════════ */}
       <section className="relative bg-[#f0f4fb] px-6 py-20 overflow-hidden">
 
-        {/* Dot-grid decorative — bottom left */}
+        {/* Dot-grid decorative - bottom left */}
         <div
           className="pointer-events-none absolute bottom-0 left-0 w-72 h-72 opacity-20"
           style={{
@@ -678,7 +868,7 @@ export default function CantonFairPage() {
             <span style={{ color: '#FE5101' }}>CTIDDP Support</span>
           </h2>
 
-          {/* Underline accent — two-tone bar */}
+          {/* Underline accent - two-tone bar */}
           <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
             <div className="flex-1" style={{ background: '#0B2A6B' }} />
             <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -741,11 +931,9 @@ export default function CantonFairPage() {
         {/* CTA */}
         <div className="flex justify-center mt-12 relative z-10">
           <a
-            href="#contact"
             className="group inline-flex items-center gap-3 bg-[#003DA5] hover:bg-[#0B2A6B] text-white text-[0.95rem] font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg"
           >
             Import Smarter. Import Safer. Import with CTIDDP.
-            <FiArrowRight className="text-lg transition-transform duration-200 group-hover:translate-x-1" />
           </a>
         </div>
       </section>
@@ -753,7 +941,7 @@ export default function CantonFairPage() {
       {/* ══════════ PROCESS ══════════ */}
       <section className="relative px-6 py-20 overflow-hidden">
 
-        {/* Dot-grid — bottom left */}
+        {/* Dot-grid - bottom left */}
         <div
           className="pointer-events-none absolute bottom-0 left-0 w-72 h-72 opacity-20"
           style={{
@@ -761,7 +949,7 @@ export default function CantonFairPage() {
             backgroundSize: "18px 18px",
           }}
         />
-        {/* Dot-grid — top right */}
+        {/* Dot-grid - top right */}
         <div
           className="pointer-events-none absolute top-0 right-0 w-72 h-72 opacity-10"
           style={{
@@ -775,7 +963,7 @@ export default function CantonFairPage() {
           <div className="flex items-center gap-2 mb-3">
             <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
             <span className="text-[#FE5101] font-semibold text-[10px] md:text-[12px] tracking-[0.18em] uppercase">
-              Our Full Canton Fair Service Scope
+              Our Full Trade Fair Service Scope
             </span>
             <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
           </div>
@@ -786,7 +974,7 @@ export default function CantonFairPage() {
             <span style={{ color: '#FE5101' }}>Every Step</span>
           </h2>
 
-          {/* Underline accent — two-tone bar */}
+          {/* Underline accent - two-tone bar */}
           <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
             <div className="flex-1" style={{ background: '#0B2A6B' }} />
             <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -869,7 +1057,7 @@ export default function CantonFairPage() {
             {/* Eyebrow */}
             <div className="flex items-center gap-2">
               <span className="text-[10px] text-blue-300 font-semibold tracking-[0.18em] uppercase">
-                © BEYOND THE FAIR
+                * BEYOND THE FAIR
               </span>
             </div>
 
@@ -896,13 +1084,13 @@ export default function CantonFairPage() {
 
             {/* CTA */}
             <div className="mt-4">
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 className="group inline-flex items-center gap-2 border border-white text-white text-[0.8rem] font-bold tracking-[0.1em] uppercase px-6 py-3 rounded-lg hover:bg-white hover:text-[#0B2A6B] transition-all duration-200"
               >
                 Learn More About Our Services
                 <FiArrowRight className="text-sm transition-transform duration-200 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -913,7 +1101,7 @@ export default function CantonFairPage() {
             <div className="absolute left-0 top-0 bottom-0 w-[58%] overflow-hidden rounded-2xl">
               <Image
                 src="/images/canton-fair/ctiddp-eventday-canton-fair-client-interaction.jpg"
-                alt="Visitors and exhibitors at Canton Fair"
+                alt="Visitors and exhibitors at Trade Fair"
                 fill
                 className="object-cover"
                 priority
@@ -934,31 +1122,14 @@ export default function CantonFairPage() {
             <div className="absolute right-0 bottom-0 h-[48%] w-[40%] overflow-hidden rounded-2xl">
               <Image
                 src="/images/canton-fair/ctiddp-event-day-canton-fair-client-interaction.jpg"
-                alt="Business meeting at Canton Fair booth"
+                alt="Business meeting at Trade Fair booth"
                 fill
                 className="object-cover"
               />
-            </div>            
+            </div>
           </div>
 
         </div>
-
-        {/* Mobile image strip */}
-        <div className="lg:hidden flex gap-2 px-6 pb-6">
-          <div className="flex-1 h-36 bg-slate-600 rounded-xl flex items-center justify-center">
-            <span className="text-slate-400 text-xs text-center px-2">Canton Fair Photo</span>
-          </div>
-          <div className="flex flex-col gap-2 w-[42%]">
-            <div className="flex-1 bg-slate-500 rounded-xl flex items-center justify-center">
-              <span className="text-slate-300 text-xs text-center px-2">Skyline</span>
-            </div>
-            <div className="flex-1 bg-slate-600 rounded-xl flex items-center justify-center">
-              <span className="text-slate-400 text-xs text-center px-2">Booth</span>
-            </div>
-          </div>
-        </div>
-
-        
       </section>
     </main>
   )

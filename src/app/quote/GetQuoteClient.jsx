@@ -106,7 +106,7 @@ export default function GetQuoteClient() {
           Our Team will review your details and send you a complete DDP quote with BCD+IGST breakdown within 2 hours on WhatsApp.
         </p>
         <a
-          href="https://wa.me/918790013772"
+          href="https://wa.me/918790018787"
           target="_blank"
           rel="noopener noreferrer"
           className="btn btn-whatsapp inline-flex"

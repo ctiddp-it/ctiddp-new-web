@@ -17,37 +17,50 @@ import CTABanner from '@/components/ui/CTABanner'
 import GetQuoteClient from './GetQuoteClient'
 
 export const metadata = {
-  title: 'Get DDP Shipping Quote | Global Logistics Experts',
+  title:
+    'Get a DDP Shipping Quote | China to India Import Cost',
+ 
   description:
-    'Request a fast DDP shipping quote for China imports and global shipping with full cost transparency.',
+    'Request a complete DDP shipping quote from CTIDDP. Receive transparent pricing including freight, customs clearance, duties, taxes, insurance, and doorstep delivery.',
+ 
   keywords: [
-    'get shipping quote China to India',
-    'DDP shipping cost China India',
-    'import cost China to India',
+    'DDP shipping quote',
+    'China to India shipping cost',
+    'import cost calculator',
     'freight quote India',
-    'shipping price China India',
-    'door to door shipping cost India',
-    'international freight quote',
-    'cargo shipping quote India',
-    'customs clearance cost India',
-    'China import cost breakdown',
-    'logistics pricing India',
-    'bulk shipping quotation',
-    'import duty estimate India',
-    'shipping rate calculator India',
-    'China to India shipping charges',
+    'door to door shipping quote',
+    'DDP freight cost',
+    'customs included shipping',
+    'cargo shipping quote',
+    'international shipping rates',
+    'air freight quote',
+    'sea freight quote',
+    'China import quote',
+    'shipping estimate India',
+    'logistics quotation',
+    'freight forwarding quote'
   ],
+ 
   openGraph: {
-    title: 'Get DDP Shipping Quote | Global Logistics Experts',
+    title:
+      'Get Your Full DDP Shipping Quote | CTIDDP', 
     description:
-      'Request a fast DDP shipping quote for China imports and global shipping with full cost transparency.',
-    url: 'https://www.ctiddp.com/quote/',
-    siteName: 'CTIDDP',
-    type: 'website',
+      'Get an accurate DDP quote including freight, customs clearance, duties, taxes, insurance, and last-mile delivery.', 
+    url: 'https://www.ctiddp.com/quote/', 
+    siteName: 'CTIDDP', 
+    type: 'website',   
   },
-  alternates: {
-    canonical: 'https://www.ctiddp.com/quote',
+ 
+  twitter: {
+    card: 'summary_large_image', 
+    title:
+      'Get a DDP Shipping Quote', 
+    description:
+      'Receive a complete China to India DDP quotation within 2 business hours.',    
   },
+   alternates: {
+    canonical: 'https://www.ctiddp.com/quote/'
+  }
 };
 
 const features = [
@@ -91,61 +104,160 @@ function Feature({ icon: Icon, title, subtitle }) {
 export default function GetQuotePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
-              {
-                '@type': 'WebPage',
-                '@id': 'https://www.ctiddp.com/quote/#webpage',
-                url: 'https://www.ctiddp.com/quote/',
-                name: 'Get DDP Shipping Quote | Global Logistics Experts',
-                description:
-                  'Request a fast DDP shipping quote for China imports and global shipping with full cost transparency.',
-                isPartOf: {
-                  '@id': 'https://www.ctiddp.com/#website',
-                },
-              },
-              {
-                '@type': 'Service',
-                '@id': 'https://www.ctiddp.com/quote/#service',
-                name: 'DDP Shipping Quote',
-                provider: {
-                  '@type': 'Organization',
-                  name: 'CTIDDP',
-                  url: 'https://www.ctiddp.com/',
-                },
-                serviceType: 'Freight Forwarding',
-                areaServed: {
-                  '@type': 'Country',
-                  name: 'India',
-                },
-                url: 'https://www.ctiddp.com/quote/',
-              },
-              {
-                '@type': 'BreadcrumbList',
-                '@id': 'https://www.ctiddp.com/quote/#breadcrumb',
-                itemListElement: [
-                  {
-                    '@type': 'ListItem',
-                    position: 1,
-                    name: 'Home',
-                    item: 'https://www.ctiddp.com/',
-                  },
-                  {
-                    '@type': 'ListItem',
-                    position: 2,
-                    name: 'Get a Quote',
-                    item: 'https://www.ctiddp.com/quote/',
-                  },
-                ],
-              },
-            ],
-          }),
-        }}
-      />
+     <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+ 
+      "@graph": [
+ 
+        {
+          "@type": "WebPage",
+ 
+          "@id":
+            "https://www.ctiddp.com/quote/#webpage",
+ 
+          "url":
+            "https://www.ctiddp.com/quote/",
+ 
+          "name":
+            "Get a DDP Shipping Quote",
+ 
+          "description":
+            "Request a complete DDP shipping quotation covering freight, customs clearance, duties, taxes, insurance, and delivery.",
+ 
+          "isPartOf": {
+            "@id":
+              "https://www.ctiddp.com/#website"
+          }
+        },
+ 
+        {
+          "@type": "Service",
+ 
+          "@id":
+            "https://www.ctiddp.com/quote/#service",
+ 
+          "name":
+            "DDP Shipping Quote Service",
+ 
+          "provider": {
+            "@type": "Organization",
+            "name": "CTIDDP",
+            "url": "https://www.ctiddp.com"
+          },
+ 
+          "description":
+            "Complete quotation service covering freight, customs clearance, duties, taxes, cargo insurance, and final delivery.",
+ 
+          "serviceType":
+            "DDP Shipping Quotation",
+ 
+          "areaServed": {
+            "@type": "Place",
+            "name": "Worldwide"
+          }
+        },
+ 
+        {
+          "@type": "ContactPoint",
+ 
+          "@id":
+            "https://www.ctiddp.com/quote/#contact",
+ 
+          "contactType":
+            "sales",
+ 
+          "telephone":
+            "+91-8790018787",
+ 
+          "email":
+            "info@ctiddp.com",
+ 
+          "availableLanguage": [
+            "English",
+            "Hindi",
+            "Telugu"
+          ]
+        },
+ 
+        {
+          "@type": "FAQPage",
+ 
+          "@id":
+            "https://www.ctiddp.com/quote/#faq",
+ 
+          "mainEntity": [
+ 
+            {
+              "@type": "Question",
+ 
+              "name":
+                "How quickly can I receive a quote?",
+ 
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text":
+                  "Most complete DDP quotations are shared within 2 business hours after receiving shipment details."
+              }
+            },
+ 
+            {
+              "@type": "Question",
+ 
+              "name":
+                "What is included in a DDP quote?",
+ 
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text":
+                  "DDP quotations include freight, export handling, customs clearance, duties, taxes, cargo insurance, and last-mile delivery."
+              }
+            },
+ 
+            {
+              "@type": "Question",
+ 
+              "name":
+                "Do I need an HS Code to request a quote?",
+ 
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text":
+                  "No. If unavailable, CTIDDP can help identify the appropriate HS code during quotation review."
+              }
+            }
+          ]
+        },
+ 
+        {
+          "@type": "BreadcrumbList",
+ 
+          "@id":
+            "https://www.ctiddp.com/quote/#breadcrumb",
+ 
+          "itemListElement": [
+ 
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.ctiddp.com/"
+            },
+ 
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Get Quote",
+              "item": "https://www.ctiddp.com/quote/"
+            }
+          ]
+        }
+      ]
+    })
+  }}
+/>
 
       <main>
         {/* ══════════ HERO ══════════ */}
@@ -270,7 +382,7 @@ export default function GetQuotePage() {
                     <span style={{ color: '#FE5101' }}>Covers Everything</span>
                   </h2>
 
-                  {/* Underline accent — two-tone bar */}
+                  {/* Underline accent - two-tone bar */}
                   <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
                     <div className="flex-1" style={{ background: '#0B2A6B' }} />
                     <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -283,9 +395,9 @@ export default function GetQuotePage() {
                 <div className="flex flex-col gap-4">
                   {[
                     { icon: <FaTruck />, title: 'Origin Freight', desc: 'From supplier to China port or airport, including domestic trucking.' },
-                    { icon: <FaShip />, title: 'Sea / Air Freight', desc: 'LCL or FCL ocean freight, or air freight — whichever mode you need.' },
+                    { icon: <FaShip />, title: 'Sea / Air Freight', desc: 'LCL or FCL ocean freight, or air freight - whichever mode you need.' },
                     { icon: <FaFileInvoice />, title: 'Customs Clearance (Both Ends)', desc: 'China export + India import documentation, filing, and handling.' },
-                    { icon: <FaIndianRupeeSign />, title: 'All India Duties Pre-Paid', desc: 'BCD + SWS + IGST — calculated, signed off, and included.' },
+                    { icon: <FaIndianRupeeSign />, title: 'All India Duties Pre-Paid', desc: 'BCD + SWS + IGST - calculated, signed off, and included.' },
                     { icon: <FaTruck />, title: 'Last-Mile Delivery', desc: 'From Indian port to your delivery address anywhere in India.' },
                     { icon: <FaShieldHalved />, title: 'Cargo Insurance', desc: 'All-risk marine cargo insurance included end-to-end.' },
                   ].map((item) => (
@@ -335,7 +447,7 @@ export default function GetQuotePage() {
                 <span style={{ color: '#FE5101' }}>Quote Request</span>
               </h2>
 
-              {/* Underline accent — two-tone bar */}
+              {/* Underline accent - two-tone bar */}
               <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
                 <div className="flex-1" style={{ background: '#0B2A6B' }} />
                 <div className="flex-1" style={{ background: '#FE5101' }} />
@@ -434,7 +546,7 @@ export default function GetQuotePage() {
               <div className="flex flex-col w-full lg:w-auto gap-3 sm:gap-4">
 
                 <a
-                  href="https://wa.me/918790013772"
+                  href="https://wa.me/918790018787"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="

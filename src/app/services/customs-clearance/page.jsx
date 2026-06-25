@@ -81,8 +81,8 @@ const Eyebrow = ({ label }) => (
 /* ---------- Hero ---------- */
 const heroFeatures = [
   { icon: <FaFileInvoice className="text-[#0181EA]" size={20} />, title: "Documentation", subtitle: "Filing & classification handled" },
-  { icon: <FaCalculator className="text-[#0181EA]" size={20} />, title: "Duty Calculation", subtitle: "Transparent, structured assessment" },
-  { icon: <FaShieldAlt className="text-[#0181EA]" size={20} />, title: "Full Compliance", subtitle: "Regulatory coordination built-in" },
+  { icon: <FaCalculator className="text-[#0181EA]" size={20} />, title: "Duty Calculation", subtitle: "Transparent assessment" },
+  { icon: <FaShieldAlt className="text-[#0181EA]" size={20} />, title: "Full Compliance", subtitle: "Regulatory coordination" },
   { icon: <FaClock className="text-[#0181EA]" size={20} />, title: "Faster Clearance", subtitle: "Pre-planned to reduce delays" },
 ];
 
@@ -122,7 +122,7 @@ const HeroSection = () => (
           </h1>
 
           <p className="mt-5 max-w-[95%] text-base sm:text-lg text-white/85 sm:max-w-xl">
-            Ensure fast, compliant entry of your cargo into India with end-to-end customs clearance under DDP. CTIDDP manages documentation, duty calculation, and clearance execution, so your shipments move from port to delivery without friction.
+            Ensure fast, compliant entry of your cargo into India with end-to-end customs clearance under DDP. CTIDDP manages documentation, duty, and clearance, so your shipments move from port to delivery.
           </p>
 
           <div className="mt-8">
@@ -451,7 +451,7 @@ const AdvantagesAndShipmentTypes = () => {
 
 /* ---------- Final CTA ---------- */
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-20 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Clear Your Shipments with Confidence
@@ -459,12 +459,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Streamline your imports with structured, compliant customs clearance. One partner. One workflow. Complete peace of mind from port to delivery.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        Get DDP Quote
-      </a>
     </div>
   </section>
 );

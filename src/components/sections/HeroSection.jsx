@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { RiCustomerService2Fill } from "react-icons/ri";
 import HomeContactForm from "@/components/sections/home/HomeContactForm"
+import Link from "next/link";
 
 /* ─────────────────────────────────────────────────────────────────
    ROOT STRUCTURE
@@ -31,7 +32,7 @@ export default function HeroSection() {
         {/* ── DESKTOP background image ─────────────────────────────────
             Positioned absolute, starts at left-[30%] so the left 30%
             is pure #f5f7fb. A strong left-fade makes the transition
-            invisible. Hidden on mobile — mobile gets its own image block.
+            invisible. Hidden on mobile - mobile gets its own image block.
         ──────────────────────────────────────────────────────────────── */}
         <div className="hidden xl:block absolute inset-0 left-[10%]">
           <Image
@@ -76,7 +77,7 @@ export default function HeroSection() {
           >
 
             {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                LEFT COLUMN — Content
+                LEFT COLUMN - Content
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
             <div className="w-full max-w-[750px]">
 
@@ -96,7 +97,7 @@ export default function HeroSection() {
                 </span>
               </h1>
 
-              {/* ── Accent bar — below heading, above description ── */}
+              {/* ── Accent bar - below heading, above description ── */}
               <div className="w-14 h-1.25 rounded-full bg-[#2456D3]
                               mt-4 mb-4 md:mt-5 md:mb-5 xl:mt-7 xl:mb-7" />
 
@@ -110,25 +111,33 @@ export default function HeroSection() {
 
               {/* ── CTA Buttons ── */}
               <div className="flex flex-row gap-3 mt-6 md:mt-7 xl:mt-8">
-                <button
-                  className="h-11 md:h-12 px-2 md:px-5 rounded-xl bg-[#003DA5] hover:bg-[#00338a]
-                             text-white font-semibold text-[13px] md:text-[14px]
-                             flex items-center gap-2 transition-colors shadow-sm shrink-0"
+                <Link href="/quote">
+                  <button
+                    className="h-11 md:h-12 px-2 md:px-5 rounded-xl bg-[#003DA5] hover:bg-[#00338a]
+               text-white font-semibold text-[13px] md:text-[14px]
+               flex items-center gap-2 transition-colors shadow-sm shrink-0"
+                  >
+                    <FileText size={15} />
+                    Get Free Quote
+                    <ArrowRight size={15} />
+                  </button>
+                </Link>
+
+                <a
+                  href="https://wa.me/918790018787"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <FileText size={15} />
-                  Get Free Quote
-                  <ArrowRight size={15} />
-                </button>
-                
-                <button
-                  className="h-11 md:h-12 px-5 md:px-6 rounded-xl bg-white border border-slate-200
-                             hover:border-[#25D366]
-                             font-semibold text-[13px] md:text-[14px] text-slate-800
-                             flex items-center gap-2 transition-colors shadow-sm shrink-0"
-                >
-                  <WhatsAppIcon size={15} />
-                  WhatsApp Us
-                </button>
+                  <button
+                    className="h-11 md:h-12 px-5 md:px-6 rounded-xl bg-white border border-slate-200
+               hover:border-[#25D366]
+               font-semibold text-[13px] md:text-[14px] text-slate-800
+               flex items-center gap-2 transition-colors shadow-sm shrink-0"
+                  >
+                    <WhatsAppIcon size={15} />
+                    WhatsApp Us
+                  </button>
+                </a>
               </div>
 
               {/* ── Stats ─────────────────────────────────────────────
@@ -170,7 +179,7 @@ export default function HeroSection() {
             </div>
 
             {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-                RIGHT COLUMN — Contact Form
+                RIGHT COLUMN - Contact Form
                 • Mobile/Tablet: full-width, centered, max-w-md
                 • Desktop (xl+): aligned right, max-w-[480px]
             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -241,7 +250,7 @@ export default function HeroSection() {
       </section>
 
       {/* ══════════════════════════════════════════
-          NEXT SECTION — white, absorbs card overlap
+          NEXT SECTION - white, absorbs card overlap
           pt-28 lg:pt-32 = card height offset
           Replace inner content with your real section.
       ══════════════════════════════════════════ */}
@@ -253,7 +262,7 @@ export default function HeroSection() {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   WHATSAPP ICON (inline — no extra dep)
+   WHATSAPP ICON (inline - no extra dep)
 ───────────────────────────────────────────────────────────────── */
 function WhatsAppIcon() {
   return (
@@ -302,7 +311,7 @@ function StatItem({ icon, value, label }) {
 
 /* ─────────────────────────────────────────────────────────────────
    FEATURE CARD
-   Borders handled by CSS divide utilities on the grid parent —
+   Borders handled by CSS divide utilities on the grid parent -
    no need for conditional last/border logic per card.
 ───────────────────────────────────────────────────────────────── */
 function FeatureCard({ icon, title, desc }) {

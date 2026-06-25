@@ -1,6 +1,6 @@
 import React from 'react';
-import { 
-  ArrowRight, 
+import {
+  ArrowRight,
   ArrowUpRight,
   Star,
   Building2,
@@ -13,6 +13,7 @@ import {
   Package2
 } from 'lucide-react';
 import { FaQuoteLeft } from "react-icons/fa";
+import Link from "next/link";
 
 const GetStartedToday = () => {
   const stats = [
@@ -25,17 +26,17 @@ const GetStartedToday = () => {
   const features = [
     { icon: Star, label: "Trusted Network" },
     { icon: Globe, label: "Global Coverage" },
-    { icon: Headphones, label: "24/7 Support" }
+    { icon: Headphones, label: "Support" }
   ];
 
   return (
-    <section className="relative py-16 md:py-20 lg:py-24 px-4 overflow-hidden" 
+    <section className="relative py-16 md:py-20 lg:py-24 px-4 overflow-hidden"
       style={{ background: '#0B2A6B' }}
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Grid Pattern */}
-        <div 
+        <div
           className="absolute inset-0 opacity-[0.03]"
           style={{
             backgroundImage: `
@@ -45,23 +46,23 @@ const GetStartedToday = () => {
             backgroundSize: '60px 60px'
           }}
         />
-        
+
         {/* Gradient Orbs */}
-        <div 
+        <div
           className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-10"
-          style={{ 
+          style={{
             background: 'radial-gradient(circle, #FE5101, transparent 70%)',
             transform: 'translate(30%, -30%)'
           }}
         />
-        <div 
+        <div
           className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-5"
-          style={{ 
+          style={{
             background: 'radial-gradient(circle, #ffffff, transparent 70%)',
             transform: 'translate(-30%, 30%)'
           }}
         />
-        
+
         {/* Dots Pattern */}
         <div className="absolute top-20 left-10 flex gap-1.5">
           {[...Array(5)].map((_, i) => (
@@ -81,8 +82,8 @@ const GetStartedToday = () => {
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-4">
             <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
-            <span 
-              className="font-semibold text-[12px] tracking-[0.18em] uppercase" 
+            <span
+              className="font-semibold text-[12px] tracking-[0.18em] uppercase"
               style={{ color: '#FE5101' }}
             >
               Get Started Today
@@ -96,8 +97,8 @@ const GetStartedToday = () => {
           </h2>
 
           {/* Two-tone underline */}
-          <div 
-            className="flex h-[3.5px] rounded-full overflow-hidden mb-5" 
+          <div
+            className="flex h-[3.5px] rounded-full overflow-hidden mb-5"
             style={{ width: '72px' }}
           >
             <div className="flex-1 bg-white/60" />
@@ -105,7 +106,7 @@ const GetStartedToday = () => {
           </div>
 
           <p className="text-lg md:text-md text-white/70 max-w-3xl mx-auto">
-            Whether you are a supplier, importer, or business owner, we help you grow faster 
+            Whether you are a supplier, importer, or business owner, we help you grow faster
             with the right network and execution.
           </p>
         </div>
@@ -115,7 +116,7 @@ const GetStartedToday = () => {
           {/* Join as Supplier */}
           <div className="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#FE5101]/20 cursor-pointer">
             {/* Glow Effect */}
-            <div 
+            <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{
                 background: 'radial-gradient(circle at center, rgba(254, 81, 1, 0.15), transparent 70%)'
@@ -132,7 +133,7 @@ const GetStartedToday = () => {
                 Join as Supplier
               </h3>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
-                List your products, get verified, and connect with buyers from 45+ countries. 
+                List your products, get verified, and connect with buyers from 45+ countries.
                 Expand your reach globally.
               </p>
 
@@ -153,13 +154,16 @@ const GetStartedToday = () => {
               </div>
 
               {/* CTA Button */}
-              <div className="inline-flex items-center gap-2 text-[#FE5101] font-semibold group/btn cursor-pointer">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-[#FE5101] font-semibold group/btn cursor-pointer"
+              >
                 <span className="relative">
                   JOIN AS SUPPLIER
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#FE5101] scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left" />
                 </span>
                 <ArrowUpRight className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-              </div>
+              </Link>
             </div>
 
             {/* Corner Decoration */}
@@ -172,7 +176,7 @@ const GetStartedToday = () => {
           {/* Join as Importer */}
           <div className="group relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-10 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20 cursor-pointer">
             {/* Glow Effect */}
-            <div 
+            <div
               className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               style={{
                 background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%)'
@@ -189,7 +193,7 @@ const GetStartedToday = () => {
                 Join as Importer
               </h3>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
-                Source products seamlessly with end-to-end logistics, verified suppliers, 
+                Source products seamlessly with end-to-end logistics, verified suppliers,
                 and complete supply chain management.
               </p>
 
@@ -205,18 +209,21 @@ const GetStartedToday = () => {
                 </div>
                 <div className="flex items-center gap-2 text-white/80 text-sm">
                   <div className="w-1.5 h-1.5 rounded-full bg-white" />
-                  <span>Real-time tracking</span>
+                  <span>Real-time updates</span>
                 </div>
               </div>
 
               {/* CTA Button */}
-              <div className="inline-flex items-center gap-2 text-white font-semibold group/btn cursor-pointer">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-white font-semibold group/btn cursor-pointer"
+              >
                 <span className="relative">
                   JOIN AS IMPORTER
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-white scale-x-0 group-hover/btn:scale-x-100 transition-transform origin-left" />
                 </span>
                 <ArrowUpRight className="w-5 h-5 group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-              </div>
+              </Link>
             </div>
 
             {/* Corner Decoration */}
@@ -237,8 +244,8 @@ const GetStartedToday = () => {
           <blockquote className="relative">
             <FaQuoteLeft className="w-10 h-10 text-[#FE5101]/30 absolute -top-4 -left-4 md:-left-8" />
             <p className="text-xl md:text-2xl lg:text-3xl font-medium text-white/90 leading-relaxed italic">
-              "To build a seamless global trade ecosystem where businesses can 
-              source, ship, and scale without barriers."
+              To build a seamless global trade ecosystem where businesses can
+              source, ship, and scale without barriers.
             </p>
           </blockquote>
         </div>
@@ -246,7 +253,7 @@ const GetStartedToday = () => {
         {/* Feature Badges */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-300 cursor-default"
             >

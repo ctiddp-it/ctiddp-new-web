@@ -2,12 +2,12 @@ import Image from 'next/image'
 import { FaLinkedinIn } from 'react-icons/fa6'
 
 /**
- * TeamCard — Leadership card with portrait, name, role, bio, LinkedIn icon
+ * TeamCard - Leadership card with portrait, name, role, bio, LinkedIn icon
  * @param {string} name
  * @param {string} role
  * @param {string} bio
- * @param {string} image — Image path
- * @param {string} linkedin — LinkedIn URL
+ * @param {string} image - Image path
+ * @param {string} linkedin - LinkedIn URL
  */
 export default function TeamCard({ name, role, bio, image, linkedin, className = '' }) {
   return (

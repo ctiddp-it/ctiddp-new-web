@@ -2,13 +2,13 @@ import Image from 'next/image'
 import Button from './Button'
 
 /**
- * CTABanner — Navy/gradient CTA section at bottom of pages
- * @param {string} badge — Optional badge text
- * @param {string|React.ReactNode} title — Main heading
- * @param {string} subtitle — Supporting text
- * @param {Array} buttons — Array of { label, href, variant, icon, external }
- * @param {string} bgImage — Optional background image
- * @param {React.ReactNode} children — Additional content
+ * CTABanner - Navy/gradient CTA section at bottom of pages
+ * @param {string} badge - Optional badge text
+ * @param {string|React.ReactNode} title - Main heading
+ * @param {string} subtitle - Supporting text
+ * @param {Array} buttons - Array of { label, href, variant, icon, external }
+ * @param {string} bgImage - Optional background image
+ * @param {React.ReactNode} children - Additional content
  * @param {'center'|'left'} align
  * @param {string} className
  */

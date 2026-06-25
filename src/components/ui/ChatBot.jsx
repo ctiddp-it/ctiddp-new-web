@@ -3,7 +3,7 @@
 import { FaWhatsapp } from 'react-icons/fa6'
 
 export default function ChatBot() {
-  const whatsappNumber = '918790013772'
+  const whatsappNumber = '918790018787'
   const whatsappMessage =
     "Hello, I'm reaching out from your website. Could you share details about your services and how you can help?"
 

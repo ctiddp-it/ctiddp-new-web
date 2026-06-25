@@ -67,7 +67,7 @@ const formatDate = (dateString) => {
 // ─── Trust badges shown below the hero left copy ───────────────────────────
 const TRUST_BADGES = [
   { icon: <FaShieldAlt />, title: 'Fast Response', sub: 'Under 2 Hours' },
-  { icon: <FaHeadset />, title: 'Expert Support', sub: '24/7 Assistance' },
+  { icon: <FaHeadset />, title: 'Expert Support', sub: 'Call Assistance' },
   { icon: <FaLock />, title: '100% Secure', sub: 'Your Data is Safe' },
 ]
 
@@ -188,7 +188,7 @@ export default function ContactClient() {
             <div className="flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-[#FE5101]" />
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-300">
-                © GET IN TOUCH
+              GET IN TOUCH
               </span>
             </div>
 

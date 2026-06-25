@@ -15,7 +15,7 @@ const REVIEWS = [
     location: "Mumbai, Maharashtra",
     rating: 5,
     date: "March 2026",
-    text: "CTIDDP made our first China import completely stress-free. From factory coordination in Foshan to delivery at our Mumbai warehouse, every step was handled professionally. The DDP pricing had zero hidden charges — exactly what was quoted.",
+    text: "CTIDDP made our first China import completely stress-free. From factory coordination in Foshan to delivery at our Mumbai warehouse, every step was handled professionally. The DDP pricing had zero hidden charges - exactly what was quoted.",
     tag: "Furniture Import",
   },
   {
@@ -24,7 +24,7 @@ const REVIEWS = [
     location: "Bengaluru, Karnataka",
     rating: 5,
     date: "January 2026",
-    text: "We sourced LED components from Guangzhou for the first time and were nervous about customs. CTIDDP handled the BE filing, BCD+IGST payment, and last-mile delivery seamlessly. Shipment arrived in 42 days — right on schedule.",
+    text: "We sourced LED components from Guangzhou for the first time and were nervous about customs. CTIDDP handled the BE filing, BCD+IGST payment, and last-mile delivery seamlessly. Shipment arrived in 42 days - right on schedule.",
     tag: "Electronics Import",
   },
   {
@@ -60,7 +60,7 @@ const REVIEWS = [
     location: "Kochi, Kerala",
     rating: 5,
     date: "March 2025",
-    text: "Single point of contact means I don't have to chase 5 different agencies. My relationship manager at CTIDDP handles everything end-to-end. Transparent tracking portal is excellent — I always know where my cargo is.",
+    text: "Single point of contact means I don't have to chase 5 different agencies. My relationship manager at CTIDDP handles everything end-to-end. Transparent tracking portal is excellent - I always know where my cargo is.",
     tag: "Industrial Import",
   },
 ];

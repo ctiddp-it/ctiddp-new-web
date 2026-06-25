@@ -118,7 +118,7 @@ const HeroSection = () => (
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.08] text-white">
             Last-Mile Delivery
             <br />
-            <span className="text-[#36A0F7]">The Final Leg of DDP Shipping</span>
+            <span className="text-[#36A0F7]">The Final Step to Your Door</span>
           </h1>
 
           <p className="mt-5 max-w-[95%] text-base sm:text-lg text-white/85 sm:max-w-xl">
@@ -504,7 +504,7 @@ const EcosystemSection = () => {
 
 /* ---------- Final CTA ---------- */
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Deliver Your Shipments with Precision
@@ -512,12 +512,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Complete your import journey with reliable last-mile execution. One partner. One flow. Door delivery guaranteed.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        Get DDP Quote
-      </a>
     </div>
   </section>
 );

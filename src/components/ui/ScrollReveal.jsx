@@ -3,10 +3,10 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * ScrollReveal — Lightweight intersection observer wrapper for fade-up animations
+ * ScrollReveal - Lightweight intersection observer wrapper for fade-up animations
  * @param {React.ReactNode} children
- * @param {number} delay — Delay in ms
- * @param {string} className — Additional classes
+ * @param {number} delay - Delay in ms
+ * @param {string} className - Additional classes
  */
 export default function ScrollReveal({ children, delay = 0, className = '' }) {
   const ref = useRef(null)

@@ -26,13 +26,66 @@ import CTABannerSection from '@/components/sections/ctabannersection';
 const ReviewsCarousel = dynamic(() => import('@/components/sections/ReviewsCarousel'))
 
 export const metadata = {
-  title: 'CTIDDP — China to India DDP Shipping Specialists | End-to-End Logistics',
+  title:
+    'CTIDDP | Global Freight Forwarding, DDP Shipping & Import Solutions',
   description:
-    'End-to-end China to India DDP shipping. Sea & air freight, customs clearance, QC inspection, warehousing, supplier payments, and last-mile PAN-India delivery. All duties pre-paid. Zero hidden charges.',
+    'Simplify global sourcing and shipping with CTIDDP. DDP shipping, customs clearance, supplier payments, QC inspection, warehousing, consolidation, and last-mile delivery under one contract.',
+  keywords: [
+    'global freight forwarding',
+    'DDP shipping services',
+    'China to India DDP shipping',
+    'international logistics company',
+    'door to door shipping',
+    'customs clearance services',
+    'supplier payments China',
+    'quality inspection services',
+    'warehouse consolidation China',
+    'multi vendor consolidation',
+    'global shipping company India',
+    'freight forwarder India',
+    'cargo shipping services',
+    'international import solutions',
+    'end to end logistics provider',
+    'cross border trade solutions',
+    'China sourcing company',
+    'import from China to India',
+    'sea freight services',
+    'air freight services',
+    'last mile delivery India',
+    'Canton Fair sourcing support',
+    'global trade partner',
+    'DDP logistics experts',
+    'business import solutions',
+  ],
   openGraph: {
-    title: 'CTIDDP — China to India DDP Shipping Specialists',
-    description: 'End-to-end DDP freight from China to India. All duties pre-paid. Zero surprises.',
+    type: 'website',
+    locale: 'en_IN',
     url: 'https://www.ctiddp.com/',
+    title:
+      'CTIDDP | Global Freight Forwarding & DDP Shipping Experts',
+    description:
+      'From supplier coordination to final delivery, CTIDDP handles sourcing, QC inspection, supplier payments, customs clearance, DDP shipping, and last-mile delivery worldwide.',
+    url: 'https://www.ctiddp.com/',
+    siteName: 'CTIDDP',
+    type: 'website',
+    images: [
+      {
+        url: 'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
+        width: 1200,
+        height: 630,
+        alt: 'CTIDDP Global Freight Forwarding & DDP Shipping',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CTIDDP | Global Freight Forwarding & DDP Shipping Experts',
+    description:
+      'One Contract. Zero Worry. Global sourcing, DDP shipping, customs clearance, supplier payments, warehousing, and delivery solutions.',
+    images: [
+      'https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png',
+    ],
   },
 }
 
@@ -135,7 +188,7 @@ export default function HomePage() {
                 </div>
                 <p className="text-sm font-semibold mb-3" style={{ color: '#FE5101' }}>Free On Board</p>
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                  Seller loads goods onto the vessel. After that — sea freight, insurance, customs, duties, last-mile — all your responsibility.
+                  Seller loads goods onto the vessel. After that - sea freight, insurance, customs, duties, last-mile - all your responsibility.
                 </p>
                 <div className="pt-4 border-t border-gray-100">
                   <p className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#003DA5' }}>Status:</p>
@@ -190,7 +243,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold" style={{ color: '#0B2A6B' }}>DDP</h3>
                 </div>
-                <p className="text-sm font-semibold mb-3" style={{ color: '#FE5101' }}>Delivered Duty Paid — WHAT WE DO</p>
+                <p className="text-sm font-semibold mb-3" style={{ color: '#FE5101' }}>Delivered Duty Paid - WHAT WE DO</p>
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
                   We handle everything: China export, sea freight, insurance, customs filing, BCD+IGST payment, and last-mile delivery. <strong>One invoice.</strong>
                 </p>
@@ -218,19 +271,20 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h4 className="text-xl md:text-2xl font-bold" style={{ color: '#0B2A6B' }}>
-                      DDP — Delivered Duty Paid
+                      DDP - Delivered Duty Paid
                     </h4>
                     <p className="text-gray-700 text-sm md:text-base max-w-2xl">
                       China export → Sea freight → Insurance → Customs filing → BCD+IGST payment → Last-mile delivery
                     </p>
                   </div>
                 </div>
-                <button
-                  className="flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white transition-all hover:opacity-90 hover:scale-105 transform whitespace-nowrap"
+                <Link
+                  href="/quote"
+                  className="flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white transition-all hover:opacity-90 hover:scale-105 transform whitespace-nowrap cursor-pointer"
                   style={{ backgroundColor: '#FE5101' }}
                 >
                   Get a DDP Quote <FaArrowRight />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -256,32 +310,32 @@ export default function HomePage() {
                   </tr>
                   <tr className="border-b border-gray-100">
                     <td className="p-4 font-medium">Sea freight & insurance</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
                     <td className="p-4 text-center"><FaCheckCircle className="inline" style={{ color: '#003DA5' }} /></td>
                     <td className="p-4 text-center"><FaCheckCircle className="inline" style={{ color: '#003DA5' }} /></td>
                   </tr>
                   <tr className="border-b border-gray-100">
                     <td className="p-4 font-medium">Import customs clearance</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
                     <td className="p-4 text-center"><FaCheckCircle className="inline" style={{ color: '#003DA5' }} /></td>
                   </tr>
                   <tr className="border-b border-gray-100">
                     <td className="p-4 font-medium">BCD + IGST payment</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
                     <td className="p-4 text-center"><FaCheckCircle className="inline" style={{ color: '#003DA5' }} /></td>
                   </tr>
                   <tr className="border-b border-gray-100">
                     <td className="p-4 font-medium">Port formalities</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
                     <td className="p-4 text-center"><FaCheckCircle className="inline" style={{ color: '#003DA5' }} /></td>
                   </tr>
                   <tr>
                     <td className="p-4 font-medium">Last-mile delivery</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
-                    <td className="p-4 text-center text-gray-400">—</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
+                    <td className="p-4 text-center text-gray-400">-</td>
                     <td className="p-4 text-center"><FaCheckCircle className="inline" style={{ color: '#003DA5' }} /></td>
                   </tr>
                 </tbody>
@@ -291,13 +345,16 @@ export default function HomePage() {
 
           {/* Bottom Quote CTA */}
           <div className="text-center">
-            <button
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-white transition-all hover:opacity-90 hover:shadow-xl"
-              style={{ backgroundColor: '#003DA5' }}
-            >
-              <FaFileInvoiceDollar className="text-xl" />
-              Request Your DDP Shipping Quote Today
-            </button>
+            <Link href="/quote">
+              <button
+                className="inline-flex items-center cursor-pointer gap-3 px-8 py-4 rounded-xl font-bold text-white transition-all hover:opacity-90 hover:shadow-xl"
+                style={{ backgroundColor: '#003DA5' }}
+              >
+                <FaFileInvoiceDollar className="text-xl" />
+                Request Your DDP Shipping Quote Today
+              </button>
+            </Link>
+
             <p className="text-sm text-gray-600 mt-4">
               One invoice. No hidden fees. No customs surprises. Door-to-door peace of mind.
             </p>
@@ -320,7 +377,7 @@ export default function HomePage() {
               <span style={{ color: '#FE5101' }}>8 Ways</span> We Power Your Global Supply Chain
             </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-              End-to-end logistics solutions tailored for Indian importers
+              End-to-end logistics solutions tailored for your Business
             </p>
           </div>
 
@@ -423,18 +480,20 @@ export default function HomePage() {
                   </p>
                 </div>
                 <div className="flex gap-4">
-                  <button
-                    className="px-6 py-3 rounded-lg font-semibold text-white transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap"
+                  <Link
+                    href="/quote"
+                    className="px-6 py-3 rounded-lg font-semibold text-white transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap cursor-pointer"
                     style={{ backgroundColor: '#FE5101' }}
                   >
                     Get a Free Quote
-                  </button>
-                  <button
-                    className="px-6 py-3 rounded-lg font-semibold text-white transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap"
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="px-6 py-3 rounded-lg font-semibold text-white transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap cursor-pointer"
                     style={{ backgroundColor: '#003DA5' }}
                   >
                     Talk to an Expert
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -448,7 +507,7 @@ export default function HomePage() {
             </div>
             <div className="flex items-center gap-2">
               <FaChartLine style={{ color: '#003DA5' }} />
-              <span className="text-sm text-gray-600">End-to-End Tracking</span>
+              <span className="text-sm text-gray-600">End-to-End Updates</span>
             </div>
             <div className="flex items-center gap-2">
               <FaCamera style={{ color: '#003DA5' }} />

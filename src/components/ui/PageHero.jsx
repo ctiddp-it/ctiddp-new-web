@@ -2,18 +2,18 @@ import Image from 'next/image'
 import SectionBadge from '@/components/ui/SectionBadge'
 
 /**
- * PageHero — Full-width hero with background image, navy overlay, left-aligned content
+ * PageHero - Full-width hero with background image, navy overlay, left-aligned content
  *
- * @param {string} badge — Section badge text (e.g., "OUR PROCESS")
- * @param {string} title — Main heading (can include HTML via dangerouslySetInnerHTML)
- * @param {React.ReactNode} titleNode — Alternative: pass title as JSX node
- * @param {string} subtitle — Supporting paragraph
- * @param {React.ReactNode} children — CTA buttons, trust pills, etc.
- * @param {string} bgImage — Background image path
- * @param {React.ReactNode} rightContent — Optional right-side content (form, stats, etc.)
- * @param {React.ReactNode} bottomContent — Optional content at bottom (stat bar, feature pills)
- * @param {'left'|'center'} align — Content alignment
- * @param {string} className — Additional classes
+ * @param {string} badge - Section badge text (e.g., "OUR PROCESS")
+ * @param {string} title - Main heading (can include HTML via dangerouslySetInnerHTML)
+ * @param {React.ReactNode} titleNode - Alternative: pass title as JSX node
+ * @param {string} subtitle - Supporting paragraph
+ * @param {React.ReactNode} children - CTA buttons, trust pills, etc.
+ * @param {string} bgImage - Background image path
+ * @param {React.ReactNode} rightContent - Optional right-side content (form, stats, etc.)
+ * @param {React.ReactNode} bottomContent - Optional content at bottom (stat bar, feature pills)
+ * @param {'left'|'center'} align - Content alignment
+ * @param {string} className - Additional classes
  */
 export default function PageHero({
   badge,

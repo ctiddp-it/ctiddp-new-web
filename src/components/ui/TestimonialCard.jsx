@@ -1,12 +1,12 @@
 import { FaStar } from 'react-icons/fa6'
 
 /**
- * TestimonialCard — Google-style review card
+ * TestimonialCard - Google-style review card
  * @param {string} name
- * @param {string} avatar — Avatar URL or initials
- * @param {number} rating — Star count (1-5)
- * @param {string} text — Review text
- * @param {string} timeAgo — e.g., "2 months ago"
+ * @param {string} avatar - Avatar URL or initials
+ * @param {number} rating - Star count (1-5)
+ * @param {string} text - Review text
+ * @param {string} timeAgo - e.g., "2 months ago"
  */
 export default function TestimonialCard({ name, avatar, rating = 5, text, timeAgo, className = '' }) {
   return (

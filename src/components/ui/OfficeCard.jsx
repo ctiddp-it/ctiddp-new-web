@@ -1,15 +1,15 @@
 import { HiOutlinePhone, HiOutlineClock, HiOutlineEnvelope } from 'react-icons/hi2'
 
 /**
- * OfficeCard — Office location card with flag dot, contact info
- * @param {string} city — City name
- * @param {string} officeName — Full office name
- * @param {string} address — Address text
- * @param {string} phone — Phone number
- * @param {string} email — Email address
- * @param {string} hours — Business hours
- * @param {'india'|'china'} country — Country (for dot color)
- * @param {boolean} featured — Highlighted card
+ * OfficeCard - Office location card with flag dot, contact info
+ * @param {string} city - City name
+ * @param {string} officeName - Full office name
+ * @param {string} address - Address text
+ * @param {string} phone - Phone number
+ * @param {string} email - Email address
+ * @param {string} hours - Business hours
+ * @param {'india'|'china'} country - Country (for dot color)
+ * @param {boolean} featured - Highlighted card
  * @param {string} className
  */
 export default function OfficeCard({

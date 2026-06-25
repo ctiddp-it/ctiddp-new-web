@@ -8,37 +8,50 @@ import ContactClient from './ContactClient'
 import ContactLogisticsExperts from "@/components/sections/contact/Contactlogisticsexperts"
 
 export const metadata = {
-  title: 'Contact CTIDDP | Global Shipping Experts',
+  title:
+    'Contact CTIDDP | Get a DDP Shipping Quote & Logistics Support',
+
   description:
-    'Contact CTIDDP for global shipping and China to India DDP logistics support and fast quote assistance.',
+    'Contact CTIDDP for DDP shipping, customs clearance, supplier sourcing, QC inspections, warehousing, consolidation, and trade support. Get a quote within 2 hours.',
+
   keywords: [
-    'contact logistics company India',
-    'freight forwarder contact India',
+    'contact CTIDDP',
+    'DDP shipping quote',
+    'China to India shipping contact',
+    'freight forwarding contact',
+    'logistics support India',
+    'customs clearance assistance',
+    'import export consultation',
+    'supplier sourcing support',
+    'international shipping quote',
     'shipping company contact India',
-    'China to India logistics contact',
-    'DDP shipping contact India',
-    'global shipping company contact',
-    'logistics support India contact',
-    'import export company contact India',
-    'freight services enquiry India',
-    'international shipping contact India',
-    'cargo shipping contact India',
-    'logistics company phone India',
-    'China import support contact',
-    'shipping consultation India',
-    'logistics help India',
+    'trade support services',
+    'cargo shipping enquiry',
+    'global logistics contact',
+    'warehouse and consolidation support',
+    'China sourcing consultation'
   ],
+
   openGraph: {
-    title: 'Contact CTIDDP | Global Shipping Experts',
+    title:
+      'Contact CTIDDP | Logistics Experts Ready to Help',
     description:
-      'Contact CTIDDP for global shipping and China to India DDP logistics support and fast quote assistance.',
+      'Speak with our logistics experts. Get support for DDP shipping, sourcing, customs clearance, inspections, and international trade.',
     url: 'https://www.ctiddp.com/contact/',
     siteName: 'CTIDDP',
-    type: 'website',
+    type: 'website',    
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'Contact CTIDDP',
+    description:
+      'Get a shipping quote, sourcing support, or logistics consultation.',   
   },
   alternates: {
-    canonical: 'https://www.ctiddp.com/contact',
-  },
+    canonical: 'https://www.ctiddp.com/contact/'
+  }
 };
 
 const CONTACT_CHANNELS = [
@@ -53,7 +66,7 @@ const CONTACT_CHANNELS = [
     icon: <FaPhoneAlt />,
     title: 'India Office',
     lines: [
-      { type: 'phone', label: '+91 87900 13772 (Main)', href: 'tel:+918790013772' },
+      { type: 'phone', label: '+91 87900 18787 (Main)', href: 'tel:+918790018787' },
       { type: 'text', label: 'Vizag HQ · Chennai Ops' },
       { type: 'text', label: 'Mon–Fri · 9am–6pm IST' },
       { type: 'text', label: 'Saturday · 9am–1:30pm IST' },
@@ -112,7 +125,7 @@ const FAQ_CATEGORIES = [
   },
 ]
 
-// Pure, server-renderable accordion using native <details>/<summary> —
+// Pure, server-renderable accordion using native <details>/<summary> -
 // no client JS needed for open/close state.
 function FAQCategory({ category, defaultOpen = false }) {
   return (
@@ -156,35 +169,177 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@graph': [
+            "@context": "https://schema.org",
+
+            "@graph": [
+
               {
-                '@type': 'ContactPage',
-                '@id': 'https://www.ctiddp.com/contact/#contactpage',
-                name: 'Contact CTIDDP',
-                url: 'https://www.ctiddp.com/contact/',
-                description: 'Contact the CTIDDP team in India or China for DDP shipping enquiries.',
+                "@type": "ContactPage",
+
+                "@id":
+                  "https://www.ctiddp.com/contact/#contactpage",
+
+                "url":
+                  "https://www.ctiddp.com/contact/",
+
+                "name":
+                  "Contact CTIDDP",
+
+                "description":
+                  "Contact CTIDDP for DDP shipping, customs clearance, sourcing support, inspections, warehousing, and logistics services."
               },
+
               {
-                '@type': 'FAQPage',
-                '@id': 'https://www.ctiddp.com/contact/#faq',
-                mainEntity: FAQ_CATEGORIES.flatMap(c =>
-                  c.items.map(item => ({
-                    '@type': 'Question',
-                    name: item.q,
-                    acceptedAnswer: { '@type': 'Answer', text: item.a },
-                  }))
-                ),
+                "@type": "Organization",
+
+                "@id":
+                  "https://www.ctiddp.com/#organization",
+
+                "name":
+                  "CTIDDP",
+
+                "url":
+                  "https://www.ctiddp.com",
+
+                "logo":
+                  "https://www.ctiddp.com/images/CTIDDP-LOGO%20Social%20Media.png",
+
+                "email":
+                  "info@ctiddp.com",
+
+                "telephone":
+                  "+91-8790018787",
+
+                "contactPoint": [
+                  {
+                    "@type": "ContactPoint",
+                    "telephone": "+91-8790018787",
+                    "contactType": "customer service",
+                    "areaServed": "IN",
+                    "availableLanguage": [
+                      "English",
+                      "Hindi",
+                      "Telugu"
+                    ]
+                  }
+                ]
               },
+
               {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.ctiddp.com/' },
-                  { '@type': 'ListItem', position: 2, name: 'Contact', item: 'https://www.ctiddp.com/contact/' },
-                ],
+                "@type": "LocalBusiness",
+
+                "@id":
+                  "https://www.ctiddp.com/contact/#india-office",
+
+                "name":
+                  "CTIDDP India Office",
+
+                "telephone":
+                  "+91-8790018787",
+
+                "email":
+                  "info@ctiddp.com",
+
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Visakhapatnam",
+                  "addressRegion": "Andhra Pradesh",
+                  "addressCountry": "IN"
+                },
+
+                "openingHoursSpecification": [
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday"
+                    ],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                  },
+                  {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Saturday",
+                    "opens": "10:00",
+                    "closes": "13:00"
+                  }
+                ]
               },
-            ],
-          }),
+
+              {
+                "@type": "FAQPage",
+
+                "@id":
+                  "https://www.ctiddp.com/contact/#faq",
+
+                "mainEntity": [
+
+                  {
+                    "@type": "Question",
+                    "name":
+                      "How quickly can I receive a shipping quote?",
+
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text":
+                        "Most DDP shipping quotations are provided within 2 business hours after receiving complete shipment details."
+                    }
+                  },
+
+                  {
+                    "@type": "Question",
+                    "name":
+                      "Can CTIDDP assist with supplier sourcing?",
+
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text":
+                        "Yes. CTIDDP supports supplier discovery, verification, factory visits, inspections, and procurement assistance."
+                    }
+                  },
+
+                  {
+                    "@type": "Question",
+                    "name":
+                      "Do I need an IEC to import using DDP shipping?",
+
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text":
+                        "Requirements depend on shipment type and import structure. Contact our team for guidance."
+                    }
+                  }
+                ]
+              },
+
+              {
+                "@type": "BreadcrumbList",
+
+                "@id":
+                  "https://www.ctiddp.com/contact/#breadcrumb",
+
+                "itemListElement": [
+
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://www.ctiddp.com/"
+                  },
+
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Contact",
+                    "item": "https://www.ctiddp.com/contact/"
+                  }
+                ]
+              }
+            ]
+          })
         }}
       />
 
@@ -197,28 +352,28 @@ export default function ContactPage() {
       {/* ══════════ FAQ ══════════ */}
       <section className="section-padding bg-gray-50">
         <div className="max-w-[1000px] mx-auto px-5">
-           <div className="flex flex-col items-center mb-10">
-          {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-3">
-            <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
-            <span className="text-[#FE5101] font-semibold text-[12px] tracking-[0.18em] uppercase">
-              Frequently asked questions
-            </span>
-            <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
-          </div>
+          <div className="flex flex-col items-center mb-10">
+            {/* Eyebrow */}
+            <div className="flex items-center gap-2 mb-3">
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+              <span className="text-[#FE5101] font-semibold text-[12px] tracking-[0.18em] uppercase">
+                Frequently asked questions
+              </span>
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+            </div>
 
-          {/* Headline */}
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-center mb-4">
-            <span style={{ color: '#0B2A6B' }}>Everything You Wanted </span>
-            <span style={{ color: '#FE5101' }}>Ask</span>
-          </h2>
+            {/* Headline */}
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-center mb-4">
+              <span style={{ color: '#0B2A6B' }}>Everything You Wanted </span>
+              <span style={{ color: '#FE5101' }}>Ask</span>
+            </h2>
 
-          {/* Underline accent — two-tone bar */}
-          <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
-            <div className="flex-1" style={{ background: '#0B2A6B' }} />
-            <div className="flex-1" style={{ background: '#FE5101' }} />
+            {/* Underline accent - two-tone bar */}
+            <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
+              <div className="flex-1" style={{ background: '#0B2A6B' }} />
+              <div className="flex-1" style={{ background: '#FE5101' }} />
+            </div>
           </div>
-        </div>
 
           <div className="space-y-3">
             {FAQ_CATEGORIES.map((category) => (
@@ -231,7 +386,7 @@ export default function ContactPage() {
             <p className="text-[14px] text-gray-500 mb-5 max-w-[400px] mx-auto">
               Our team responds in under 2 hours on WhatsApp. We&apos;re here to help!
             </p>
-            <Button href="https://wa.me/918790013772" variant="whatsapp" external icon={<FaWhatsapp size={18} />}>
+            <Button href="https://wa.me/918790018787" variant="whatsapp" external icon={<FaWhatsapp size={18} />}>
               WHATSAPP US NOW
             </Button>
           </div>

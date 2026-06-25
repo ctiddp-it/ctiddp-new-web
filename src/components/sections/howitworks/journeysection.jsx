@@ -25,7 +25,7 @@ const DDP_STEPS = [
         num: '02',
         label: 'STEP 02',
         title: 'QC Inspection',
-        desc: 'On-site quality checks at supplier facilities (optional).',
+        desc: 'On-site quality checks at supplier facilities.',
         Icon: TbClipboardCheck,
     },
     {
@@ -46,21 +46,21 @@ const DDP_STEPS = [
         num: '05',
         label: 'STEP 05',
         title: 'Sea/Air Freight',
-        desc: 'Ocean or air transport with real-time tracking.',
+        desc: 'Ocean or air transport with real-time updates.',
         Icon: TbShip,
     },
     {
         num: '06',
         label: 'STEP 06',
         title: 'Import Customs',
-        desc: 'India import clearance with all duties pre-paid.',
+        desc: 'Import clearance with all duties pre-paid.',
         Icon: TbFileCertificate,
     },
     {
         num: '07',
         label: 'STEP 07',
         title: 'Last Mile\nDelivery',
-        desc: 'Door delivery anywhere in India with POD.',
+        desc: 'Door-to-Door delivery with POD.',
         Icon: TbTruckDelivery,
     },
 ]
@@ -84,7 +84,7 @@ function StepCard({ step, index, total }) {
                     boxShadow: '0 2px 20px rgba(11,42,107,0.07)',
                 }}
             >
-                {/* Orange number badge — sits above the card top edge */}
+                {/* Orange number badge - sits above the card top edge */}
                 <div
                     className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full flex items-center justify-center text-white font-extrabold text-[12px] z-10"
                     style={{ background: '#FE5101', boxShadow: '0 2px 8px rgba(254,81,1,0.35)' }}
@@ -122,7 +122,7 @@ function StepCard({ step, index, total }) {
                 </p>
             </div>
 
-            {/* Dashed arrow connector — between cards, hidden after last */}
+            {/* Dashed arrow connector - between cards, hidden after last */}
             {!isLast && (
                 <div className="flex items-center justify-center shrink-0 px-1" style={{ marginTop: '72px' }}>
                     {/* Dashed line + arrowhead */}
@@ -188,12 +188,12 @@ export default function HowItWorksSection() {
                     </div>
 
                     <p className="text-slate-500 text-[15px] text-center max-w-xl leading-relaxed">
-                        Your shipment goes through 7 managed stages — each handled by our team
+                        Your shipment goes through 7 managed stages - each handled by our team
                         with full visibility and control.
                     </p>
                 </div>
 
-                {/* ── Step Timeline — desktop horizontal, mobile vertical ── */}
+                {/* ── Step Timeline - desktop horizontal, mobile vertical ── */}
 
                 {/* DESKTOP: single row with connector arrows */}
                 <div className="hidden lg:flex items-start gap-0 mb-14 pt-6">
@@ -342,7 +342,7 @@ export default function HowItWorksSection() {
                         </div>
                     </div>
 
-                    {/* Right: hero image — ship + plane + truck composite
+                    {/* Right: hero image - ship + plane + truck composite
                         Place your image at: /images/how-it-works/transit-visual.png
                     */}
                     {/* Right illustration */}

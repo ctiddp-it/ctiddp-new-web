@@ -23,6 +23,15 @@ import {
 import { BsArrowRight } from 'react-icons/bs';
 import { HiSparkles } from 'react-icons/hi2';
 
+export const metadata = {
+  title: "QC and Pre-Shipment Inspection in China | CTIDDP",
+  description:
+    "On-ground quality control and pre-shipment inspection in China with photo/video reports, defect classification, and packaging checks.",
+  alternates: {
+    canonical: "https://www.ctiddp.com/services/qc-inspection",
+  },
+}
+
 /* ─────────────────────────────────────────────
    SHARED: SectionHeader
 ───────────────────────────────────────────── */
@@ -93,7 +102,7 @@ const HeroSection = () => (
 
           {/* Description */}
           <p className="mt-5 max-w-[95%] text-base sm:text-lg text-white/85 sm:max-w-xl">
-            Ensure every shipment meets your specifications before it leaves the factory — with structured QC checks and report-based decisions.
+            Ensure every shipment meets your specifications before it leaves the factory - with structured QC checks and report-based decisions.
           </p>
 
           {/* CTA */}
@@ -125,7 +134,7 @@ const HeroSection = () => (
 );
 
 /* ─────────────────────────────────────────────
-   WHAT IS PSI  (white bg — two-col layout)
+   WHAT IS PSI  (white bg - two-col layout)
 ───────────────────────────────────────────── */
 const validateItems = [
   'Product quality against specs',
@@ -165,7 +174,7 @@ const WhatIsPSI = () => (
         </div>
       </div>
 
-      {/* Right — highlight card */}
+      {/* Right - highlight card */}
       <div className="bg-[#0B2A6B]/5 border border-[#0B2A6B]/15 rounded-xl p-10 flex flex-col items-center text-center">
         <div
           className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
@@ -235,7 +244,7 @@ const QCCoverage = () => (
     <div className="max-w-7xl mx-auto">
       <SectionHeader
         eyebrow="COMPREHENSIVE CHECKS"
-        title="CTIDDP QC Coverage —"
+        title="CTIDDP QC Coverage -"
         highlight="What We Inspect"
         description="Every aspect of your shipment is verified against your specifications."
       />
@@ -440,7 +449,7 @@ const DDPIntegration = () => (
           Integration with DDP Shipping
         </h2>
         <div className="bg-slate-50 rounded-xl border border-slate-200 p-8">
-          <p className="text-gray-700 font-semibold mb-5 text-center">Quality to Delivery — One Flow</p>
+          <p className="text-gray-700 font-semibold mb-5 text-center">Quality to Delivery - One Flow</p>
           <div className="flex flex-wrap items-center justify-center gap-2 mb-7">
             {ddpFlow.map((stage, i) => (
               <Fragment key={stage}>
@@ -631,7 +640,7 @@ const WhyAndTypes = () => (
    FINAL CTA  (navy bg)
 ───────────────────────────────────────────── */
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Book Your QC & Pre-Shipment Inspection
@@ -639,12 +648,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Validate your goods before they move to shipping. Get photo/video evidence, defect reports, and clear pass/rework recommendations.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        SCHEDULE INSPECTION NOW
-      </a>
     </div>
   </section>
 );

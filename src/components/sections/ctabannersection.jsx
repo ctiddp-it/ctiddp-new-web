@@ -59,7 +59,7 @@ export default function CTABannerSection() {
             {/* Content */}
             <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-                {/* Left — Video */}
+                {/* Left - Video */}
                 <div className="relative w-full lg:w-[520px] flex-shrink-0">
 
                     <div
@@ -69,7 +69,7 @@ export default function CTABannerSection() {
                         <iframe
                             className="absolute inset-0 w-full h-full"
                             src="https://www.youtube.com/embed/tF9U_erUUb4?si=SdzKLF7bNWPPBWgh"
-                            title="CTIDDP — How It Works"
+                            title="CTIDDP - How It Works"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerPolicy="strict-origin-when-cross-origin"
@@ -78,7 +78,7 @@ export default function CTABannerSection() {
                     </div>
                 </div>
 
-                {/* Right — Content */}
+                {/* Right - Content */}
                 <div className="flex-1 min-w-0">
 
                     <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-5">
@@ -116,7 +116,7 @@ export default function CTABannerSection() {
                         </a>
 
                         <a
-                            href="https://wa.me/918790013772"
+                            href="https://wa.me/918790018787"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition-all hover:translate-y-[-2px]"

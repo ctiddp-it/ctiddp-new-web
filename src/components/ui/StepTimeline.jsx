@@ -1,6 +1,6 @@
 /**
- * StepTimeline — Horizontal numbered steps with icons and connecting lines
- * @param {Array} steps — Array of { number, icon, title, description }
+ * StepTimeline - Horizontal numbered steps with icons and connecting lines
+ * @param {Array} steps - Array of { number, icon, title, description }
  * @param {string} className
  */
 export default function StepTimeline({ steps = [], className = '' }) {

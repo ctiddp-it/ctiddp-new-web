@@ -18,7 +18,7 @@ const INDIA_OFFICES = [
         tagType: 'head',
         Icon: TbStar,
         address: ' 2nd Floor, PVR Building, Lawsons Bay Colony, Pedda Waltair, Visakhapatnam, Andhra Pradesh 530017',
-        phone: '+91 87900 13772',
+        phone: '+91 87900 18787',
         email: 'info@ctiddp.com',
         hours: 'Mon – Sat: 9:00 AM – 7:00 PM IST',
     },
@@ -38,7 +38,7 @@ const INDIA_OFFICES = [
         city: 'Chennai',
         tag: 'India Warehouse',
         tagType: 'warehouse',
-        Icon: TbBuilding,
+        Icon: TbBuildingWarehouse,
         address: null,
         phone: '+91 97019 07318',
         email: null,
@@ -49,7 +49,7 @@ const INDIA_OFFICES = [
         city: 'Kolkata',
         tag: 'India Warehouse',
         tagType: 'warehouse',
-        Icon: TbBuilding,
+        Icon: TbBuildingWarehouse,
         address: null,
         phone: '+91 97019 07318',
         email: null,
@@ -63,7 +63,7 @@ const CHINA_OFFICES = [
         city: 'Foshan',
         tag: 'China Office',
         tagType: 'branch',
-        Icon: TbBuildingWarehouse,
+        Icon: TbBuilding,
         address: 'Room 102, No. 9, Zhenhua Road, Lecong, Shunde District, Foshan City, Guangdong Province',
         phone: '+86 181 1814 9844',
         email: null,
@@ -73,7 +73,7 @@ const CHINA_OFFICES = [
         city: 'Guangzhou',
         tag: 'China Warehouse',
         tagType: 'warehouse',
-        Icon: TbBuilding,
+        Icon: TbBuildingWarehouse,
         phone: '+86 181 1814 9844',
         email: 'info@ctiddp.com',
         hours: 'Mon – Sat: 9:00 AM – 6:00 PM CST',
@@ -294,7 +294,7 @@ export default function GlobalPresenceSection() {
                         style={{ color: '#0B2A6B' }}
                     >
                         Two Countries.{' '}
-                        <span style={{ color: '#FE5101' }}>Five Locations.</span>
+                        <span style={{ color: '#FE5101' }}>Six Locations.</span>
                     </h2>
 
                     {/* Two-tone underline */}
@@ -308,7 +308,7 @@ export default function GlobalPresenceSection() {
 
                     <p className="text-slate-400 text-[14px] sm:text-[15px] text-center max-w-2xl px-4 leading-relaxed">
                         With offices across India and China, we&apos;re on-the-ground at every critical
-                        point of your supply chain — from factory floor to your doorstep.
+                        point of your supply chain - from factory floor to your doorstep.
                     </p>
 
                     {/* Stat pills */}
@@ -321,7 +321,7 @@ export default function GlobalPresenceSection() {
                 </div>
 
                 {/* ══════════════════════════════════════════
-                    INDIA — 3 cards
+                    INDIA - 3 cards
                 ══════════════════════════════════════════ */}
                 <CountryHeader
                     flag="🇮🇳"
@@ -337,7 +337,7 @@ export default function GlobalPresenceSection() {
                 </div>
 
                 {/* ══════════════════════════════════════════
-                    CHINA — 2 cards
+                    CHINA - 2 cards
                 ══════════════════════════════════════════ */}
                 <CountryHeader
                     flag="🇨🇳"

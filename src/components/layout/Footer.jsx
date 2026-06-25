@@ -50,18 +50,18 @@ const SOCIAL = [
 ]
 
 const HOURS = [
-  { day: 'Mon – Fri',  time: '9:00 AM – 7:00 PM IST' },
-  { day: 'Saturday',   time: '10:00 AM – 1:00 PM IST' },
+  { day: 'Mon – Fri',  time: '9:00 AM – 6:00 PM IST' },
+  { day: 'Saturday',   time: '9:00 AM – 1:30 PM IST' },
   { day: 'Sunday',     time: 'Closed' },
 ]
 
 const LEGAL = [
   { label: 'Privacy Policy',   href: '/privacy' },
   { label: 'Terms of Service', href: '/terms' },
-  { label: 'Shipping Policy',  href: '/cookie-policy' },
+  { label: 'Cookie Policy',  href: '/cookie-policy' },
 ]
 
-const WA_NUMBER  = '918790013772'
+const WA_NUMBER  = '918790018787'
 const WA_MESSAGE = "Hello, I'm reaching out from your website. Could you share details about your services and how you can help?"
 
 // ─── Mobile accordion ─────────────────────────────────────────────────────────
@@ -151,7 +151,7 @@ export default function Footer() {
       <div style={{ background: '#FE5101' }} className="w-full">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white font-semibold text-[14px] text-center sm:text-left">
-            Get a complete DDP quote in under 2 hours — no hidden costs, no surprises.
+            Get a complete DDP quote in under 2 hours - no hidden costs, no surprises.
           </p>
           <div className="flex gap-3 shrink-0">
             <Link
@@ -179,7 +179,7 @@ export default function Footer() {
         {/* DESKTOP grid */}
         <div className="hidden lg:grid grid-cols-[1.4fr_0.85fr_1fr_1.45fr] gap-8 xl:gap-14">
 
-          {/* Col 1 — Brand */}
+          {/* Col 1 - Brand */}
           <div className="flex flex-col gap-5">
             <Link href="/" className="flex items-center shrink-0">
               <Image
@@ -192,7 +192,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[13px] text-gray-400 leading-relaxed max-w-[255px] -mt-8.5">
-              Your trusted partner for China to India DDP shipping. We handle everything
+              Your trusted partner for Global DDP shipping. We handle everything
               from pickup to delivery at your door.
             </p>
             {/* Socials */}
@@ -215,19 +215,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 2 — Quick Links */}
+          {/* Col 2 - Quick Links */}
           <div>
             <ColHeading>Quick Links</ColHeading>
             <NavList items={QUICK_LINKS} />
           </div>
 
-          {/* Col 3 — Services */}
+          {/* Col 3 - Services */}
           <div>
             <ColHeading>Our Services</ColHeading>
             <NavList items={SERVICES} labelKey="title" />
           </div>
 
-          {/* Col 4 — Contact */}
+          {/* Col 4 - Contact */}
           <div>
             <ColHeading>Contact Us</ColHeading>
             <div className="space-y-4">
@@ -238,8 +238,8 @@ export default function Footer() {
                   <p className="text-[13px] font-semibold text-white">India Office</p>
                 </div>
                 <p className="text-[12px] text-gray-400">Visakhapatnam, AP, India</p>
-                <a href="tel:+918790013772" className="text-[12px] text-gray-400 hover:text-white transition-colors block no-underline">
-                  +91 87900 13772
+                <a href="tel:+918790018787" className="text-[12px] text-gray-400 hover:text-white transition-colors block no-underline">
+                  +91 87900 18787
                 </a>
               </ContactRow>
 
@@ -301,7 +301,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-[13px] text-gray-400 leading-relaxed max-w-[290px] mx-auto -mt-2.5">
-              Your trusted partner for China to India DDP shipping solutions.
+              Your trusted partner for Global DDP shipping solutions.
             </p>
             <div className="flex items-center justify-center gap-2.5 mt-4">
               {SOCIAL.map((s) => (
@@ -333,7 +333,7 @@ export default function Footer() {
               <ContactRow icon={<HiOutlineMapPin size={14} />}>
                 <p className="text-[13px] font-semibold text-white">India Office</p>
                 <p className="text-[12px] text-gray-400">Visakhapatnam, AP</p>
-                <a href="tel:+918790013772" className="text-[12px] text-gray-400 hover:text-white no-underline">+91 87900 13772</a>
+                <a href="tel:+918790018787" className="text-[12px] text-gray-400 hover:text-white no-underline">+91 87900 18787</a>
               </ContactRow>
               <ContactRow icon={<HiOutlineMapPin size={14} />}>
                 <p className="text-[13px] font-semibold text-white">China Office</p>
@@ -372,7 +372,7 @@ export default function Footer() {
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
           <p className="text-[12px] text-gray-600 text-center sm:text-left">
-            © {new Date().getFullYear()} CTIDDP Logistics Private Limited. All rights reserved.
+            © {new Date().getFullYear()} CTIDDP Private Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center">
             {LEGAL.map((l, i) => (

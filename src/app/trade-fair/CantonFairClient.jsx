@@ -81,17 +81,17 @@ export default function CantonFairClient() {
 
           {/* Headline */}
           <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-center mb-4">
-            <span style={{ color: '#0B2A6B' }}>Book Canton Fair&nbsp;</span>
+            <span style={{ color: '#0B2A6B' }}>Book Trade Fair&nbsp;</span>
             <span style={{ color: '#FE5101' }}>Support</span>
           </h2>
 
-          {/* Underline accent — two-tone bar */}
+          {/* Underline accent - two-tone bar */}
           <div className="flex h-[3.5px] rounded-full overflow-hidden" style={{ width: '72px' }}>
             <div className="flex-1" style={{ background: '#0B2A6B' }} />
             <div className="flex-1" style={{ background: '#FE5101' }} />
           </div>
 
-          <p className='py-2'>Submit your details and our Guangzhou team will confirm your dedicated support slot.</p>
+          <p className='py-2 text-center'>Submit your details and our expert team will confirm your dedicated support slot.</p>
         </div>
 
         <div className="card p-6 sm:p-10">
@@ -153,8 +153,8 @@ export default function CantonFairClient() {
                 <label className={LABEL_CLASS}>Will You Attend?</label>
                 <select {...register('attendSolo')} className={INPUT_CLASS}>
                   <option value="">Select an option</option>
-                  <option value="attend-with-team">Yes — I&apos;ll attend with your team</option>
-                  <option value="team-solo">No — Your team represents me solo</option>
+                  <option value="attend-with-team">Yes - I&apos;ll attend with your team</option>
+                  <option value="team-solo">No - Your team represents me solo</option>
                 </select>
                 {errors?.attendSolo && <p className="mt-1 text-[11px] text-red-500">{errors.attendSolo.message}</p>}
               </div>

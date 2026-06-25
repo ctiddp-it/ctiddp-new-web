@@ -1,4 +1,3 @@
-// pages/services/warehousing.js
 import { Fragment } from 'react';
 import {
   FaCheckCircle,
@@ -21,6 +20,15 @@ import {
 import { BsArrowRight } from 'react-icons/bs';
 import { HiSparkles } from 'react-icons/hi2';
 import { MdTrendingDown, MdTrendingUp } from 'react-icons/md';
+
+export const metadata = {
+  title: "Warehousing and Consolidation in China | CTIDDP",
+  description:
+    "Reduce shipping costs with warehousing and consolidation in China. CTIDDP receives, verifies, repacks, and ships cargo to India under DDP.",
+  alternates: {
+    canonical: "https://www.ctiddp.com/services/warehousing",
+  },
+}
 
 /* ─────────────────────────────────────────────
    SHARED: SectionHeader
@@ -163,7 +171,7 @@ const WhatIsSection = () => (
         </div>
       </div>
 
-      {/* Right — highlight card */}
+      {/* Right - highlight card */}
       <div className="bg-[#0B2A6B]/5 border border-[#0B2A6B]/15 rounded-xl p-10 flex flex-col items-center text-center">
         <div
           className="w-20 h-20 rounded-full flex items-center justify-center mb-6"
@@ -568,7 +576,7 @@ const WhyCTIDDP = () => (
    FINAL CTA  (navy bg)
 ───────────────────────────────────────────── */
 const FinalCTA = () => (
-  <section className="py-16 md:py-24 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
+  <section className="py-16 md:py-20 bg-[#0B2A6B] px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
     <div className="max-w-4xl mx-auto text-center">
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
         Consolidate Your Shipments. Reduce Your Costs.
@@ -576,12 +584,6 @@ const FinalCTA = () => (
       <p className="text-white/80 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
         Bring all your supplier shipments into one streamlined flow. One warehouse. One shipment. One DDP contract.
       </p>
-      <a
-        href="https://www.ctiddp.com/quote"
-        className="inline-flex items-center justify-center px-10 py-4 text-base font-semibold uppercase tracking-wider text-white bg-[#FE5101] rounded-md shadow-lg shadow-[#FE5101]/30 hover:shadow-[#FE5101]/50 transition-all duration-300"
-      >
-        GET DDP QUOTE
-      </a>
     </div>
   </section>
 );
