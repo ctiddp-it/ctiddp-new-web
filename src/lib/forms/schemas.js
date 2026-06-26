@@ -167,3 +167,14 @@ export const cantonFairSchema = z.object({
     .optional(),
 })
 
+export const heroContactSchema = z.object({
+  name: nameField,
+  phone: phoneField,
+  email: optionalEmailField,
+  message: z
+    .preprocess((v) => stripAndTrim(v), z.string().max(500, 'Message must be at most 500 characters'))
+    .refine((v) => !/[<>]/.test(v), 'HTML is not allowed')
+    .transform((v) => (v.length ? v : undefined))
+    .optional(),
+})
+

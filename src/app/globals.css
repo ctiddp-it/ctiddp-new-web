@@ -551,3 +551,92 @@
 .swiper-pagination-bullet-active {
   background: var(--color-primary) !important;
 }
+
+/* ═══════════════════════════════════════════════
+   HERO PHONE INPUT (matches hero form fields)
+═══════════════════════════════════════════════ */
+.hero-phone-input-home {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.5); /* border-slate-200/50 */
+  border-radius: 0.75rem;                     /* rounded-xl */
+  padding: 0.75rem 0.875rem;                  /* py-3 pr-3.5 */
+  padding-left: 2.5rem;                       /* pl-10 */
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .hero-phone-input-home {
+    padding-top: 0.875rem;                    /* md:py-3.5 */
+    padding-bottom: 0.875rem;
+  }
+}
+
+.hero-phone-input-home:focus-within {
+  border-color: rgba(0, 61, 165, 0.4);       /* focus:border-[#003DA5]/40 */
+  box-shadow: 0 0 0 2px rgba(0, 61, 165, 0.3); /* focus:ring-2 ring-[#003DA5]/30 */
+}
+
+.hero-phone-input-home input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #1e293b;                             /* text-slate-800 */
+  width: 100%;
+  font-size: 0.875rem;                        /* text-sm (14px) */
+  line-height: 1.25rem;
+}
+
+.hero-phone-input-home input::placeholder {
+  color: #94a3b8;                             /* placeholder:text-slate-400 */
+}
+
+.hero-phone-input-home .PhoneInputCountry {
+  margin-right: 0.5rem;
+}
+
+
+
+/* ═══════════════════════════════════════════════
+   HERO PHONE INPUT (glassmorphism variant)
+═══════════════════════════════════════════════ */
+.hero-phone-input-home {
+  width: 100%;
+}
+
+.hero-phone-input-home .PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  border-radius: 12px;
+  padding: 12px 14px;
+  padding-left: 40px;
+  transition: all 0.2s ease;
+}
+
+.hero-phone-input-home .PhoneInput:focus-within {
+  border-color: rgba(0, 61, 165, 0.4);
+  box-shadow: 0 0 0 4px rgba(0, 61, 165, 0.12);
+}
+
+.hero-phone-input-home .PhoneInput input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #1e293b;
+  width: 100%;
+  font-size: 14px;
+}
+
+.hero-phone-input-home .PhoneInput input::placeholder {
+  color: #94a3b8;
+}
+
+.hero-phone-input-home .PhoneInputCountry {
+  margin-right: 8px;
+}

@@ -247,14 +247,14 @@ export default function ContactClient() {
 
                   {/* Company */}
                   <div>
-                    <label className={LABEL_CLASS}>Company Name *</label>
+                    <label className={LABEL_CLASS}>Company Name</label>
                     <input type="text" {...register('company')} placeholder="Your company name" className={INPUT_CLASS} />
                     {errors?.company && <p className="text-[11px] text-red-500 mt-1">{errors.company.message}</p>}
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label className={LABEL_CLASS}>Email Address *</label>
+                    <label className={LABEL_CLASS}>Email Address</label>
                     <input type="email" {...register('email')} placeholder="you@example.com" className={INPUT_CLASS} />
                     {errors?.email && <p className="text-[11px] text-red-500 mt-1">{errors.email.message}</p>}
                   </div>
@@ -289,17 +289,6 @@ export default function ContactClient() {
                       {SUBJECTS.map(s => <option key={s}>{s}</option>)}
                     </select>
                     {errors?.subject && <p className="text-[11px] text-red-500 mt-1">{errors.subject.message}</p>}
-                  </div>
-
-                  {/* Cargo origin */}
-                  <div>
-                    <label className={LABEL_CLASS}>Where is your cargo? *</label>
-                    <select {...register('cargoOrigin')} className={INPUT_CLASS}>
-                      <option value="">Select country</option>
-                      <option value="China">China</option>
-                      <option value="India">India</option>
-                      <option value="Other">Other</option>
-                    </select>
                   </div>
 
                   {/* Message */}
