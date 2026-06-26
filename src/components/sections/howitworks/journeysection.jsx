@@ -363,7 +363,7 @@ export default function HowItWorksSection() {
                 }}
                 >
                 <Image
-                    src="/images/howitworks/journey-s.png"
+                    src="/images/howitworks/ctiddp-journey-section.png"
                     alt="Transit illustration"
                     width={980}
                     height={300}

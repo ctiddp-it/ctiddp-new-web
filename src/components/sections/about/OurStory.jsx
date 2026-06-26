@@ -204,7 +204,7 @@ export default function OurStorySection() {
                             {/* Image - hidden on mobile */}
                             <div className="hidden md:block relative min-h-[630px]">
                                 <Image
-                                    src="/images/about/storysection-cti.png"
+                                    src="/images/about/ctiddp-storysection-bg-image.png"
                                     alt="China to India trade route with cargo ship"
                                     fill
                                     className="object-cover object-center"

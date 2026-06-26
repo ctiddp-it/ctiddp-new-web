@@ -71,7 +71,7 @@ const HeroSection = () => (
   <section className="relative h-[58vh] min-h-[520px] lg:h-[50vh] overflow-hidden">
     <div className="absolute inset-0">
       <picture>
-        <source media="(min-width:1024px)" srcSet="/images/services/young-female-warehouse-worker-checks-counting-cardboard-boxes-warehouse-using.jpeg" />
+        <source media="(min-width:1024px)" srcSet="/images/services/ctiddp-service-QC-Inspection-banner.jpeg" />
         <img
           src="/images/services/young-female-warehouse-worker-checks-counting-cardboard-boxes-warehouse-using.jpeg"
           alt="QC and Pre-Shipment Inspection in China"

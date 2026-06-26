@@ -478,7 +478,7 @@ export default function CantonFairPage() {
         {/* Background */}
         <div className="absolute inset-0">
           <img
-            src="/images/canton-fair/caaa.png"
+            src="/images/canton-fair/ctiddp-fair-banner.png"
             alt="Trade Fair DDP"
             className="h-full w-full object-cover object-center"
           />

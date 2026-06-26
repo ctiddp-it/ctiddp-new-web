@@ -18,7 +18,6 @@ import {
   FaClipboardList,
 } from 'react-icons/fa';
 import { GiFactory } from "react-icons/gi";
-import { BsArrowRight, BsShieldCheck } from 'react-icons/bs';
 import { HiSparkles } from 'react-icons/hi2';
 
 
@@ -70,7 +69,7 @@ const HeroSection = () => (
   <section className="relative h-[58vh] min-h-[520px] lg:h-[50vh] overflow-hidden">
     <div className="absolute inset-0">
       <picture>
-        <source media="(min-width:1024px)" srcSet="/images/services/aerial-view-commercial-dock.jpeg" />
+        <source media="(min-width:1024px)" srcSet="/images/services/ctiddp-service-global-ddp-shipping-banner.jpeg" />
         <img
           src="/images/services/aerial-view-commercial-dock.jpeg"
           alt="Global DDP Shipping from China to India"

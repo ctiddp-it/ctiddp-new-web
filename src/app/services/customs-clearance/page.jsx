@@ -92,7 +92,7 @@ const HeroSection = () => (
       <picture>
         <source
           media="(min-width:1024px)"
-          srcSet="/images/services/worker-factory-checking-number-white-plastic-bottles-warehouse.jpeg"
+          srcSet="/images/services/ctiddp-service-customs-clearance-banner.jpeg"
         />
         <img
           src="/images/services/worker-factory-checking-number-white-plastic-bottles-warehouse.jpeg"

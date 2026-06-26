@@ -67,7 +67,7 @@ const HeroSection = () => (
     {/* Responsive Background */}
     <div className="absolute inset-0">
       <picture>
-        <source media="(min-width:1024px)" srcSet="/images/quote/quo.png" />
+        <source media="(min-width:1024px)" srcSet="/images/services/ctiddp-service-supplier-payments-banner.jpeg" />
         <img src="/images/quote/quo-mob.png" alt="Global Logistics" className="h-full w-full object-cover object-center" />
       </picture>
     </div>

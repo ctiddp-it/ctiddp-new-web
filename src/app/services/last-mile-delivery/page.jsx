@@ -92,7 +92,7 @@ const HeroSection = () => (
       <picture>
         <source
           media="(min-width:1024px)"
-          srcSet="/images/services/warehouse-logistics-streamlined-delivery-process-with-boxes-loaded-onto-cargo-truck-generative-ai.jpeg"
+          srcSet="/images/services/ctiddp-service-last-mile-delivery-banner.jpeg"
         />
         <img
           src="/images/services/warehouse-logistics-streamlined-delivery-process-with-boxes-loaded-onto-cargo-truck-generative-ai.jpeg"

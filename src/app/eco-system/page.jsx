@@ -414,7 +414,7 @@ const Ecosystem = () => {
   {/* Background Image */}
   <div className="absolute inset-0">
     <img
-      src="/images/ecosystem/ecosystem.png"
+      src="/images/ecosystem/ctiddp-ecosystem-banner.png"
       alt="Global Logistics"
       className="h-full w-full object-cover object-center"
     />

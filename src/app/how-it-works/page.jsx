@@ -538,7 +538,7 @@ export default function HowItWorksPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/howitworks/CTIDDP-how-it-works22.png"
+            src="/images/howitworks/ctiddp-how-it-works-banner.png"
             alt="Global Logistics"
             className="h-full w-full object-cover object-center"
           />

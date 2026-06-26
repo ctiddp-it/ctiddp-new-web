@@ -95,7 +95,7 @@ const HeroSection = () => (
       <picture>
         <source
           media="(min-width:1024px)"
-          srcSet="/images/services/arranging-order-deliveries-using-invoice-identification-codes.jpeg"
+          srcSet="/images/services/ctiddp-service-multi-vendor-consolidations-banner.jpeg"
         />
         <img
           src="/images/services/arranging-order-deliveries-using-invoice-identification-codes.jpeg"

@@ -103,7 +103,7 @@ export default function VisionMissionSection() {
                     >
                         {/* Background image (ship + truck + map) - fills card */}
                         <Image
-                            src="/images/about/visionsection.png"
+                            src="/images/about/ctiddp-vision-section-image.png"
                             alt="Cargo ship and truck with China-India trade route map"
                             fill
                             className="object-cover object-center opacity-50 md:opacity-95"

@@ -132,7 +132,7 @@ const HeroSection = ({ search, setSearch }) => (
   <section className="relative h-[50vh] min-h-[500px] overflow-hidden">
     <div className="absolute inset-0">
       <img
-        src="/images/blog/bl.png"
+        src="/images/blog/ctiddp-blog-banner.png"
         alt="Blog & Insights Hero"
         className="h-full w-full object-cover object-center"
       />

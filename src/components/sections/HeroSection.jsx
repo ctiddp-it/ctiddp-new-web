@@ -36,7 +36,7 @@ export default function HeroSection() {
         ──────────────────────────────────────────────────────────────── */}
         <div className="hidden xl:block absolute inset-0 left-[10%]">
           <Image
-            src="/images/home/bg-image.png"
+            src="/images/home/ctiddp-herosection-bg-image.png"
             alt="Logistics"
             fill
             priority

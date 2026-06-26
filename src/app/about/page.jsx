@@ -322,7 +322,7 @@ export default function AboutPage() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/about/banner2.png"
+            src="/images/about/ctiddp-aboutus-banner.png"
             alt="Global Logistics"
             className="h-full w-full object-cover object-center"
           />
