@@ -66,14 +66,14 @@ export const metadata = {
 
 const TEAM = [
   {
-    image: '/images/about/founders/mallesh-gujjala-founder-ceo-ctiddp.png',
+    image: '/images/about/ctiddp-founders/mallesh-gujjala-founder-ceo-ctiddp.png',
     name: 'Mallesh Gujjala',
     role: 'Founder & CEO',
     bio: 'Visionary behind CTIDDP. Built the end-to-end DDP framework for China-to-India imports - factory coordination, supplier relations, quality inspection & compliance.',
     linkedin: '#',
   },
   {
-    image: '/images/about/founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png',
+    image: '/images/about/ctiddp-founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png',
     name: 'Balu Gujjala',
     role: 'Co-Founder & India Operations',
     bio: 'Oversees all India-side operations, customs compliance, and client relationships. Licensed CHA in Indian import logistics - port handling, customs clearance & last-mile delivery.',
