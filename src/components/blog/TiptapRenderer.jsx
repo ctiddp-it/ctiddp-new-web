@@ -120,7 +120,7 @@ function renderNode(node, index) {
         <Tag
           key={index}
           id={id}
-          className={`${sizeClass} font-bold mb-4`}
+          className={`${sizeClass} font-bold mb-4 scroll-mt-24`}
           style={{ color: '#0B2A6B' }}
         >
           {renderInline(node.content)}

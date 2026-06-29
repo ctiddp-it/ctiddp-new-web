@@ -1,11 +1,13 @@
 'use client';
 
+import { useState } from 'react';
 import {
   FaFacebookF,
   FaLinkedinIn,
   FaTwitter,
   FaLink,
   FaWhatsapp,
+  FaCheck
 } from 'react-icons/fa';
 
 /**
@@ -15,9 +17,19 @@ import {
 export default function ShareButtons({ url, title }) {
   const encodedUrl = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
+  const [copied, setCopied] = useState(false);
 
-  const copyLink = () => {
-    navigator.clipboard.writeText(url);
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
   };
 
   const socials = [
@@ -58,12 +70,21 @@ export default function ShareButtons({ url, title }) {
           {s.icon}
         </a>
       ))}
-      <button
-        onClick={copyLink}
-        className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-gray-500 hover:border-[#0B2A6B] hover:text-[#0B2A6B] transition-colors cursor-pointer"
-      >
-        <FaLink size={13} />
-      </button>
+      <div className="relative">
+        <button
+          onClick={copyLink}
+          className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-gray-500 hover:border-[#0B2A6B] hover:text-[#0B2A6B] transition-colors cursor-pointer"
+          aria-label="Copy link"
+        >
+          {copied ? <FaCheck size={12} /> : <FaLink size={13} />}
+        </button>
+
+        {copied && (
+          <div className="absolute -top-10 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-slate-900 px-3 py-1.5 text-xs text-white shadow-lg">
+            Link copied!
+          </div>
+        )}
+      </div>
     </div>
   );
 }

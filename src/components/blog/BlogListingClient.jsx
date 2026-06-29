@@ -94,6 +94,8 @@ function SearchFilterBar({ search, setSearch, category, setCategory, categories 
 ───────────────────────────────────────────── */
 function TagChips({ tags, activeTag, setActiveTag }) {
   if (!tags || tags.length === 0) return null;
+  const popularTags = tags.filter((tag) => tag.isPopular);
+  if (popularTags.length === 0) return null;
 
   return (
     <section className="py-5 bg-white border-b border-slate-100 px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
@@ -102,7 +104,7 @@ function TagChips({ tags, activeTag, setActiveTag }) {
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
             Popular Tags:
           </span>
-          {tags.map((tag) => (
+          {popularTags.map((tag) => (
             <button
               key={tag._id}
               onClick={() => setActiveTag(activeTag === tag.slug ? '' : tag.slug)}
@@ -212,6 +214,8 @@ function FeaturedArticle({ post }) {
 ───────────────────────────────────────────── */
 function CategoriesGrid({ categories, activeCategory, setCategory }) {
   if (!categories || categories.length === 0) return null;
+  const featuredCategories = categories.filter((cat) => cat.isFeatured);
+  if (featuredCategories.length === 0) return null;
 
   return (
     <section className="py-10 bg-white border-b border-slate-100 px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
@@ -220,7 +224,7 @@ function CategoriesGrid({ categories, activeCategory, setCategory }) {
           Explore by Category
         </p>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-          {categories.map((cat) => (
+          {featuredCategories.map((cat) => (
             <button
               key={cat._id}
               onClick={() => setCategory(activeCategory === cat.slug ? '' : cat.slug)}
