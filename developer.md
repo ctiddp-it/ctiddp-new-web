@@ -394,3 +394,28 @@ The CTIDDP platform now follows a modern logistics-focused design system with im
 - preserve existing font-heading/font-body utility compatibility
 
 Build verified: all 22 routes compile successfully
+
+
+## refactor(blog): migrated blog listing to CMS-driven architecture & implemented dynamic CMS-powered blog detail page
+Introduced a centralized API layer (src/lib/api.js) for all blog, category, and tag data fetching with ISR support.
+Refactored the blog listing page from hardcoded content to a fully CMS-driven implementation.
+Split the listing page into a Server Component for SEO-friendly initial rendering and a Client Component (BlogListingClient) for interactive filtering.
+Added dynamic search, category filtering, tag filtering, and paginated blog listing.
+Replaced hardcoded featured article, categories, tags, and latest posts with CMS-powered data.
+Synced search and filter state with URL query parameters for shareable and bookmarkable pages.
+Implemented client-side data updates while preserving server-rendered initial content.
+Rebuilt the blog detail page as a dynamic App Router route (/blog/[slug]) powered entirely by CMS content.
+Added reusable TiptapRenderer to render rich Tiptap JSON content while preserving the site's existing typography and design system.
+Implemented dynamic breadcrumb generation based on post category hierarchy.
+Added dynamic author profile, featured image, article metadata, and tag rendering.
+Integrated related posts and previous/next article navigation using CMS APIs.
+Replaced static social links with dynamic share URLs based on the current blog slug.
+Added dynamic SEO metadata generation including Open Graph, Twitter cards, canonical URLs, and BlogPosting JSON-LD schema.
+Preserved the existing UI/UX, responsive layout, and visual design while replacing all hardcoded content with CMS-managed data.
+
+Result:
+
+Blog listing and detail pages are now fully CMS-driven.
+Rich article content is rendered dynamically from Tiptap JSON.
+Improved SEO through server-side rendering, dynamic metadata, and structured data.
+Enhanced maintainability by centralizing API interactions and removing hardcoded blog content.
