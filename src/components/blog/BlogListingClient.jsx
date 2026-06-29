@@ -217,7 +217,7 @@ function CategoriesGrid({ categories, activeCategory, setCategory }) {
     <section className="py-10 bg-white border-b border-slate-100 px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
       <div className="max-w-7xl mx-auto">
         <p className="text-center text-gray-500 text-sm font-medium mb-6 tracking-wide uppercase">
-          Explore by Topic
+          Explore by Category
         </p>
         <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
           {categories.map((cat) => (
@@ -534,11 +534,12 @@ export default function BlogListingClient({
         setCategory={handleCategoryChange}
         categories={categories}
       />
+      
+      <TagChips tags={tags} activeTag={activeTag} setActiveTag={handleTagChange} />
 
       {/* Show featured only when no filters are active */}
       {!hasFilters && <FeaturedArticle post={initialFeatured} />}
 
-      <TagChips tags={tags} activeTag={activeTag} setActiveTag={handleTagChange} />
 
       {/* Show categories grid only when no filters are active */}
       {!hasFilters && (

@@ -163,14 +163,14 @@ function PostHeader({ post }) {
               <span className="flex items-center gap-1">
                 <FaClock size={12} /> {post.readingTime || 5} min read
               </span>
-              {post.category && (
+              {/* {post.category && (
                 <>
                   <span className="text-gray-300">·</span>
                   <span className="flex items-center gap-1">
                     <FaFolder size={12} /> {post.category.name}
                   </span>
                 </>
-              )}
+              )} */}
             </div>
 
             {/* Share row */}
@@ -256,7 +256,7 @@ function Sidebar({ relatedPosts }) {
         <div className="flex items-center gap-3 mb-4">
           <div
             className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-            style={{ background: '#0B2A6B' }}
+            style={{ background: '#FE5101' }}
           >
             <FaEnvelope size={16} className="text-white" />
           </div>
@@ -272,7 +272,7 @@ function Sidebar({ relatedPosts }) {
         />
         <button
           className="w-full py-2.5 rounded-lg text-white text-sm font-bold uppercase tracking-wider"
-          style={{ background: '#0B2A6B' }}
+          style={{ background: '#FE5101' }}
         >
           Subscribe
         </button>
@@ -502,6 +502,11 @@ export default async function BlogPostPage({ params }) {
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
           overflow: hidden;
+        }
+        .prose-custom th {
+          background-color: #EEF2FF !important;
+          background: #EEF2FF !important;
+          color: #0B2A6B !important;
         }
       `}</style>
     </main>

@@ -215,14 +215,33 @@ function renderNode(node, index) {
     case 'horizontalRule':
       return <hr key={index} className="border-slate-100 my-6" />;
 
-    case 'table':
+    case 'table': {
+      const rows = node.content || [];
+
+      // A row is a header row if every cell is a tableHeader node.
+      const isHeaderRow = (row) =>
+        row.content?.length > 0 && row.content.every((cell) => cell.type === 'tableHeader');
+
+      const headRows = rows.filter(isHeaderRow);
+      const bodyRows = rows.filter((row) => !isHeaderRow(row));
+
       return (
         <div key={index} className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm mb-4">
           <table className="min-w-full divide-y divide-slate-200">
-            {node.content?.map((child, i) => renderNode(child, i))}
+            {headRows.length > 0 && (
+              <thead>
+                {headRows.map((child, i) => renderNode(child, i))}
+              </thead>
+            )}
+            {bodyRows.length > 0 && (
+              <tbody className="divide-y divide-slate-100">
+                {bodyRows.map((child, i) => renderNode(child, i))}
+              </tbody>
+            )}
           </table>
         </div>
       );
+    }
 
     case 'tableRow':
       return (
