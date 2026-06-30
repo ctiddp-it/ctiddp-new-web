@@ -24,7 +24,7 @@ const FOUNDERS = [
         id: 'mallesh',
         name: 'Mallesh Gujjala',
         role: 'Founder & CEO',
-        image: '/images/about/founders/mallesh-gujjala-founder-ceo-ctiddp.png',
+        image: '/images/about/ctiddp-founders/mallesh-gujjala-founder-ceo-ctiddp.png',
         // Card tint - the full card bg colour (very light blue)
         cardBg: '#EEF4FF',
         // The circle behind the bust photo
@@ -48,7 +48,7 @@ const FOUNDERS = [
         id: 'balu',
         name: 'Balu Gujjala',
         role: 'Co-Founder & India Operations',
-        image: '/images/about/founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png',
+        image: '/images/about/ctiddp-founders/balu-gujjala-co-founder-head-of-india-operations-ctiddp.png',
         // Card tint - full card bg (very light peach)
         cardBg: '#FFF3EC',
         // The circle behind the bust photo
