@@ -16,8 +16,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Ticker from './Ticker'
- import { HiArrowRight} from 'react-icons/hi2' 
- 
+import { HiArrowRight } from 'react-icons/hi2'
+
 const NAV_ITEMS = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about' },
@@ -76,7 +76,7 @@ const NAV_ITEMS = [
       },
     ],
   },
-  { label: 'Ecosystem', href: '/eco-system' },
+  { label: 'Ecosystem', href: '/eco-system', highlight: true },
   { label: 'Trade Fair 2026', href: '/trade-fair', badge: '2026' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact Us', href: '/contact' },
@@ -156,9 +156,8 @@ export default function MegaNav() {
 
       {/* ── NAVBAR ── */}
       <nav
-        className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-10 h-[72px] bg-white border-b transition-shadow duration-300 ${
-          scrolled ? 'shadow-[var(--shadow-nav)] border-gray-200' : 'border-gray-100'
-        }`}
+        className={`sticky top-0 z-[1000] flex items-center justify-between px-4 lg:px-10 h-[72px] bg-white border-b transition-shadow duration-300 ${scrolled ? 'shadow-[var(--shadow-nav)] border-gray-200' : 'border-gray-100'
+          }`}
       >
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
@@ -179,13 +178,17 @@ export default function MegaNav() {
               {!item.children ? (
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-colors duration-200 border-b-2 whitespace-nowrap ${
-                    isActive(item.href)
-                      ? 'text-primary border-primary'
-                      : 'text-gray-700 border-transparent hover:text-primary hover:border-primary/40'
-                  }`}
+                  className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-all duration-200 whitespace-nowrap ${item.highlight
+                      ? 'text-[#FE5101] font-bold border-b-2 border-transparent hover:border-[#FE5101]/40'
+                      : isActive(item.href)
+                        ? 'text-primary border-b-2 border-primary'
+                        : 'text-gray-700 border-b-2 border-transparent hover:text-primary hover:border-primary/40'
+                    }`}
                 >
                   {item.label}
+                  {item.highlight && (
+                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[#FE5101]" />
+                  )}
                   {item.badge && (
                     <sup className="text-[9px] font-700 text-white bg-primary py-[2px] px-1.5 rounded-full ml-0.5 leading-none align-super">
                       {item.badge}
@@ -196,11 +199,10 @@ export default function MegaNav() {
                 <>
                   <Link
                     href={item.href || '#'}
-                    className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-colors duration-200 border-b-2 whitespace-nowrap ${
-                      isActiveParent(item)
-                        ? 'text-primary border-primary'
-                        : 'text-gray-700 border-transparent hover:text-primary hover:border-primary/40'
-                    }`}
+                    className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-colors duration-200 border-b-2 whitespace-nowrap ${isActiveParent(item)
+                      ? 'text-primary border-primary'
+                      : 'text-gray-700 border-transparent hover:text-primary hover:border-primary/40'
+                      }`}
                   >
                     {item.label}
                     <svg
@@ -261,19 +263,16 @@ export default function MegaNav() {
             className="flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg border border-gray-200 bg-white"
           >
             <span
-              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 origin-center ${
-                drawerOpen ? 'rotate-45 translate-y-[7px]' : ''
-              }`}
+              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 origin-center ${drawerOpen ? 'rotate-45 translate-y-[7px]' : ''
+                }`}
             />
             <span
-              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 ${
-                drawerOpen ? 'opacity-0 scale-x-0' : ''
-              }`}
+              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 ${drawerOpen ? 'opacity-0 scale-x-0' : ''
+                }`}
             />
             <span
-              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 origin-center ${
-                drawerOpen ? '-rotate-45 -translate-y-[7px]' : ''
-              }`}
+              className={`block w-5 h-[2px] bg-navy-800 transition-all duration-300 origin-center ${drawerOpen ? '-rotate-45 -translate-y-[7px]' : ''
+                }`}
             />
           </button>
         </div>
@@ -281,18 +280,16 @@ export default function MegaNav() {
 
       {/* ── MOBILE OVERLAY ── */}
       <div
-        className={`fixed inset-0 bg-black/30 z-[998] lg:hidden transition-opacity duration-300 ${
-          drawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`fixed inset-0 bg-black/30 z-[998] lg:hidden transition-opacity duration-300 ${drawerOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={() => setDrawerOpen(false)}
       />
 
       {/* ── MOBILE DRAWER ── */}
       <div
         ref={drawerRef}
-        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[1000] lg:hidden flex flex-col bg-white border-l border-gray-200 transition-transform duration-300 ease-in-out ${
-          drawerOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed top-0 right-0 h-full w-80 max-w-[85vw] z-[1000] lg:hidden flex flex-col bg-white border-l border-gray-200 transition-transform duration-300 ease-in-out ${drawerOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100 shrink-0">
@@ -321,12 +318,15 @@ export default function MegaNav() {
                 <Link
                   href={item.href}
                   onClick={() => setDrawerOpen(false)}
-                  className={`flex items-center justify-between px-5 py-3.5 text-[14px] font-500 no-underline transition-colors duration-150 ${
-                    isActive(item.href) ? 'text-primary bg-primary-50' : 'text-gray-700 hover:text-primary hover:bg-gray-50'
-                  }`}
+                  className={`flex items-center justify-between px-5 py-3.5 text-[14px] font-500 no-underline transition-colors duration-150 ${item.highlight
+                      ? 'text-[#FE5101] font-600 bg-[#FE5101]/5 border-l-[3px] border-[#FE5101]'
+                      : isActive(item.href)
+                        ? 'text-primary bg-primary-50'
+                        : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                    }`}
                 >
                   <span className="flex items-center gap-2">
-                    {item.label}
+                    {item.label}                    
                     {item.badge && (
                       <sup className="text-[9px] font-700 text-white bg-primary py-[2px] px-1.5 rounded-full leading-none">
                         {item.badge}
@@ -338,9 +338,8 @@ export default function MegaNav() {
                 <div>
                   <button
                     onClick={() => toggleSection(item.label)}
-                    className={`w-full flex items-center justify-between px-5 py-3.5 text-[14px] font-500 bg-transparent border-none cursor-pointer transition-colors duration-150 ${
-                      isActiveParent(item) ? 'text-primary' : 'text-gray-700 hover:text-primary'
-                    }`}
+                    className={`w-full flex items-center justify-between px-5 py-3.5 text-[14px] font-500 bg-transparent border-none cursor-pointer transition-colors duration-150 ${isActiveParent(item) ? 'text-primary' : 'text-gray-700 hover:text-primary'
+                      }`}
                   >
                     {item.label}
                     <svg
@@ -354,9 +353,8 @@ export default function MegaNav() {
                     </svg>
                   </button>
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      openSection === item.label ? 'max-h-[800px]' : 'max-h-0'
-                    }`}
+                    className={`overflow-hidden transition-all duration-300 ${openSection === item.label ? 'max-h-[800px]' : 'max-h-0'
+                      }`}
                   >
                     <div className="bg-gray-50 border-t border-gray-100 py-2">
                       {item.children?.map((child) => (
@@ -364,16 +362,14 @@ export default function MegaNav() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setDrawerOpen(false)}
-                          className={`flex items-center gap-3 px-6 py-3 no-underline transition-colors duration-150 ${
-                            pathname === child.href ? 'bg-primary-50' : 'hover:bg-primary-50/50'
-                          }`}
+                          className={`flex items-center gap-3 px-6 py-3 no-underline transition-colors duration-150 ${pathname === child.href ? 'bg-primary-50' : 'hover:bg-primary-50/50'
+                            }`}
                         >
                           <span className="text-primary shrink-0">{child.icon}</span>
                           <div className="min-w-0">
                             <div
-                              className={`text-[13px] font-500 leading-tight ${
-                                pathname === child.href ? 'text-primary' : 'text-gray-800'
-                              }`}
+                              className={`text-[13px] font-500 leading-tight ${pathname === child.href ? 'text-primary' : 'text-gray-800'
+                                }`}
                             >
                               {child.title}
                             </div>
