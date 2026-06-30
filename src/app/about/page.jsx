@@ -1,18 +1,9 @@
-import dynamic from 'next/dynamic'
-import { FaWhatsapp } from 'react-icons/fa6'
-import SectionBadge from '@/components/ui/SectionBadge'
-import StatCounter from '@/components/ui/StatCounter'
-import TeamCard from '@/components/ui/TeamCard'
-import OfficeCard from '@/components/ui/OfficeCard'
-import CTABanner from '@/components/ui/CTABanner'
 import {
   ShieldCheck,
   Eye,
   Truck,
   FileCheck,
 } from "lucide-react";
-import Button from '@/components/ui/Button'
-import Image from 'next/image'
 import OurStoryBanner from '@/components/sections/about/OurStory'
 import VisionMission from '@/components/sections/about/Vissionmissionsection'
 import LeadershipSection from '@/components/sections/about/LeadershipSection'
