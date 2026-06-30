@@ -429,3 +429,12 @@ Enhanced maintainability by centralizing API interactions and removing hardcoded
 - Replaced static newsletter widget with an interactive subscription form
 - Kept the blog page as a Server Component by isolating interactive logic in a Client Component
 - Structured the implementation for easy future migration to a dedicated backend or email service
+
+
+## feat(newsletter): add secure API proxy for Google Forms subscriptions
+
+- Added Next.js API route to securely proxy newsletter subscriptions
+- Moved Google Forms integration from client to server to hide the form endpoint
+- Implemented server-side email validation and structured API responses
+- Refactored newsletter component to consume the internal API endpoint
+- Improved architecture for future migration to a dedicated backend or email service
