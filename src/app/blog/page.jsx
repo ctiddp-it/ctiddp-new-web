@@ -4,6 +4,8 @@ import {
 } from 'react-icons/fa';
 import { fetchPosts, fetchFeaturedPost, fetchCategories, fetchTags } from '@/lib/api';
 import BlogListingClient from '@/components/blog/BlogListingClient';
+import NewsletterSubscribe from '@/components/blog/NewsletterSubscribe';
+
 
 /* ─────────────────────────────────────────────
    SEO METADATA
@@ -70,48 +72,41 @@ function HeroSection() {
 function NewsletterSection() {
   return (
     <section className="py-14 bg-white px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center gap-8 bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10">
-          {/* Icon */}
+  <div className="max-w-7xl mx-auto">
+    <div className="rounded-2xl border border-slate-200 bg-white shadow-sm p-8 md:p-10">
+      <div className="flex flex-col lg:flex-row lg:items-center gap-8">
+
+        {/* Left */}
+        <div className="flex items-start gap-4 flex-1">
           <div
-            className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center shadow-md"
-            style={{ background: '#0B2A6B' }}
+            className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0"
+            style={{ background: '#FE5101' }}
           >
-            <FaEnvelope size={26} className="text-white" />
+            <FaEnvelope size={18} className="text-white" />
           </div>
 
-          {/* Text */}
-          <div className="flex-1 text-center md:text-left">
-            <h3 className="text-xl font-bold mb-1" style={{ color: '#0B2A6B' }}>
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Stay Updated with Global Trade Insights
             </h3>
-            <p className="text-gray-500 text-sm">
-              Subscribe to our newsletter and get the latest tips, updates, and expert advice straight to your inbox.
-            </p>
-          </div>
 
-          {/* Form */}
-          <div className="flex-shrink-0 w-full md:w-auto">
-            <div className="flex flex-col sm:flex-row gap-3 min-w-0 sm:min-w-[360px]">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 bg-white border border-slate-200 rounded-lg py-3 px-4 text-gray-700 text-sm outline-none focus:border-[#0B2A6B] focus:ring-1 focus:ring-[#0B2A6B]/20 transition-all placeholder:text-gray-400"
-              />
-              <button
-                className="px-6 py-3 rounded-lg text-white text-sm font-semibold uppercase tracking-wider whitespace-nowrap"
-                style={{ background: '#0B2A6B' }}
-              >
-                Subscribe
-              </button>
-            </div>
-            <p className="text-[11px] text-gray-400 mt-2 text-center sm:text-left">
-              ✓ No spam. Unsubscribe anytime.
+            <p className="text-gray-500 leading-relaxed max-w-2xl">
+              Subscribe to our newsletter and receive the latest logistics insights,
+              DDP shipping updates, import-export guides, and expert advice directly
+              in your inbox.
             </p>
           </div>
         </div>
+
+        {/* Right */}
+        <div className="w-full lg:w-[420px]">
+          <NewsletterSubscribe />
+        </div>
+
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }
 

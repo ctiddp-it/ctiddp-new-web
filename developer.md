@@ -419,3 +419,13 @@ Blog listing and detail pages are now fully CMS-driven.
 Rich article content is rendered dynamically from Tiptap JSON.
 Improved SEO through server-side rendering, dynamic metadata, and structured data.
 Enhanced maintainability by centralizing API interactions and removing hardcoded blog content.
+
+## feat(blog): add Google Forms newsletter subscription integration
+
+- Added a client-side NewsletterSubscribe component for blog sidebar subscriptions
+- Integrated Google Forms as a temporary backend for collecting newsletter emails
+- Implemented email validation and Google Forms formResponse submission via fetch
+- Added loading state and subscription success/error handling
+- Replaced static newsletter widget with an interactive subscription form
+- Kept the blog page as a Server Component by isolating interactive logic in a Client Component
+- Structured the implementation for easy future migration to a dedicated backend or email service

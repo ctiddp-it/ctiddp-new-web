@@ -12,6 +12,7 @@ import {
 import { fetchPostBySlug, fetchRelatedPosts, fetchAdjacentPosts } from '@/lib/api';
 import TiptapRenderer from '@/components/blog/TiptapRenderer';
 import ShareButtons from '@/components/blog/ShareButtons';
+import NewsletterSubscribe from '@/components/blog/NewsletterSubscribe';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -265,18 +266,7 @@ function Sidebar({ relatedPosts }) {
             <p className="text-xs text-gray-500 leading-snug">Get the latest shipping insights and tips straight to your inbox.</p>
           </div>
         </div>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full border border-slate-200 rounded-lg py-2.5 px-3 text-sm text-gray-700 outline-none focus:border-[#0B2A6B] focus:ring-1 focus:ring-[#0B2A6B]/20 transition-all placeholder:text-gray-400 mb-3"
-        />
-        <button
-          className="w-full py-2.5 rounded-lg text-white text-sm font-bold uppercase tracking-wider"
-          style={{ background: '#FE5101' }}
-        >
-          Subscribe
-        </button>
-        <p className="text-[11px] text-gray-400 text-center mt-2">🔒 No spam. Unsubscribe anytime.</p>
+       <NewsletterSubscribe />
       </div>
 
       {/* Related / Popular articles */}
