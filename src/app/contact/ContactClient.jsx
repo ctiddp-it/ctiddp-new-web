@@ -8,6 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { CONTACT_SUBJECTS, contactSchema } from '@/lib/forms/schemas'
 import { submitForm } from '@/lib/forms/submitForm'
+import { trackConversion } from '@/lib/forms/trackConversion'
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 
@@ -154,6 +155,36 @@ export default function ContactClient() {
 
       if (!result.ok) {
         throw new Error(result.message || 'Something went wrong. Please try again.')
+      }
+
+      // Track 'Contact' conversion — Pixel + CAPI with deduplication
+      trackConversion({
+        eventName: 'Contact',
+        userData: {
+          email: values.email,
+          phone: values.phone,
+          firstName: values.name,
+        },
+        customData: {
+          content_name: 'Contact Form',
+          content_category: values.subject,
+        },
+      })
+
+      // Track 'Schedule' event if user opted for a call
+      if (values.wantsCall && values.callDate && values.callTimeSlot) {
+        trackConversion({
+          eventName: 'Schedule',
+          userData: {
+            email: values.email,
+            phone: values.phone,
+            firstName: values.name,
+          },
+          customData: {
+            content_name: 'Scheduled Call',
+            content_category: values.subject,
+          },
+        })
       }
 
       if (values.wantsCall) {

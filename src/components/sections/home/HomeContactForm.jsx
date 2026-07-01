@@ -7,6 +7,7 @@ import { FiUser, FiPhone, FiMail, FiMessageSquare } from 'react-icons/fi';
 import { FaCheckCircle } from 'react-icons/fa';
 import { heroContactSchema } from '@/lib/forms/schemas';
 import { submitForm } from '@/lib/forms/submitForm';
+import { trackConversion } from '@/lib/forms/trackConversion';
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
@@ -57,6 +58,20 @@ export default function HomeContactForm() {
       if (!result.ok) {
         throw new Error(result.message || 'Something went wrong. Please try again.');
       }
+
+      // Track 'SubmitApplication' conversion — Pixel + CAPI with deduplication
+      trackConversion({
+        eventName: 'SubmitApplication',
+        userData: {
+          email: values.email,
+          phone: values.phone,
+          firstName: values.name,
+        },
+        customData: {
+          content_name: 'Hero Contact Form',
+          content_category: 'Shipping Quote',
+        },
+      });
 
       setSubmitted(true);
       reset(defaultValues);

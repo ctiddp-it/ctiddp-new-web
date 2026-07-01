@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import {
@@ -13,6 +13,7 @@ import {
   FaChevronRight,
   FaTimes,
 } from 'react-icons/fa';
+import { trackConversion } from '@/lib/forms/trackConversion';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -485,6 +486,17 @@ export default function BlogListingClient({
       const json = await res.json();
       setPosts(json.data || []);
       setPagination(json.pagination || { page: 1, limit: 8, total: 0, pages: 0 });
+
+      // Track 'Search' event when user performs a search
+      if (search) {
+        trackConversion({
+          eventName: 'Search',
+          customData: {
+            search_string: search,
+            content_category: category || undefined,
+          },
+        });
+      }
     } catch (err) {
       console.error('[BlogListingClient] Fetch error:', err.message);
     } finally {

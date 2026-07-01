@@ -438,3 +438,79 @@ Enhanced maintainability by centralizing API interactions and removing hardcoded
 - Implemented server-side email validation and structured API responses
 - Refactored newsletter component to consume the internal API endpoint
 - Improved architecture for future migration to a dedicated backend or email service
+
+## feat(analytics): integrate Meta Conversions API (CAPI) with Pixel deduplication and conversion event tracking
+
+Implemented a complete Meta Conversions API (CAPI) integration using a secure server-side architecture while retaining Meta Pixel for browser-side tracking. Added Pixel + CAPI event deduplication through shared event IDs, ensuring accurate conversion attribution and improved tracking reliability.
+
+### Meta CAPI Infrastructure
+- Added a dedicated server-side Meta CAPI utility for sending conversion events.
+- Implemented SHA-256 hashing for all supported personally identifiable information (PII) fields before transmission.
+- Normalized phone numbers prior to hashing to comply with Meta's requirements.
+- Included browser identifiers (fbp/fbc), client IP address, user agent and original event metadata for improved Event Match Quality.
+- Added support for Meta Test Events via configurable environment variables.
+- Secured Meta Access Token and Pixel ID using server-only environment variables.
+
+### Server API
+- Added `/api/meta-capi` server route to proxy all conversion requests.
+- Automatically extracts:
+  - Client IP Address
+  - User-Agent
+  - Meta Pixel cookies (_fbp/_fbc)
+- Merges browser identifiers with submitted user information before forwarding events to Meta.
+- Keeps Meta credentials isolated from the browser.
+
+### Client Tracking Utilities
+- Introduced reusable `trackConversion()` helper.
+- Generates unique `event_id` using `crypto.randomUUID()`.
+- Fires browser Pixel event and corresponding server-side CAPI event using the same `event_id`.
+- Enables Meta Pixel and Conversions API deduplication.
+
+### Event Tracking
+Implemented conversion tracking across multiple user interactions:
+
+- Added Lead event after successful Quote form submission.
+- Added Contact event after successful Contact form submission.
+- Added Schedule event for scheduled consultation requests.
+- Added SubmitApplication event for homepage enquiry form submissions.
+- Added Subscribe event for newsletter registrations.
+- Added Search event for blog search interactions after debounce completion.
+- Added site-wide ViewContent tracking for page visits.
+
+### ViewContent Improvements
+- Created reusable ViewContent tracker component.
+- Integrated tracking globally through the application layout.
+- Automatically derives page information from route metadata.
+- Prevented duplicate tracking for blog pages.
+- Supports page-specific content classification.
+
+### Blog Enhancements
+- Added ViewContent tracking for blog content.
+- Added Search conversion tracking for blog search.
+- Included content metadata such as:
+  - content_name
+  - content_category
+  - content_id
+  - content_type
+
+### Forms Integration
+Updated:
+- Homepage enquiry form
+- Quote request form
+- Contact form
+- Newsletter subscription component
+
+Each successful submission now reports both Pixel and CAPI events using shared event IDs.
+
+### Configuration
+- Added Meta Pixel configuration.
+- Added Meta Access Token configuration.
+- Added optional Meta Test Event Code configuration for local testing.
+
+### Testing
+- Verified successful local testing using Meta Test Events.
+- Confirmed Browser + Server event deduplication.
+- Confirmed successful event delivery through Events Manager.
+- Successfully completed production build without compilation errors.
+
+This implementation establishes a secure, production-ready Meta analytics infrastructure with server-side conversion tracking, improved attribution accuracy, browser fallback through Pixel, and scalable architecture for future analytics integrations.

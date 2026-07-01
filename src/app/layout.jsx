@@ -5,6 +5,7 @@ import ChatBot from '@/components/ui/ChatBot'
 import MegaNav from '@/components/layout/MegaNav'
 import Footer from '@/components/layout/Footer'
 import ScrollToTop from '@/components/ui/ScrollToTop'
+import ViewContentTracker from '@/components/blog/ViewContentTracker'
 import Script from 'next/script'
 
 const montserrat = Montserrat({
@@ -218,6 +219,7 @@ export default function RootLayout({ children }) {
         </noscript>
 
         <MegaNav />
+        <ViewContentTracker />
         {children}
         <ChatBot />
         <Footer />

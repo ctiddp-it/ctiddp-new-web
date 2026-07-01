@@ -19,7 +19,7 @@ export default function sitemap() {
     "/blog",
     "/contact",
     "/quote",
-  ]
+  ] 
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route}`,

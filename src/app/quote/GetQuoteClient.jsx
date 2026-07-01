@@ -7,6 +7,7 @@ import { FaFileInvoice, FaWhatsapp } from 'react-icons/fa6'
 import { FaCheckCircle } from 'react-icons/fa'
 import { quoteSchema } from '@/lib/forms/schemas'
 import { submitForm } from '@/lib/forms/submitForm'
+import { trackConversion } from '@/lib/forms/trackConversion'
 import PhoneInput from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 
@@ -92,6 +93,20 @@ export default function GetQuoteClient() {
       setError(result.message || 'Something went wrong. Please try again.')
       return
     }
+
+    // Track 'Lead' conversion — Pixel + CAPI with deduplication
+    trackConversion({
+      eventName: 'Lead',
+      userData: {
+        email: values.email,
+        phone: values.contactNumber,
+        firstName: values.name,
+      },
+      customData: {
+        content_name: 'Quote Request',
+        content_category: values.productCategory,
+      },
+    })
 
     setSubmitted(true)
     reset(defaultValues)

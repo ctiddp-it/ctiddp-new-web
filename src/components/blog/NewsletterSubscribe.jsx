@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { FaCheckCircle, FaEnvelope, FaTimes } from 'react-icons/fa';
+import { trackConversion } from '@/lib/forms/trackConversion';
 
 export default function NewsletterSubscribe() {
     const [email, setEmail] = useState('');
@@ -79,6 +80,13 @@ export default function NewsletterSubscribe() {
 
             setEmail('');
             setShowSuccess(true);
+
+            // Track 'Subscribe' conversion — Pixel + CAPI with deduplication
+            trackConversion({
+              eventName: 'Subscribe',
+              userData: { email: trimmedEmail },
+              customData: { content_name: 'Newsletter Subscription' },
+            });
         } catch (err) {
             console.error(err);
             setError(
