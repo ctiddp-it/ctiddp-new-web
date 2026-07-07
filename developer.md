@@ -514,3 +514,9 @@ Each successful submission now reports both Pixel and CAPI events using shared e
 - Successfully completed production build without compilation errors.
 
 This implementation establishes a secure, production-ready Meta analytics infrastructure with server-side conversion tracking, improved attribution accuracy, browser fallback through Pixel, and scalable architecture for future analytics integrations.
+
+## style(blog): simplify hyperlink styling in blog content
+
+- Update blog content links to use #2563eb
+- Change link hover color to #FE5101
+- Remove underline and other extra link styling for a clean appearance

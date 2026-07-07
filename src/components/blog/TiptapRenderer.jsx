@@ -49,7 +49,8 @@ function renderMarks(node) {
           <a
             key={mark.type}
             href={href}
-            className="text-[#003DA5] hover:text-[#0B2A6B] underline underline-offset-2 transition-colors"
+            className="text-[#2563eb] hover:text-[#FE5101] transition-colors"
+            style={{ textDecoration: 'none' }}
             {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
             {element}
