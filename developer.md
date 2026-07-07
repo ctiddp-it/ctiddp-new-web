@@ -520,3 +520,29 @@ This implementation establishes a secure, production-ready Meta analytics infras
 - Update blog content links to use #2563eb
 - Change link hover color to #FE5101
 - Remove underline and other extra link styling for a clean appearance
+
+## perf(blog): enhance SEO, static generation, and search performance
+
+- Implement generateStaticParams() for blog pages
+  - Pre-render published blog posts as static HTML during build
+  - Fetch published post slugs from the blog API
+  - Reduce first-load latency by serving pre-generated pages
+  - Lower runtime server rendering overhead
+  - Preserve Incremental Static Regeneration (ISR) for automatic content updates
+
+- Replace static sitemap with dynamic sitemap generation
+  - Automatically include all published blog posts in sitemap.xml
+  - Populate lastModified using updatedAt with publishedAt fallback
+  - Retain existing static routes with priorities and change frequencies
+  - Add graceful fallback to static-only sitemap if the blog API is unavailable
+  - Improve search engine discovery and indexing of newly published content
+
+- Optimize blog search with proper input debouncing
+  - Introduce a dedicated debouncedSearch state with a 300ms delay
+  - Keep search input responsive by updating the input state immediately
+  - Trigger API requests only after users stop typing
+  - Prevent unnecessary URL updates on every keystroke
+  - Ensure category, tag, pagination, and sorting changes continue to update instantly
+  - Reduce redundant API calls and backend/database load
+
+- Improve overall blog performance, scalability, and SEO while maintaining a smooth user experience

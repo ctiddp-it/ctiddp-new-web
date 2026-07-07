@@ -9,12 +9,29 @@ import {
   FaHeadset,
   FaWhatsapp,
 } from 'react-icons/fa';
-import { fetchPostBySlug, fetchRelatedPosts, fetchAdjacentPosts } from '@/lib/api';
+import { fetchPosts, fetchPostBySlug, fetchRelatedPosts, fetchAdjacentPosts } from '@/lib/api';
 import TiptapRenderer from '@/components/blog/TiptapRenderer';
 import ShareButtons from '@/components/blog/ShareButtons';
 import NewsletterSubscribe from '@/components/blog/NewsletterSubscribe';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
+/**
+ * generateStaticParams — Pre-render all published blog posts at build time.
+ * Fetches all published post slugs from the API so Next.js can generate
+ * static HTML for each post during the build. New posts are picked up
+ * via ISR revalidation (revalidate: 60 in api.js).
+ */
+export async function generateStaticParams() {
+  try {
+    const { posts } = await fetchPosts({ limit: 100 });
+    return posts
+      .filter((post) => post.slug)
+      .map((post) => ({ slug: post.slug }));
+  } catch {
+    return [];
+  }
+}
 
 /**
  * Resolve image URL — handles relative /uploads/... paths from the backend.

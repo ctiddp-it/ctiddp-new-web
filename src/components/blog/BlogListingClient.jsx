@@ -460,6 +460,7 @@ export default function BlogListingClient({
 
   // Read initial state from URL
   const [search, setSearch] = useState(searchParams.get('search') || '');
+  const [debouncedSearch, setDebouncedSearch] = useState(search);
   const [category, setCategory] = useState(searchParams.get('category') || '');
   const [activeTag, setActiveTag] = useState(searchParams.get('tag') || '');
   const [page, setPage] = useState(parseInt(searchParams.get('page'), 10) || 1);
@@ -468,17 +469,25 @@ export default function BlogListingClient({
   const [pagination, setPagination] = useState(initialPagination);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Determine if any filter is active
-  const hasFilters = search || category || activeTag || page > 1;
+  // Debounce search input — waits 300ms after the user stops typing
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(search);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [search]);
 
-  // Fetch posts when filters change
+  // Determine if any filter is active
+  const hasFilters = debouncedSearch || category || activeTag || page > 1;
+
+  // Fetch posts when debounced filters change
   const fetchPosts = useCallback(async () => {
     setIsLoading(true);
     try {
       const params = new URLSearchParams();
       params.set('limit', '8');
       if (page > 1) params.set('page', page);
-      if (search) params.set('search', search);
+      if (debouncedSearch) params.set('search', debouncedSearch);
       if (category) params.set('category', category);
       if (activeTag) params.set('tag', activeTag);
 
@@ -488,11 +497,11 @@ export default function BlogListingClient({
       setPagination(json.pagination || { page: 1, limit: 8, total: 0, pages: 0 });
 
       // Track 'Search' event when user performs a search
-      if (search) {
+      if (debouncedSearch) {
         trackConversion({
           eventName: 'Search',
           customData: {
-            search_string: search,
+            search_string: debouncedSearch,
             content_category: category || undefined,
           },
         });
@@ -502,12 +511,12 @@ export default function BlogListingClient({
     } finally {
       setIsLoading(false);
     }
-  }, [search, category, activeTag, page]);
+  }, [debouncedSearch, category, activeTag, page]);
 
-  // Sync URL with filter state
+  // Sync URL with filter state (uses debounced search to avoid URL spam)
   useEffect(() => {
     const params = new URLSearchParams();
-    if (search) params.set('search', search);
+    if (debouncedSearch) params.set('search', debouncedSearch);
     if (category) params.set('category', category);
     if (activeTag) params.set('tag', activeTag);
     if (page > 1) params.set('page', page.toString());
@@ -515,14 +524,11 @@ export default function BlogListingClient({
     const qs = params.toString();
     const newUrl = qs ? `/blog?${qs}` : '/blog';
     router.replace(newUrl, { scroll: false });
-  }, [search, category, activeTag, page, router]);
+  }, [debouncedSearch, category, activeTag, page, router]);
 
-  // Debounced fetch on filter changes
+  // Fetch when debounced filters change
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchPosts();
-    }, 300);
-    return () => clearTimeout(timer);
+    fetchPosts();
   }, [fetchPosts]);
 
   // Reset page when filters change
