@@ -148,7 +148,7 @@ export default function Footer() {
     <footer style={{ background: '#111318' }} className="text-white">
 
       {/* ── Top CTA strip ── */}
-      <div style={{ background: '#B93800' }} className="w-full">
+      <div style={{ background: '#FE5101' }} className="w-full">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white font-semibold text-[14px] text-center sm:text-left">
             Get a complete DDP quote in under 2 hours - no hidden costs, no surprises.
@@ -156,7 +156,7 @@ export default function Footer() {
           <div className="flex gap-3 shrink-0">
             <Link prefetch={false}
               href="/quote"
-              className="inline-flex items-center gap-2 bg-white text-[#B93800] font-bold text-[13px] px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-colors no-underline"
+              className="inline-flex items-center gap-2 bg-white text-[#FE5101] font-bold text-[13px] px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-colors no-underline"
             >
               GET FREE QUOTE <HiArrowRight size={14} />
             </Link>

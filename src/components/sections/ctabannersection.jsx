@@ -102,7 +102,7 @@ export default function CTABannerSection() {
                         <a
                             href="/quote"
                             className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-bold text-sm tracking-wide transition-all hover:translate-y-[-2px]"
-                            style={{ background: "#B93800" }}
+                            style={{ background: "#FE5101" }}
                         >
                             GET FREE QUOTE
                             <HiArrowRight size={18} />

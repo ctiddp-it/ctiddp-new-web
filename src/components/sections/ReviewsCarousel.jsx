@@ -79,9 +79,9 @@ function StarRating({ rating }) {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: full }).map((_, i) => (
-        <FaStar key={i} size={14} color="#B93800" />
+        <FaStar key={i} size={14} color="#FE5101" />
       ))}
-      {half && <FaStarHalfAlt size={14} color="#B93800" />}
+      {half && <FaStarHalfAlt size={14} color="#FE5101" />}
     </div>
   );
 }
@@ -209,11 +209,11 @@ export default function ReviewsSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="block w-1.5 h-1.5 rounded-full bg-[#B93800]" />
-              <span className="text-[#B93800] font-semibold text-sm tracking-[0.18em] uppercase">
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+              <span className="text-[#FE5101] font-semibold text-sm tracking-[0.18em] uppercase">
                 Customer Reviews
               </span>
-              <span className="block w-1.5 h-1.5 rounded-full bg-[#B93800]" />
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
             </div>
             <h2
               className="text-4xl md:text-5xl font-extrabold leading-tight"
@@ -221,7 +221,7 @@ export default function ReviewsSection() {
             >
               Trusted by Importers
               <br />
-              <span style={{ color: "#B93800" }}>Across Global</span>
+              <span style={{ color: "#FE5101" }}>Across Global</span>
             </h2>
             <p className="text-slate-600 text-[16px] mt-4 max-w-lg leading-relaxed">
               Real businesses. Real shipments. See what our clients say about
@@ -237,7 +237,7 @@ export default function ReviewsSection() {
               </div>
               <div className="flex justify-center mt-1 gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <FaStar key={i} size={13} color="#B93800" />
+                  <FaStar key={i} size={13} color="#FE5101" />
                 ))}
               </div>
               <div className="text-slate-600 text-[11px] mt-1">500+ Reviews</div>

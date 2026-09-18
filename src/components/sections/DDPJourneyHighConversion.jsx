@@ -118,10 +118,10 @@ export default function OneContractSection() {
               <h2 className="text-5xl md:text-6xl font-extrabold leading-[1.05] mb-0" style={{ color: "#0B2A6B" }}>
                 One Contract.
               </h2>
-              <h2 className="text-5xl md:text-6xl font-extrabold leading-[1.05]" style={{ color: "#B93800" }}>
+              <h2 className="text-5xl md:text-6xl font-extrabold leading-[1.05]" style={{ color: "#FE5101" }}>
                 Zero Worry.
               </h2>
-              <div className="mt-4 h-[4px] w-12 rounded-full" style={{ background: "#B93800" }} />
+              <div className="mt-4 h-[4px] w-12 rounded-full" style={{ background: "#FE5101" }} />
             </div>
 
             {/* Sub-copy */}
@@ -153,7 +153,7 @@ export default function OneContractSection() {
             <a
               href="/how-it-works"
               className="inline-flex items-center gap-3 self-start px-7 py-4 rounded-xl text-white font-bold text-[15px] tracking-wide transition-opacity hover:opacity-90"
-              style={{ background: "#B93800" }}
+              style={{ background: "#FE5101" }}
             >
               SEE FULL PROCESS
               <HiArrowRight size={18} />

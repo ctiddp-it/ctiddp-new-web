@@ -179,7 +179,7 @@ export default function MegaNav() {
                 <Link prefetch={false}
                   href={item.href}
                   className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-all duration-200 whitespace-nowrap ${item.highlight
-                      ? 'text-[#B93800] font-bold border-b-2 border-transparent hover:border-[#FE5101]/40'
+                      ? 'text-[#FE5101] font-bold border-b-2 border-transparent hover:border-[#FE5101]/40'
                       : isActive(item.href)
                         ? 'text-primary border-b-2 border-primary'
                         : 'text-gray-700 border-b-2 border-transparent hover:text-primary hover:border-primary/40'
@@ -319,7 +319,7 @@ export default function MegaNav() {
                   href={item.href}
                   onClick={() => setDrawerOpen(false)}
                   className={`flex items-center justify-between px-5 py-3.5 text-[14px] font-500 no-underline transition-colors duration-150 ${item.highlight
-                      ? 'text-[#B93800] font-600 bg-[#FE5101]/5 border-l-[3px] border-[#FE5101]'
+                      ? 'text-[#FE5101] font-600 bg-[#FE5101]/5 border-l-[3px] border-[#FE5101]'
                       : isActive(item.href)
                         ? 'text-primary bg-primary-50'
                         : 'text-gray-700 hover:text-primary hover:bg-gray-50'

@@ -162,12 +162,12 @@ export default function HomePage() {
           {/* Section Header */}
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center justify-center mb-4">
-              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#B93800' }}></div>
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#FE5101' }}></div>
               <div className="h-1 w-6 rounded-full mx-1" style={{ backgroundColor: '#003DA5' }}></div>
-              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#B93800' }}></div>
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#FE5101' }}></div>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
-              What Does <span style={{ color: '#B93800' }}>DDP</span> Mean For Your Shipment?
+              What Does <span style={{ color: '#FE5101' }}>DDP</span> Mean For Your Shipment?
             </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
               Most importers are surprised by what's NOT included in their shipping terms.
@@ -186,7 +186,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold" style={{ color: '#0B2A6B' }}>FOB</h3>
                 </div>
-                <p className="text-sm font-semibold mb-3" style={{ color: '#B93800' }}>Free On Board</p>
+                <p className="text-sm font-semibold mb-3" style={{ color: '#FE5101' }}>Free On Board</p>
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
                   Seller loads goods onto the vessel. After that - sea freight, insurance, customs, duties, last-mile - all your responsibility.
                 </p>
@@ -212,7 +212,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold" style={{ color: '#0B2A6B' }}>CIF</h3>
                 </div>
-                <p className="text-sm font-semibold mb-3" style={{ color: '#B93800' }}>Cost, Insurance & Freight</p>
+                <p className="text-sm font-semibold mb-3" style={{ color: '#FE5101' }}>Cost, Insurance & Freight</p>
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
                   Seller handles sea freight and insurance. But you still handle Import customs, BCD+IGST payment, port formalities, and delivery.
                 </p>
@@ -230,9 +230,9 @@ export default function HomePage() {
             </div>
 
             {/* DDP Card - Featured */}
-            <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 relative" style={{ borderColor: '#B93800' }}>
+            <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 relative" style={{ borderColor: '#FE5101' }}>
               <div className="absolute top-0 right-0">
-                <div className="px-4 py-1 text-white text-xs font-bold rounded-bl-lg" style={{ backgroundColor: '#B93800' }}>
+                <div className="px-4 py-1 text-white text-xs font-bold rounded-bl-lg" style={{ backgroundColor: '#FE5101' }}>
                   BEST VALUE
                 </div>
               </div>
@@ -243,7 +243,7 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-2xl font-bold" style={{ color: '#0B2A6B' }}>DDP</h3>
                 </div>
-                <p className="text-sm font-semibold mb-3" style={{ color: '#B93800' }}>Delivered Duty Paid - WHAT WE DO</p>
+                <p className="text-sm font-semibold mb-3" style={{ color: '#FE5101' }}>Delivered Duty Paid - WHAT WE DO</p>
                 <p className="text-gray-700 text-sm leading-relaxed mb-4">
                   We handle everything: China export, sea freight, insurance, customs filing, BCD+IGST payment, and last-mile delivery. <strong>One invoice.</strong>
                 </p>
@@ -251,7 +251,7 @@ export default function HomePage() {
                   <p className="text-xs font-bold uppercase tracking-wide mb-1" style={{ color: '#003DA5' }}>Status:</p>
                   <div
                     className="flex items-center gap-2 font-bold"
-                    style={{ color: "#B93800" }}
+                    style={{ color: "#FE5101" }}
                   >
                     <FaCheckCircle className="flex-shrink-0" />
                     <span>We handle it all</span>
@@ -281,7 +281,7 @@ export default function HomePage() {
                 <Link prefetch={false}
                   href="/quote"
                   className="flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-white transition-all hover:opacity-90 hover:scale-105 transform whitespace-nowrap cursor-pointer"
-                  style={{ backgroundColor: '#B93800' }}
+                  style={{ backgroundColor: '#FE5101' }}
                 >
                   Get a DDP Quote <FaArrowRight />
                 </Link>
@@ -298,7 +298,7 @@ export default function HomePage() {
                     <th className="p-4 text-left text-white font-semibold">Included Services</th>
                     <th className="p-4 text-center text-white font-semibold">FOB</th>
                     <th className="p-4 text-center text-white font-semibold">CIF</th>
-                    <th className="p-4 text-center text-white font-semibold" style={{ backgroundColor: '#B93800' }}>DDP</th>
+                    <th className="p-4 text-center text-white font-semibold" style={{ backgroundColor: '#FE5101' }}>DDP</th>
                   </tr>
                 </thead>
                 <tbody className="text-gray-700">
@@ -369,12 +369,12 @@ export default function HomePage() {
           {/* Section Header */}
           <div className="text-center mb-12 md:mb-16">
             <div className="inline-flex items-center justify-center mb-4">
-              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#B93800' }}></div>
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#FE5101' }}></div>
               <div className="h-1 w-6 rounded-full mx-1" style={{ backgroundColor: '#003DA5' }}></div>
-              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#B93800' }}></div>
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: '#FE5101' }}></div>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style={{ color: '#0B2A6B' }}>
-              <span style={{ color: '#B93800' }}>8 Ways</span> We Power Your Global Supply Chain
+              <span style={{ color: '#FE5101' }}>8 Ways</span> We Power Your Global Supply Chain
             </h2>
             <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
               End-to-end logistics solutions tailored for your Business
@@ -441,7 +441,7 @@ export default function HomePage() {
                     <Link prefetch={false}
                       href={service.href}
                       className="md:hidden inline-flex items-center gap-2 font-semibold transition-all"
-                      style={{ color: "#B93800" }}
+                      style={{ color: "#FE5101" }}
                     >
                       View Service Details
                       <FaArrowRight className="text-xs" />
@@ -450,7 +450,7 @@ export default function HomePage() {
                     {/* Desktop: Visual CTA only (card itself is clickable) */}
                     <div
                       className="hidden md:flex items-center gap-2 font-semibold"
-                      style={{ color: "#B93800" }}
+                      style={{ color: "#FE5101" }}
                     >
                       <span>View Service Details</span>
                       <FaArrowRight className="text-xs transition-transform duration-300 group-hover:translate-x-1" />
@@ -461,7 +461,7 @@ export default function HomePage() {
                 {/* Bottom accent line */}
                 <div
                   className="h-1 w-0 group-hover:w-full transition-all duration-300"
-                  style={{ backgroundColor: "#B93800" }}
+                  style={{ backgroundColor: "#FE5101" }}
                 />
               </div>
             ))}
@@ -483,7 +483,7 @@ export default function HomePage() {
                   <Link prefetch={false}
                     href="/quote"
                     className="px-6 py-3 rounded-lg font-semibold text-white transition-all hover:opacity-90 hover:scale-105 whitespace-nowrap cursor-pointer"
-                    style={{ backgroundColor: '#B93800' }}
+                    style={{ backgroundColor: '#FE5101' }}
                   >
                     Get a Free Quote
                   </Link>
