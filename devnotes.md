@@ -1,3 +1,33 @@
+## 2026-09-17 — Production Lighthouse follow-up (local, not deployed)
+
+- Reviewed both supplied production reports: mobile Performance 60 / Accessibility 97; desktop Performance 98 / Accessibility 92. Both supplied reports had Best Practices and SEO 100.
+- Disabled automatic route prefetch on navigation, footer and homepage links. This prevents unrelated page banners and route JavaScript from downloading on the homepage while preserving client navigation. Browser regression confirms those banner requests are absent.
+- Replaced the large navbar SVG with a visually equivalent 12,202-byte WebP. Desktop hero now uses a responsive picture source, explicit high fetch priority and quality 60; mobile does not download the hidden desktop source and its below-fold hero is lazy-loaded. WebP inline image display remains enabled.
+- Replaced the ticker's requestAnimationFrame/scrollWidth loop with a CSS transform animation and reduced-motion support. Removed unnecessary client boundaries from static process and CTA sections; the video player remains interactive.
+- Fixed reported orange/white, green/white, review-opacity/date, navigation and footer contrast failures. Named partner-carousel controls. Local audit snapshots reported Accessibility 100 on mobile and desktop.
+- Validation: production build and lint passed. Production browser checks passed for Home/Contact/Quote form validation, mocked submissions, failure retention and conversion relay; responsive hero sources, no unrelated banner prefetch, reduced-motion ticker, partner controls and navigation also passed. Tests intercept submissions; no real leads were created.
+- Audit snapshots with normal third-party resources: mobile 63–71 Performance, LCP 2.9–3.7s, about 1,073 KiB; desktop 98 Performance, LCP 0.9s, about 1,174 KiB. These snapshots precede the final static-section client-boundary cleanup; they are not controlled same-browser before/after benchmarks. Source reports transferred 4,061 KiB mobile / 6,146 KiB desktop. Mobile blocking time remains high (1,180–1,480ms in snapshots), including first-party hydration and marketing scripts; do not claim the mobile performance issue is fully resolved.
+- Local Edge audit Best Practices was 77 due to third-party cookie/inspector warnings from existing Meta/Clarity tags; supplied Chrome reports were 100. Completed JSON reports have no runtimeError, but the Lighthouse CLI exited with a Windows temporary-profile cleanup EPERM after writing reports. Artifacts are ignored under tests/artifacts/.
+- Remaining owner work: choose one Clarity project (code wrf3e5yjsp vs GTM xfg9g0p694), review duplicate/unneeded GTM/Meta/GA tags, preserve conversion deduplication, rebuild/restart and repeat production Chrome audits. No tags were removed or conversions delayed solely to improve scores. Nothing committed or deployed.
+
+## 2026-09-17 — Lighthouse performance and image display fixes (local, not deployed)
+
+- Read AGENTS.md and reviewed the supplied Lighthouse 13.4.1 JSON: Performance 47, Best Practices 73, Accessibility 93, SEO 100; LCP 4.8 s, TBT 3,090 ms, 6,754 KiB transferred. Development-mode chunks/unminified icon bundles make this unsuitable as a production baseline.
+- Replaced the nonexistent mobile hero bg-image.png reference with the existing shipping artwork; added responsive image sizes. Removed footer image priority. Replaced the 1,022,803-byte social image favicon with a 2,009-byte PNG and a separate Apple touch icon; retained social metadata artwork.
+- Replaced eager home/quote YouTube iframes with a keyboard-accessible, click-to-play facade using the privacy-enhanced player. No YouTube player requests before interaction. Deferred direct Clarity to browser load/idle; did not remove Pixel/GTM or alter conversion handling.
+- Next.js optimizer now uses WebP and Content-Disposition inline, fixing forced AVIF downloads on Open image in new tab while keeping optimization. Original public PNG/JPEG URLs remain available.
+- Improved flagged hero text contrast and carousel dot hit areas (24 px). Preserved form components, validation, payloads, endpoints, and conversion event logic.
+- Validation: lint and production build passed. Network-enabled build fetched Google Fonts; existing blog/sitemap fetches warned because localhost:5000 was unavailable. Production browser tests passed for home/contact/quote submissions and conversion relay, empty-form rejection, home server-error input retention/retry, lazy video activation, and image headers. Every POST and third-party request was intercepted; no real leads/conversions were created. No new Lighthouse score is claimed.
+- User follow-up: run the intended backend and use a reachable production API URL before release; rebuild/restart Next.js; consolidate duplicate Clarity projects wrf3e5yjsp (code) and xfg9g0p694 (GTM) after choosing the desired reporting destination. Run fresh production Lighthouse audits with real third-party tags in a clean browser. See LIGHTHOUSE_REVIEW.md for details.
+
+## 2026-09-10 — R1 public CMS rendering (local, not deployed)
+
+- Documentation reviewed against AGENTS.md on 2026-09-10; this entry records today's completed local implementation.
+- Shared the allowlisted rich-text renderer and article typography with operations-panel preview, preserving approved formatting and resolving relative media URLs. Excluded unsafe nodes/attributes/protocols and escaped opening angle brackets in article JSON-LD.
+- Validation: lint, production build, and preview/public rendering regression passed. Backend tests check shared-source parity.
+- Build verification read public blog data and fetched fonts; no production records were modified. No commit or deployment occurred. Coordinate rollout with the backend/panel Secure CMS Foundation notes.
+- Regression coverage includes headings, emphasis, links, lists, alignment, colors, highlights, images, tables, and rejection of unsafe nodes/protocols. Verify representative existing articles on staging before release.
+
 ## feat(seo, services): fix sitemap issues, normalize URLs, add service pages with schema
 
 Sitemap & Robots Fixes

@@ -85,7 +85,7 @@ const NAV_ITEMS = [
 /* ── Mega dropdown item ── */
 function MegaItem({ child, onClick }) {
   return (
-    <Link
+    <Link prefetch={false}
       href={child.href}
       onClick={onClick}
       className="group/item flex items-start gap-3 py-2.5 px-3 rounded-lg no-underline transition-colors duration-150 hover:bg-primary-50"
@@ -160,9 +160,9 @@ export default function MegaNav() {
           }`}
       >
         {/* Logo */}
-        <Link href="/" className="flex items-center shrink-0">
+        <Link prefetch={false} href="/" className="flex items-center shrink-0">
           <Image
-            src="/images/ctiddp-logo.svg"
+            src="/images/ctiddp-nav-logo.webp"
             alt="CTIDDP Logo"
             width={120}
             height={45}
@@ -176,10 +176,10 @@ export default function MegaNav() {
           {NAV_ITEMS.map((item) => (
             <li key={item.label} className="relative h-full flex items-center group">
               {!item.children ? (
-                <Link
+                <Link prefetch={false}
                   href={item.href}
                   className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-all duration-200 whitespace-nowrap ${item.highlight
-                      ? 'text-[#FE5101] font-bold border-b-2 border-transparent hover:border-[#FE5101]/40'
+                      ? 'text-[#B93800] font-bold border-b-2 border-transparent hover:border-[#FE5101]/40'
                       : isActive(item.href)
                         ? 'text-primary border-b-2 border-primary'
                         : 'text-gray-700 border-b-2 border-transparent hover:text-primary hover:border-primary/40'
@@ -197,7 +197,7 @@ export default function MegaNav() {
                 </Link>
               ) : (
                 <>
-                  <Link
+                  <Link prefetch={false}
                     href={item.href || '#'}
                     className={`flex items-center gap-1 h-full px-3 no-underline text-[13.5px] font-500 tracking-wide transition-colors duration-200 border-b-2 whitespace-nowrap ${isActiveParent(item)
                       ? 'text-primary border-primary'
@@ -244,7 +244,7 @@ export default function MegaNav() {
           >
             <FaWhatsapp size={20} />
           </a>
-          <Link
+          <Link prefetch={false}
             href="/quote"
             className="btn btn-primary btn-sm gap-1.5"
           >
@@ -254,7 +254,7 @@ export default function MegaNav() {
 
         {/* ── MOBILE RIGHT ── */}
         <div className="flex lg:hidden items-center gap-2.5">
-          <Link href="/quote" className="btn btn-primary btn-sm text-[11px] px-3 py-2">
+          <Link prefetch={false} href="/quote" className="btn btn-primary btn-sm text-[11px] px-3 py-2">
             Quote
           </Link>
           <button
@@ -293,7 +293,7 @@ export default function MegaNav() {
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 h-[68px] border-b border-gray-100 shrink-0">
-          <Link href="/" onClick={() => setDrawerOpen(false)}>
+          <Link prefetch={false} href="/" onClick={() => setDrawerOpen(false)}>
             <Image
               src="/images/ctiddp-logo.png"
               alt="CTIDDP Logo"
@@ -315,11 +315,11 @@ export default function MegaNav() {
           {NAV_ITEMS.map((item) => (
             <div key={item.label}>
               {!item.children ? (
-                <Link
+                <Link prefetch={false}
                   href={item.href}
                   onClick={() => setDrawerOpen(false)}
                   className={`flex items-center justify-between px-5 py-3.5 text-[14px] font-500 no-underline transition-colors duration-150 ${item.highlight
-                      ? 'text-[#FE5101] font-600 bg-[#FE5101]/5 border-l-[3px] border-[#FE5101]'
+                      ? 'text-[#B93800] font-600 bg-[#FE5101]/5 border-l-[3px] border-[#FE5101]'
                       : isActive(item.href)
                         ? 'text-primary bg-primary-50'
                         : 'text-gray-700 hover:text-primary hover:bg-gray-50'
@@ -358,7 +358,7 @@ export default function MegaNav() {
                   >
                     <div className="bg-gray-50 border-t border-gray-100 py-2">
                       {item.children?.map((child) => (
-                        <Link
+                        <Link prefetch={false}
                           key={child.href}
                           href={child.href}
                           onClick={() => setDrawerOpen(false)}
@@ -387,7 +387,7 @@ export default function MegaNav() {
 
         {/* Drawer footer */}
         <div className="shrink-0 p-5 border-t border-gray-100 flex flex-col gap-3">
-          <Link
+          <Link prefetch={false}
             href="/quote"
             onClick={() => setDrawerOpen(false)}
             className="btn btn-primary w-full justify-center"

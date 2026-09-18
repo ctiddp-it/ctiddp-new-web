@@ -121,6 +121,7 @@ function PartnerRow({ icon, title, description, accentColor, partners }) {
           {/* Desktop nav arrows */}
           <div className="hidden md:flex justify-end gap-2 mb-4">
             <button
+              aria-label={`Previous ${title}`}
               onClick={() => scroll(-1)}
               className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-[#003DA5] hover:border-[#003DA5] transition-all"
             >
@@ -129,6 +130,7 @@ function PartnerRow({ icon, title, description, accentColor, partners }) {
               </svg>
             </button>
             <button
+              aria-label={`Next ${title}`}
               onClick={() => scroll(1)}
               className="w-10 h-10 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:text-[#003DA5] hover:border-[#003DA5] transition-all"
             >
@@ -208,16 +210,16 @@ export default function PartnersSection() {
           </div>
           <div className="relative z-10 py-8">
             <div className="inline-flex items-center justify-center mb-4">
-              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "#FE5101" }} />
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "#B93800" }} />
               <div className="h-1 w-6 rounded-full mx-1" style={{ backgroundColor: "#003DA5" }} />
-              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "#FE5101" }} />
+              <div className="h-1 w-12 rounded-full" style={{ backgroundColor: "#B93800" }} />
             </div>
             <h2
               className="text-4xl md:text-5xl font-extrabold mb-4 leading-tight"
               style={{ color: "#0B2A6B" }}
             >
               Trusted Global Partner{" "}
-              <span style={{ color: "#FE5101" }}>Ecosystem</span>
+              <span style={{ color: "#B93800" }}>Ecosystem</span>
             </h2>
             <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               We collaborate with leading sourcing platforms, logistics carriers, and
@@ -245,9 +247,9 @@ export default function PartnersSection() {
             />
             <div className="border-t border-slate-100 my-2" />
             <PartnerRow
-              icon={<Truck className="h-8 w-8 text-[#FE5101]" />}
+              icon={<Truck className="h-8 w-8 text-[#B93800]" />}
               title="Logistics & Delivery Partners"
-              accentColor="#FE5101"
+              accentColor="#B93800"
               partners={LOGISTICS_PARTNERS}
             />
           </div>
@@ -312,7 +314,7 @@ export default function PartnersSection() {
               <a
                 href="/contact"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-white text-sm font-semibold transition-opacity hover:opacity-90"
-                style={{ background: "#FE5101" }}
+                style={{ background: "#B93800" }}
               >
                 BECOME A PARTNER →
               </a>

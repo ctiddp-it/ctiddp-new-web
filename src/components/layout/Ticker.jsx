@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+
 import {
   HiOutlineGlobeAlt,
   HiOutlineTruck,
@@ -17,28 +17,6 @@ const TICKER_ITEMS = [
 ]
 
 export default function Ticker() {
-  const trackRef = useRef(null)
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    let animId
-    let pos = 0
-    const speed = 0.4
-
-    const animate = () => {
-      pos -= speed
-      const halfWidth = track.scrollWidth / 2
-      if (Math.abs(pos) >= halfWidth) pos = 0
-      track.style.transform = `translateX(${pos}px)`
-      animId = requestAnimationFrame(animate)
-    }
-
-    animId = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(animId)
-  }, [])
-
   const items = [...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS]
 
   return (
@@ -46,10 +24,11 @@ export default function Ticker() {
       <div className="flex items-center justify-between h-[36px]">
         {/* Scrolling ticker items */}
         <div className="flex-1 overflow-hidden relative">
-          <div ref={trackRef} className="flex items-center gap-8 whitespace-nowrap will-change-transform">
+          <div className="ticker-track flex w-max items-center gap-8 pr-8 whitespace-nowrap">
             {items.map((item, i) => (
               <span
                 key={i}
+                aria-hidden={i >= TICKER_ITEMS.length ? true : undefined}
                 className="inline-flex items-center gap-1.5 text-[12px] font-medium text-gray-300 tracking-wide"
               >
                 <span className="text-primary-light">{item.icon}</span>

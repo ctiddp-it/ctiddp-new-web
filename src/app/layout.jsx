@@ -78,9 +78,9 @@ export const metadata = {
     images: ['https://www.ctiddp.com/images/CTIDDP-LOGO Social Media.png'],
   },
   icons: {
-    icon: '/images/CTIDDP-LOGO Social Media.png',
-    shortcut: '/images/CTIDDP-LOGO Social Media.png',
-    apple: '/images/CTIDDP-LOGO Social Media.png',
+    icon: '/images/favicon-32.png',
+    shortcut: '/images/favicon-32.png',
+    apple: '/images/apple-touch-icon.png',
   },
 }
 
@@ -128,7 +128,7 @@ export default function RootLayout({ children }) {
         {/* Microsoft Clarity */}
         <Script
           id="microsoft-clarity"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >
                 {`
           (function(c,l,a,r,i,t,y){

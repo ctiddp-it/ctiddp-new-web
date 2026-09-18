@@ -79,9 +79,9 @@ function StarRating({ rating }) {
   return (
     <div className="flex items-center gap-0.5">
       {Array.from({ length: full }).map((_, i) => (
-        <FaStar key={i} size={14} color="#FE5101" />
+        <FaStar key={i} size={14} color="#B93800" />
       ))}
-      {half && <FaStarHalfAlt size={14} color="#FE5101" />}
+      {half && <FaStarHalfAlt size={14} color="#B93800" />}
     </div>
   );
 }
@@ -90,7 +90,7 @@ function ReviewCard({ review, active }) {
   return (
     <div
       className={`flex-shrink-0 w-full transition-all duration-500 ${
-        active ? "opacity-100 scale-100" : "opacity-40 scale-95"
+        active ? "opacity-100 scale-100" : "opacity-100 scale-95"
       }`}
     >
       <div
@@ -127,14 +127,14 @@ function ReviewCard({ review, active }) {
           {/* Google badge */}
           {/* <div className="flex items-center gap-1 flex-shrink-0 mt-0.5">
             <FaGoogle size={13} color="#4285F4" />
-            <span className="text-[11px] text-slate-400 font-medium">Google</span>
+            <span className="text-[11px] text-slate-600 font-medium">Google</span>
           </div> */}
         </div>
 
         {/* Stars + date */}
         <div className="flex items-center gap-2">
           <StarRating rating={review.rating} />
-          <span className="text-slate-400 text-[12px]">· {review.date}</span>
+          <span className="text-slate-600 text-[12px]">· {review.date}</span>
         </div>
 
         {/* Review text */}
@@ -209,11 +209,11 @@ export default function ReviewsSection() {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
-              <span className="text-[#FE5101] font-semibold text-sm tracking-[0.18em] uppercase">
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#B93800]" />
+              <span className="text-[#B93800] font-semibold text-sm tracking-[0.18em] uppercase">
                 Customer Reviews
               </span>
-              <span className="block w-1.5 h-1.5 rounded-full bg-[#FE5101]" />
+              <span className="block w-1.5 h-1.5 rounded-full bg-[#B93800]" />
             </div>
             <h2
               className="text-4xl md:text-5xl font-extrabold leading-tight"
@@ -221,7 +221,7 @@ export default function ReviewsSection() {
             >
               Trusted by Importers
               <br />
-              <span style={{ color: "#FE5101" }}>Across Global</span>
+              <span style={{ color: "#B93800" }}>Across Global</span>
             </h2>
             <p className="text-slate-600 text-[16px] mt-4 max-w-lg leading-relaxed">
               Real businesses. Real shipments. See what our clients say about
@@ -237,17 +237,17 @@ export default function ReviewsSection() {
               </div>
               <div className="flex justify-center mt-1 gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <FaStar key={i} size={13} color="#FE5101" />
+                  <FaStar key={i} size={13} color="#B93800" />
                 ))}
               </div>
-              <div className="text-slate-400 text-[11px] mt-1">500+ Reviews</div>
+              <div className="text-slate-600 text-[11px] mt-1">500+ Reviews</div>
             </div>
             <div className="w-px h-12 bg-slate-100" />
             <div className="flex items-center gap-2">
               <FaGoogle size={20} color="#4285F4" />
               <div>
                 <div className="font-bold text-[13px]" style={{ color: "#0B2A6B" }}>Google</div>
-                <div className="text-slate-400 text-[11px]">Verified Reviews</div>
+                <div className="text-slate-600 text-[11px]">Verified Reviews</div>
               </div>
             </div>
           </div> */}
@@ -280,14 +280,11 @@ export default function ReviewsSection() {
               <button
                 key={i}
                 onClick={() => handleDot(i)}
-                className="rounded-full transition-all duration-300"
-                style={{
-                  width: i === current ? "28px" : "8px",
-                  height: "8px",
-                  background: i === current ? "#003DA5" : "#CBD5E1",
-                }}
+                className="relative min-w-6 h-6 flex items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700"
+
                 aria-label={`Go to slide ${i + 1}`}
-              />
+                aria-current={i === current ? "true" : undefined}
+              ><span aria-hidden="true" className="block rounded-full h-2" style={{width: i === current ? 24 : 8, background: i === current ? "#003DA5" : "#64748b"}} /></button>
             ))}
           </div>
 
@@ -333,7 +330,7 @@ export default function ReviewsSection() {
                 <div className="font-semibold text-[14px] mt-1" style={{ color: "#0B2A6B" }}>
                   {s.label}
                 </div>
-                <div className="text-slate-400 text-[12px]">{s.sub}</div>
+                <div className="text-slate-600 text-[12px]">{s.sub}</div>
               </div>
             </div>
           ))}

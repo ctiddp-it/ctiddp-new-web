@@ -1,4 +1,5 @@
-"use client";
+
+import VideoPreview from '@/components/ui/VideoPreview';
 
 import Image from "next/image";
 import { FaWhatsapp, FaLock } from "react-icons/fa";
@@ -66,15 +67,7 @@ export default function CTABannerSection() {
                         className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
                         style={{ paddingTop: "56.25%" }}
                     >
-                        <iframe
-                            className="absolute inset-0 w-full h-full"
-                            src="https://www.youtube.com/embed/tF9U_erUUb4?si=SdzKLF7bNWPPBWgh"
-                            title="CTIDDP - How It Works"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerPolicy="strict-origin-when-cross-origin"
-                            allowFullScreen
-                        />
+                        <VideoPreview videoId="tF9U_erUUb4" title="CTIDDP — How to request a shipping quote" />
                     </div>
                 </div>
 
@@ -109,7 +102,7 @@ export default function CTABannerSection() {
                         <a
                             href="/quote"
                             className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-white font-bold text-sm tracking-wide transition-all hover:translate-y-[-2px]"
-                            style={{ background: "#FE5101" }}
+                            style={{ background: "#B93800" }}
                         >
                             GET FREE QUOTE
                             <HiArrowRight size={18} />
@@ -121,7 +114,7 @@ export default function CTABannerSection() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 px-7 py-4 rounded-xl font-bold text-sm tracking-wide transition-all hover:translate-y-[-2px]"
                             style={{
-                                background: "#25D366",
+                                background: "#12813D",
                                 color: "#fff",
                             }}
                         >

@@ -1,3 +1,4 @@
+import VideoPreview from '@/components/ui/VideoPreview';
 import {
   FaShip,
   FaTruck,
@@ -457,14 +458,7 @@ export default function GetQuotePage() {
               Watch this quick 60-second walkthrough to understand how to submit your shipment details.
             </p>
             <div className="relative w-full overflow-hidden aspect-video rounded-2xl shadow-elevated">
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/tF9U_erUUb4"
-                title="Send DDP Quote Request in Under 60 Seconds"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+              <VideoPreview videoId="tF9U_erUUb4" title="CTIDDP — How to request a shipping quote" />
             </div>
             <p className="text-[12px] text-gray-400 mt-4">
               Takes less than 60 seconds · Response within 2 hours

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import {
   ShieldCheck,
   Map,
@@ -22,6 +22,10 @@ import Link from "next/link";
    • Next section: bg-white with pt that absorbs the card overlap
    ───────────────────────────────────────────────────────────────── */
 export default function HeroSection() {
+  const { props: desktopImage } = getImageProps({
+    src: "/images/home/ctiddp-herosection-bg-image.png", alt: "", fill: true,
+    sizes: "90vw", quality: 60, loading: "eager", fetchPriority: "high",
+  });
   return (
     <>
       {/* ══════════════════════════════════════════
@@ -35,13 +39,12 @@ export default function HeroSection() {
             invisible. Hidden on mobile - mobile gets its own image block.
         ──────────────────────────────────────────────────────────────── */}
         <div className="hidden xl:block absolute inset-0 left-[10%]">
-          <Image
-            src="/images/home/ctiddp-herosection-bg-image.png"
-            alt="Logistics"
-            fill
-            priority
-            className="object-cover object-center"
-          />
+          <picture>
+            <source media="(min-width: 1280px)" srcSet={desktopImage.srcSet} sizes="90vw" />
+            {/* Responsive source avoids downloading the hidden desktop hero on mobile. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img {...desktopImage} alt="" srcSet={undefined} src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" className="object-cover object-center" />
+          </picture>
           {/* Strong left-to-right fade: covers ~40% of the image panel */}
           <div className="absolute inset-y-0 left-0 w-[38%] xl:w-[46%] 2xl:w-[48%]
                           bg-linear-to-r from-[#f5f7fb] via-[#f5f7fb]/75 to-transparent" />
@@ -111,7 +114,7 @@ export default function HeroSection() {
 
               {/* ── CTA Buttons ── */}
               <div className="flex flex-row gap-3 mt-6 md:mt-7 xl:mt-8">
-                <Link href="/quote">
+                <Link prefetch={false} href="/quote">
                   <button
                     className="h-11 md:h-12 px-2 md:px-5 rounded-xl bg-[#003DA5] hover:bg-[#00338a]
                text-white font-semibold text-[13px] md:text-[14px]
@@ -195,10 +198,12 @@ export default function HeroSection() {
         ──────────────────────────────────────────────────────────────── */}
         <div className="xl:hidden relative w-full h-[200px] sm:h-[260px] md:h-[300px] -mt-4 overflow-hidden">
           <Image
-            src="/images/home/bg-image.png"
+            src="/images/home/ctiddp-herosection-bg-image.png"
             alt="Logistics"
             fill
-            priority
+            sizes="(min-width: 1280px) 90vw, 100vw"
+            loading="lazy"
+            quality={60}
             className="object-cover object-[center_40%]"
           />
           {/* Fade top so it connects seamlessly with content */}
@@ -300,7 +305,7 @@ function StatItem({ icon, value, label }) {
         <div className="text-[24px] sm:text-[28px] xl:text-3xl leading-none font-black tracking-tight text-[#0B2A6B] transition-all duration-300 group-hover:text-[#2456D3]">
           {value}
         </div>
-        <div className="text-[11px] sm:text-[12px] xl:text-[13px] font-semibold text-slate-500 mt-1.5 leading-tight group-hover:text-slate-700">
+        <div className="text-[11px] sm:text-[12px] xl:text-[13px] font-semibold text-slate-600 mt-1.5 leading-tight group-hover:text-slate-700">
           {label}
         </div>
       </div>
@@ -326,7 +331,7 @@ function FeatureCard({ icon, title, desc }) {
         <h3 className="text-[15px] lg:text-[17px] font-bold text-[#0B2A6B] leading-snug">
           {title}
         </h3>
-        <p className="mt-1 text-[13px] text-slate-500 leading-relaxed">
+        <p className="mt-1 text-[13px] text-slate-600 leading-relaxed">
           {desc}
         </p>
       </div>

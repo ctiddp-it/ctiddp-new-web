@@ -80,7 +80,7 @@ function MobileSection({ title, children }) {
         </span>
         <HiChevronDown
           size={16}
-          className={`text-gray-500 shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
+          className={`text-gray-400 shrink-0 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}
         />
       </button>
       <div
@@ -101,7 +101,7 @@ function NavList({ items, labelKey = 'label' }) {
     <ul className="space-y-[2px]">
       {items.map((item) => (
         <li key={item.href}>
-          <Link
+          <Link prefetch={false}
             href={item.href}
             className="group flex items-center gap-1.5 py-[7px] text-[13px] text-gray-400 hover:text-white transition-colors duration-200 no-underline"
           >
@@ -148,15 +148,15 @@ export default function Footer() {
     <footer style={{ background: '#111318' }} className="text-white">
 
       {/* ── Top CTA strip ── */}
-      <div style={{ background: '#FE5101' }} className="w-full">
+      <div style={{ background: '#B93800' }} className="w-full">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white font-semibold text-[14px] text-center sm:text-left">
             Get a complete DDP quote in under 2 hours - no hidden costs, no surprises.
           </p>
           <div className="flex gap-3 shrink-0">
-            <Link
+            <Link prefetch={false}
               href="/quote"
-              className="inline-flex items-center gap-2 bg-white text-[#FE5101] font-bold text-[13px] px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-colors no-underline"
+              className="inline-flex items-center gap-2 bg-white text-[#B93800] font-bold text-[13px] px-5 py-2.5 rounded-lg hover:bg-gray-100 transition-colors no-underline"
             >
               GET FREE QUOTE <HiArrowRight size={14} />
             </Link>
@@ -181,13 +181,13 @@ export default function Footer() {
 
           {/* Col 1 - Brand */}
           <div className="flex flex-col gap-5">
-            <Link href="/" className="flex items-center shrink-0">
+            <Link prefetch={false} href="/" className="flex items-center shrink-0">
               <Image
                 src="/images/ctiddp-logo-white.svg"
                 alt="CTIDDP Logo"
                 width={150}
                 height={65}
-                priority
+                loading="lazy"
                 className="h-20 md:h-28 w-auto object-contain"
               />
             </Link>
@@ -265,7 +265,7 @@ export default function Footer() {
                 <div className="grid grid-cols-[68px_1fr] gap-x-2 gap-y-1">
                   {HOURS.map(({ day, time }) => (
                     <Fragment key={day}>
-                      <span className="text-[12px] text-gray-500">{day}</span>
+                      <span className="text-[12px] text-gray-400">{day}</span>
                       <span className="text-[12px] text-gray-300">{time}</span>
                     </Fragment>
                   ))}
@@ -279,7 +279,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 w-full inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-lg text-[13px] font-bold text-white transition-opacity hover:opacity-90 no-underline"
-              style={{ background: '#25D366' }}
+              style={{ background: '#12813D' }}
             >
               <FaWhatsapp size={17} /> WHATSAPP US
             </a>
@@ -290,13 +290,13 @@ export default function Footer() {
         <div className="lg:hidden">
           {/* Brand block */}
           <div className="pb-6 text-center border-b border-white/[0.07] mb-2">
-            <Link href="/" className="inline-flex justify-center">
+            <Link prefetch={false} href="/" className="inline-flex justify-center">
               <Image
                 src="/images/ctiddp-logo-white.svg"
                 alt="CTIDDP Logo"
                 width={150}
                 height={65}
-                priority
+                loading="lazy"
                 className="h-20 md:h-28 w-auto object-contain"
               />
             </Link>
@@ -348,7 +348,7 @@ export default function Footer() {
                 <div className="grid grid-cols-[68px_1fr] gap-x-2 gap-y-1">
                   {HOURS.map(({ day, time }) => (
                     <Fragment key={day}>
-                      <span className="text-[12px] text-gray-500">{day}</span>
+                      <span className="text-[12px] text-gray-400">{day}</span>
                       <span className="text-[12px] text-gray-300">{time}</span>
                     </Fragment>
                   ))}
@@ -359,7 +359,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg text-[13px] font-bold text-white no-underline mt-1"
-                style={{ background: '#25D366' }}
+                style={{ background: '#12813D' }}
               >
                 <FaWhatsapp size={17} /> WHATSAPP US
               </a>
@@ -371,13 +371,13 @@ export default function Footer() {
       {/* ── Bottom bar ── */}
       <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12 py-5 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="text-[12px] text-gray-600 text-center sm:text-left">
+          <p className="text-[12px] text-gray-400 text-center sm:text-left">
             © {new Date().getFullYear()} CTIDDP Private Limited. All rights reserved.
           </p>
           <div className="flex items-center gap-3 flex-wrap justify-center">
             {LEGAL.map((l, i) => (
               <span key={l.href} className="flex items-center gap-3">
-                <Link href={l.href} className="text-[12px] text-gray-600 hover:text-gray-300 transition-colors no-underline">
+                <Link prefetch={false} href={l.href} className="text-[12px] text-gray-400 hover:text-gray-300 transition-colors no-underline">
                   {l.label}
                 </Link>
                 {i < LEGAL.length - 1 && (

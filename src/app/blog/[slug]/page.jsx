@@ -478,7 +478,7 @@ export default async function BlogPostPage({ params }) {
               '@id': canonicalUrl,
             },
             url: canonicalUrl,
-          }),
+          }).replace(/</g, '\\u003c'),
         }}
       />
 

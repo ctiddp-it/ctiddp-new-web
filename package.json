@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test:performance-forms": "node tests/performance-forms.cjs",
+    "test:performance-layout": "node tests/performance-layout.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

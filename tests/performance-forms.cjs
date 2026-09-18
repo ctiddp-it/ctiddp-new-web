@@ -1,0 +1,70 @@
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const { chromium } = require(process.env.PLAYWRIGHT_MODULE || path.join(require('node:os').homedir(), '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright'));
+(async () => {
+ const browser = await chromium.launch({channel:'msedge', headless:true});
+ try {
+ const page = await browser.newPage({viewport:{width:412,height:823}});
+ const submissions=[], conversions=[], requests=[], errors=[];
+ let fail=true;
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/*',async route=>{
+  const req=route.request(),url=new URL(req.url());requests.push(url.href);
+  if(req.method()==='POST') {
+   const payload=req.postDataJSON();
+   if(url.pathname==='/api/meta-capi') conversions.push(payload);
+   else submissions.push({path:url.pathname,payload});
+   return route.fulfill({status:fail&&url.pathname.endsWith('/hero-contact')?500:200,contentType:'application/json',body:JSON.stringify({success:true,message:fail?'Isolated test failure':'OK'})});
+  }
+  if(url.hostname!=='127.0.0.1')return route.fulfill({status:200,body:'',contentType:'application/javascript'});
+  return route.continue();
+ });
+ const base=process.env.TEST_BASE_URL || 'http://127.0.0.1:3001';
+ await page.goto(base);
+ await page.getByRole('button',{name:'Get Quote in 2hrs',exact:true}).click();
+ assert.equal(submissions.length,0);
+ await page.getByPlaceholder('Your Name',{exact:true}).fill('Test Importer');
+ await page.getByPlaceholder('Phone Number *',{exact:true}).fill('+919876543210');
+ await page.getByPlaceholder('Email Address',{exact:true}).fill('isolated@example.test');
+ await page.getByRole('button',{name:'Get Quote in 2hrs',exact:true}).click();
+ await page.getByText('Isolated test failure',{exact:true}).waitFor();
+ assert.equal(await page.getByPlaceholder('Your Name',{exact:true}).inputValue(),'Test Importer');
+ fail=false;
+ await page.getByRole('button',{name:'Get Quote in 2hrs',exact:true}).click();
+ await page.getByRole('heading',{name:'Thank You!',exact:true}).waitFor();
+ assert.equal(submissions.length,2);
+ assert.equal(submissions[1].payload.phone,'+919876543210');
+ assert.ok(!requests.some(u=>/youtube|doubleclick/.test(u)));
+ await page.getByRole('button',{name:/Play video:/}).click();
+ await page.locator('iframe[src*="youtube-nocookie.com/embed/"]').waitFor();
+ const image=await page.request.get(base+'/_next/image?url=%2Fimages%2Fhome%2Fctiddp-herosection-bg-image.png&w=750&q=75',{headers:{Accept:'image/avif,image/webp,image/*'}});
+ assert.equal(image.status(),200);assert.match(image.headers()['content-type'],/image\/webp/);assert.match(image.headers()['content-disposition'],/^inline/);
+ assert.equal((await page.request.get(base+'/images/favicon-32.png')).status(),200);
+ await page.goto(base+'/contact');
+ await page.getByPlaceholder('Your full name').fill('Test Importer');
+ await page.getByPlaceholder('you@example.com').fill('isolated@example.test');
+ await page.getByPlaceholder('+91 81234 56789').fill('+919876543210');
+ await page.locator('select[name="subject"]').selectOption('General Question');
+ await page.getByPlaceholder('How can we help you?').fill('Isolated contact form verification only.');
+ await page.getByRole('button',{name:'SEND MESSAGE →',exact:true}).click();
+ await page.waitForFunction(()=>!document.querySelector('input[name="name"]'));
+ assert.ok(submissions.some(s=>s.path.endsWith('/contact-us')));
+ await page.goto(base+'/quote');
+ await page.getByRole('button',{name:'Submit Quote Request →',exact:true}).click();
+ assert.ok(!submissions.some(s=>s.path.endsWith('/crm/leads')));
+ await page.getByPlaceholder('Full name',{exact:true}).fill('Test Importer');
+ await page.getByPlaceholder('Enter phone number').fill('+919876543210');
+ await page.getByPlaceholder('you@company.com').fill('isolated@example.test');
+ await page.locator('input[name="productCategory"]').fill('Lighting');
+ await page.locator('select[name="serviceType"]').selectOption({index:1});
+ await page.getByPlaceholder('City / State / Pincode').fill('Chennai');
+ await page.getByRole('button',{name:'Submit Quote Request →',exact:true}).click();
+ await page.getByRole('heading',{name:'Quote Request Received!',exact:true}).waitFor();
+ assert.ok(submissions.some(s=>s.path.endsWith('/crm/leads')));
+ assert.ok(conversions.some(c=>c.eventName==='SubmitApplication'));
+ assert.ok(conversions.some(c=>c.eventName==='Contact'));
+ assert.ok(conversions.some(c=>c.eventName==='Lead'));
+ assert.deepEqual(errors,[]);
+ console.log('PASS: production home/contact/quote forms, validation, error retention, success and conversion relay; video click-to-load; WebP inline image headers. All submissions intercepted.');
+ } finally {await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1});
