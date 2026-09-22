@@ -1,15 +1,14 @@
-# /public assets needed
+# Public assets
 
-Place the following files in this directory:
+This directory is served from the website root. For example public/images/example.png is available as /images/example.png.
 
-- favicon.ico           (32x32 icon)
-- favicon-16x16.png     (16x16)
-- apple-touch-icon.png  (180x180)
-- og-image.jpg          (1200x630 - used for social sharing)
-- logo.png              (for JSON-LD structured data)
+Current root-layout metadata uses:
+- /images/favicon-32.png
+- /images/apple-touch-icon.png
+- /images/CTIDDP-LOGO Social Media.png for social metadata and organization structured data.
 
-## OG Image Spec
-- Size: 1200 × 630 px
-- Design: Dark background (--black: #050508), gold CTIDDP logo centred
-- Tagline: "China → India DDP Specialists"
-- Include flags: 🇨🇳 → 🇮🇳
+Do not substitute the older placeholder favicon/logo filenames without also updating src/app/layout.jsx. Navigation branding, page photography and blog fallbacks reference files under images/. User-uploaded blog/author media is stored by the backend under /uploads, not here.
+
+Preserve asset URLs used by existing pages. Public image responses currently use long immutable cache headers; use new versioned filenames when replacing assets. The Next image optimizer emits WebP and serves inline. Open the original /images/...png or .jpg URL when the original format is required.
+
+Use descriptive alt text for meaningful images, dimensions/responsive sizes where applicable and appropriately sized source files. Do not put secrets, private drafts or exported customer records in public/.

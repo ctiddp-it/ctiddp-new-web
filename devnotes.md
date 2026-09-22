@@ -1,3 +1,19 @@
+## 2026-09-22 — Preview errors, architecture assessment and environment audit (local, not deployed)
+
+- Removed published-only related/adjacent API calls from draft preview; receives a backend-prepared public snapshot instead. Shared article view is server-compatible for live articles and reused by the client preview.
+- Added a server preview route with noindex/nofollow, exact configured operations-origin checks, retrying readiness, timeout/error states and post-render SEO metadata updates. A scoped, idempotent head observer prevents late streamed route metadata from reverting snapshot SEO values and disconnects on unmount.
+- Added NEXT_PUBLIC_OPERATIONS_URL=http://localhost:5173 to local env, plus sanitized examples. Secret values were not printed or rotated. Actual env contains a Meta test code; remove it in production.
+- Rewrote website/public-asset READMEs and created shared architecture and environment review documents. Added NEXT_DIST_DIR for isolated production verification beside a running dev server.
+- Final verification: production build and lint passed. Dedicated preview regression passed for unsaved snapshot, SEO/noindex, anchors, forged-message rejection, reload, missing opener and no published-slug requests. Website form/layout and shared-rendering regressions passed. Form/conversion submissions were intercepted. Production browser checks used an isolated .next-preview-check build on port 3006 to avoid sharing dev output; nothing deployed.
+
+## 2026-09-22 — Shared public blog renderer and live editor preview (local, not deployed)
+
+- Extracted the complete published article UI into `BlogPostView`, including breadcrumb, article header and metadata, featured image, rich text, table of contents, tags, newsletter, related articles, shipment CTA, adjacent navigation, and structured data.
+- Updated `/blog/[slug]` to render through the shared component, keeping published article behavior and dynamic metadata intact.
+- Added `/blog/preview` as a new-tab receiver for nonce-scoped editor snapshots. It renders under the normal website layout, navigation, typography, and footer and applies the current unsaved SEO metadata in the browser.
+- Excluded the editor-only preview URL from site-wide conversion tracking so editorial reviews do not pollute public ViewContent analytics.
+- Local verification: ESLint passed; production build passed with all static blog routes; performance layout and form regression suites passed.
+
 ## 2026-09-17 — Production Lighthouse follow-up (local, not deployed)
 
 - Reviewed both supplied production reports: mobile Performance 60 / Accessibility 97; desktop Performance 98 / Accessibility 92. Both supplied reports had Best Practices and SEO 100.
@@ -576,3 +592,9 @@ This implementation establishes a secure, production-ready Meta analytics infras
   - Reduce redundant API calls and backend/database load
 
 - Improve overall blog performance, scalability, and SEO while maintaining a smooth user experience
+## 2026-09-22 — Blog rich-text duplicate-key fix (local, not deployed)
+
+- Fixed adjacent formatted text receiving identical React keys from mark indexes. Each text node now has its own keyed Fragment; nested marks retain the same HTML, formatting and link behavior. Applied identically to the website/public-preview renderer and panel renderer.
+- Extended operations panel `test:rendering` with adjacent bold/link siblings and recursive key validation. Confirmed the regression failed before the fix with keys `0,0,2,0,0`.
+- Validation passed: preview/public HTML and sanitization parity; development React browser insertion, removal and reordering with no console errors or duplicated text; both frontend lint checks (panel retains six existing unrelated hook warnings).
+- Updated only renderer identity and regression coverage; no content records, API contracts or environment values changed. Full production builds were not rerun for this targeted fix.

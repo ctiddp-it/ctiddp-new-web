@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Optional isolated output for production verification beside a running dev server.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   images: {
     formats: ['image/webp'],
     qualities: [60, 75, 80],

@@ -1,4 +1,4 @@
-import { createElement as h } from 'react';
+import { createElement as h, Fragment } from 'react';
 import { sanitizeContent } from '../../lib/richText';
 export default function RichText({
   content,
@@ -6,7 +6,8 @@ export default function RichText({
 }) {
   function render(node, key) {
     const a = node.attrs || {};
-    if (node.type === 'text') return (node.marks || []).reduce((text, mark, i) => {
+    // Identity belongs to the text node, not its nested formatting marks.
+    if (node.type === 'text') return h(Fragment, { key }, (node.marks || []).reduce((text, mark) => {
       const tags = {
         bold: 'strong',
         strong: 'strong',
@@ -18,11 +19,8 @@ export default function RichText({
         subscript: 'sub',
         superscript: 'sup'
       };
-      if (tags[mark.type]) return h(tags[mark.type], {
-        key: i
-      }, text);
+      if (tags[mark.type]) return h(tags[mark.type], null, text);
       if (mark.type === 'link') return h('a', {
-        key: i,
         href: mark.attrs.href,
         rel: 'noopener noreferrer',
         ...(mark.attrs.href.startsWith('http') ? {
@@ -30,19 +28,17 @@ export default function RichText({
         } : {})
       }, text);
       if (mark.type === 'textStyle') return h('span', {
-        key: i,
         style: {
           color: mark.attrs?.color
         }
       }, text);
       if (mark.type === 'highlight') return h('mark', {
-        key: i,
         style: {
           backgroundColor: mark.attrs?.color || '#fff1a8'
         }
       }, text);
       return text;
-    }, node.text || '');
+    }, node.text || ''));
     const children = node.content?.map((n, i) => render(n, i));
     if (node.type === 'doc') return h('div', {
       key

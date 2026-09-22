@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "test:performance-forms": "node tests/performance-forms.cjs",
+    "test:blog-preview": "node tests/blog-preview.cjs",
     "test:performance-layout": "node tests/performance-layout.cjs"
   },
   "dependencies": {

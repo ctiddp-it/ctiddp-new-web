@@ -20,6 +20,7 @@ export default function ViewContentTracker({ contentName, contentCategory, conte
   const pathname = usePathname()
 
   useEffect(() => {
+    if (pathname === '/blog/preview') return
     // Derive content info from the page if not explicitly provided
     const pageName = contentName || document.title || pathname
     const pageCategory = contentCategory || deriveCategory(pathname)
