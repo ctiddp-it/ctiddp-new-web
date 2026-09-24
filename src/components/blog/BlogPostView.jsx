@@ -9,6 +9,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 export function resolveBlogImageUrl(url) {
   if (!url) return '/images/blog/bl.png';
   if (/^https?:\/\//i.test(url)) return url;
+  if (url.startsWith('/media/')) return url;
   return `${API_BASE.replace(/\/api\/?$/, '')}${url.startsWith('/') ? '' : '/'}${url}`;
 }
 

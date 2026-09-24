@@ -46,7 +46,7 @@ export default function RichText({
     if (node.type === 'image') return h('figure', {
       key
     }, h('img', {
-      src: a.src.startsWith('/') ? mediaBase + a.src : a.src,
+      src: a.src.startsWith('/uploads/') ? mediaBase + a.src : a.src,
       alt: a.alt,
       loading: 'lazy',
       style: {

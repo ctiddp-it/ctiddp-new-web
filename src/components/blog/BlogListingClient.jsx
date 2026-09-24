@@ -23,6 +23,7 @@ const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 function resolveImageUrl(url) {
   if (!url) return '/images/blog/bl.png';
   if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  if (url.startsWith('/media/')) return url;
   // Relative path from backend
   const base = API_BASE.replace(/\/api\/?$/, '');
   return `${base}${url.startsWith('/') ? '' : '/'}${url}`;

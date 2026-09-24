@@ -598,3 +598,15 @@ This implementation establishes a secure, production-ready Meta analytics infras
 - Extended operations panel `test:rendering` with adjacent bold/link siblings and recursive key validation. Confirmed the regression failed before the fix with keys `0,0,2,0,0`.
 - Validation passed: preview/public HTML and sanitization parity; development React browser insertion, removal and reordering with no console errors or duplicated text; both frontend lint checks (panel retains six existing unrelated hook warnings).
 - Updated only renderer identity and regression coverage; no content records, API contracts or environment values changed. Full production builds were not rerun for this targeted fix.
+## 2026-09-24 — Persistent media architecture analysis (local, documentation only)
+
+- Traced upload, catalog, selection, rendering, replacement and reference-aware deletion across all three applications. Added `../docs/MEDIA_STORAGE_ARCHITECTURE_REVIEW.md` with source paths, current limits, persistence risks, conditional provider comparison, main-domain delivery strategy and copy/verify/cutover/rollback plan.
+- Identified production hosting/proxy/DNS, canonical media hostname and inventory details still needed from the owner. No provider selected or implemented; no runtime configuration, media files or database records changed.
+- Validation: source inspection and official provider documentation review only; runtime tests/builds were not rerun for this documentation-only task.
+## 2026-09-24 — Persistent VPS media application support (local, not deployed)
+
+- Added configurable MEDIA_STORAGE_ROOT, MEDIA_PUBLIC_BASE_URL and trusted MEDIA_LEGACY_BASE_URL. Production now requires all three and fails startup if the configured root is missing or inaccessible. Development defaults continue using backend/uploads and /uploads URLs.
+- New files keep their existing folder/publicId scheme and use the website /media URL when configured. Backend reads, uploads, cleanup and deletion use the same root. Usage checks recognize trusted old and new URL forms without treating external hosts as owned media.
+- Ops Panel and website display helpers support new absolute media URLs and relative /media paths. Added focused configured-root and URL regression tests, updated backend environment/README guidance and wrote docs/PERSISTENT_MEDIA_DEPLOYMENT.md for new-directory setup and manual CMS re-upload.
+- Local checks: backend suite 28/28 passed; both frontend lint commands passed (panel retains six unrelated hook warnings); panel rich-text rendering regression and production build passed; isolated Next.js production build passed after Google Fonts could be fetched. Website build-time API calls failed because localhost:5000 was unavailable, so live data behavior still requires integration verification.
+- No production infrastructure, uploaded files, or database records changed. Owner chose not to copy the existing five images; saved old URLs will need manual image reassignment after re-upload.
